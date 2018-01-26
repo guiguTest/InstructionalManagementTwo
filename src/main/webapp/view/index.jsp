@@ -146,16 +146,16 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="view/marketactive/template/template_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/view/marketactive/template/template_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 模板管理
 							</a></li>
-                             <li><a href="view/marketactive/messafeinfo/messafeinfo_list.html" target="mainframe"> <i
+                             <li><a href="${pageContext.request.contextPath}/view/marketactive/messafeinfo/messafeinfo_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 短信管理
 							</a></li>       
-                            <li><a href="view/marketactive/emailinfo/emailinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/view/marketactive/emailinfo/emailinfo_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 邮件管理
 							</a></li>   
-                            <li><a href="view/marketactive/marketactive/marketactive_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/view/marketactive/marketactive/marketactive_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i>营销活动
 							</a></li>                                           
 						</ul>

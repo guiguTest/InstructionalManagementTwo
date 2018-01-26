@@ -28,21 +28,20 @@
 	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	 	<property name="prefix" value="/view/"></property>
 	 	<property name="suffix" value=".jsp"></property>
-	 </bean>
-	 
-	 <!-- 自定义参数绑定 -->
+	 </bean>  
+<!-- 	 自定义参数绑定 -->
 	 <bean id="conversionServiceFactoryBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 	 	<property name="converters">
 	 		<list>
 	 			<bean class="com.guigu.instructional.converter.CustomDateConverter"></bean>
 	 		</list>
 	 	</property>
-	 </bean> 
-	 
+	 </bean>
 	 
 	 <!-- 校验器 -->
 	 <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 	 	<property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
+	 	<!-- 指定校验使用的资源文件  在文件中可以配置错误信息  如果不指定 默认是使用classpath下的ValidationMessage.properties -->
 	 	<property name="validationMessageSource" ref="messageSource"></property>
 	 </bean>
 	 
@@ -65,24 +64,38 @@
 	 
 	 
 	 <!-- 全局异常处理器 -->
-	<!--  <bean class="com.guigu.ssm.exception.CustomExceptionResolver"></bean> -->
+	 <!-- <bean class="com.guigu.ssm.exception.CustomExceptionResolver"></bean> -->
 	 
 	 
 	 <!-- 配置文件上传的解析器 -->
 	 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	 <!--  设置上传的大小 -->
 	 	<property name="maxUploadSize" value="5242880"></property>
 	 </bean>
 	 
 	 
 	 <!--  拦截器-->
-	 <!-- <mvc:interceptors>
+	<!--  <mvc:interceptors>
+	 	可以有多个拦截器
+	 	<mvc:interceptor>
+	 		/**表示是对url本身 以及url的子路径都拦截
+	 		<mvc:mapping path="/**"/>
+	 		<bean class="com.guigu.ssm.interceptor.HandlerInterceptor1"></bean>
+	 	</mvc:interceptor>
+	 	
+	 	<mvc:interceptor>
+	 		<mvc:mapping path="/**"/>
+	 		<bean class="com.guigu.ssm.interceptor.HandlerInterceptor2"></bean>
+	 	</mvc:interceptor>
+	 	
 	 	<mvc:interceptor>
 	 		<mvc:mapping path="/**"/>
 	 		<bean class="com.guigu.ssm.interceptor.LoginInterceptor"></bean>
 	 	</mvc:interceptor> 
+	 	
 	 </mvc:interceptors> -->
 	 
 	 
 	 
 	 
- </beans>
+</beans>
