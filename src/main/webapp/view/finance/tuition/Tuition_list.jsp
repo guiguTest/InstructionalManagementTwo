@@ -40,7 +40,7 @@
 	
      <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action">
     	<display:column property="staffId" title="缴费单编号"></display:column>
-    	<display:column property="staffName" title="学员姓名" href="${pageContext.request.contextPath }/system/staffinfo/show.action" paramId="staffId" paramProperty="staffId"></display:column>
+    	<display:column property="staffName" title="学员姓名" href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" paramId="staffId" paramProperty="staffId"></display:column>
     	<display:column property="staffAge" title="所在班级"></display:column>
     	<display:column property="staffAge" title="应缴金额"></display:column>
     	<display:column property="staffId" title="实缴金额"></display:column>
