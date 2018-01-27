@@ -25,5 +25,18 @@ public class MarketActiveController {
 		return "marketactive/marketactive/marketactive_list" ;
 	}
 
+	@RequestMapping("add.action")
+	public String addActive(MarketActive marketActive,Model model) {
 		
+		System.out.println(marketActive);
+		//System.out.println(marketActiveVO.getStaffInfo().getStaffName());
+		boolean flag=marketActiveService.addActive(marketActive);
+		if(flag) {
+			model.addAttribute("info", "添加成功");
+		}else {
+			model.addAttribute("info", "添加失败");
+		}
+		
+		return this.activeList(null, model);
+	}
 }

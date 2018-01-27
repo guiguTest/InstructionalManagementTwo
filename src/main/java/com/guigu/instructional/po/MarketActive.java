@@ -3,7 +3,16 @@ package com.guigu.instructional.po;
 import java.util.Date;
 
 public class MarketActive {
-    private Integer activeId;
+    @Override
+	public String toString() {
+		return "MarketActive [activeId=" + activeId + ", staffId=" + staffId + ", activeName=" + activeName
+				+ ", activeState=" + activeState + ", activeStart=" + activeStart + ", activeEnd=" + activeEnd
+				+ ", activeType=" + activeType + ", activeCosteEstimate=" + activeCosteEstimate + ", activeCoste="
+				+ activeCoste + ", activeRefectEstimate=" + activeRefectEstimate + ", activeStudent=" + activeStudent
+				+ ", activeContent=" + activeContent + "]";
+	}
+
+	private Integer activeId;
 
     private Integer staffId;
 

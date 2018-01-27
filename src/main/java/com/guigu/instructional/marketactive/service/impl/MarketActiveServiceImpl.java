@@ -17,14 +17,15 @@ import com.guigu.instructional.po.MarketActiveVO;
 public class MarketActiveServiceImpl implements MarketActiveService{
 	@Resource(name="marketActiveMapper")
 	private MarketActiveMapper marketActiveMapper;
+	
 	@Resource(name="activeVOMapper")
 	private ActiveVOMapper activeVOMapper;
 	
 	@Override
-	public boolean addActive(MarketActive marketActive) {
+	public boolean addActive(MarketActiveVO marketActiveVO) {
 		try {	
-			int i=marketActiveMapper.insertSelective(marketActive);
-			   if (i > 0) {
+			boolean flag=activeVOMapper.addActive(marketActiveVO);
+			   if (flag) {
 	                return true;
 			   }
 	    }catch (Exception e) {
@@ -73,4 +74,16 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 		return  activeVOMapper.findVOlist(marketActive);
 	}
 
+	@Override
+	public boolean addActive(MarketActive marketActive) {
+		try {
+            int i = marketActiveMapper.insertSelective(marketActive);
+            if (i > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+
+        }
+        return false;
+	}
 }

@@ -29,7 +29,7 @@
          </select>	
       </div>
     <input type="button"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="marketactive_add.html">添加活动</a>
+    <a  class="btn btn-success"  href="${pageContext.request.contextPath}/view/marketactive/marketactive/marketactive_add.jsp">添加活动</a>
     </form>
 </div>
 <div align="center">

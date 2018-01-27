@@ -17,4 +17,6 @@ public interface MarketActiveService {
 	public MarketActive findActiveById(Integer id);
 	
 	public List<MarketActiveVO> getActiveStaff(MarketActive marketActive);
+	
+	public boolean addActive(MarketActiveVO marketActiveVO);
 }

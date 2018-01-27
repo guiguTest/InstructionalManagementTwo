@@ -33,5 +33,11 @@ public class MarketActiveVO {
 	public void setActiveList(List<MarketActive> activeList) {
 		this.activeList = activeList;
 	}
+
+	@Override
+	public String toString() {
+		return "MarketActiveVO [marketActive=" + marketActive + ", staffInfo=" + staffInfo + ", activeList="
+				+ activeList + "]";
+	}
 	
 }

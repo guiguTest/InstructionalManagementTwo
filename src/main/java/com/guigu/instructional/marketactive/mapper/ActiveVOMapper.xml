@@ -3,8 +3,31 @@
 <mapper namespace="com.guigu.instructional.marketactive.mapper.ActiveVOMapper">
 	<select id="findVOlist" parameterType="com.guigu.instructional.po.MarketActive" 
 	resultType="com.guigu.instructional.po.MarketActiveVO">
-		select marketActive.*,staff.name
-		from marketActive m,staffInfo s
-		where m.staffId=s.staffId;
+		select m.*,s.staff_name
+		from market_active m,staff_info s
+		<where>
+			<choose>
+				<when test="marketActive==null">
+					<!-- <if test="m.staff_id!=null or m.staff_id!='' ">
+						s.staff_id=m.staff_id
+					</if>   
+					<if test="m.staff_id==null or m.staff_id=='' ">
+						s.staff_id=null
+					</if>     -->
+					s.staff_id=null	   
+				</when>
+				<otherwise>
+					m.staff_id=#{marketActive.staff_id} and s.staff_id=#{marketActive.staff_id}
+				</otherwise>
+			</choose>
+		</where>
 	</select>
+	
+	<select id="addActive" parameterType="com.guigu.instructional.po.MarketActiveVO">
+		insert into market_active values(#{marketActiveVO.active_id},${select staff_id from staff_info where staff_name=#{marketActiveVO.staff_name}},
+				#{active_name},#{active_state},#{active_start},#{active_end},#{active_type},#{active_coste_estimate},
+				#{active_coste},#{active_refect_estimate},#{active_student})
+	</select>
+	
+	
 </mapper>
