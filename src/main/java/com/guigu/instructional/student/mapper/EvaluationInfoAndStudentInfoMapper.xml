@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guigu.instructional.student.mapper.EvaluationInfoAndStudentInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.guigu.instructional.po.EvaluationInfoStudentInfo" >
+    <id column="evaluation_id" property="evaluationId" jdbcType="INTEGER" />
+    <result column="student_name" property="studentName" jdbcType="VARCHAR" />
+    <result column="evaluation_tile" property="evaluationTile" jdbcType="VARCHAR" />
+    <result column="evaluation_time" property="evaluationTime" jdbcType="TIMESTAMP" />
+    <result column="evaluation_content" property="evaluationContent" jdbcType="VARCHAR" />
+    <result column="evaluation_course" property="evaluationCourse" jdbcType="VARCHAR" />
+    <result column="evaluation_teacher" property="evaluationTeacher" jdbcType="VARCHAR" />
+  </resultMap>
+
+  </mapper>
