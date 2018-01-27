@@ -176,7 +176,7 @@
                             <li><a href="recruitstudent/trackrecord/trackrecord_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 跟踪记录
 							</a></li>
-                            <li><a href="recruitstudent/auditioninfo/auditioninfo_list.jsp" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/recruitstudent/auditioninfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 试听记录
 							</a></li>                                         
 						</ul>
