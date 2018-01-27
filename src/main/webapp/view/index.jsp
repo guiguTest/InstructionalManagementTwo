@@ -189,7 +189,7 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="view/classinfo/disciplineinfo/disciplineinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/classinfo/disciplineinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学科信息
 							</a></li>
                             <li><a href="view/classinfo/classroominfo/classroominfo_list.html" target="mainframe"> <i
