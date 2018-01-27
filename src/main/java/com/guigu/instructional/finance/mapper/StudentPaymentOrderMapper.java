@@ -8,7 +8,7 @@ import com.guigu.instructional.po.StudentPaymentOrder;
 
 public interface StudentPaymentOrderMapper {
 	
-//	public List<StudentPaymentOrder> findStudentPaymentOrder();
+	public List<StudentPaymentOrder> findStudentPaymentOrder(StudentPaymentOrder studentPaymentOrder);
 	
 	
 }
