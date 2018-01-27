@@ -167,16 +167,16 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="view/recruitstudent/studentpool/studentpool_list.html" target="mainframe"> <i
+                            <li><a href="recruitstudent/studentpool/studentpool_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员池
 							</a></li>
-                            <li><a href="view/recruitstudent/recruitstudent/recruitstudent_list.html" target="mainframe"> <i
+                            <li><a href="recruitstudent/recruitstudent/recruitstudent_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 招生线索
 							</a></li> 
-                            <li><a href="view/recruitstudent/trackrecord/trackrecord_list.html" target="mainframe"> <i
+                            <li><a href="recruitstudent/trackrecord/trackrecord_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 跟踪记录
 							</a></li>
-                            <li><a href="view/recruitstudent/auditioninfo/auditioninfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/recruitstudent/auditioninfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 试听记录
 							</a></li>                                         
 						</ul>
@@ -249,10 +249,10 @@
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="view/student/student/student_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员缴费
 							</a></li>
-                            <li><a href="view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/finance/salary/Salary_list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 员工薪水
 							</a></li>
                                                                                                                                          
