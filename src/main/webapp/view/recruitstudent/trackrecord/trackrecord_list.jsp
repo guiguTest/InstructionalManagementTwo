@@ -1,15 +1,10 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="../../../js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="../../../js/bootstrap.min.js"></script>
+<%@ include file="/view/public/common.jspf" %>
 </head>
 
 <body>
@@ -30,12 +25,14 @@
          <label class="" for="activename">学员意向：</label>
 		 <select name="" class="form-control">
          	<option>请选择</option>
-         	<option>无</option>
-            <option>意向强</option>
+            <option>无意向</option>
+            <option>意向低</option>
+            <option>意向中</option>
+			<option>意向高</option>
          </select>	
       </div>
     <input type="button"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="trackrecord_add.html">添加纪录</a>
+    <a  class="btn btn-success"  href="trackrecord_add.jsp">添加纪录</a>
     
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
@@ -61,7 +58,7 @@
             <td>2014-10-10</td>
              <td>2014-10-11</td>
             <th>
-            <a href="trackrecord_update.html">修改</a> 
+            <a href="trackrecord_update.jsp">修改</a> 
             <a href="">删除</a>
             </th>
         </tr>
@@ -75,7 +72,7 @@
             <td>2014-10-10</td>
              <td>2014-10-11</td>
             <th>
-            <a href="trackrecord_update.html">修改</a> 
+            <a href="trackrecord_update.jsp">修改</a> 
             <a href="">删除</a>
             </th>
         </tr>

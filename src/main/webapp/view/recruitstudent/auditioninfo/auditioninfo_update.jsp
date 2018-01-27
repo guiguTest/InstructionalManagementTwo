@@ -1,23 +1,18 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="../../../js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="../../../js/bootstrap.min.js"></script>
+<%@ include file="/view/public/common.jspf" %>
 </head>
 
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
     	<li><a href="#">招生管理</a></li>
-        <li>跟踪记录</li>
-        <li>修改记录</li>
+         <li>试听记录</li>
+         <li>修改记录</li>
     </ul>
 </div>
 
@@ -36,9 +31,9 @@
         </div>
         <div class="col-sm-5">
             <div class="form-group">
-            	<label class="col-sm-3 control-label">主题</label>
+            	<label class="col-sm-3 control-label">试听课程</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入主题"/>
+                	<input type="text" name="" class="form-control input-sm" placeholder="请输入试听课程"/>
                 </div>
             </div>
         </div>
@@ -47,7 +42,7 @@
     	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">联系学员</label>
+            	<label class="col-sm-3 control-label">试听学员</label>
                 <div class="col-sm-9">
                 	<select name="" class="form-control input-sm">
                     	<option value="1">张三</option>
@@ -58,9 +53,9 @@
         </div>
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">联系时间</label>
+            	<label class="col-sm-3 control-label">试听时间</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入联系时间"/>
+               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入试听时间"/>
                 </div>
             </div>
         
@@ -70,20 +65,20 @@
        	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">下次联系时间</label>
+            	<label class="col-sm-3 control-label">试听地点</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入下次联系时间"/>
+               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入试听地点"/>
                 </div>
             </div>
         
         </div>
 
     </div>
-    <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">具体内容</h5>
+    <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">描述</h5>
     	<div class="row">
     	<div class="col-sm-10">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">具体内容</label>
+            	<label class="col-sm-3 control-label">描述</label>
                 <div class="col-sm-9">
                 	<textarea class="form-control"></textarea>
                 </div>
@@ -97,7 +92,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="trackrecord_list.html">返回上一级</a>
+              <a class="btn btn-warning" href="auditioninfo_list.html">返回上一级</a>
         </div>
     </div>
 </form>
