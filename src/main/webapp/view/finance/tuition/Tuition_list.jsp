@@ -33,24 +33,34 @@
     	<input type="text"  class="form-control input-sm"/>
     </div>
     <input type="button"   class="btn btn-danger"   value="查询"/>
-    <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='staffinfo_add.html'"/>
+    <a href="${pageContext.request.contextPath}/view/finance/tuition/Tuition_add.jsp" class="btn btn-success">添加</a>
     </form>
+</div>
+
+<div align="center">
+	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			
+		</button>
+		<p align="center" style="color: red;">缴费管理-${info}</p>
+	</div>	
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
 	
-     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action">
-    	<display:column property="staffId" title="缴费单编号"></display:column>
-    	<display:column property="staffName" title="学员姓名" href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" paramId="staffId" paramProperty="staffId"></display:column>
-    	<display:column property="staffAge" title="所在班级"></display:column>
-    	<display:column property="staffAge" title="应缴金额"></display:column>
-    	<display:column property="staffId" title="实缴金额"></display:column>
-    	<display:column property="staffMobilePhone" title="欠款"></display:column>
-    	<display:column property="staffEmail" title="负责人员"></display:column>
-    	<display:column property="staffEntryTime" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" paramId="staffId" paramProperty="staffId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" paramId="staffId" paramProperty="staffId" value="删除" title="删除"></display:column>
-    	
-    </display:table>
+     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath}/finance/tuition/list.action">
+    	<display:column property="studentPaymentId" title="缴费单编号"></display:column>
+    	<display:column property="studnetName" title="学员姓名" href="${pageContext.request.contextPath}/finance/tuition/show.action" paramId="studentPaymentId" paramProperty="studentPaymentId"></display:column>
+    	<display:column property="className" title="所在班级"></display:column>
+    	<display:column property="studentPayment.paymentShouldAmount" title="应缴金额"></display:column>
+    	<display:column property="studentPayment.paymentRealAmount" title="实缴金额"></display:column>
+    	<display:column property="studentPayment.paymentDebtAmount" title="欠款"></display:column>
+    	<display:column property="staffName" title="负责人员"></display:column>
+    	<display:column property="studentPayment.paymentTime" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/finance/tuition/list.action" paramId="studentPaymentId" paramProperty="studentPaymentId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/finance/tuition/list.action" paramId="studentPaymentId" paramProperty="studentPaymentId" value="删除" title="删除"></display:column>
+    	<!-- paramId="staffId" paramProperty="staffId" -->
+    </display:table> 
           
     
 </div>

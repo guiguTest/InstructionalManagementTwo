@@ -2,11 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.guigu.instructional.finance.mapper.StudentPaymentOrderMapper" >
 	<resultMap type="com.guigu.instructional.po.StudentPaymentOrder" id="StudentPaymentOrder">
-	    <result column="studnet_name" property="studnetName"/>
+	    <id column="payment_id" property="studentPaymentId"/>
+	    <result column="student_name" property="studnetName"/>
 	    <result column="staff_name" property="staffName"/>
+		<result column="class_name" property="className"/>
 	    
-		<association property="studentPaymentOrder" javaType="com.guigu.instructional.po.StudentPaymentOrder">
-			<id column="payment_id" property="paymentId"/>
+		<association property="studentPayment" javaType="com.guigu.instructional.po.StudentPayment">
 			<result column="student_id" property="studentId"/>
 			<result column="staff_id" property="staffId"/>
 			<result column="payment_situtation" property="paymentSitutation"/>
@@ -23,8 +24,8 @@
 	
 	
 	<select id="findStudentPaymentOrder" resultMap="StudentPaymentOrder" parameterType="com.guigu.instructional.po.StudentPaymentOrder">
-		select student_payment.*,student_info.student_name,staff_info.staff_name
-		from student_info,student_payment,staff_info
+		select student_payment.*,student_info.student_name,staff_info.staff_name,class_info.class_name
+		from student_info,student_payment,staff_info,class_info
 		<where>
 			<if test="studnetName!=null and studnetName!=''">
 				and student_info.student_name like '%${studentName}%'
@@ -36,9 +37,10 @@
 				<if test="studentPayment.paymentId!=0">
 					and student_payment.payment_id=#{studentPayment.paymentId}
 				</if>
-			</if>
+			</if> 
 			and student_payment.student_id=student_info.student_id
 			and student_payment.staff_id=staff_info.staff_id
+			and student_info.class_id=class_info.class_id
 		</where>
 	</select>
 </mapper>

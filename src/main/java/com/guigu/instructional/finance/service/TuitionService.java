@@ -12,5 +12,6 @@ public interface TuitionService {
 	public boolean updateTuition(StudentPayment studentPayment);
 
 	public List<StudentPaymentOrder> findTuitionForList(StudentPaymentOrder studentPaymentOrder);
-
+	
+	public StudentPayment findTuitionForId(Integer studentPaymentId);
 }

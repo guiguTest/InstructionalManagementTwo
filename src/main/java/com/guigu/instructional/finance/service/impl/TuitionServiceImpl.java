@@ -13,27 +13,38 @@ import com.guigu.instructional.finance.service.TuitionService;
 import com.guigu.instructional.po.StudentPayment;
 import com.guigu.instructional.po.StudentPaymentExample;
 import com.guigu.instructional.po.StudentPaymentOrder;
-@Service("tuitionServiceImpl")
-public abstract class TuitionServiceImpl implements TuitionService{
+@Service(value = "tuitionServiceImpl")
+public class TuitionServiceImpl implements TuitionService{
 
-	@Resource(name="StudentPaymentMapper")
+	@Resource(name="studentPaymentMapper")
 	private StudentPaymentMapper StudentPaymentMapper;
-	@Resource(name="StudentPaymentOrderMapper")
+	@Resource(name="studentPaymentOrderMapper")
 	private StudentPaymentOrderMapper StudentPaymentOrderMapper;
 	@Override
 	public boolean addTuition(StudentPayment studentPayment) {
-		// TODO Auto-generated method stub
+		int i=StudentPaymentMapper.insertSelective(studentPayment);
+		if(i>0) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean updateTuition(StudentPayment studentPayment) {
-		// TODO Auto-generated method stub
+		int i=StudentPaymentMapper.updateByPrimaryKeySelective(studentPayment);
+		if(i>0) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public List<StudentPaymentOrder> findTuitionForList(StudentPaymentOrder studentPaymentOrder) {
 		return StudentPaymentOrderMapper.findStudentPaymentOrder(studentPaymentOrder);
+	}
+
+	@Override
+	public StudentPayment findTuitionForId(Integer studentPaymentId) {
+		return StudentPaymentMapper.selectByPrimaryKey(studentPaymentId);
 	}
 }

@@ -249,10 +249,10 @@
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/finance/tuition/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员缴费
 							</a></li>
-                            <li><a href="${pageContext.request.contextPath}/finance/salary/Salary_list.action" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/finance/salary/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 员工薪水
 							</a></li>
                                                                                                                                          

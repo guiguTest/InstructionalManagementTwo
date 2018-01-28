@@ -10,6 +10,16 @@ public class StudentPaymentOrder {
 	private String staffName;
 	
 	private String className;
+	
+	private int studentPaymentId;
+	
+	public int getStudentPaymentId() {
+		return studentPaymentId;
+	}
+
+	public void setStudentPaymentId(int studentPaymentId) {
+		this.studentPaymentId = studentPaymentId;
+	}
 
 	public String getClassName() {
 		return className;

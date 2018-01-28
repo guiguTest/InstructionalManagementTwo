@@ -10,5 +10,4 @@ public interface StudentPaymentOrderMapper {
 	
 	public List<StudentPaymentOrder> findStudentPaymentOrder(StudentPaymentOrder studentPaymentOrder);
 	
-	
 }
