@@ -41,4 +41,13 @@ public interface AuditionInfoService {
      * @since JDK 1.8
      */
 	public AuditionInfo getAuditionInfo(Integer auditionId);
+	
+    /**
+     * getAuditionInfo:根据条件编号删除试听记录信息
+     * @author 王珠玲
+     * @param auditionId
+     * @return  <br/> 
+     * @since JDK 1.8
+     */
+	public int deleteAuditionInfo(Integer auditionId);
 }

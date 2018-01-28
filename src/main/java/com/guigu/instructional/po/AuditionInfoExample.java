@@ -365,62 +365,52 @@ public class AuditionInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseEqualTo(String value) {
+        public Criteria andAuditionCourseEqualTo(Integer value) {
             addCriterion("audition_course =", value, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseNotEqualTo(String value) {
+        public Criteria andAuditionCourseNotEqualTo(Integer value) {
             addCriterion("audition_course <>", value, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseGreaterThan(String value) {
+        public Criteria andAuditionCourseGreaterThan(Integer value) {
             addCriterion("audition_course >", value, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseGreaterThanOrEqualTo(String value) {
+        public Criteria andAuditionCourseGreaterThanOrEqualTo(Integer value) {
             addCriterion("audition_course >=", value, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseLessThan(String value) {
+        public Criteria andAuditionCourseLessThan(Integer value) {
             addCriterion("audition_course <", value, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseLessThanOrEqualTo(String value) {
+        public Criteria andAuditionCourseLessThanOrEqualTo(Integer value) {
             addCriterion("audition_course <=", value, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseLike(String value) {
-            addCriterion("audition_course like", value, "auditionCourse");
-            return (Criteria) this;
-        }
-
-        public Criteria andAuditionCourseNotLike(String value) {
-            addCriterion("audition_course not like", value, "auditionCourse");
-            return (Criteria) this;
-        }
-
-        public Criteria andAuditionCourseIn(List<String> values) {
+        public Criteria andAuditionCourseIn(List<Integer> values) {
             addCriterion("audition_course in", values, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseNotIn(List<String> values) {
+        public Criteria andAuditionCourseNotIn(List<Integer> values) {
             addCriterion("audition_course not in", values, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseBetween(String value1, String value2) {
+        public Criteria andAuditionCourseBetween(Integer value1, Integer value2) {
             addCriterion("audition_course between", value1, value2, "auditionCourse");
             return (Criteria) this;
         }
 
-        public Criteria andAuditionCourseNotBetween(String value1, String value2) {
+        public Criteria andAuditionCourseNotBetween(Integer value1, Integer value2) {
             addCriterion("audition_course not between", value1, value2, "auditionCourse");
             return (Criteria) this;
         }

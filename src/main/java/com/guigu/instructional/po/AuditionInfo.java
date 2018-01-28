@@ -11,7 +11,7 @@ public class AuditionInfo {
 
     private String auditionAddr;
 
-    private String auditionCourse;
+    private Integer auditionCourse;
 
     private String auditionDesc;
 
@@ -47,12 +47,12 @@ public class AuditionInfo {
         this.auditionAddr = auditionAddr == null ? null : auditionAddr.trim();
     }
 
-    public String getAuditionCourse() {
+    public Integer getAuditionCourse() {
         return auditionCourse;
     }
 
-    public void setAuditionCourse(String auditionCourse) {
-        this.auditionCourse = auditionCourse == null ? null : auditionCourse.trim();
+    public void setAuditionCourse(Integer auditionCourse) {
+        this.auditionCourse = auditionCourse;
     }
 
     public String getAuditionDesc() {

@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <%@ include file="/view/public/common.jspf"%>
@@ -17,20 +16,28 @@
 			<li>试听记录</li>
 		</ul>
 	</div>
+	
+	<script type="text/javascript">
+		function query(condition){
+			$("#keyword").attr("name",condition.value);
+		}
+	</script>
 
 	<div class="row alert alert-info" style="margin: 0px; padding: 3px;">
-		<form class="form-inline" action="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action">
-			<div class="form-group">
-				<label class="" for="activename">学员姓名：</label> 
-				<input type="email" class="form-control" id="activename" placeholder="请输入学员姓名">
-			</div>
-			<div class="form-group">
-				<label class="auditionCourse" for="activename">试听课程：</label> 
-				<input type="email" class="form-control" id="activename" placeholder="请输入试听课程">
-			</div>
+		<form class="form-inline" action="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action" method="post">
+			<div class="col-sm-1" >条件:</div>
+		    <div class="col-sm-3">
+		    	<select class="form-control  input-sm" onchange="query(this)" name="condition">
+		        	<option value="">请选择</option>
+		        	<option value="studentId">学员姓名(编号)</option>
+		            <option value="auditionCourse">试听课程(编号)</option>
+		        </select>
+		    </div>
+	        <div class="col-sm-3">
+    			<input type="text"  id="keyword"  class="form-control input-sm"/>
+    		</div>
 			<input type="button" class="btn btn-danger" value="查询" /> 
-			<input type="button" class="btn btn-success" value="添加纪录" 
-			onclick="javascript:window.location='${pageContext.request.contextPath }/view/recruitstudent/auditionInfo/auditioninfo_add.jsp'">
+			<a class="btn btn-success" href="${pageContext.request.contextPath}/recruitstudent/auditionInfo/loadAdd.action">添加纪录</a>
 		</form>
 	</div>
 	
@@ -48,18 +55,18 @@
 		<display:table class="table  table-condensed table-striped"
 			name="list" pagesize="10"
 			requestURI="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action">
-			<display:column property="" title="试听记录编号"></display:column>
-			<display:column property="" title="学生编号（姓名）"></display:column>
-			<display:column property="" title="试听课程"></display:column>
-			<display:column property="" title="试听日期"></display:column>
-			<display:column property="" title="试听地点"></display:column>
-			<display:column property="" title="试听描述"></display:column>
+			<display:column property="auditionId" title="试听记录编号"></display:column>
+			<display:column property="studentId" title="学生编号（姓名）"></display:column>
+			<display:column property="auditionCourse" title="试听课程"></display:column>
+			<display:column property="auditionTime" title="试听日期" format="{0,date,yyy年MM月dd日}"></display:column>
+			<display:column property="auditionAddr" title="试听地点"></display:column>
+			<display:column property="auditionDesc" title="试听描述"></display:column>
 			<display:column
-				href="${pageContext.request.contextPath }/recruitstudent/auditionInfo/load.action"
+				href="${pageContext.request.contextPath }/recruitstudent/auditionInfo/loadUpdate.action"
 				paramId="auditionId" paramProperty="auditionId" value="修改"
 				title="修改"></display:column>
 			<display:column
-				href="${pageContext.request.contextPath }/recruitstudent/auditionInfo//delete.action"
+				href="${pageContext.request.contextPath }/recruitstudent/auditionInfo/delete.action"
 				paramId="auditionId" paramProperty="auditionId" value="删除"
 				title="删除"></display:column>
 		</display:table>

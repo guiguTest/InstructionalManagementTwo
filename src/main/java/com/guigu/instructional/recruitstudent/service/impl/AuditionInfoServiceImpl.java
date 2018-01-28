@@ -19,11 +19,6 @@ public class AuditionInfoServiceImpl implements AuditionInfoService{
 	
 	@Resource(name="auditionInfoMapper")
 	private AuditionInfoMapper auditionInfoMapper;
-	
-	private StudentInfoMapper studentInfoMapper;
-	
-	private DisciplineInfoMapper disciplineInfoMapper;
-	
 
 	@Override
 	public boolean addAudition(AuditionInfo auditionInfo) {
@@ -49,16 +44,33 @@ public class AuditionInfoServiceImpl implements AuditionInfoService{
 		
 		AuditionInfoExample auditionInfoExample=new AuditionInfoExample();
 		Criteria criteria=auditionInfoExample.createCriteria();
-		//根据学生name 查询 多表查询
-
-		//根据课程名称查询 多表查询
-		
+		System.out.println("进来了————————————————————————————————————"+auditionInfo);
+//		if(auditionInfo!=null) {
+//			System.out.println(auditionInfo.getAuditionId());
+//			System.out.println(auditionInfo.getAuditionCourse());
+//			//根据学生编号name 查询 多表查询
+//			if(auditionInfo.getAuditionId()!=null) {
+//				
+//				criteria.andStudentIdEqualTo(auditionInfo.getStudentId());
+//			}
+//			//根据课程名称查询 多表查询
+//			if(auditionInfo.getAuditionCourse()!=null) {
+//				criteria.andAuditionCourseEqualTo(auditionInfo.getAuditionCourse());
+//			}
+//		}
+		System.out.println("出去————————————————————————————————————");
 		return auditionInfoMapper.selectByExample(auditionInfoExample);
 	}
 
 	@Override
 	public AuditionInfo getAuditionInfo(Integer auditionId) {
 		return auditionInfoMapper.selectByPrimaryKey(auditionId);
+	}
+
+	@Override
+	public int deleteAuditionInfo(Integer auditionId) {
+		
+		return auditionInfoMapper.deleteByPrimaryKey(auditionId);
 	}
 
 }

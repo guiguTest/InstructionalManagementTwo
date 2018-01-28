@@ -167,7 +167,7 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="recruitstudent/studentpool/studentpool_list.jsp" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/recruitstudent/studentpool/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员池
 							</a></li>
                             <li><a href="recruitstudent/recruitstudent/recruitstudent_list.jsp" target="mainframe"> <i
@@ -176,7 +176,7 @@
                             <li><a href="recruitstudent/trackrecord/trackrecord_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 跟踪记录
 							</a></li>
-                            <li><a href="${pageContext.request.contextPath}/recruitstudent/auditioninfo/list.action" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 试听记录
 							</a></li>                                         
 						</ul>
