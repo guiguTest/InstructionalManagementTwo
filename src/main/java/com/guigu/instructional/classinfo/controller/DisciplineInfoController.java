@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.DisciplineInfoService;
 import com.guigu.instructional.po.DisciplineInfo;
+import com.guigu.instructional.po.SyllabusInfo;
 
 
 @Controller
@@ -38,5 +39,38 @@ public class DisciplineInfoController {
 		
 		return "classinfo/disciplineinfo/disciplineinfo_list";
 	}
+	
+	@RequestMapping("load.action")
+	public String loadUpate(Integer disciplineId, Model model) {
+		DisciplineInfo disciplineInfo = disciplineInfoService.getDisciplineInfo(disciplineId);
+		model.addAttribute("disciplineInfo", disciplineInfo);
+		return "classinfo/disciplineinfo/disciplineinfo_update";
+	}
+
+	@RequestMapping("update.action")
+	public String updateDisciplineInfo(DisciplineInfo disciplineInfo, Model model) {
+		boolean result = disciplineInfoService.updateRole(disciplineInfo);
+		if (result) {
+			model.addAttribute("info", "ÐÞ¸Ä³É¹¦");
+		} else {
+			model.addAttribute("info", "ÐÞ¸ÄÊ§°Ü");
+		}
+		return this.list(null, model);
+	}
+
+	@RequestMapping("delete.action")
+    public String deleteDisciplineInfo(DisciplineInfo disciplineInfo,Model model) {
+        
+      
+		disciplineInfo.setDisciplineIsused("0");
+        
+        boolean result =disciplineInfoService.updateRole(disciplineInfo);
+        if(result) {
+            model.addAttribute("info", "É¾³ý³É¹¦");
+        }else {
+            model.addAttribute("info", "É¾³ýÊ§°Ü");
+        }
+        return this.list(null, model);
+    }
 	
 }

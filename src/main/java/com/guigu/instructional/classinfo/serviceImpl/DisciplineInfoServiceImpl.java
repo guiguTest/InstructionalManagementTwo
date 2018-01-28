@@ -24,7 +24,7 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 		if(disciplineInfo!=null) {
 			disciplineInfo.setDisciplineIsused("1");
 		}
-		int i = disciplineInfoMapper.insert(disciplineInfo);
+		int i = disciplineInfoMapper.insertSelective(disciplineInfo);
 		if(i>0) {
 			return true;
 		}
@@ -33,7 +33,7 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 
 	@Override
 	public boolean updateRole(DisciplineInfo disciplineInfo) {
-		int i = disciplineInfoMapper.updateByPrimaryKey(disciplineInfo);
+		int i = disciplineInfoMapper.updateByPrimaryKeySelective(disciplineInfo);
 		if(i>0) {
 			return true;
 		}
@@ -45,20 +45,11 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 		DisciplineInfoExample disciplineInfoExample = new DisciplineInfoExample();
 		Criteria criteria = disciplineInfoExample.createCriteria();
 		if(disciplineInfo!=null) {
-			if(disciplineInfo.getDisciplineId()!=null) {
-				criteria.andDisciplineIdEqualTo(disciplineInfo.getDisciplineId());
-			}
 			if(disciplineInfo.getDisciplineName()!=null) {
 				criteria.andDisciplineNameEqualTo(disciplineInfo.getDisciplineName());
 			}
-			if(disciplineInfo.getDisciplineTuition()!=null) {
-				criteria.andDisciplineTuitionEqualTo(disciplineInfo.getDisciplineTuition());
-			}
-			if(disciplineInfo.getDisciplineBring()!=null) {
-				criteria.andDisciplineBringEqualTo(disciplineInfo.getDisciplineBring());
-			}
 		}
-		
+		criteria.andDisciplineIsusedEqualTo("1");
 		return disciplineInfoMapper.selectByExample(disciplineInfoExample);
 	}
 

@@ -24,10 +24,10 @@
 
      <div class="form-group">
          <label class="" for="activename">学科名称：</label>
-        <input type="email" value="" class="form-control" id="activename" placeholder="请输入">
+        <input type="text" class="form-control" name="disciplineName">
       </div>
 
-    <input type="button"   class="btn btn-danger"     value="查询"/>
+    <input type="submit"   class="btn btn-danger"     value="查询"/>
     <input type="button"   class="btn btn-success"     value="添加学科信息" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/disciplineinfo/disciplineinfo_add.jsp'"/>
     
     
@@ -37,7 +37,7 @@
     </table>
 	<display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/classinfo/disciplineinfo/list.action">
     	<display:column property="disciplineId" title="学科编号"></display:column>
-    	<display:column property="disciplineName" title="学科名称" href="${pageContext.request.contextPath }/classinfo/disciplineinfoshow.action" paramId="disciplineId" paramProperty="disciplineId"></display:column>
+    	<display:column property="disciplineName" title="学科名称" href="${pageContext.request.contextPath }/classinfo/disciplineinfo/show.action" paramId="disciplineId" paramProperty="disciplineId"></display:column>
     	<display:column property="disciplineTuition" title="学科费用"></display:column>
     	<display:column property="disciplineBring" title="学科课时"></display:column>
     	<display:column href="${pageContext.request.contextPath }/classinfo/disciplineinfo/load.action" paramId="disciplineId" paramProperty="disciplineId" value="修改" title="修改"></display:column>

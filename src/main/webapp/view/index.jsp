@@ -195,7 +195,7 @@
                             <li><a href="view/classinfo/classroominfo/classroominfo_list.html" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 教室信息
 							</a></li>
-                             <li><a href="view/classinfo/syllabusinfo/syllabusinfo_list.html" target="mainframe"> <i
+                             <li><a href="${pageContext.request.contextPath}/classinfo/syllabusinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 课程表
 							</a></li>   
                             <li><a href="view/classinfo/teacher/teacher_list.html" target="mainframe"> <i
