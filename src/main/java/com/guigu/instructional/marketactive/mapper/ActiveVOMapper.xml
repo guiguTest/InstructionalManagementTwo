@@ -24,9 +24,9 @@
 	</select>
 	
 	<select id="addActive" parameterType="com.guigu.instructional.po.MarketActiveVO">
-		insert into market_active values(#{marketActiveVO.active_id},${select staff_id from staff_info where staff_name=#{marketActiveVO.staff_name}},
-				#{active_name},#{active_state},#{active_start},#{active_end},#{active_type},#{active_coste_estimate},
-				#{active_coste},#{active_refect_estimate},#{active_student})
+		 insert into market_active values(#{activeId},${select staff_id from staff_info where staff_name=#{staffname}},
+				#{activeName},#{activeState},#{activeStart},#{activeEnd},#{activeType},#{activeCosteEstimate},
+				#{activeCoste},#{activeRefectEstimate},#{activeStudent},#{activeContent})
 	</select>
 	
 	

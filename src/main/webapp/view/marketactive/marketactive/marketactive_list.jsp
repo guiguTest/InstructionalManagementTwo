@@ -38,7 +38,7 @@
 			<span aria-hidden="true">&times;</span>
 			
 		</button>
-		<p align="center" style="color: red;">员工信息-${info}</p>
+		<p align="center" style="color: red;">活动信息-${info}</p>
 	</div>	
 </div>
 
@@ -46,15 +46,14 @@
 <div class="row" style="padding:15px; padding-top:0px; " align="right">
 	<table class="table  table-condensed table-striped">
     </table>
-    <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/system/staffinfo/list.action">
+    <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/marketactve/marketactive/list.action">
     	<display:column property="activeId" title="编号"></display:column>
-    	<display:column property="activeName" title="活动名称" href="${pageContext.request.contextPath }/system/staffinfo/show.action" paramId="staffId" paramProperty="staffId"></display:column>
+    	<display:column property="activeName" title="活动名称" href="${pageContext.request.contextPath }/marketactive/marketactice/show.action" paramId="activeId" paramProperty="activeId"></display:column>
     	<display:column property="activeState" title="活动状态"></display:column>
-    	<display:column property="staffId" title="负责人"></display:column>
+    	<display:column property="staffId" title="负责人"> </display:column>
     	<display:column property="activeType" title="活动类型"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/system//load.action" paramId="staffId" paramProperty="staffId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/system//delete.action" paramId="staffId" paramProperty="staffId" value="删除" title="删除"></display:column>
-    	
+    	<display:column href="${pageContext.request.contextPath }/marketactive/marketactice/load.action" paramId="activeId" paramProperty="activeId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/marketactive/marketactice/delete.action" paramId="activeId" paramProperty="activeId" value="删除" title="删除"></display:column>
     </display:table>
     
 </div>

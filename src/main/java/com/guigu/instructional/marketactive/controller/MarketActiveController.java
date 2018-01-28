@@ -15,6 +15,7 @@ import com.guigu.instructional.po.MarketActiveVO;
 @Controller
 @RequestMapping("/marketactive/marketactive/")
 public class MarketActiveController {
+	
 	@Resource(name="marketActiveServiceImpl")
 	 private MarketActiveService marketActiveService;
 	
@@ -26,11 +27,10 @@ public class MarketActiveController {
 	}
 
 	@RequestMapping("add.action")
-	public String addActive(MarketActive marketActive,Model model) {
-		
-		System.out.println(marketActive);
+	public String addActive(MarketActiveVO marketActiveVO,Model model) {
+		System.out.println(marketActiveVO);
 		//System.out.println(marketActiveVO.getStaffInfo().getStaffName());
-		boolean flag=marketActiveService.addActive(marketActive);
+		boolean flag=marketActiveService.addActive(marketActiveVO);
 		if(flag) {
 			model.addAttribute("info", "Ìí¼Ó³É¹¦");
 		}else {

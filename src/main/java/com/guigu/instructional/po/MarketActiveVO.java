@@ -1,43 +1,26 @@
 package com.guigu.instructional.po;
 
-import java.util.List;
 
-public class MarketActiveVO {
+public class MarketActiveVO extends MarketActive {
 	
-	private MarketActive marketActive;
-	
-	private StaffInfo staffInfo;
-	
-	private List<MarketActive> activeList;
+	private String StaffnName;
 
-	public MarketActive getMarketActive() {
-		return marketActive;
+	public String getStaffnName() {
+		return StaffnName;
 	}
 
-	public void setMarketActive(MarketActive marketActive) {
-		this.marketActive = marketActive;
-	}
-
-	public StaffInfo getStaffInfo() {
-		return staffInfo;
-	}
-
-	public void setStaffInfo(StaffInfo staffInfo) {
-		this.staffInfo = staffInfo;
-	}
-
-	public List<MarketActive> getActiveList() {
-		return activeList;
-	}
-
-	public void setActiveList(List<MarketActive> activeList) {
-		this.activeList = activeList;
+	public void setStaffnName(String staffnName) {
+		StaffnName = staffnName;
 	}
 
 	@Override
 	public String toString() {
-		return "MarketActiveVO [marketActive=" + marketActive + ", staffInfo=" + staffInfo + ", activeList="
-				+ activeList + "]";
+		return "MarketActiveVO [StaffnName=" + StaffnName + "]";
 	}
 	
+	//private StaffInfo staffInfo;
+	
+	
+
+
 }
