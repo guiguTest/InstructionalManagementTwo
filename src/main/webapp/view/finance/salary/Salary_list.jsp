@@ -18,37 +18,43 @@
         <li>员工薪水</li>
     </ul>
 </div>
+<script type="text/javascript">
+		function query(condition){
+			$("#keyword").attr("name",condition.value);
+		}
+</script>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-horizontal">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/finance/salary/list.action" method="post">
 	<div class="col-sm-1" >条件:</div>
     <div class="col-sm-3">
-    	<select class="form-control  input-sm">
-        	<option>姓名</option>
-            <option>性别</option>
+    	<select class="form-control  input-sm"  onchange="query(this)" name="condition">
+    		<option value="">请选择</option>
+        	<option value="staffName">领取者姓名</option>
+            <option value="financeName">财务人员</option>
+            <option value="staffSalaryOrderId">工资单编号</option>
         </select>
     </div>
     <div class="col-sm-3">
-    	<input type="text"  class="form-control input-sm"/>
+    	<input type="text"  class="form-control input-sm" id="keyword"/>
     </div>
-    <input type="button"   class="btn btn-danger"   value="查询"/>
-    <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='staffinfo_add.html'"/>
+    <input type="submit"   class="btn btn-danger"   value="查询"/>
+    <input type="button"   class="btn btn-success"   value="添加" onClick="${pageContext.request.contextPath}/finance/salary/add.action"/>
     </form>
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
-	<table class="table  table-condensed table-striped">
-    	<tr>
-        	<th>员工编号</th>
-            <th>员工姓名</th>
-            <th>员工性别</th>
-            <th>员工年龄</th>
-            <th>电话号码</th>
-            <th>QQ</th>
-            <th>入职时间</th>
-             <th>操作</th>
-        </tr>
-        
-        	
-    </table>
+    <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath}/finance/salary/list.action">
+    	<display:column property="staffSalaryOrderId" title="工资单编号"></display:column>
+    	<display:column property="staffName" title="领取人员" href="${pageContext.request.contextPath}/finance/salary/show.action" paramId="staffSalaryOrderId" paramProperty="staffSalaryOrderId"></display:column>
+    	<display:column property="financeName" title="财务人员"></display:column>
+    	<display:column property="staffSalary.staffSalaryTotal" title="本月薪水"></display:column>
+    	<display:column property="staffSalary.staffSalaryDeduct" title="扣除"></display:column>
+    	<display:column property="staffSalary.staffSalaryReal" title="实际发放工资"></display:column>
+    	<display:column property="staffSalary.staffSalaryIsused" title="是否已发"></display:column>
+    	<display:column property="staffSalary.staffSalaryTime" title="领取时间" format="{0,date,yyyy年MM月dd日}"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/finance/salary/load.action" paramId="staffSalaryOrderId" paramProperty="staffSalaryOrderId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/finance/salary/delete.action" paramId="staffSalaryOrderId" paramProperty="staffSalaryOrderId" value="删除" title="删除"></display:column>
+    	<!-- paramId="staffId" paramProperty="staffId" -->
+    </display:table> 
 </div>
 
 </body>

@@ -7,4 +7,6 @@ import com.guigu.instructional.po.StaffSalaryOrder;
 public interface StaffSalaryOrderMapper {
 	
 	public List<StaffSalaryOrder> findStudentPaymentOrder(StaffSalaryOrder staffSalaryOrder);
+	
+	public StaffSalaryOrder findStudentPaymentOrderById(Integer staffSalaryOrderId);
 }
