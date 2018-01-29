@@ -38,7 +38,7 @@
     	<input type="text"  class="form-control input-sm" id="keyword"/>
     </div>
     <input type="submit"   class="btn btn-danger"   value="查询"/>
-    <input type="button"   class="btn btn-success"   value="添加" onClick="${pageContext.request.contextPath}/finance/salary/add.action"/>
+    <a href="${pageContext.request.contextPath}/view/finance/salary/Salary_add.jsp" class="btn btn-success">添加</a>
     </form>
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
@@ -53,7 +53,6 @@
     	<display:column property="staffSalary.staffSalaryTime" title="领取时间" format="{0,date,yyyy年MM月dd日}"></display:column>
     	<display:column href="${pageContext.request.contextPath}/finance/salary/load.action" paramId="staffSalaryOrderId" paramProperty="staffSalaryOrderId" value="修改" title="修改"></display:column>
     	<display:column href="${pageContext.request.contextPath}/finance/salary/delete.action" paramId="staffSalaryOrderId" paramProperty="staffSalaryOrderId" value="删除" title="删除"></display:column>
-    	<!-- paramId="staffId" paramProperty="staffId" -->
     </display:table> 
 </div>
 

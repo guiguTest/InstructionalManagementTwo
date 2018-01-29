@@ -14,5 +14,9 @@ public interface SalaryService {
 	
 	public List<StaffSalaryOrder> findSalaryForList(StaffSalaryOrder staffSalaryOrder);
 	
-	public StaffSalaryOrder findSalaryById(Integer staffSalaryId);
+	public StaffSalaryOrder findSalaryOrderById(Integer staffSalaryId);
+	
+	public StaffSalary findSalaryById(Integer staffSalaryId);
+	
+	
 }

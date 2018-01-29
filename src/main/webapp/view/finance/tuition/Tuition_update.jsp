@@ -118,7 +118,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">缴费时间</label>
                 <div class="col-sm-9">
-                	<input type="text" name="paymentTime" value="${studentPayment.paymentTime}" onclick="WdatePicker()" readonly="readonly"  class="form-control input-sm" placeholder="请输入缴费时间"/>
+                	<input type="text" name="paymentTime" value="${studentPayment.paymentTime}" onclick="WdatePicker()" readonly="readonly" pattern="yyyy-MM-dd" class="form-control input-sm" placeholder="请输入缴费时间"/>
                 </div>
             </div>
         

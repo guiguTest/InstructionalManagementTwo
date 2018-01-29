@@ -24,6 +24,7 @@ public class TuitionController {
 	
 	@RequestMapping("list.action")
 	public String findTuitionForList(StudentPaymentOrder studentPaymentOrder,Model model) {
+		System.out.println(studentPaymentOrder);
 		List<StudentPaymentOrder> list =tuitionService.findTuitionForList(studentPaymentOrder);
         model.addAttribute("list", list);
         
@@ -43,7 +44,7 @@ public class TuitionController {
 	       }else {
 	           model.addAttribute("info","Ìí¼ÓÊ§°Ü");
 	       }
-	       return this.findTuitionForList(null, model);
+	       return this.findTuitionForList(new StudentPaymentOrder(), model);
 	}
 	@RequestMapping("update.action")
 	public String updateTuition(StudentPayment studentPayment,Model model) {
@@ -53,11 +54,13 @@ public class TuitionController {
 	       }else {
 	           model.addAttribute("info","ÐÞ¸ÄÊ§°Ü");
 	       }
-	     return this.findTuitionForList(null, model);
+	     return this.findTuitionForList(new StudentPaymentOrder(), model);
 	}
 	@RequestMapping("load.action")
-	public String loadTuition(Integer studentPaymentId,Model model) {
-		StudentPayment studentPayment=tuitionService.findTuitionForId(studentPaymentId);
+	public String loadTuition(Integer staffSalaryOrderId,Model model) {
+		System.out.println(staffSalaryOrderId);
+		StudentPayment studentPayment=tuitionService.findTuitionForId(staffSalaryOrderId);
+		System.out.println(studentPayment);
 		model.addAttribute("studentPayment",studentPayment);
 		return "finance/tuition/Tuition_update";
 	}
@@ -71,6 +74,6 @@ public class TuitionController {
 	       }else {
 	           model.addAttribute("info","É¾³ýÊ§°Ü");
 	       }
-	     return this.findTuitionForList(null, model);
+	     return this.findTuitionForList(new StudentPaymentOrder(), model);
 	}
 }

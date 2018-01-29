@@ -98,7 +98,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffBirthday" value="<fmt:formatDate value="${staffInfo.staffBirthday}" type="both" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
+                	<input type="text" name="staffBirthday" value="<fmt:formatDate value="${staffInfo.staffBirthday}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
                 </div>
             </div>
         

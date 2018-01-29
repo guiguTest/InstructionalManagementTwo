@@ -21,11 +21,19 @@ public class SalaryServiceImpl implements SalaryService{
 	private StaffSalaryOrderMapper staffSalaryOrderMapper;
 	@Override
 	public boolean addSalary(StaffSalary staffSalary) {
+		int i=staffSalaryMapper.insertSelective(staffSalary);
+		if(i>0) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean updateSalary(StaffSalary staffSalary) {
+		int i=staffSalaryMapper.updateByPrimaryKeySelective(staffSalary);
+		if(i>0) {
+			return true;
+		}
 		return false;
 	}
 
@@ -35,8 +43,13 @@ public class SalaryServiceImpl implements SalaryService{
 	}
 
 	@Override
-	public StaffSalaryOrder findSalaryById(Integer staffSalaryId){
+	public StaffSalaryOrder findSalaryOrderById(Integer staffSalaryId) {
 		return staffSalaryOrderMapper.findStudentPaymentOrderById(staffSalaryId);
+	}
+
+	@Override
+	public StaffSalary findSalaryById(Integer staffSalaryId) {
+		return staffSalaryMapper.selectByPrimaryKey(staffSalaryId);
 	}
 
 }
