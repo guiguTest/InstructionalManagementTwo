@@ -1,15 +1,12 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://displaytag.sf.net" prefix="display" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="../../../js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="../../../js/bootstrap.min.js"></script>
+<%@ include file="/view/public/common.jspf" %>
 </head>
 
 <body>
@@ -21,7 +18,7 @@
     </ul>
 </div>
 
-<form action="" method="post" class="form-horizontal">
+<form action="${pageContext.request.contextPath}/classinfo/classroominfo/update.action" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -29,7 +26,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" value="${classroomInfo.classroomId}" name="classroomId" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -38,7 +35,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">教室名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入教室名称"/>
+                	<input type="text" value="${classroomInfo.classroomName}" name="classroomName" class="form-control input-sm" placeholder="请输入教室名称"/>
                 </div>
             </div>
         </div>
@@ -49,7 +46,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">容纳人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="" class="form-control input-sm" placeholder="请输入容纳人数"/>
+               			<input type="text" value="${classroomInfo.classroomMax}" name="classroomMax" class="form-control input-sm" placeholder="请输入容纳人数"/>
                 </div>
             </div>
         </div>
@@ -57,7 +54,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">设备信息</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入设备信息"/>
+               		 <input type="text" value="${classroomInfo.classroomInfo}" name="classroomInfo" class="form-control input-sm" placeholder="请输入设备信息"/>
                 </div>
             </div>
         
@@ -71,7 +68,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control"></textarea>
+                	<textarea class="form-control" name="classroomRemark">${classroomInfo.classroomRemark}</textarea>
                 </div>
             </div>
         

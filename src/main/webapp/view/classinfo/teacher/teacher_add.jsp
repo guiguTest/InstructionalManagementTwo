@@ -1,32 +1,27 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="../../../js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="../../../js/bootstrap.min.js"></script>
-</head>
 
+<%@ include file="/view/public/common.jspf" %>
+
+</head>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
     	<li><a href="#">系统管理</a></li>
-        <li>教师管理</li>
-        <li>查看教师信息</li>
+        <li>员工管理</li>
+        <li>添加员工</li>
     </ul>
 </div>
 
-<form action="" class="form-horizontal">
+<form action="${pageContext.request.contextPath}/classinfo/teacher/add.action" class="form-horizontal">
    	<div class="row">
-    	<div class="col-sm-5 col-sm-offset-4">
-        	<a href="staffinfo_update.html" class="btn btn-success" >修改</a>
-            <input  type="reset" class="btn  btn-danger" value="删除"/>
-            <input  type="reset" class="btn btn-warning" value="返回上一级"/>
+    	<div class="col-sm-3 col-sm-offset-4">
+        	<input  type="submit" class="btn btn-success" value="保存"/>
+            <input  type="reset" class="btn  btn-danger" value="取消"/>
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -35,7 +30,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">10001</p>
+                	<input type="text" name="staffId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -44,7 +39,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">姓名</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">张三</p>
+                	<input type="text" name="staffName" class="form-control input-sm" placeholder="请输入姓名"/>
                 </div>
             </div>
         </div>
@@ -56,7 +51,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">年龄</label>
                 <div class="col-sm-5">
-                	<p class="form-control-static">18</p>
+                	<input type="text" name="staffAge" class="form-control input-sm" placeholder="请输入年龄"/>
                 </div>
             </div>
         
@@ -65,7 +60,11 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">性别</label>
                 <div class="col-sm-4">
-                	<p class="form-control-static">男</p>
+                		<select class="form-control input-sm"  name="staffSex">
+                        	<option>保密</option>
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
                 </div>
             </div>
         </div>
@@ -77,7 +76,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">籍贯</label>
                 <div class="col-sm-6">
-                	<p class="form-control-static">上海</p>
+                	<input type="text" name="staffNativePlace" class="form-control input-sm" placeholder="请输入籍贯"/>
                 </div>
             </div>
         
@@ -86,7 +85,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">身份证</label>
                 <div class="col-sm-9">
-               <p class="form-control-static">5001231010xxxxxxxxx</p>
+                <input type="text" name="staffIdcard" class="form-control input-sm" placeholder="请输入身份证号码"/>
                 </div>
             </div>
         </div>
@@ -98,7 +97,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
                 <div class="col-sm-9">
-                	 <p class="form-control-static">2001-01-01</p>
+                	<input type="text" name="staffBirthday" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
                 </div>
             </div>
         
@@ -107,7 +106,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">办公电话</label>
                 <div class="col-sm-9">
-                 <p class="form-control-static">0123-123131231-11</p>
+                <input type="text" name="staffOfficePhone" class="form-control input-sm" placeholder="请输入办公电话"/>
                 </div>
             </div>
         </div>
@@ -119,7 +118,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">电子邮件</label>
                 <div class="col-sm-9">
-                	  <p class="form-control-static">0xxxxxxx@qq.com</p>
+                	<input type="text" name="staffEmail" class="form-control input-sm" placeholder="请输入电子邮件"/>
                 </div>
             </div>
         
@@ -128,7 +127,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">移动电话</label>
                 <div class="col-sm-9">
-               	 <p class="form-control-static">14233993345</p>
+                <input type="text" name="staffMobilePhone" class="form-control input-sm" placeholder="请输入移动电话"/>
                 </div>
             </div>
         </div>
@@ -140,7 +139,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">家庭住址</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">上海浦东新区xxx街xxx号</p>
+                	<input type="text" name="staffAddr" class="form-control input-sm" placeholder="请输入家庭住址 "/>
                 </div>
             </div>
         
@@ -149,7 +148,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">QQ</label>
                 <div class="col-sm-9">
-              		 <p class="form-control-static">xxxxxxx</p>
+                <input type="text" name="staffQq" class="form-control input-sm" placeholder="请输入QQ"/>
                 </div>
             </div>
         </div>
@@ -161,7 +160,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">入职时间</label>
                 <div class="col-sm-9">
-                	 <p class="form-control-static">2014-10-29 24:41:12</p>
+                	<input type="text" name="staffEntryTime"  onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入入职时间 "/>
                 </div>
             </div>
         
@@ -170,7 +169,12 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">教育水平</label>
                 <div class="col-sm-6">
-                		<p class="form-control-static">博士</p>
+                		<select class="form-control input-sm" name="staffEducationLevel" >
+                        	<option>保密</option>
+                            <option>博士</option>
+                            <option>硕士</option>
+                            <option>本科</option>
+                        </select>
                 </div>
             </div>
         </div>
@@ -182,7 +186,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                		<p class="form-control-static">今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面今天晚上吃泡面</p>
+                	<textarea class="form-control" name="staffRemark"></textarea>
                 </div>
             </div>
         
@@ -195,7 +199,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">账号</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">admin</p>
+                	<input type="text" name="staffNumber" class="form-control input-sm" placeholder="请输入账号 "/>
                 </div>
             </div>
         
@@ -204,16 +208,15 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">密码</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">admin123456</p>
+                <input type="password" name="staffPassword" class="form-control input-sm" placeholder="请输入密码"/>
                 </div>
             </div>
         </div>
     </div>
    	<div class="row">
-    	<div class="col-sm-5 col-sm-offset-4">
-          	<a href="staffinfo_update.html" class="btn btn-success" >修改</a>
-            <input  type="reset" class="btn  btn-danger" value="删除"/>
-            <input  type="reset" class="btn btn-warning" value="返回上一级"/>
+    	<div class="col-sm-3 col-sm-offset-4">
+        	<input  type="submit" class="btn btn-success" value="保存"/>
+            <input  type="reset" class="btn  btn-danger" value="取消"/>
         </div>
     </div>
 </form>
