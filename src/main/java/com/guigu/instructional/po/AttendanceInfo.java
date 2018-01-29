@@ -3,7 +3,14 @@ package com.guigu.instructional.po;
 import java.util.Date;
 
 public class AttendanceInfo {
-    private Integer attendanceId;
+    @Override
+	public String toString() {
+		return "AttendanceInfo [attendanceId=" + attendanceId + ", studentId=" + studentId + ", attendanceDesc="
+				+ attendanceDesc + ", attendanceState=" + attendanceState + ", attendanceTime=" + attendanceTime
+				+ ", attendanceRemark=" + attendanceRemark + "]";
+	}
+
+	private Integer attendanceId;
 
     private Integer studentId;
 
