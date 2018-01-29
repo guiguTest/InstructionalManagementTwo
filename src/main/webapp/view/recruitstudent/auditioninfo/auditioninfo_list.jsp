@@ -29,8 +29,8 @@
 		    <div class="col-sm-3">
 		    	<select class="form-control  input-sm" onchange="query(this)" name="condition">
 		        	<option value="">请选择</option>
-		        	<option value="studentId">学员姓名(编号)</option>
-		            <option value="auditionCourse">试听课程(编号)</option>
+		        	<option value="studentInfo.studentName">学员姓名(编号)</option>
+		            <option value="disciplineInfo.disciplineName">试听课程(编号)</option>
 		        </select>
 		    </div>
 	        <div class="col-sm-3">
@@ -55,19 +55,19 @@
 		<display:table class="table  table-condensed table-striped"
 			name="list" pagesize="10"
 			requestURI="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action">
-			<display:column property="auditionId" title="试听记录编号"></display:column>
-			<display:column property="studentId" title="学生编号（姓名）"></display:column>
-			<display:column property="auditionCourse" title="试听课程"></display:column>
-			<display:column property="auditionTime" title="试听日期" format="{0,date,yyy年MM月dd日}"></display:column>
-			<display:column property="auditionAddr" title="试听地点"></display:column>
-			<display:column property="auditionDesc" title="试听描述"></display:column>
+			<display:column property="auditionInfo.auditionId" title="试听记录编号"></display:column>
+			<display:column property="studentName" title="学生编号（姓名）"></display:column>
+			<display:column property="disciplineName" title="试听课程"></display:column>
+			<display:column property="auditionInfo.auditionTime" title="试听日期" format="{0,date,yyy年MM月dd日}"></display:column>
+			<display:column property="auditionInfo.auditionAddr" title="试听地点"></display:column>
+			<display:column property="auditionInfo.auditionDesc" title="试听描述"></display:column>
 			<display:column
 				href="${pageContext.request.contextPath }/recruitstudent/auditionInfo/loadUpdate.action"
-				paramId="auditionId" paramProperty="auditionId" value="修改"
+				paramId="auditionId" paramProperty="auditionInfo.auditionId" value="修改"
 				title="修改"></display:column>
 			<display:column
 				href="${pageContext.request.contextPath }/recruitstudent/auditionInfo/delete.action"
-				paramId="auditionId" paramProperty="auditionId" value="删除"
+				paramId="auditionId" paramProperty="auditionInfo.auditionId" value="删除"
 				title="删除"></display:column>
 		</display:table>
 	</div>

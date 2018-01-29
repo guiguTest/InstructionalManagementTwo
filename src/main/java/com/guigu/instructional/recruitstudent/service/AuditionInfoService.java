@@ -2,7 +2,12 @@ package com.guigu.instructional.recruitstudent.service;
 
 import java.util.List;
 
+import com.guigu.instructional.po.AuditionStudentDisciplineInfo;
+import com.guigu.instructional.po.DisciplineInfo;
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.AuditionInfo;
+import com.guigu.instructional.po.AuditionInfoCustom;
+import com.guigu.instructional.po.AuditionInfoVO;
 
 public interface AuditionInfoService {
 	
@@ -31,7 +36,7 @@ public interface AuditionInfoService {
      * @return  <br/> 
      * @since JDK 1.8
      */
-	public List<AuditionInfo> getAuditionInfoList(AuditionInfo auditionInfo);
+	public List<AuditionInfoCustom> getAuditionInfoList(AuditionInfoVO auditionInfoVO) throws Exception;
 	
     /**
      * getAuditionInfo:根据条件编号查询试听记录信息
@@ -50,4 +55,14 @@ public interface AuditionInfoService {
      * @since JDK 1.8
      */
 	public int deleteAuditionInfo(Integer auditionId);
+	
+    /**
+     * getAuditionStudentDisciplineInfoList:根据条件查询试听记录信息
+     * @author 王珠玲
+     * @param auditionInfo
+     * @return  <br/> 
+     * @since JDK 1.8
+     */
+	public List<AuditionStudentDisciplineInfo> getAuditionStudentDisciplineInfoList(StudentInfo studentInfo,DisciplineInfo disciplineInfo);
+	
 }

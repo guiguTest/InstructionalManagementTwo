@@ -62,4 +62,13 @@ public class AuditionInfo {
     public void setAuditionDesc(String auditionDesc) {
         this.auditionDesc = auditionDesc == null ? null : auditionDesc.trim();
     }
+
+	@Override
+	public String toString() {
+		return "AuditionInfo [auditionId=" + auditionId + ", studentId=" + studentId + ", auditionTime=" + auditionTime
+				+ ", auditionAddr=" + auditionAddr + ", auditionCourse=" + auditionCourse + ", auditionDesc="
+				+ auditionDesc + "]";
+	}
+    
+    
 }

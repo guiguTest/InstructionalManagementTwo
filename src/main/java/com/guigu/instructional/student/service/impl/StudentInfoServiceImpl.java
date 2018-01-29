@@ -1,11 +1,13 @@
 package com.guigu.instructional.student.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.guigu.instructional.po.AuditionStudentDisciplineInfo;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentInfoExample;
 import com.guigu.instructional.po.StudentInfoExample.Criteria;
@@ -29,11 +31,11 @@ public class StudentInfoServiceImpl implements StudentInfoService{
 		
 		StudentInfoExample studentInfoExample=new StudentInfoExample();
 		Criteria criteria=studentInfoExample.createCriteria();
-		
+
 		criteria.andStudentMarkEqualTo(0);
 		return studentInfoMapper.selectByExample(studentInfoExample);
 	}
-
+	
 	@Override
 	public boolean addStudentInfo(StudentInfo studentInfo) {
 		

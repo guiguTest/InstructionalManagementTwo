@@ -1,10 +1,14 @@
 package com.guigu.instructional.po;
 
 public class AuditionInfoCustom extends AuditionInfo{
-	
+
 	private String disciplineName;
+
+	private String studentName;
 	
-	 private String studentName;
+	public AuditionInfoCustom() {
+		super();
+	}
 
 	public String getDisciplineName() {
 		return disciplineName;
@@ -21,6 +25,5 @@ public class AuditionInfoCustom extends AuditionInfo{
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-	 
-	 
+
 }

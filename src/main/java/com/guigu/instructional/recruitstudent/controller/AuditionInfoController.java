@@ -10,97 +10,97 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.DisciplineInfoService;
 import com.guigu.instructional.po.AuditionInfo;
+import com.guigu.instructional.po.AuditionInfoCustom;
+import com.guigu.instructional.po.AuditionInfoVO;
+import com.guigu.instructional.po.AuditionStudentDisciplineInfo;
 import com.guigu.instructional.po.DisciplineInfo;
-import com.guigu.instructional.po.RoleInfo;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.recruitstudent.service.AuditionInfoService;
 import com.guigu.instructional.student.service.StudentInfoService;
-import com.lowagie.tools.split_pdf;
 
 @Controller
 @RequestMapping("/recruitstudent/auditionInfo")
 public class AuditionInfoController {
-	
-	@Resource(name="auditionInfoServiceImpl")
+
+	@Resource(name = "auditionInfoServiceImpl")
 	private AuditionInfoService auditionInfoService;
-	
-	@Resource(name="studentInfoServiceImpl")
+
+	@Resource(name = "studentInfoServiceImpl")
 	private StudentInfoService studentInfoService;
-	
-	@Resource(name="disciplineInfoServiceImpl")
+
+	@Resource(name = "disciplineInfoServiceImpl")
 	private DisciplineInfoService disciplineInfoService;
-	
+
 	@RequestMapping("loadAdd.action")
 	public String loadAdd(Model model) {
-		
-		List<StudentInfo> slist=studentInfoService.getStudentNameList(null);
+
+		List<StudentInfo> slist = studentInfoService.getStudentNameList(null);
 		model.addAttribute("studentlist", slist);
-		
-		List<DisciplineInfo> dlist=disciplineInfoService.getDisciplineNameList(null);
+
+		List<DisciplineInfo> dlist = disciplineInfoService.getDisciplineNameList(null);
 		model.addAttribute("disciplinelist", dlist);
-		
+
 		return "recruitstudent/auditioninfo/auditioninfo_add";
 	}
-	
+
 	@RequestMapping("add.action")
-	public String addAuditionInfo(AuditionInfo auditionInfo,Model model) {
-		
-		//Ìí¼ÓÊÔÌý¼ÇÂ¼
-		boolean result =auditionInfoService.addAudition(auditionInfo);
-		
-		if(result) {
+	public String addAuditionInfo(AuditionInfo auditionInfo, Model model) throws Exception{
+
+		// Ìí¼ÓÊÔÌý¼ÇÂ¼
+		boolean result = auditionInfoService.addAudition(auditionInfo);
+
+		if (result) {
 			model.addAttribute("info", "Ìí¼Ó³É¹¦");
-		}else {
+		} else {
 			model.addAttribute("info", "Ìí¼ÓÊ§°Ü");
 		}
-		return this.list(null,model);
+		return this.list(null,null, model);
 	}
-	
+
 	@RequestMapping("delete.action")
-    public String delete(Integer auditionId,Model model) {
-        
-        int reuslt = auditionInfoService.deleteAuditionInfo(auditionId);
-        if(reuslt>0) {
-            model.addAttribute("info", "É¾³ý³É¹¦");
-        }else {
-            model.addAttribute("info", "É¾³ýÊ§°Ü");
-        }
-        return this.list(null, model);
-    }
-	
+	public String delete(Integer auditionId, Model model) throws Exception{
+
+		int reuslt = auditionInfoService.deleteAuditionInfo(auditionId);
+		if (reuslt > 0) {
+			model.addAttribute("info", "É¾³ý³É¹¦");
+		} else {
+			model.addAttribute("info", "É¾³ýÊ§°Ü");
+		}
+		return this.list(null,null, model);
+	}
+
 	@RequestMapping("loadUpdate.action")
-	public String loadUpdate(Integer auditionId,Model model) {
-		
-		AuditionInfo auditionInfo=auditionInfoService.getAuditionInfo(auditionId);
+	public String loadUpdate(Integer auditionId, Model model) {
+
+		AuditionInfo auditionInfo = auditionInfoService.getAuditionInfo(auditionId);
 		model.addAttribute("auditionInfo", auditionInfo);
-		
-		List<StudentInfo> slist=studentInfoService.getStudentNameList(null);
+
+		List<StudentInfo> slist = studentInfoService.getStudentNameList(null);
 		model.addAttribute("studentlist", slist);
-		
-		List<DisciplineInfo> dlist=disciplineInfoService.getDisciplineNameList(null);
+
+		List<DisciplineInfo> dlist = disciplineInfoService.getDisciplineNameList(null);
 		model.addAttribute("disciplinelist", dlist);
-		
+
 		return "recruitstudent/auditioninfo/auditioninfo_update";
 	}
 
 	@RequestMapping("update.action")
-	public String updateAuditionInfo(AuditionInfo auditionInfo,Model model) {
-		boolean result =auditionInfoService.upadteAudition(auditionInfo);
-		
-		if(result) {
+	public String updateAuditionInfo(AuditionInfo auditionInfo, Model model) throws Exception{
+		boolean result = auditionInfoService.upadteAudition(auditionInfo);
+
+		if (result) {
 			model.addAttribute("info", "ÐÞ¸Ä³É¹¦");
-		}else {
+		} else {
 			model.addAttribute("info", "ÐÞ¸ÄÊ§°Ü");
 		}
-		return this.list(null,model);
+		return this.list(null,null, model);
 	}
-	
+
 	@RequestMapping("list.action")
-	public String list(AuditionInfo auditionInfo,Model model) {
-		
-		List<AuditionInfo> list=auditionInfoService.getAuditionInfoList(auditionInfo);
+	public String list(StudentInfo studentInfo,DisciplineInfo disciplineInfo, Model model) throws Exception{
+		List<AuditionStudentDisciplineInfo> list = auditionInfoService.getAuditionStudentDisciplineInfoList(studentInfo, disciplineInfo);
 		model.addAttribute("list", list);
 		return "recruitstudent/auditioninfo/auditioninfo_list";
 	}
-	
+
 }

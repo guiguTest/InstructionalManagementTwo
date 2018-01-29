@@ -3,6 +3,7 @@ package com.guigu.instructional.student.service;
 import java.util.List;
 
 import com.guigu.instructional.po.AuditionInfo;
+import com.guigu.instructional.po.AuditionStudentDisciplineInfo;
 import com.guigu.instructional.po.StudentInfo;
 
 public interface StudentInfoService {
@@ -31,7 +32,7 @@ public interface StudentInfoService {
      * @param studentInfo
      * @return  <br/> 
      * @since JDK 1.8
-     */
+     */ 
 	public List<StudentInfo> getStudentNameList(StudentInfo studentInfo);
 	
     /**
@@ -51,4 +52,5 @@ public interface StudentInfoService {
      * @since JDK 1.8
      */
 	public int deleteStudentInfo(Integer studentId);
+	
 }
