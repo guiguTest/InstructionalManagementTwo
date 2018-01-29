@@ -435,52 +435,62 @@ public class TrackRecordInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentEqualTo(Integer value) {
+        public Criteria andEnrollmentEqualTo(String value) {
             addCriterion("enrollment =", value, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentNotEqualTo(Integer value) {
+        public Criteria andEnrollmentNotEqualTo(String value) {
             addCriterion("enrollment <>", value, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentGreaterThan(Integer value) {
+        public Criteria andEnrollmentGreaterThan(String value) {
             addCriterion("enrollment >", value, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentGreaterThanOrEqualTo(Integer value) {
+        public Criteria andEnrollmentGreaterThanOrEqualTo(String value) {
             addCriterion("enrollment >=", value, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentLessThan(Integer value) {
+        public Criteria andEnrollmentLessThan(String value) {
             addCriterion("enrollment <", value, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentLessThanOrEqualTo(Integer value) {
+        public Criteria andEnrollmentLessThanOrEqualTo(String value) {
             addCriterion("enrollment <=", value, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentIn(List<Integer> values) {
+        public Criteria andEnrollmentLike(String value) {
+            addCriterion("enrollment like", value, "enrollment");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentNotLike(String value) {
+            addCriterion("enrollment not like", value, "enrollment");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentIn(List<String> values) {
             addCriterion("enrollment in", values, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentNotIn(List<Integer> values) {
+        public Criteria andEnrollmentNotIn(List<String> values) {
             addCriterion("enrollment not in", values, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentBetween(Integer value1, Integer value2) {
+        public Criteria andEnrollmentBetween(String value1, String value2) {
             addCriterion("enrollment between", value1, value2, "enrollment");
             return (Criteria) this;
         }
 
-        public Criteria andEnrollmentNotBetween(Integer value1, Integer value2) {
+        public Criteria andEnrollmentNotBetween(String value1, String value2) {
             addCriterion("enrollment not between", value1, value2, "enrollment");
             return (Criteria) this;
         }

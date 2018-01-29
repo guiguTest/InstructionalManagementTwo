@@ -13,7 +13,7 @@ public class TrackRecordInfo {
 
     private Date trackRecordTime;
 
-    private Integer enrollment;
+    private String enrollment;
 
     private Date nextRecordTime;
 
@@ -57,12 +57,12 @@ public class TrackRecordInfo {
         this.trackRecordTime = trackRecordTime;
     }
 
-    public Integer getEnrollment() {
+    public String getEnrollment() {
         return enrollment;
     }
 
-    public void setEnrollment(Integer enrollment) {
-        this.enrollment = enrollment;
+    public void setEnrollment(String enrollment) {
+        this.enrollment = enrollment == null ? null : enrollment.trim();
     }
 
     public Date getNextRecordTime() {

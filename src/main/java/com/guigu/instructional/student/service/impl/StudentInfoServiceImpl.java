@@ -7,20 +7,28 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.guigu.instructional.po.AuditionStudentDisciplineInfo;
+import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.StaffInfoExample;
+import com.guigu.instructional.po.StudentCustom;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentInfoExample;
 import com.guigu.instructional.po.StudentInfoExample.Criteria;
-import com.guigu.instructional.po.StudentInfoExample.Criterion;
 import com.guigu.instructional.student.mapper.StudentInfoMapper;
 import com.guigu.instructional.student.service.StudentInfoService;
+import com.guigu.instructional.system.service.StaffInfoService;
 
 @Service(value="studentInfoServiceImpl")
 public class StudentInfoServiceImpl implements StudentInfoService{
 	
 	@Resource(name="studentInfoMapper")
 	private StudentInfoMapper studentInfoMapper;
-
+	
+    @Resource(name = "staffInfoServiceImpl")
+    private StaffInfoService staffInfoService;
+    
+	@Resource(name = "studentInfoServiceImpl")
+	private StudentInfoService studentInfoService;
+	
 	@Override
 	public StudentInfo getStudentInfo(Integer studentId) {
 		return studentInfoMapper.selectByPrimaryKey(studentId);
@@ -31,7 +39,10 @@ public class StudentInfoServiceImpl implements StudentInfoService{
 		
 		StudentInfoExample studentInfoExample=new StudentInfoExample();
 		Criteria criteria=studentInfoExample.createCriteria();
-
+		if(studentInfo.getStudentName()!=null && studentInfo.getStudentName()!=null) {
+			studentInfo.setStudentName("%"+studentInfo.getStudentName()+"%");
+			criteria.andStudentNameLike(studentInfo.getStudentName());
+		}
 		criteria.andStudentMarkEqualTo(0);
 		return studentInfoMapper.selectByExample(studentInfoExample);
 	}
@@ -66,5 +77,58 @@ public class StudentInfoServiceImpl implements StudentInfoService{
 		
 		return studentInfoMapper.deleteByPrimaryKey(studentId);
 	}
+	
+	@Override
+	public List<StudentInfo> getStudentInfoPoolList(StudentInfo studentInfo) {
+		
+		StudentInfoExample studentInfoExample=new StudentInfoExample();
+		Criteria criteria=studentInfoExample.createCriteria();
+		criteria.andStudentMarkEqualTo(0);
+		return studentInfoMapper.selectByExample(studentInfoExample);
+	}
 
+	@Override
+	public List<StudentCustom> getStudentCustomList(StudentInfo studentInfo) {
+		
+		StudentInfoExample studentInfoExample=new StudentInfoExample();
+		Criteria criteria=studentInfoExample.createCriteria();
+		
+		if(studentInfo!=null && studentInfo.getStudentName()!=null) {
+			studentInfo.setStudentName("%"+studentInfo.getStudentName()+"%");
+			criteria.andStudentNameLike(studentInfo.getStudentName());
+		}
+		
+		criteria.andStudentMarkEqualTo(0);
+		
+		List<StudentInfo> studentList=studentInfoMapper.selectByExample(studentInfoExample);
+		if(studentList!=null){
+			List<StudentCustom> sslist=new ArrayList<>();
+			for (StudentInfo student : studentList) {
+				StudentCustom studentCustom=new StudentCustom();
+				studentCustom.setStudentInfo(student);
+				if(student.getStaffId()!=null) {
+					studentCustom.setStaffName(staffInfoService.getStaffInfo(student.getStaffId()).getStaffName());
+				}
+				sslist.add(studentCustom);
+			}
+			return sslist;
+		}else {
+			return null;
+		}
+	}
+
+//	@Override
+//	public boolean updateStudentInfo(Integer studentId) {
+//		StudentInfo studentInfo=studentInfoService.getStudentInfo(studentId);
+//		studentInfo.setStudentMark(1);
+//		
+//		try {
+//			int i=studentInfoMapper.updateByPrimaryKeySelective(studentInfo);
+//			if(i>0) {
+//				return true;
+//			}
+//		} catch (Exception e) {
+//		}
+//		return false;
+//	}
 }

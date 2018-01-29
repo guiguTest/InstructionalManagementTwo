@@ -1,6 +1,6 @@
 package com.guigu.instructional.po;
 
-public class AuditionStudentDisciplineInfo {
+public class AuditionCustom {
 	
 	private AuditionInfo auditionInfo;
 	

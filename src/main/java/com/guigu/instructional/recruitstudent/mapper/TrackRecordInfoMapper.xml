@@ -7,7 +7,7 @@
     <result column="track_record_title" property="trackRecordTitle" jdbcType="VARCHAR" />
     <result column="track_record_content" property="trackRecordContent" jdbcType="VARCHAR" />
     <result column="track_record_time" property="trackRecordTime" jdbcType="TIMESTAMP" />
-    <result column="enrollment" property="enrollment" jdbcType="INTEGER" />
+    <result column="enrollment" property="enrollment" jdbcType="VARCHAR" />
     <result column="next_record_time" property="nextRecordTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -108,7 +108,7 @@
       enrollment, next_record_time)
     values (#{trackRecordId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{trackRecordTitle,jdbcType=VARCHAR}, 
       #{trackRecordContent,jdbcType=VARCHAR}, #{trackRecordTime,jdbcType=TIMESTAMP}, 
-      #{enrollment,jdbcType=INTEGER}, #{nextRecordTime,jdbcType=TIMESTAMP})
+      #{enrollment,jdbcType=VARCHAR}, #{nextRecordTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.guigu.instructional.po.TrackRecordInfo" >
     insert into track_record_info
@@ -152,7 +152,7 @@
         #{trackRecordTime,jdbcType=TIMESTAMP},
       </if>
       <if test="enrollment != null" >
-        #{enrollment,jdbcType=INTEGER},
+        #{enrollment,jdbcType=VARCHAR},
       </if>
       <if test="nextRecordTime != null" >
         #{nextRecordTime,jdbcType=TIMESTAMP},
@@ -184,7 +184,7 @@
         track_record_time = #{record.trackRecordTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.enrollment != null" >
-        enrollment = #{record.enrollment,jdbcType=INTEGER},
+        enrollment = #{record.enrollment,jdbcType=VARCHAR},
       </if>
       <if test="record.nextRecordTime != null" >
         next_record_time = #{record.nextRecordTime,jdbcType=TIMESTAMP},
@@ -201,7 +201,7 @@
       track_record_title = #{record.trackRecordTitle,jdbcType=VARCHAR},
       track_record_content = #{record.trackRecordContent,jdbcType=VARCHAR},
       track_record_time = #{record.trackRecordTime,jdbcType=TIMESTAMP},
-      enrollment = #{record.enrollment,jdbcType=INTEGER},
+      enrollment = #{record.enrollment,jdbcType=VARCHAR},
       next_record_time = #{record.nextRecordTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -223,7 +223,7 @@
         track_record_time = #{trackRecordTime,jdbcType=TIMESTAMP},
       </if>
       <if test="enrollment != null" >
-        enrollment = #{enrollment,jdbcType=INTEGER},
+        enrollment = #{enrollment,jdbcType=VARCHAR},
       </if>
       <if test="nextRecordTime != null" >
         next_record_time = #{nextRecordTime,jdbcType=TIMESTAMP},
@@ -237,7 +237,7 @@
       track_record_title = #{trackRecordTitle,jdbcType=VARCHAR},
       track_record_content = #{trackRecordContent,jdbcType=VARCHAR},
       track_record_time = #{trackRecordTime,jdbcType=TIMESTAMP},
-      enrollment = #{enrollment,jdbcType=INTEGER},
+      enrollment = #{enrollment,jdbcType=VARCHAR},
       next_record_time = #{nextRecordTime,jdbcType=TIMESTAMP}
     where track_record_id = #{trackRecordId,jdbcType=INTEGER}
   </update>

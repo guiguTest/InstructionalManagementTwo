@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.DisciplineInfoService;
 import com.guigu.instructional.po.AuditionInfo;
-import com.guigu.instructional.po.AuditionInfoCustom;
-import com.guigu.instructional.po.AuditionInfoVO;
-import com.guigu.instructional.po.AuditionStudentDisciplineInfo;
+import com.guigu.instructional.po.AuditionCustom;
 import com.guigu.instructional.po.DisciplineInfo;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.recruitstudent.service.AuditionInfoService;
@@ -34,10 +32,10 @@ public class AuditionInfoController {
 	@RequestMapping("loadAdd.action")
 	public String loadAdd(Model model) {
 
-		List<StudentInfo> slist = studentInfoService.getStudentNameList(null);
+		List<StudentInfo> slist = studentInfoService.getStudentInfoPoolList(null);
 		model.addAttribute("studentlist", slist);
 
-		List<DisciplineInfo> dlist = disciplineInfoService.getDisciplineNameList(null);
+		List<DisciplineInfo> dlist = disciplineInfoService.getDisciplinePoolList(null);
 		model.addAttribute("disciplinelist", dlist);
 
 		return "recruitstudent/auditioninfo/auditioninfo_add";
@@ -75,10 +73,10 @@ public class AuditionInfoController {
 		AuditionInfo auditionInfo = auditionInfoService.getAuditionInfo(auditionId);
 		model.addAttribute("auditionInfo", auditionInfo);
 
-		List<StudentInfo> slist = studentInfoService.getStudentNameList(null);
+		List<StudentInfo> slist = studentInfoService.getStudentInfoPoolList(null);
 		model.addAttribute("studentlist", slist);
 
-		List<DisciplineInfo> dlist = disciplineInfoService.getDisciplineNameList(null);
+		List<DisciplineInfo> dlist = disciplineInfoService.getDisciplinePoolList(null);
 		model.addAttribute("disciplinelist", dlist);
 
 		return "recruitstudent/auditioninfo/auditioninfo_update";
@@ -98,7 +96,7 @@ public class AuditionInfoController {
 
 	@RequestMapping("list.action")
 	public String list(StudentInfo studentInfo,DisciplineInfo disciplineInfo, Model model) throws Exception{
-		List<AuditionStudentDisciplineInfo> list = auditionInfoService.getAuditionStudentDisciplineInfoList(studentInfo, disciplineInfo);
+		List<AuditionCustom> list = auditionInfoService.getAuditionCustomList(studentInfo, disciplineInfo);
 		model.addAttribute("list", list);
 		return "recruitstudent/auditioninfo/auditioninfo_list";
 	}

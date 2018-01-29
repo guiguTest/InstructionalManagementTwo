@@ -24,7 +24,24 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 		DisciplineInfoExample disciplineInfoExample=new DisciplineInfoExample();
 		Criteria criteria=disciplineInfoExample.createCriteria();
 		
+        if(disciplineInfo!=null && disciplineInfo.getDisciplineName()!=null) {
+        	disciplineInfo.setDisciplineName("%"+disciplineInfo.getDisciplineName()+"%");
+        	criteria.andDisciplineNameLike(disciplineInfo.getDisciplineName());
+        }
+		
 		return disciplineInfoMapper.selectByExample(disciplineInfoExample);
+	}
+	
+	@Override
+	public List<DisciplineInfo> getDisciplinePoolList(DisciplineInfo disciplineInfo) {
+		
+		DisciplineInfoExample disciplineInfoExample=new DisciplineInfoExample();
+		return disciplineInfoMapper.selectByExample(disciplineInfoExample);
+	}
+
+	@Override
+	public DisciplineInfo getDisciplineInfo(Integer disciplineId) {
+		return disciplineInfoMapper.selectByPrimaryKey(disciplineId);
 	}
 
 }

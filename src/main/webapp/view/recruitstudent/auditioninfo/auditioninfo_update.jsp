@@ -19,12 +19,8 @@
 		</ul>
 	</div>
 
-	<form
-		action="${pageContext.request.contextPath}/recruitstudent/auditionInfo/update.action"
-		class="form-horizontal">
-
-		<h5 class="page-header alert-info"
-			style="padding: 10px; margin: 0px; margin-bottom: 5px;">基本信息</h5>
+	<form action="${pageContext.request.contextPath}/recruitstudent/auditionInfo/update.action" class="form-horizontal">
+		<h5 class="page-header alert-info" style="padding: 10px; margin: 0px; margin-bottom: 5px;">基本信息</h5>
 		<div class="row">
 			<div class="col-sm-5">
 				<div class="form-group">

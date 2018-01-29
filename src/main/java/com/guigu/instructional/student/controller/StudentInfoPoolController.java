@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.DisciplineInfo;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.StudentCustom;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.student.service.StudentInfoService;
 import com.guigu.instructional.system.service.StaffInfoService;
@@ -26,8 +27,7 @@ public class StudentInfoPoolController {
 
 	@RequestMapping("list.action")
 	public String list(StudentInfo studentInfo, Model model) {
-		
-		List<StudentInfo> list = studentInfoService.getStudentNameList(studentInfo);
+		List<StudentCustom> list = studentInfoService.getStudentCustomList(studentInfo);
 		model.addAttribute("list", list);
 		return "recruitstudent/studentpool/studentpool_list";
 	}
@@ -60,6 +60,7 @@ public class StudentInfoPoolController {
 	public String loadUpdate(Integer studentId, Model model) {
 
 		StudentInfo studentInfo = studentInfoService.getStudentInfo(studentId);
+		System.out.println(studentInfo);
 		model.addAttribute("studentInfo", studentInfo);
 
 		List<StaffInfo> slist = staffInfoService.getStaffInfoList(null);
@@ -72,7 +73,7 @@ public class StudentInfoPoolController {
 	public String updateStudentInfo(StudentInfo studentInfo, Model model) {
 		// 0为学生池的学生 1为正式学生
 		studentInfo.setStudentMark(0);
-		// 添加试听记录
+		// 修改试听记录
 		boolean result = studentInfoService.upadteStudentInfo(studentInfo);
 
 		if (result) {
@@ -82,6 +83,22 @@ public class StudentInfoPoolController {
 		}
 		return this.list(null, model);
 	}
+	
+	@RequestMapping("updateMark.action")
+	public String updateMark(Integer studentId, Model model) {
+		StudentInfo studentInfo=studentInfoService.getStudentInfo(studentId);
+		// 0为学生池的学生 1为正式学生
+		studentInfo.setStudentMark(1);
+		boolean result = studentInfoService.upadteStudentInfo(studentInfo);
+
+		if (result) {
+			model.addAttribute("info", "领取学生成功");
+		} else {
+			model.addAttribute("info", "领取学生失败");
+		}
+		return this.list(null, model);
+	}
+
 
 	@RequestMapping("delete.action")
 	public String delete(Integer studentId, Model model) {
