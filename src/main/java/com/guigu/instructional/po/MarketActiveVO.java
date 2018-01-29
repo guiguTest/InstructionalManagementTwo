@@ -13,5 +13,10 @@ public class MarketActiveVO extends MarketActive{
 		this.staffName = staffName;
 	}
 
+	@Override
+	public String toString() {
+		return "MarketActiveVO [staffName=" + staffName + "]";
+	}
+
 	
 }

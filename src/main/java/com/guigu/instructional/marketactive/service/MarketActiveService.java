@@ -8,13 +8,16 @@ import com.guigu.instructional.po.MarketActiveVO;
 
 public interface MarketActiveService {
 	
-	public boolean updateActive(MarketActive marketActive);
+	public boolean updateActive(MarketActiveVO marketActiveVO);
 	
 	public List<MarketActive> getActiveList(MarketActive marketActive);
 	
-	public MarketActive findActiveById(Integer id);
+	public MarketActiveVO findActiveById(Integer id);
 	
 	public List<MarketActiveVO> getActiveStaff();
 	
 	public boolean addActive(MarketActiveVO marketActiveVO);
+	
+	public boolean deleteActive(MarketActive marketActive);
+
 }

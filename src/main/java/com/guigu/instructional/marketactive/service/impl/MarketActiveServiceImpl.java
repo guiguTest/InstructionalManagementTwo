@@ -1,9 +1,11 @@
 package com.guigu.instructional.marketactive.service.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.guigu.instructional.marketactive.mapper.ActiveVOMapper;
@@ -13,6 +15,8 @@ import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.MarketActiveExample;
 import com.guigu.instructional.po.MarketActiveExample.Criteria;
 import com.guigu.instructional.po.MarketActiveVO;
+import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.system.mapper.StaffInfoMapper;
 @Service("marketActiveServiceImpl")
 public class MarketActiveServiceImpl implements MarketActiveService{
 	@Resource(name="marketActiveMapper")
@@ -20,11 +24,14 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 	
 	@Resource(name="activeVOMapper")
 	private ActiveVOMapper activeVOMapper;
+	
+	@Resource(name="staffInfoMapper")
+	private StaffInfoMapper staffInfoMapper;
 
 	@Override
-	public boolean updateActive(MarketActive marketActive) {
+	public boolean updateActive(MarketActiveVO marketActiveVO) {
 		try {
-            int i = marketActiveMapper.updateByPrimaryKeySelective(marketActive);
+            int i = activeVOMapper.updateActive(marketActiveVO);
             if (i > 0) {
                 return true;
             }
@@ -52,21 +59,48 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 	}
 
 	@Override
-	public MarketActive findActiveById(Integer id) {
-		return	marketActiveMapper.selectByPrimaryKey(id);
+	public MarketActiveVO findActiveById(Integer activeId) {
+		String staffName=null;
+		MarketActive marketActive=marketActiveMapper.selectByPrimaryKey(activeId);
+		StaffInfo staffInfo=staffInfoMapper.selectByPrimaryKey(marketActive.getStaffId());
+		if(staffInfo!=null) {
+			staffName=staffInfo.getStaffName();
+		}
+		MarketActiveVO marketActiveVO=new MarketActiveVO();
+		try {
+			BeanUtils.copyProperties(marketActiveVO, marketActive);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		marketActiveVO.setStaffName(staffName);
+		return marketActiveVO;
 	}
 
 	@Override
 	public boolean addActive(MarketActiveVO marketActiveVO) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		try {
+            int i = activeVOMapper.addActive(marketActiveVO);
+            if (i > 0) {
+                return true;
+            }
+        } catch (Exception e) {
 
+        }
+
+        return false;
+    }
+	
 	@Override
 	public List<MarketActiveVO> getActiveStaff() {
 		return activeVOMapper.activeList();
 	}
 
-	
-	
+	@Override
+	public boolean deleteActive(MarketActive marketActive) {
+		int i=marketActiveMapper.updateByPrimaryKey(marketActive);
+		if (i>0) {
+			return true;
+		}
+		return false;
+	}
 }

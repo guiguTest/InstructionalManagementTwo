@@ -35,8 +35,8 @@ public class MarketActive {
     private String activeStudent;
 
     private String activeContent;
-
-    public Integer getActiveId() {
+ 
+	public Integer getActiveId() {
         return activeId;
     }
 
