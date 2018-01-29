@@ -212,7 +212,7 @@
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="${pageContext.request.contextPath}/student/evaluationinfo/list.action" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/student/student/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员信息
 							</a></li>
                             <li><a href="${pageContext.request.contextPath}/student/evaluationinfo/list.action" target="mainframe"> <i

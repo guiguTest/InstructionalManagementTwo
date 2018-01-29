@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.guigu.instructional.student.mapper.StudentInfoClassInfoStaffInfoMapper">
+	<resultMap id="BaseResultMap" type="com.guigu.instructional.po.StudentInfoClassInfoStaffInfo">
+		<id column="student_id" property="studentId" jdbcType="INTEGER" />
+		<result column="staff_name" property="staffName" jdbcType="VARCHAR" />
+		<result column="class_name" property="className" jdbcType="VARCHAR" />
+		<result column="student_name" property="studentName" jdbcType="VARCHAR" />
+		<result column="student_sex" property="studentSex" jdbcType="VARCHAR" />
+		<result column="student_age" property="studentAge" jdbcType="INTEGER" />
+		<result column="student_tellphone" property="studentTellphone" jdbcType="VARCHAR" />
+		<result column="student_email" property="studentEmail" jdbcType="VARCHAR" />
+		<result column="student_idcard" property="studentIdcard" jdbcType="VARCHAR" />
+		<result column="student_address" property="studentAddress" jdbcType="VARCHAR" />
+		<result column="student_birthday" property="studentBirthday" jdbcType="TIMESTAMP" />
+		<result column="student_school" property="studentSchool" jdbcType="VARCHAR" />
+		<result column="student_qq" property="studentQq" jdbcType="VARCHAR" />
+		<result column="student_parents_name" property="studentParentsName" jdbcType="VARCHAR" />
+		<result column="student_parents_phone" property="studentParentsPhone" jdbcType="VARCHAR" />
+		<result column="student_pro" property="studentPro" jdbcType="VARCHAR" />
+		<result column="student_procity" property="studentProCity" jdbcType="VARCHAR" />
+		<result column="student_type" property="studentType" jdbcType="VARCHAR" />
+		<result column="student_ispay" property="studentIspay" jdbcType="VARCHAR" />
+		<result column="student_state" property="studentState" jdbcType="VARCHAR" />
+		<result column="student_mark" property="studentMark" jdbcType="INTEGER" />
+		<result column="student_desc" property="studentDesc" jdbcType="VARCHAR" />
+		<result column="student_number" property="studentNumber" jdbcType="VARCHAR" />
+		<result column="student_password" property="studentPassword" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="findStudentList" resultMap="BaseResultMap">
+			select student_info.*,class_info.class_name,staff_info.staff_name from
+		student_info,class_info,staff_info
+		where  student_info.class_id=class_info.class_id or student_info.staff_id=staff_info.staff_id
+		
+
+	</select>
+</mapper>
