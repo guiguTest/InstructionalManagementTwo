@@ -146,16 +146,16 @@
 
 						<ul class="submenu">
 							
-                            <li><a href="view/marketactive/template/template_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/marketactive/template/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 模板管理
 							</a></li>
-                             <li><a href="view/marketactive/messafeinfo/messafeinfo_list.html" target="mainframe"> <i
+                             <li><a href="${pageContext.request.contextPath}/view/marketactive/messafeinfo/messafeinfo_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 短信管理
 							</a></li>       
-                            <li><a href="view/marketactive/emailinfo/emailinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/view/marketactive/emailinfo/emailinfo_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 邮件管理
 							</a></li>   
-                            <li><a href="view/marketactive/marketactive/marketactive_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/marketactive/marketactive/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i>营销活动
 							</a></li>                                           
 						</ul>
@@ -176,7 +176,7 @@
                             <li><a href="recruitstudent/trackrecord/trackrecord_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 跟踪记录
 							</a></li>
-                            <li><a href="recruitstudent/auditioninfo/auditioninfo_list.jsp" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/recruitstudent/auditioninfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 试听记录
 							</a></li>                                         
 						</ul>
