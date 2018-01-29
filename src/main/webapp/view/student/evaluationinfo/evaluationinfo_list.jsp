@@ -37,13 +37,13 @@
     
      <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath}/student/evaluationinfo/list.action">
     	<display:column property="evaluationId" title="编号"></display:column>
-    	<display:column property="studentId" title="学员姓名" ></display:column>
+    	<display:column property="studentName" title="学员姓名" ></display:column>
     	<display:column property="evaluationTile" title="主题"></display:column>
     	<display:column property="evaluationContent" title="评价内容"></display:column>
     	<display:column property="evaluationCourse" title="课程名称"></display:column>
     	<display:column property="evaluationTeacher" title="教师"></display:column>
     	<display:column property="evaluationTime" title="评价时间" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/view/student/evaluationinfo/evaluationinfo_update.jsp"  paramId="evaluationId" paramProperty="evaluationId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/student/evaluationinfo/load.action"  paramId="evaluationId" paramProperty="evaluationId" value="修改" title="修改"></display:column>
     	<display:column href="${pageContext.request.contextPath}/student/evaluationinfo/delete.action" paramId="evaluationId" paramProperty="evaluationId" value="删除" title="删除"></display:column>
     	
     </display:table>

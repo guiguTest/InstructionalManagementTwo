@@ -25,40 +25,44 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">评价编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入评价编号"/>
+                	<input type="text" value="${evaluationInfo.evaluationId }" name="evaluationId" readonly="readonly" class="form-control input-sm" placeholder="请输入评价编号"/>
                 </div>
             </div>
         
         </div>
-        <div class="col-sm-5">
-            <div class="form-group">
-            	<label class="col-sm-3 control-label">主题</label>
+        
+    <div class="col-sm-5">
+        	<div class="form-group">
+            	<label class="col-sm-3 control-label">学员姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入主题"/>
+                	<input type="text"  value="${evaluationInfo.studentId }" name="studentId"  class="form-control input-sm" placeholder="请输入学员编号"/>
                 </div>
             </div>
+        
         </div>
 
     </div>
     
     <div class="row">
+    
+        <div class="col-sm-5">
+            <div class="form-group">
+            	<label class="col-sm-3 control-label">主题</label>
+                <div class="col-sm-9">
+                	<input type="text" value="${evaluationInfo.evaluationTile}" name="evaluationTile" class="form-control input-sm" placeholder="请输入主题"/>
+                </div>
+            </div>
+        </div>
+    
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">课程名称</label>
                 <div class="col-sm-9">
-               			<input type="text" name="" class="form-control input-sm" placeholder="请输入课程名称"/>
+               			<input type="text" value="${evaluationInfo.evaluationCourse}" name="evaluationCourse" class="form-control input-sm" placeholder="请输入课程名称"/>
                 </div>
             </div>
         </div>
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">教师</label>
-                <div class="col-sm-9">
-               		 <input type="text" name="" class="form-control input-sm" placeholder="请输入教师"/>
-                </div>
-            </div>
-        
-        </div>
+    
 
     </div>
         <div class="row">
@@ -66,11 +70,20 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">评价时间</label>
                 <div class="col-sm-9">
-               			<input type="text" name="" class="form-control input-sm" placeholder="请输入评价时间"/>
+               			<input type="text" value="${evaluationInfo.evaluationTime}" name="evaluationTime"  onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入评价时间"/>
                 </div>
             </div>
         </div>
-
+        
+	<div class="col-sm-5">
+        	<div class="form-group">
+            	<label class="col-sm-3 control-label">教师</label>
+                <div class="col-sm-9">
+               		 <input type="text" value="${evaluationInfo.evaluationTeacher}" name="evaluationTeacher" class="form-control input-sm" placeholder="请输入教师"/>
+                </div>
+            </div>
+        
+        </div>
 
     </div>
 
@@ -81,7 +94,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">评价内容</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control"></textarea>
+                	<textarea value="${evaluationInfo.evaluationContent}" name="evaluationContent" class="form-control"></textarea>
                 </div>
             </div>
         
@@ -93,7 +106,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="classinfo_list.html">返回上一级</a>
+              <a class="btn btn-warning" href="${pageContext.request.contextPath }/student/evaluationinfo/list.action">返回上一级</a>
         </div>
     </div>
 </form>

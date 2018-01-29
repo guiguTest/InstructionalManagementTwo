@@ -83,6 +83,14 @@ public class EvaluationInfoStudentInfo  {
 		public void setEvaluationTime(Date evaluationTime) {
 			this.evaluationTime = evaluationTime;
 		}
+
+		@Override
+		public String toString() {
+			return "EvaluationInfoStudentInfo [studentName=" + studentName + ", evaluationId=" + evaluationId
+					+ ", studentId=" + studentId + ", evaluationTile=" + evaluationTile + ", evaluationContent="
+					+ evaluationContent + ", evaluationCourse=" + evaluationCourse + ", evaluationTeacher="
+					+ evaluationTeacher + ", evaluationTime=" + evaluationTime + "]";
+		}
 	
 	
 }

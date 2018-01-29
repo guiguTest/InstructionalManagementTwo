@@ -10,5 +10,9 @@
     <result column="evaluation_course" property="evaluationCourse" jdbcType="VARCHAR" />
     <result column="evaluation_teacher" property="evaluationTeacher" jdbcType="VARCHAR" />
   </resultMap>
-
+  <select id="findEvaluationList"  resultMap="BaseResultMap">
+  select student_info.student_name,evaluation_info.* from student_info,evaluation_info 
+  where student_info.student_id=evaluation_info.student_id
+ 
+  </select>
   </mapper>

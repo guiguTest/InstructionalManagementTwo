@@ -35,7 +35,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学员姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentId"  class="form-control input-sm" placeholder="请输入学员姓名"/>
+                	<input type="text" name="studentId"  class="form-control input-sm" placeholder="请输入学员编号"/>
                 </div>
             </div>
         

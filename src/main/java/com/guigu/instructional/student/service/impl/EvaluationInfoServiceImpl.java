@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.guigu.instructional.po.EvaluationInfo;
 import com.guigu.instructional.po.EvaluationInfoExample;
 import com.guigu.instructional.po.EvaluationInfoExample.Criteria;
+import com.guigu.instructional.po.EvaluationInfoStudentInfo;
+import com.guigu.instructional.student.mapper.EvaluationInfoAndStudentInfoMapper;
 import com.guigu.instructional.student.mapper.EvaluationInfoMapper;
 import com.guigu.instructional.student.service.EvaluationInfoService;
 
@@ -18,6 +20,9 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 
 	@Resource(name="evaluationInfoMapper")
 	private EvaluationInfoMapper evaluationInfoMapper;
+	
+	@Resource(name="evaluationInfoAndStudentInfoMapper")
+	private EvaluationInfoAndStudentInfoMapper evaluationInfoAndStudentInfoMapper;
 	
 	@Override
 	public boolean addEvaluation(EvaluationInfo evaluationInfo) {
@@ -56,6 +61,20 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 	public EvaluationInfo getEvaluationInfo(Integer evaluationId) {
 		
 		return evaluationInfoMapper.selectByPrimaryKey(evaluationId);
+	}
+
+	@Override
+	public List<EvaluationInfoStudentInfo> findEvaluationList() {
+		return evaluationInfoAndStudentInfoMapper.findEvaluationList();
+	}
+
+	@Override
+	public boolean deleteEvaluationInfo(Integer evaluationId) {
+		int i=evaluationInfoMapper.deleteByPrimaryKey(evaluationId);
+		if(i>0) {
+			return true;
+		}
+		return false;
 	}
 
 }

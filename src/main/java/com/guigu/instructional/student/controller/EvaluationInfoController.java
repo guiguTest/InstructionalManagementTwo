@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.EvaluationInfo;
+import com.guigu.instructional.po.EvaluationInfoStudentInfo;
 import com.guigu.instructional.student.service.EvaluationInfoService;
 
 @Controller
@@ -21,8 +22,8 @@ public class EvaluationInfoController {
 	
 	
 	@RequestMapping("list.action")
-	public String list(EvaluationInfo evaluationInfo,Model model) {
-		List<EvaluationInfo> list=evaluationInfoService.getEvaluationInfoList(evaluationInfo);
+	public String list(EvaluationInfoStudentInfo evaluationInfoStudentInfo,Model model) {
+		List<EvaluationInfoStudentInfo> list=evaluationInfoService.findEvaluationList();
 		model.addAttribute("list",list);
 		return "student/evaluationinfo/evaluationinfo_list";
 	}
@@ -39,5 +40,37 @@ public class EvaluationInfoController {
 		return this.list(null, model);
 	}
 	
+	@RequestMapping("load.action")
+	public String load(Integer evaluationId,Model model) {
+		EvaluationInfo evaluationInfo=evaluationInfoService.getEvaluationInfo(evaluationId);
+		
+		model.addAttribute("evaluationInfo",evaluationInfo);
+		
+		
+		return"student/evaluationinfo/evaluationinfo_update";
+	}
 	
+	@RequestMapping("update.action")
+	public String update(EvaluationInfo evaluationInfo,Model model) {
+		boolean result=evaluationInfoService.updateEvaluation(evaluationInfo);
+		
+		if(result) {
+			model.addAttribute("info","更新成功");
+		}else {
+			model.addAttribute("info","更新失败");
+		}
+		return this.list(null,model);
+	}
+	
+	@RequestMapping("delete.action")
+	public String delete(Integer evaluationId,Model model) {
+	  boolean result=evaluationInfoService.deleteEvaluationInfo(evaluationId);
+	  if(result) {
+		  model.addAttribute("info","删除成功");
+		  
+	  }else {
+	  model.addAttribute("info","删除失败");
+	  }
+	  return this.list(null, model);
+	}
 }

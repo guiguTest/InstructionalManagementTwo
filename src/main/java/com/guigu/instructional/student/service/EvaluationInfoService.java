@@ -3,6 +3,8 @@ package com.guigu.instructional.student.service;
 import java.util.List;
 
 import com.guigu.instructional.po.EvaluationInfo;
+import com.guigu.instructional.po.EvaluationInfoExampleVO;
+import com.guigu.instructional.po.EvaluationInfoStudentInfo;
 
 public interface EvaluationInfoService {
 
@@ -14,5 +16,9 @@ public interface EvaluationInfoService {
 	
 	
 	public EvaluationInfo getEvaluationInfo(Integer evaluationId);
+	
+	public List<EvaluationInfoStudentInfo> findEvaluationList();
+	
+	public boolean deleteEvaluationInfo(Integer evaluationId);
 	
 }
