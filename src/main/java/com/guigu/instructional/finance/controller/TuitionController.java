@@ -45,6 +45,32 @@ public class TuitionController {
 	       }
 	       return this.findTuitionForList(null, model);
 	}
+	@RequestMapping("update.action")
+	public String updateTuition(StudentPayment studentPayment,Model model) {
+		boolean result=tuitionService.updateTuition(studentPayment);
+		if(result) {
+	           model.addAttribute("info","ÐÞ¸Ä³É¹¦");
+	       }else {
+	           model.addAttribute("info","ÐÞ¸ÄÊ§°Ü");
+	       }
+	     return this.findTuitionForList(null, model);
+	}
+	@RequestMapping("load.action")
+	public String loadTuition(Integer studentPaymentId,Model model) {
+		StudentPayment studentPayment=tuitionService.findTuitionForId(studentPaymentId);
+		model.addAttribute("studentPayment",studentPayment);
+		return "finance/tuition/Tuition_update";
+	}
 	
 	
+	@RequestMapping("delete.action")
+	public String deleteTuition(Integer studentPaymentId,Model model) {
+		boolean result=tuitionService.deleteTuition(studentPaymentId);
+		if(result) {
+	           model.addAttribute("info","É¾³ý³É¹¦");
+	       }else {
+	           model.addAttribute("info","É¾³ýÊ§°Ü");
+	       }
+	     return this.findTuitionForList(null, model);
+	}
 }

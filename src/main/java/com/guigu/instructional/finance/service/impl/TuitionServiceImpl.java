@@ -31,9 +31,13 @@ public class TuitionServiceImpl implements TuitionService{
 
 	@Override
 	public boolean updateTuition(StudentPayment studentPayment) {
-		int i=StudentPaymentMapper.updateByPrimaryKeySelective(studentPayment);
-		if(i>0) {
-			return true;
+		try {
+			int i=StudentPaymentMapper.updateByPrimaryKeySelective(studentPayment);
+			if(i>0) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("出现了异常");
 		}
 		return false;
 	}
@@ -46,5 +50,17 @@ public class TuitionServiceImpl implements TuitionService{
 	@Override
 	public StudentPayment findTuitionForId(Integer studentPaymentId) {
 		return StudentPaymentMapper.selectByPrimaryKey(studentPaymentId);
+	}
+
+	@Override
+	public boolean deleteTuition(Integer paymentId) {
+		try {
+			int i=StudentPaymentMapper.deleteByPrimaryKey(paymentId);
+			if(i>0) {
+				return true;
+			}
+		} catch (Exception e) {
+		}
+		return false;
 	}
 }

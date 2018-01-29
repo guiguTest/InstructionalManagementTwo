@@ -18,21 +18,26 @@
         <li>学员缴费</li>
     </ul>
 </div>
+<script type="text/javascript">
+		function query(condition){
+			$("#keyword").attr("name",condition.value);
+		}
+</script>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-horizontal">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/finance/tuition/list.action" method="post">
 	<div class="col-sm-1" >条件:</div>
     <div class="col-sm-3">
-    	<select class="form-control  input-sm">
-        	<option>学员姓名</option>
-            <option>缴费单编号</option>
-            <option>学员班级</option>
-            <option>缴费时间</option>
+    	<select class="form-control  input-sm"  onchange="query(this)" name="condition">
+    		<option value="">请选择</option>
+        	<option value="studnetName">学员姓名</option>
+            <option value="studentPaymentId">缴费单编号</option>
+            <option value="className">学员班级</option>
         </select>
     </div>
     <div class="col-sm-3">
-    	<input type="text"  class="form-control input-sm"/>
+    	<input type="text"  class="form-control input-sm" id="keyword"/>
     </div>
-    <input type="button"   class="btn btn-danger"   value="查询"/>
+    <input type="submit"   class="btn btn-danger"   value="查询"/>
     <a href="${pageContext.request.contextPath}/view/finance/tuition/Tuition_add.jsp" class="btn btn-success">添加</a>
     </form>
 </div>
@@ -57,8 +62,8 @@
     	<display:column property="studentPayment.paymentDebtAmount" title="欠款"></display:column>
     	<display:column property="staffName" title="负责人员"></display:column>
     	<display:column property="studentPayment.paymentTime" title="缴费时间" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/finance/tuition/list.action" paramId="studentPaymentId" paramProperty="studentPaymentId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/finance/tuition/list.action" paramId="studentPaymentId" paramProperty="studentPaymentId" value="删除" title="删除"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/finance/tuition/load.action" paramId="studentPaymentId" paramProperty="studentPaymentId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/finance/tuition/delete.action" paramId="studentPaymentId" paramProperty="studentPaymentId" value="删除" title="删除"></display:column>
     	<!-- paramId="staffId" paramProperty="staffId" -->
     </display:table> 
           

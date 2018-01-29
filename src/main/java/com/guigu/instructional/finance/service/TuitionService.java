@@ -14,4 +14,6 @@ public interface TuitionService {
 	public List<StudentPaymentOrder> findTuitionForList(StudentPaymentOrder studentPaymentOrder);
 	
 	public StudentPayment findTuitionForId(Integer studentPaymentId);
+	
+	public boolean deleteTuition(Integer studentPaymentId);
 }

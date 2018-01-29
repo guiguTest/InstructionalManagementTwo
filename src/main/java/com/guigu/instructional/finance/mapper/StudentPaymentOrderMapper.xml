@@ -28,16 +28,14 @@
 		from student_info,student_payment,staff_info,class_info
 		<where>
 			<if test="studnetName!=null and studnetName!=''">
-				and student_info.student_name like '%${studentName}%'
+				and student_info.student_name like '%${studnetName}%'
 			</if>
-			<if test="staffName!=null and staffName!=''">
-				and staff_info.staff_name like '%${staffName}%'
+			<if test="className!=null and className!=''">
+				and class_info.class_name like '%${className}%'
 			</if>
-			<if test="studentPayment!=null">
-				<if test="studentPayment.paymentId!=0">
-					and student_payment.payment_id=#{studentPayment.paymentId}
-				</if>
-			</if> 
+			<if test="studentPaymentId!=0">
+				and student_payment.payment_id=#{studentPaymentId}
+			</if>
 			and student_payment.student_id=student_info.student_id
 			and student_payment.staff_id=staff_info.staff_id
 			and student_info.class_id=class_info.class_id
