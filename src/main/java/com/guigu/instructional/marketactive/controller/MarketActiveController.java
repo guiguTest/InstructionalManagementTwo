@@ -20,8 +20,8 @@ public class MarketActiveController {
 	 private MarketActiveService marketActiveService;
 	
 	@RequestMapping("list.action")
-	public String activeList(MarketActive marketActive,Model model) {
-		List<MarketActiveVO> list=marketActiveService.getActiveStaff(marketActive);
+	public String activeList(Model model) {
+		List<MarketActiveVO> list=marketActiveService.getActiveStaff();
 		model.addAttribute("list", list);
 		return "marketactive/marketactive/marketactive_list" ;
 	}
@@ -37,6 +37,6 @@ public class MarketActiveController {
 			model.addAttribute("info", "ÃÌº” ß∞‹");
 		}
 		
-		return this.activeList(null, model);
+		return this.activeList(model);
 	}
 }

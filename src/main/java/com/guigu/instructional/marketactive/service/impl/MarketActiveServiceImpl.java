@@ -20,19 +20,6 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 	
 	@Resource(name="activeVOMapper")
 	private ActiveVOMapper activeVOMapper;
-	
-	@Override
-	public boolean addActive(MarketActiveVO marketActiveVO) {
-		try {	
-			boolean flag=activeVOMapper.addActive(marketActiveVO);
-			   if (flag) {
-	                return true;
-			   }
-	    }catch (Exception e) {
-
-	    }
-	    return false;
-	}
 
 	@Override
 	public boolean updateActive(MarketActive marketActive) {
@@ -70,20 +57,16 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 	}
 
 	@Override
-	public List<MarketActiveVO> getActiveStaff(MarketActive marketActive) {
-		return  activeVOMapper.findVOlist(marketActive);
+	public boolean addActive(MarketActiveVO marketActiveVO) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public boolean addActive(MarketActive marketActive) {
-		try {
-            int i = marketActiveMapper.insertSelective(marketActive);
-            if (i > 0) {
-                return true;
-            }
-        } catch (Exception e) {
-
-        }
-        return false;
+	public List<MarketActiveVO> getActiveStaff() {
+		return activeVOMapper.activeList();
 	}
+
+	
+	
 }

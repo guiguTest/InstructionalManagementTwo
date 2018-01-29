@@ -1,26 +1,17 @@
 package com.guigu.instructional.po;
 
 
-public class MarketActiveVO extends MarketActive {
+public class MarketActiveVO extends MarketActive{
 	
-	private String StaffnName;
+	private String staffName;
 
-	public String getStaffnName() {
-		return StaffnName;
+	public String getStaffName() {
+		return staffName;
 	}
 
-	public void setStaffnName(String staffnName) {
-		StaffnName = staffnName;
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 
-	@Override
-	public String toString() {
-		return "MarketActiveVO [StaffnName=" + StaffnName + "]";
-	}
 	
-	//private StaffInfo staffInfo;
-	
-	
-
-
 }

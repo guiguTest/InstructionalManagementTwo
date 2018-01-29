@@ -48,9 +48,9 @@
     </table>
     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/marketactve/marketactive/list.action">
     	<display:column property="activeId" title="编号"></display:column>
-    	<display:column property="activeName" title="活动名称" href="${pageContext.request.contextPath }/marketactive/marketactice/show.action" paramId="activeId" paramProperty="activeId"></display:column>
+    	<display:column property="activeName" title="活动名称" ></display:column>
     	<display:column property="activeState" title="活动状态"></display:column>
-    	<display:column property="staffId" title="负责人"> </display:column>
+    	<display:column property="staffName" title="负责人"> </display:column>
     	<display:column property="activeType" title="活动类型"></display:column>
     	<display:column href="${pageContext.request.contextPath }/marketactive/marketactice/load.action" paramId="activeId" paramProperty="activeId" value="修改" title="修改"></display:column>
     	<display:column href="${pageContext.request.contextPath }/marketactive/marketactice/delete.action" paramId="activeId" paramProperty="activeId" value="删除" title="删除"></display:column>

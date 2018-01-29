@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.guigu.instructional.marketactive.mapper.ActiveVOMapper">
-	<select id="findVOlist" parameterType="com.guigu.instructional.po.MarketActive" 
+<mapper namespace="com.guigu.instructional.marketactive.mapper.ActiveVOMapper" >
+	<select id="activeList" 
 	resultType="com.guigu.instructional.po.MarketActiveVO">
-		select m.*,s.staff_name
-		from market_active m,staff_info s
-		<where>
-			<choose>
-				<when test="marketActive==null">
-					<!-- <if test="m.staff_id!=null or m.staff_id!='' ">
-						s.staff_id=m.staff_id
-					</if>   
-					<if test="m.staff_id==null or m.staff_id=='' ">
-						s.staff_id=null
-					</if>     -->
-					s.staff_id=null	   
-				</when>
-				<otherwise>
-					m.staff_id=#{marketActive.staff_id} and s.staff_id=#{marketActive.staff_id}
-				</otherwise>
-			</choose>
-		</where>
+		select m.*,s.staff_name 
+		from market_active m
+		left outer join staff_info s	
+		on m.staff_id=s.staff_id
 	</select>
-	
-	<select id="addActive" parameterType="com.guigu.instructional.po.MarketActiveVO">
-		 insert into market_active values(#{activeId},${select staff_id from staff_info where staff_name=#{staffname}},
-				#{activeName},#{activeState},#{activeStart},#{activeEnd},#{activeType},#{activeCosteEstimate},
-				#{activeCoste},#{activeRefectEstimate},#{activeStudent},#{activeContent})
-	</select>
-	
-	
 </mapper>

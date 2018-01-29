@@ -6,9 +6,9 @@ import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.MarketActiveVO;
 
 public interface ActiveVOMapper {
+		
+	public void addActive(MarketActiveVO marketActiveVO);
 	
-	public List<MarketActiveVO> findVOlist(MarketActive marketActive);
+	public List<MarketActiveVO> activeList();
 	
-	public boolean addActive(MarketActiveVO marketActiveVO);
-
 }

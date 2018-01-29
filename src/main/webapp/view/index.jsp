@@ -155,7 +155,7 @@
                             <li><a href="${pageContext.request.contextPath}/view/marketactive/emailinfo/emailinfo_list.jsp" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 邮件管理
 							</a></li>   
-                            <li><a href="${pageContext.request.contextPath}/view/marketactive/marketactive/marketactive_list.jsp" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/marketactive/marketactive/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i>营销活动
 							</a></li>                                           
 						</ul>
