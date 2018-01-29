@@ -5,16 +5,28 @@ public class StudentPaymentOrder {
 	
 	private StudentPayment studentPayment;
 	
-	private StudentInfo studentInfo;
+	private String studnetName;
 	
-	private StaffInfo staffInfo;
-
-	public StaffInfo getStaffInfo() {
-		return staffInfo;
+	private String staffName;
+	
+	private String className;
+	
+	private int studentPaymentId;
+	
+	public int getStudentPaymentId() {
+		return studentPaymentId;
 	}
 
-	public void setStaffInfo(StaffInfo staffInfo) {
-		this.staffInfo = staffInfo;
+	public void setStudentPaymentId(int studentPaymentId) {
+		this.studentPaymentId = studentPaymentId;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
 	}
 
 	public StudentPayment getStudentPayment() {
@@ -25,12 +37,21 @@ public class StudentPaymentOrder {
 		this.studentPayment = studentPayment;
 	}
 
-	public StudentInfo getStudentInfo() {
-		return studentInfo;
+	public String getStudnetName() {
+		return studnetName;
 	}
 
-	public void setStudentInfo(StudentInfo studentInfo) {
-		this.studentInfo = studentInfo;
+	public void setStudnetName(String studnetName) {
+		this.studnetName = studnetName;
 	}
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
 	
 }
