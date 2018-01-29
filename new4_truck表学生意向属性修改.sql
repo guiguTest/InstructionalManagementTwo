@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50096
 File Encoding         : 65001
 
-Date: 2018-01-29 01:13:02
+Date: 2018-01-30 00:48:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,14 +70,16 @@ CREATE TABLE `audition_info` (
   KEY `FK_audition_discipline` (`audition_course`),
   CONSTRAINT `FK_audition_discipline` FOREIGN KEY (`audition_course`) REFERENCES `discipline_info` (`discipline_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_Reference_10` FOREIGN KEY (`student_id`) REFERENCES `student_info` (`student_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of audition_info
 -- ----------------------------
 INSERT INTO `audition_info` VALUES ('1', '2', '2018-01-19 00:00:00', 'csdf', '1', 'csms');
-INSERT INTO `audition_info` VALUES ('2', '2', '2018-01-17 00:00:00', 'csdf', '2', 'csms');
-INSERT INTO `audition_info` VALUES ('6', '1', '2018-01-17 00:00:00', 'guigu', '1', 'st');
+INSERT INTO `audition_info` VALUES ('6', '1', '2018-01-17 00:00:00', 'guigu', '2', 'st');
+INSERT INTO `audition_info` VALUES ('7', '5', '2018-01-29 00:00:00', 'hzguigu', '1', 'hzguigu');
+INSERT INTO `audition_info` VALUES ('8', '1', '2018-01-17 00:00:00', 'csdf', '1', 'cs');
+INSERT INTO `audition_info` VALUES ('10', '2', '2018-01-24 00:00:00', 'dddd', '3', 'ms');
 
 -- ----------------------------
 -- Table structure for `class_info`
@@ -199,13 +201,14 @@ CREATE TABLE `discipline_info` (
   `discipline_desc` varchar(2000) default NULL,
   `discipline_isused` varchar(10) default NULL,
   PRIMARY KEY  (`discipline_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of discipline_info
 -- ----------------------------
-INSERT INTO `discipline_info` VALUES ('1', 'cs_java', null, null, null, null);
-INSERT INTO `discipline_info` VALUES ('2', 'cs_c', null, null, null, null);
+INSERT INTO `discipline_info` VALUES ('1', 'cs_java', '9800', '4400', 'cs', 'no');
+INSERT INTO `discipline_info` VALUES ('2', 'cs_c', '9800', '4400', 'cs', 'no');
+INSERT INTO `discipline_info` VALUES ('3', 'cs_spring', '9800', '4400', 'cs', 'yes');
 
 -- ----------------------------
 -- Table structure for `email_info`
@@ -366,9 +369,9 @@ CREATE TABLE `staff_info` (
 -- ----------------------------
 -- Records of staff_info
 -- ----------------------------
-INSERT INTO `staff_info` VALUES ('1', null, 'cs1staff', '??', '12', 'cs', '', '2018-01-10 00:00:00', '', '', '', '', '', null, '??', '', '1', '15958001234', '1234');
-INSERT INTO `staff_info` VALUES ('2', null, 'csstaff', '?', '22', 'gfdg', '3545454', '2018-01-11 00:00:00', '3455454', '33434342', '34234234@11', 'fgdgtf', '3424343', '2018-01-25 00:00:00', '??', 'cdefefw', '1', '15958001234', '1234');
-INSERT INTO `staff_info` VALUES ('3', null, 'cs2staff', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `staff_info` VALUES ('1', null, 'zhangsan', '', '12', 'cs', '', '2018-01-10 00:00:00', '', '', '', '', '', null, '??', '', '1', '15958001234', '1234');
+INSERT INTO `staff_info` VALUES ('2', null, 'lisi', '', '22', 'gfdg', '3545454', '2018-01-11 00:00:00', '3455454', '33434342', '34234234@11', 'fgdgtf', '3424343', '2018-01-25 00:00:00', '??', 'cdefefw', '1', '15958001234', '1234');
+INSERT INTO `staff_info` VALUES ('3', null, 'wangwu', null, '44', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `staff_salary`
@@ -427,17 +430,18 @@ CREATE TABLE `student_info` (
   PRIMARY KEY  (`student_id`),
   KEY `FK_Reference_16` (`class_id`),
   KEY `FK_Reference_8` (`staff_id`),
-  CONSTRAINT `FK_Reference_8` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`staff_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Reference_16` FOREIGN KEY (`class_id`) REFERENCES `class_info` (`class_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  CONSTRAINT `FK_Reference_16` FOREIGN KEY (`class_id`) REFERENCES `class_info` (`class_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_Reference_8` FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`staff_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student_info
 -- ----------------------------
-INSERT INTO `student_info` VALUES ('1', null, null, 'cs1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, null, null);
-INSERT INTO `student_info` VALUES ('2', null, null, 'cs2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, null, null);
-INSERT INTO `student_info` VALUES ('4', null, null, 'cs4', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '1', null, null, null);
+INSERT INTO `student_info` VALUES ('1', '2', null, 'cs1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, null, null);
+INSERT INTO `student_info` VALUES ('2', '3', null, 'cs2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', null, null, null);
+INSERT INTO `student_info` VALUES ('4', '1', null, 'cs4', '??', '28', '17826829376', '12343434@163.c0m', '33032619970808522', 'zjhzxs', '2018-01-11 00:00:00', 'cjlu', '1124566', 'zhangsan', '13578688967', 'zj', 'hz', '????', 'yes', '???', '0', 'ms', null, null);
 INSERT INTO `student_info` VALUES ('5', '1', null, 'xs1', '?', '23', '1267236723', '12542356@1121', '2367346713474807874', 'dz', '2018-01-11 00:00:00', 'cjlu', '235635634', 'jz', '235623532367', 'zj', 'hz', '????', 'yes', '???', '0', 'msmsmsmsmsmsmsm', null, null);
+INSERT INTO `student_info` VALUES ('6', '1', null, 'hhhhq', '??', '34', '22222321313', '', '', '', '2018-01-12 00:00:00', '', '', '', '', '', '', '????', '', '???', '0', '', null, null);
 
 -- ----------------------------
 -- Table structure for `student_payment`
@@ -537,13 +541,15 @@ CREATE TABLE `track_record_info` (
   `track_record_title` varchar(200) default NULL,
   `track_record_content` varchar(2000) default NULL,
   `track_record_time` datetime default NULL,
-  `enrollment` int(11) default NULL,
+  `enrollment` varchar(10) default NULL,
   `next_record_time` datetime default NULL,
   PRIMARY KEY  (`track_record_id`),
   KEY `FK_Reference_9` (`student_id`),
-  CONSTRAINT `FK_Reference_9` FOREIGN KEY (`student_id`) REFERENCES `student_info` (`student_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `FK_Reference_9` FOREIGN KEY (`student_id`) REFERENCES `student_info` (`student_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of track_record_info
 -- ----------------------------
+INSERT INTO `track_record_info` VALUES ('1', '1', 'zhuti1', 'jilu1', '2017-12-27 23:11:24', '意向高', '2018-01-10 23:11:49');
+INSERT INTO `track_record_info` VALUES ('4', '5', 'ttt', 'hhhhh', '2018-01-15 00:00:00', '意向高', '2018-02-09 00:00:00');
