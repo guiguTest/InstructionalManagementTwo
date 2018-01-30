@@ -8,6 +8,14 @@
 <title>首页</title>
 	<%@ include file="/view/public/common.jspf" %>
 </head>
+	<script type="text/javascript">
+		function click(){
+			var name=document.getElementById("activename");
+			name.innerHTML("");
+		}
+	
+	
+	</script>
 
 <body>
 <div style="padding:0px; margin:0px;">
@@ -24,8 +32,12 @@
       </div>
       <div class="form-group">
          <label class="" for="activstate">活动状态：</label>
-		 <select  class="form-control" id="activstate">
-            <option>活动状态</option>
+		 <select  class="form-control" id="activstate" onfocus="click()">
+            <option value="-1">活动状态</option>
+            <option value="0">准备中</option>
+            <option value="1">开始</option>
+            <option value="2">进行中</option>
+            <option value="3">已结束</option>
          </select>	
       </div>
     <input type="button"   class="btn btn-danger"     value="查询"/>
@@ -50,8 +62,8 @@
     	<display:column property="activeId" title="编号"></display:column>
     	<display:column property="activeName" title="活动名称" ></display:column>
     	<display:column property="activeState" title="活动状态"  decorator="com.guigu.marketactive.transfor.Transfor"></display:column>
-    	<display:column property="staffName" title="负责人"> </display:column>
-    	<display:column property="activeType" title="活动类型"></display:column>
+    	<display:column property="activeType" title="活动类型"   decorator="com.guigu.marketactive.transfor.TransforType"></display:column>
+    	<display:column property="activeContent" title="活动描述"> </display:column>
     	<display:column href="${pageContext.request.contextPath }/marketactive/marketactive/load.action" paramId="activeId" paramProperty="activeId" value="修改" title="修改"></display:column>
     	<display:column href="${pageContext.request.contextPath }/marketactive/marketactive/delete.action" paramId="activeId" paramProperty="activeId" value="删除" title="删除"></display:column>
     </display:table>
