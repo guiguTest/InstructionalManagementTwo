@@ -18,29 +18,29 @@
 			<li>修改学员信息</li>
 		</ul>
 	</div>
-
+	<!-- 显示错误信息 -->
+	<div align="center">
+		<div class="alert alert-warning"
+			style="margin: 0px; padding: 5px; width: 100%;display:${empty allErrors?'none':'block'} ">
+			<c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br />
+			</c:forEach>
+		</div>
+	</div>
 	<form
 		action="${pageContext.request.contextPath}/recruitstudent/studentpool/update.action"
 		class="form-horizontal">
 		<h5 class="page-header alert-info"
 			style="padding: 10px; margin: 0px; margin-bottom: 5px;">基本信息</h5>
 		<div class="row">
-			<div class="col-sm-5">
-				<div class="form-group">
-					<label class="col-sm-3 control-label">学生编号</label>
-					<div class="col-sm-9">
-						<input type="text" name="studentId" readonly="readonly"
-							value="${studentInfo.studentId }" class="form-control input-sm"
-							placeholder="请输入学生编号" />
-					</div>
-				</div>
-			</div>
+			<input type="hidden" name="studentId"
+				value="${studentInfo.studentId }" class="form-control input-sm" />
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">负责人编号(名字)</label>
 					<div class="col-sm-9">
 						<select name="staffId" class="form-control input-sm">
-							<option>请选择</option>
+							<option></option>
 							<c:forEach items="${stafflist }" var="staff">
 								<option value="${staff.staffId}"
 									${staff.staffId==studentInfo.staffId?'selected':'' }>${staff.staffName }</option>
@@ -54,8 +54,7 @@
 					<label class="col-sm-3 control-label">学生姓名</label>
 					<div class="col-sm-9">
 						<input type="text" name="studentName"
-							value="${studentInfo.studentName }" class="form-control input-sm"
-							placeholder="请输入学生姓名" />
+							value="${studentInfo.studentName }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -67,7 +66,7 @@
 					<label class="col-sm-3 control-label">性别</label>
 					<div class="col-sm-4">
 						<select name="studentSex" class="form-control input-sm">
-							<option>保密</option>
+							<option></option>
 							<option ${studentInfo.studentSex=='男'?'selected':''}>男</option>
 							<option ${studentInfo.studentSex=='女'?'selected':''}>女</option>
 						</select>
@@ -79,8 +78,7 @@
 					<label class="col-sm-3 control-label">年龄</label>
 					<div class="col-sm-5">
 						<input type="text" name="studentAge"
-							value="${studentInfo.studentAge }" class="form-control input-sm"
-							placeholder="请输入年龄" />
+							value="${studentInfo.studentAge }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -94,7 +92,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentTellphone"
 							value="${studentInfo.studentTellphone }"
-							class="form-control input-sm" placeholder="请输入手机号码" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -104,7 +102,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentEmail"
 							value="${studentInfo.studentEmail }"
-							class="form-control input-sm" placeholder="请输入电子邮件" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -118,7 +116,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentIdcard"
 							value="${studentInfo.studentIdcard }"
-							class="form-control input-sm" placeholder="请输入身份证" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -128,7 +126,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentAddress"
 							value="${studentInfo.studentAddress }"
-							class="form-control input-sm" placeholder="请输入家庭地址" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -143,7 +141,7 @@
 						<input type="text" name="studentBirthday"
 							value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
 							onclick="WdatePicker()" readonly="readonly"
-							class="form-control input-sm" placeholder="请输入出生日期" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -153,7 +151,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentSchool"
 							value="${studentInfo.studentSchool }"
-							class="form-control input-sm" placeholder="请输入所在院校" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -166,8 +164,7 @@
 					<label class="col-sm-3 control-label">QQ号码</label>
 					<div class="col-sm-9">
 						<input type="text" name="studentQq"
-							value="${studentInfo.studentQq }" class="form-control input-sm"
-							placeholder="请输入QQ号码" />
+							value="${studentInfo.studentQq }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -177,7 +174,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentParentsName"
 							value="${studentInfo.studentParentsName }"
-							class="form-control input-sm" placeholder="请输入家长姓名" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -190,8 +187,7 @@
 					<label class="col-sm-3 control-label">省份</label>
 					<div class="col-sm-9">
 						<input type="text" name="studentPro"
-							value="${studentInfo.studentPro }" class="form-control input-sm"
-							placeholder="请输入省份" />
+							value="${studentInfo.studentPro }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -201,7 +197,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentParentsPhone"
 							value="${studentInfo.studentParentsPhone }"
-							class="form-control input-sm" placeholder="请输入家长电话" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -215,7 +211,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="studentProCity"
 							name="studentParentsPhone" value="${studentInfo.studentProCity }"
-							class="form-control input-sm" placeholder="请输入城市" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -232,7 +228,10 @@
 					</div>
 				</div>
 			</div>
-
+		</div>
+		<!--结束 -->
+		<!--开始 -->
+		<div class="row">
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">学生类型</label>
@@ -245,14 +244,13 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">是否付款</label>
 					<div class="col-sm-9">
 						<input type="text" name="studentIspay"
 							value="${studentInfo.studentIspay }"
-							class="form-control input-sm" placeholder="请输入是否付款" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -278,8 +276,7 @@
 				<label class="col-sm-3 control-label">账号</label>
 				<div class="col-sm-9">
 					<input type="text" name="studentNumber"
-						value="${studentInfo.studentNumber}" class="form-control input-sm"
-						placeholder="请输入账号 " />
+						value="${studentInfo.studentNumber}" class="form-control input-sm" />
 				</div>
 			</div>
 		</div>
@@ -289,7 +286,7 @@
 				<div class="col-sm-9">
 					<input type="password" name="studentPassword"
 						value="${studentInfo.studentPassword}"
-						class="form-control input-sm" placeholder="请输入密码" />
+						class="form-control input-sm" />
 				</div>
 			</div>
 		</div>

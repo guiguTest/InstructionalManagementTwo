@@ -6,9 +6,14 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.TrackRecordInfo;
+import com.guigu.instructional.po.ValidGroupAdd;
+import com.guigu.instructional.po.ValidGroupUpdate;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.TrackRecordCustom;
 import com.guigu.instructional.recruitstudent.service.TrackRecordInfoService;
@@ -34,8 +39,13 @@ public class TrackRecordInfoController {
 	}
 
 	@RequestMapping("add.action")
-	public String addTrackRecordInfo(TrackRecordInfo trackRecordInfo, Model model) throws Exception{
-
+	public String addTrackRecordInfo(@Validated(value= {ValidGroupAdd.class}) TrackRecordInfo trackRecordInfo,BindingResult bindingResult, Model model) throws Exception{
+		
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return this.loadAdd(model);
+		}
 		// 添加试听记录
 		boolean result = trackRecordInfoService.addTrackRecord(trackRecordInfo);
 		if (result) {
@@ -70,9 +80,22 @@ public class TrackRecordInfoController {
 	}
 
 	@RequestMapping("update.action")
-	public String updateTrackRecordInfo(TrackRecordInfo trackRecordInfo, Model model) throws Exception{
+	public String updateTrackRecordInfo(@Validated(value= {ValidGroupUpdate.class})TrackRecordInfo trackRecordInfo,BindingResult bindingResult, Model model) throws Exception{
+		
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return this.loadUpdate(trackRecordInfo.getTrackRecordId(),model);
+		}
+		
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return this.loadUpdate(trackRecordInfo.getTrackRecordId(),model);
+		}
+		System.out.println("111111111111");
 		boolean result = trackRecordInfoService.upadteTrackRecord(trackRecordInfo);
-
+		System.out.println("22222222222");
 		if (result) {
 			model.addAttribute("info", "修改成功");
 		} else {

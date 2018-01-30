@@ -2,13 +2,22 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
-public class StudentInfo {
-    private Integer studentId;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
+
+public class StudentInfo {
+	
+    private Integer studentId;
+    
+    @NotNull(message="{studentInfo.staffId.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private Integer staffId;
 
     private Integer classId;
-
+    
+    @NotNull(message="{studentInfo.studentName.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private String studentName;
 
     private String studentSex;
@@ -23,6 +32,7 @@ public class StudentInfo {
 
     private String studentAddress;
 
+    @Past(message="{studentInfo.studentBirthday.past}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private Date studentBirthday;
 
     private String studentSchool;
@@ -47,8 +57,13 @@ public class StudentInfo {
 
     private String studentDesc;
 
+    @NotNull(message="{studentInfo.studentNumber.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @Length(min=5, max=20, message="{studentInfo.studentNumber.length}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
+    @Pattern(regexp = "^[a-zA-Z]\\w{4,19}$", message = "{studentInfo.studentNumber}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentNumber;
 
+    @NotNull(message="{studentInfo.studentPassword.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @Length(min=6, max=20, message="{studentInfo.studentPassword.length}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentPassword;
 
     public Integer getStudentId() {

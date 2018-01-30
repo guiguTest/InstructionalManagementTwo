@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.DisciplineInfo;
@@ -13,6 +16,8 @@ import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StudentCustom;
 import com.guigu.instructional.po.StudentInfo;
+import com.guigu.instructional.po.ValidGroupAdd;
+import com.guigu.instructional.po.ValidGroupUpdate;
 import com.guigu.instructional.student.service.StudentInfoService;
 import com.guigu.instructional.system.service.StaffInfoService;
 
@@ -32,7 +37,7 @@ public class StudentInfoPoolController {
 		model.addAttribute("list", list);
 		return "recruitstudent/studentpool/studentpool_list";
 	}
-	
+
 	@RequestMapping("list_recruitstudent.action")
 	public String list_recruitstudent(StudentInfo studentInfo, MarketActive marketActive, Model model) {
 		List<StudentCustom> list = studentInfoService.getStudentCustomList(studentInfo, marketActive);
@@ -50,7 +55,15 @@ public class StudentInfoPoolController {
 	}
 
 	@RequestMapping("add.action")
-	public String addStudentInfo(StudentInfo studentInfo, Model model) {
+	public String addStudentInfo(@Validated(value = { ValidGroupAdd.class }) StudentInfo studentInfo,
+			BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			List<ObjectError> allErrors = bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return this.loadAdd(model);
+		}
+
 		// 0为学生池的学生 1为正式学生
 		studentInfo.setStudentMark(0);
 		// 添加试听记录
@@ -77,7 +90,14 @@ public class StudentInfoPoolController {
 	}
 
 	@RequestMapping("update.action")
-	public String updateStudentInfo(StudentInfo studentInfo, Model model) {
+	public String updateStudentInfo(@Validated(value = { ValidGroupUpdate.class }) StudentInfo studentInfo,
+			BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			List<ObjectError> allErrors = bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return this.loadUpdate(studentInfo.getStudentId(), model);
+		}
 		// 0为学生池的学生 1为正式学生
 		studentInfo.setStudentMark(0);
 		// 修改试听记录
@@ -103,7 +123,7 @@ public class StudentInfoPoolController {
 		} else {
 			model.addAttribute("info", "领取学生失败");
 		}
-		return this.list(null,model);
+		return this.list(null, model);
 	}
 
 	@RequestMapping("delete.action")
@@ -115,7 +135,7 @@ public class StudentInfoPoolController {
 		} else {
 			model.addAttribute("info", "删除失败");
 		}
-		return this.list(null,model);
+		return this.list(null, model);
 	}
 
 	@RequestMapping("show.action")

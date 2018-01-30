@@ -2,19 +2,28 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
 public class TrackRecordInfo {
     private Integer trackRecordId;
 
+    @NotNull(message="{trackRecordInfo.studentId.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private Integer studentId;
 
     private String trackRecordTitle;
 
     private String trackRecordContent;
-
+    
+    @NotNull(message="{trackRecordInfo.trackRecordTime.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @Past(message="{trackRecordInfo.trackRecordTime.past}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private Date trackRecordTime;
 
     private String enrollment;
-
+    
+    @NotNull(message="{trackRecordInfo.nextRecordTime.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @Future(message="{trackRecordInfo.nextRecordTime.future}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private Date nextRecordTime;
 
     public Integer getTrackRecordId() {
