@@ -1,9 +1,7 @@
 package com.guigu.instructional.po;
 
-import javax.validation.constraints.NotEmpty;
+public class MessageVO extends MessageInfo{
 
-public class EmailVO extends EmailInfo{
-	@NotEmpty(message="{sendman.isnull}")
 	private String staffName;
 
 	public String getStaffName() {
@@ -19,6 +17,4 @@ public class EmailVO extends EmailInfo{
 		return "EmailVO [staffName=" + staffName + "]";
 	}
 	
-	
-
 }

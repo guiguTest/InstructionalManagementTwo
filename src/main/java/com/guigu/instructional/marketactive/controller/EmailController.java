@@ -7,9 +7,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.marketactive.service.EmailService;
+import com.guigu.instructional.marketactive.service.TemplateInfoService;
 import com.guigu.instructional.po.EmailInfo;
 import com.guigu.instructional.po.EmailVO;
 import com.guigu.instructional.po.MarketActive;
@@ -26,6 +30,9 @@ public class EmailController {
 	@Resource(name="staffInfoServiceImpl")
 	private StaffInfoService staffInfoService;
 	
+	@Resource(name="templateInfoService")
+	private TemplateInfoService templateInfoService;
+	
 	@RequestMapping("list.action")
 	public String emailList(EmailInfo emailInfo,Model model) {
 		List<EmailInfo> list=emailService.getEmailStaff(emailInfo);
@@ -34,20 +41,27 @@ public class EmailController {
 	}
 	
 	@RequestMapping("add.action")
-	public String addEmail(EmailVO emailVO,Model model) {
+	public String addEmail(Model model,@Validated EmailVO emailVO,BindingResult bindingResult) {
 		StaffInfo staffInfo= staffInfoService.getStaffInfo(emailVO.getStaffName());
 		if(staffInfo!=null) {
 			emailVO.setStaffId(staffInfo.getStaffId());
 		}else {
-			emailVO.setStaffId(null);
+			model.addAttribute("error", "该用户没有权限");
+			return "marketactive/emailinfo/emailinfo_send";
+		}
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("emailVO", emailVO);
+			return "marketactive/emailinfo/emailinfo_send";
 		}
 		emailVO.setEmailTime(new Date());
 		emailVO.setEmailState("已发送");
 		boolean flag=emailService.addEmail(emailVO);
 		if(flag) {
-			model.addAttribute("info", "添加成功");
+			model.addAttribute("info", "发送成功");
 		}else {
-			model.addAttribute("info", "添加失败");
+			model.addAttribute("info", "发送失败");
 		}
 		
 		return this.emailList(null,model);
@@ -56,8 +70,9 @@ public class EmailController {
 	@RequestMapping("load.action")
 	public String load(Integer emailId,Model model) {
 		EmailVO emailVO =emailService.findEmailById(emailId);
+		emailVO.setStaffName(staffInfoService.getStaffInfo(emailVO.getStaffId()).getStaffName());
 		model.addAttribute("email", emailVO);
-		return "marketactive/emailinfo/emailinfo_update";
+		return "marketactive/emailinfo/emailinfo_show";
 	}
 	
 	@RequestMapping("update.action")

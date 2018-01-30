@@ -27,14 +27,24 @@
     <a class="btn btn-success"  href="${pageContext.request.contextPath }/view/marketactive/emailinfo/emailinfo_send.jsp">发送邮件</a>
     </form>
 </div>
+<div align="center">
+	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			
+		</button>
+		<p align="center" style="color: red;">邮件-${info}</p>
+	</div>	
+</div>
+
 <div class="row" style="padding:15px; padding-top:0px; ">
   <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/marketactve/emailinfo/list.action">
     	<display:column property="emailId" title="编号"></display:column>
     	<display:column property="emailTitle" title="主题"  href="${pageContext.request.contextPath }/marketactive/emailinfo/load.action" paramId="emailId" paramProperty="emailId"></display:column>
-    	<display:column property="emailTime" title="发送日期"></display:column>
+    	<display:column property="emailTime" title="发送日期"  format="{0,date,yyyy年MM月dd日}"></display:column>
     	<display:column property="emailState" title="发送状态"></display:column>
     	<display:column property="emailMan" title="接收人"> </display:column>
-    	<display:column href="${pageContext.request.contextPath }/marketactive/marketactive/delete.action" paramId="emailId" paramProperty="emailId" value="删除" title="删除"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/marketactive/emailinfo/delete.action" paramId="emailId" paramProperty="emailId" value="删除" title="删除"></display:column>
     </display:table>
 </div>
 

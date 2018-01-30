@@ -149,10 +149,10 @@
                             <li><a href="${pageContext.request.contextPath}/marketactive/template/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 模板管理
 							</a></li>
-                             <li><a href="${pageContext.request.contextPath}/view/marketactive/messafeinfo/messafeinfo_list.jsp" target="mainframe"> <i
+                             <li><a href="${pageContext.request.contextPath}/marketactive/messageinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 短信管理
 							</a></li>       
-                            <li><a href="${pageContext.request.contextPath}/view/marketactive/emailinfo/emailinfo_list.jsp" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/marketactive/emailinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 邮件管理
 							</a></li>   
                             <li><a href="${pageContext.request.contextPath}/marketactive/marketactive/list.action" target="mainframe"> <i
