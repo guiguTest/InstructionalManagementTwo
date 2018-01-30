@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StaffInfoExample;
 import com.guigu.instructional.po.StaffInfoExample.Criteria;
+import com.guigu.instructional.po.StaffInfoExample.Criterion;
 import com.guigu.instructional.system.mapper.StaffInfoMapper;
 import com.guigu.instructional.system.service.StaffInfoService;
 
@@ -95,5 +96,19 @@ public class StaffInfoServiceImpl implements StaffInfoService {
         
         return staffInfoMapper.selectByPrimaryKey(staffId);
     }
+
+	@Override
+	public StaffInfo getStaffInfo(String satffName) {
+		
+		StaffInfoExample staffInfoExample=new StaffInfoExample();
+		Criteria criteria=staffInfoExample.createCriteria();
+		criteria.andStaffNameEqualTo(satffName);
+		List<StaffInfo>list =staffInfoMapper.selectByExample(staffInfoExample);
+		if (!list.isEmpty()) {
+			StaffInfo staffInfo=list.get(0);
+			return staffInfo;
+		}
+		return null;
+	}
 
 }

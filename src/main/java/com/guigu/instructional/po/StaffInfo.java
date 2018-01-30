@@ -3,7 +3,18 @@ package com.guigu.instructional.po;
 import java.util.Date;
 
 public class StaffInfo {
-    private Integer staffId;
+    @Override
+	public String toString() {
+		return "StaffInfo [staffId=" + staffId + ", roleId=" + roleId + ", staffName=" + staffName + ", staffSex="
+				+ staffSex + ", staffAge=" + staffAge + ", staffNativePlace=" + staffNativePlace + ", staffIdcard="
+				+ staffIdcard + ", staffBirthday=" + staffBirthday + ", staffOfficePhone=" + staffOfficePhone
+				+ ", staffMobilePhone=" + staffMobilePhone + ", staffEmail=" + staffEmail + ", staffAddr=" + staffAddr
+				+ ", staffQq=" + staffQq + ", staffEntryTime=" + staffEntryTime + ", staffEducationLevel="
+				+ staffEducationLevel + ", staffRemark=" + staffRemark + ", staffState=" + staffState + ", staffNumber="
+				+ staffNumber + ", staffPassword=" + staffPassword + "]";
+	}
+
+	private Integer staffId;
 
     private Integer roleId;
 
