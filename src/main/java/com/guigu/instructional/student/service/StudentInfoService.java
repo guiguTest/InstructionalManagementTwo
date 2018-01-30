@@ -50,6 +50,15 @@ public interface StudentInfoService {
     /**
      * getStudentInfoCustomList:根据条件查询学生信息信息
      * @author 王珠玲
+     * @param studentInfo
+     * @return  <br/> 
+     * @since JDK 1.8
+     */ 
+	public List<StudentCustom> getStudentCustomList(StudentInfo studentInfo);
+	
+    /**
+     * getStudentInfoCustomList:根据条件查询学生信息信息
+     * @author 王珠玲
      * @param studentInfo marketActive
      * @return  <br/> 
      * @since JDK 1.8

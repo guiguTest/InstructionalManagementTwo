@@ -126,16 +126,47 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 				if (student.getStaffId() != null) {
 					studentCustom.setStaffName(staffInfoService.getStaffInfo(student.getStaffId()).getStaffName());
 					//查询市场名字
-					String activeName = null;
 					List<MarketActive> marketActives = marketActiveService.getMarketActive(student.getStaffId());
+					
 					if (marketActives != null) {
+						String tempname=null;
 						for (MarketActive active : marketActives) {
-							activeName = activeName.concat(","+active.getActiveName());
+							if(active.getActiveName()!=null && active.getActiveName()!="") {
+								tempname.concat(active.getActiveName());
+							}
 						}
-						studentCustom.setActiveName(activeName);
+						studentCustom.setActiveName(tempname);
 					}
 				}
-				System.out.println(studentCustom+"--------");
+				sslist.add(studentCustom);
+			}
+			return sslist;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<StudentCustom> getStudentCustomList(StudentInfo studentInfo) {
+		StudentInfoExample studentInfoExample = new StudentInfoExample();
+		Criteria criteria = studentInfoExample.createCriteria();
+
+		if (studentInfo != null && studentInfo.getStudentName() != null) {
+			studentInfo.setStudentName("%" + studentInfo.getStudentName() + "%");
+			criteria.andStudentNameLike(studentInfo.getStudentName());
+		}
+
+		criteria.andStudentMarkEqualTo(0);
+
+		List<StudentInfo> studentList = studentInfoMapper.selectByExample(studentInfoExample);
+		if (studentList != null) {
+			List<StudentCustom> sslist = new ArrayList<>();
+			for (StudentInfo student : studentList) {
+				StudentCustom studentCustom = new StudentCustom();
+				studentCustom.setStudentInfo(student);
+				if (student.getStaffId() != null) {
+					studentCustom.setStaffName(staffInfoService.getStaffInfo(student.getStaffId()).getStaffName());
+				}
 				sslist.add(studentCustom);
 			}
 			return sslist;

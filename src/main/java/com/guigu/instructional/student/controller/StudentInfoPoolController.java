@@ -27,8 +27,9 @@ public class StudentInfoPoolController {
 	private StaffInfoService staffInfoService;
 
 	@RequestMapping("list.action")
-	public String list(StudentInfo studentInfo, MarketActive marketActive, Model model) {
-		List<StudentCustom> list = studentInfoService.getStudentCustomList(studentInfo, marketActive);
+	public String list(StudentInfo studentInfo, Model model) {
+		System.out.println(studentInfo);
+		List<StudentCustom> list = studentInfoService.getStudentCustomList(studentInfo);
 		model.addAttribute("list", list);
 		return "recruitstudent/studentpool/studentpool_list";
 	}
@@ -61,7 +62,7 @@ public class StudentInfoPoolController {
 		} else {
 			model.addAttribute("info", "ÃÌº” ß∞‹");
 		}
-		return this.list(null, null, model);
+		return this.list(null, model);
 	}
 
 	@RequestMapping("loadUpdate.action")
@@ -89,7 +90,7 @@ public class StudentInfoPoolController {
 		} else {
 			model.addAttribute("info", "–ﬁ∏ƒ ß∞‹");
 		}
-		return this.list(null, null, model);
+		return this.list(null, model);
 	}
 
 	@RequestMapping("updateMark.action")
@@ -104,7 +105,7 @@ public class StudentInfoPoolController {
 		} else {
 			model.addAttribute("info", "¡Ï»°—ß…˙ ß∞‹");
 		}
-		return this.list(null, null, model);
+		return this.list(null,model);
 	}
 
 	@RequestMapping("delete.action")
@@ -116,7 +117,7 @@ public class StudentInfoPoolController {
 		} else {
 			model.addAttribute("info", "…æ≥˝ ß∞‹");
 		}
-		return this.list(null, null, model);
+		return this.list(null,model);
 	}
 
 	@RequestMapping("show.action")
