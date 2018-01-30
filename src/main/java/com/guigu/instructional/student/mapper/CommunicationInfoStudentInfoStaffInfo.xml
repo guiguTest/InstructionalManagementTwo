@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guigu.instructional.student.mapper.CommunicationInfoStudentInfoStaffInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.guigu.instructional.po.CommunicationInfoStudentInfoStaffInfo" >
+    <id column="communication_id" property="communicationId" jdbcType="INTEGER" />
+    <result column="student_name" property="studentName" jdbcType="VARCHAR" />
+    <result column="staff_name" property="staffName" jdbcType="VARCHAR" />
+    <result column="communication_time" property="communicationTime" jdbcType="TIMESTAMP" />
+    <result column="communication_content" property="communicationContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="findCommunication" resultMap="BaseResultMap">
+  select student_info.student_name,staff_info.staff_name,communication_info.* 
+  from student_info,staff_info,communication_info
+  where communication_info.staff_id=staff_info.staff_id and communication_info.student_id=student_info.student_id
+  </select>
+</mapper>

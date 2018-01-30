@@ -15,4 +15,6 @@ public interface StudentInfoService {
 	public boolean updateStudent(StudentInfo studentInfo);
 	
 	public StudentInfo getStudent(Integer studentId );
+	
+	
 }

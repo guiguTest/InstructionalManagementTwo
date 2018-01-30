@@ -218,10 +218,10 @@
                             <li><a href="${pageContext.request.contextPath}/student/evaluationinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员评价
 							</a></li>
-                            <li><a href="view/student/communicateinfo/communicateinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/student/communicateinfo/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 沟通记录
 							</a></li>
-                            <li><a href="view/student/studentwritegrade/studentwritegrade_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/student/studentwritegrade/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 学员成绩
 							</a></li>                                                                                                                        
 						</ul>

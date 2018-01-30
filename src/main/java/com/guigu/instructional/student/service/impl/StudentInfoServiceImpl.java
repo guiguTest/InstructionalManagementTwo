@@ -31,7 +31,6 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 	@Override
 	public boolean addStudent(StudentInfo studentInfo) {
 		int i=studentInfoMapper.insertSelective(studentInfo);
-		
 		if(i>0) {
 			return true;
 		}
@@ -41,13 +40,17 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 
 	@Override
 	public boolean updateStudent(StudentInfo studentInfo) {
+		int i=studentInfoMapper.updateByPrimaryKeySelective(studentInfo);
+		if(i>0) {
+			return true;
+		}
 		return false;
 	}
 
 
 	@Override
 	public StudentInfo getStudent(Integer studentId) {
-		return null;
+		return studentInfoMapper.selectByPrimaryKey(studentId);
 	}
 
 }

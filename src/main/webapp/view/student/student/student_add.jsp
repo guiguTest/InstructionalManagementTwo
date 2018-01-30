@@ -71,7 +71,7 @@
                 <div class="col-sm-4">
                 	<select  name="studentSex" class="form-control input-sm" >
                     	<option>保密</option>
-                        <option>男</option>
+                        <option >男</option>
                         <option>女</option>
                     </select>
                 </div>
@@ -133,7 +133,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentBirthday" class="form-control input-sm" placeholder="请输入出生日期"/>
+                	<input type="text" name="studentBirthday" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
                 </div>
             </div>
         </div>

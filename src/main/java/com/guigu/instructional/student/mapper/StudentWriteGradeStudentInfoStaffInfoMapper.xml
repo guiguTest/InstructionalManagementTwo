@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guigu.instructional.student.mapper.StudentWriteGradeStudentInfoStaffInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.guigu.instructional.po.StudentWriteGradeStudentInfoStaffInfo" >
+    <id column="write_grade_id" property="writeGradeId" jdbcType="INTEGER" />
+    <result column="student_name" property="studentName" jdbcType="VARCHAR" />
+    <result column="staff_name" property="staffName" jdbcType="VARCHAR" />
+    <result column="write_grade_subject" property="writeGradeSubject" jdbcType="VARCHAR" />
+    <result column="write_grade" property="writeGrade" jdbcType="VARCHAR" />
+    <result column="write_grade_time" property="writeGradeTime" jdbcType="TIMESTAMP" />
+    <result column="write_grade_note" property="writeGradeNote" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="findStudentWriteGrade" resultMap="BaseResultMap">
+  select student_info.student_name,staff_info.staff_name,student_write_grade.* 
+  from student_info,staff_info,student_write_grade
+  where student_write_grade.staff_id=staff_info.staff_id and student_write_grade.student_id=student_info.student_id
+  </select>
+  
+ </mapper>

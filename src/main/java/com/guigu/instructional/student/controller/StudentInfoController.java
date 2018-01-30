@@ -23,7 +23,7 @@ public class StudentInfoController {
 	@RequestMapping("list.action")
 	public String list(StudentInfoClassInfoStaffInfo studentInfoClassInfoStaffInfo,Model model) {
 		List<StudentInfoClassInfoStaffInfo> list=studentInfoService.findStudentList();
-		System.out.println(list);
+		
 		model.addAttribute("list",list);
 		return "student/student/student_list";
 	}
@@ -41,4 +41,40 @@ public class StudentInfoController {
 		
 		return "student/student/student_add";
 	} 
+	
+	@RequestMapping("load.action")
+	public String load(Integer studentId,Model model ) {
+		StudentInfo studentInfo=studentInfoService.getStudent(studentId);
+		model.addAttribute("studentInfo",studentInfo);
+		
+		return "student/student/student_update";
+	}
+	
+	
+	@RequestMapping("update.action")
+	public String update(StudentInfo studentInfo,Model model ) {
+		
+		boolean result=studentInfoService.updateStudent(studentInfo);
+		if(result) {
+			model.addAttribute("info", "ÐÞ¸Ä³É¹¦");
+			
+		}else {
+			model.addAttribute("info", "ÐÞ¸ÄÊ§°Ü");
+		}
+		
+		 return this.list(null,model);
+	}
+	
+	@RequestMapping("delete.action")
+	public String delete(StudentInfo studentInfo,Model model ) {
+		studentInfo.setStudentMark(0);
+		boolean result=studentInfoService.updateStudent(studentInfo);
+		
+		if(result) {
+			model.addAttribute("info", "É¾³ý³É¹¦");
+		}else {
+			model.addAttribute("info", "É¾³ýÊ§°Ü");
+		}
+		return this.list(null,model);
+	}
 }
