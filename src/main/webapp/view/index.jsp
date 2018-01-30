@@ -201,7 +201,7 @@
                             <li><a href="${pageContext.request.contextPath}/classinfo/teacher/list.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 教师管理
 							</a></li>    
-                            <li><a href="view/classinfo/classinfo/classinfo_list.html" target="mainframe"> <i
+                            <li><a href="${pageContext.request.contextPath}/classinfo/classinfo/listCDSCS.action" target="mainframe"> <i
 									class="icon-double-angle-right"></i> 班级管理
 							</a></li>                                                           
 						</ul>

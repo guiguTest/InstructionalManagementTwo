@@ -28,6 +28,17 @@
     
     
 </div>
+
+<div align="center">
+	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			
+		</button>
+		<p align="center" style="color: red;">员工信息-${info}</p>
+	</div>	
+</div>
+
 <div class="row" style="padding:15px; padding-top:0px; " align="right" >
 	<table class="table  table-condensed table-striped">
     </table>

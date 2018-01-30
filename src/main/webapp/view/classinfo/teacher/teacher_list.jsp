@@ -40,6 +40,17 @@
     <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/teacher/teacher_add.jsp'"/>
     </form>
 </div>
+
+<div align="center">
+	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			
+		</button>
+		<p align="center" style="color: red;">员工信息-${info}</p>
+	</div>	
+</div>
+
 <div class="row" style="padding:15px; padding-top:0px; ">
 	<table class="table  table-condensed table-striped">
     </table>

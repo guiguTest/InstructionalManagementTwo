@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.ClassroomInfoService;
 import com.guigu.instructional.po.ClassroomInfo;
-import com.guigu.instructional.po.DisciplineInfo;
 
 @Controller
 @RequestMapping("/classinfo/classroominfo/")

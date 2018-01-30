@@ -122,4 +122,15 @@ public class ClassInfo {
     public void setClassDesc(String classDesc) {
         this.classDesc = classDesc == null ? null : classDesc.trim();
     }
+
+	@Override
+	public String toString() {
+		return "ClassInfo [classId=" + classId + ", disciplineId=" + disciplineId + ", syllabusId=" + syllabusId
+				+ ", classroomId=" + classroomId + ", staffId=" + staffId + ", className=" + className
+				+ ", classNumber=" + classNumber + ", classStartTime=" + classStartTime + ", classEndTime="
+				+ classEndTime + ", classIsused=" + classIsused + ", classState=" + classState + ", classDesc="
+				+ classDesc + "]";
+	}
+    
+    
 }

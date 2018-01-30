@@ -21,7 +21,7 @@
 
      <div class="form-group">
          <label class="" for="activename">教室名称：</label>
-        <input type="email" class="form-control" id="activename" placeholder="请输入教室名称">
+        <input type="text" class="form-control" name="classroomName">
       </div>
 
     <input type="button"   class="btn btn-danger"     value="查询"/>
@@ -29,6 +29,17 @@
    
     
 </div>
+
+<div align="center">
+	<div class="alert alert-warning" style="margin: 0px; padding: 5px; width: 80%;display:${empty info?'none':'block'} ">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			
+		</button>
+		<p align="center" style="color: red;">员工信息-${info}</p>
+	</div>	
+</div>
+
 <div class="row" style="padding:15px; padding-top:0px; ">
 	<table class="table  table-condensed table-striped">
     </table>
