@@ -242,4 +242,5 @@ public class StudentInfo {
     public void setStudentPassword(String studentPassword) {
         this.studentPassword = studentPassword == null ? null : studentPassword.trim();
     }
+    
 }

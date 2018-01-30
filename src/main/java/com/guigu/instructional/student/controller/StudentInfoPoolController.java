@@ -28,7 +28,6 @@ public class StudentInfoPoolController {
 
 	@RequestMapping("list.action")
 	public String list(StudentInfo studentInfo, Model model) {
-		System.out.println(studentInfo);
 		List<StudentCustom> list = studentInfoService.getStudentCustomList(studentInfo);
 		model.addAttribute("list", list);
 		return "recruitstudent/studentpool/studentpool_list";
@@ -69,7 +68,6 @@ public class StudentInfoPoolController {
 	public String loadUpdate(Integer studentId, Model model) {
 
 		StudentInfo studentInfo = studentInfoService.getStudentInfo(studentId);
-		System.out.println(studentInfo);
 		model.addAttribute("studentInfo", studentInfo);
 
 		List<StaffInfo> slist = staffInfoService.getStaffInfoList(null);

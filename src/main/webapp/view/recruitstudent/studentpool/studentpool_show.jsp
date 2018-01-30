@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,23 +34,12 @@
 			</div>
 			<div class="col-sm-5">
 				<div class="form-group">
-					<label class="col-sm-3 control-label">负责人编号(名字)</label>
-					<div class="col-sm-9">
-						<p class="form-control-static">${studentInfo.staffId }</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-5">
-				<div class="form-group">
 					<label class="col-sm-3 control-label">学生姓名</label>
 					<div class="col-sm-9">
 						<p class="form-control-static">${studentInfo.studentName }</p>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--开始 -->
-		<div class="row">
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">性别</label>
@@ -67,7 +57,6 @@
 				</div>
 			</div>
 		</div>
-		<!--结束 -->
 		<!--开始 -->
 		<div class="row">
 			<div class="col-sm-5">

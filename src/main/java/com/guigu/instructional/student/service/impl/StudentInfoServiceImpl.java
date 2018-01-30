@@ -95,7 +95,6 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 
 	@Override
 	public List<StudentCustom> getStudentCustomList(StudentInfo studentInfo, MarketActive marketActive) {
-		System.out.println("impl");
 		StudentInfoExample studentInfoExample = new StudentInfoExample();
 		Criteria criteria = studentInfoExample.createCriteria();
 
@@ -103,7 +102,6 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 			studentInfo.setStudentName("%" + studentInfo.getStudentName() + "%");
 			criteria.andStudentNameLike(studentInfo.getStudentName());
 		}
-
 		if (marketActive != null && marketActive.getActiveName() != null) {
 			List<MarketActive> marketActiveList=marketActiveService.getActiveList(marketActive);
 			if(marketActiveList!=null) {
@@ -127,15 +125,11 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 					studentCustom.setStaffName(staffInfoService.getStaffInfo(student.getStaffId()).getStaffName());
 					//查询市场名字
 					List<MarketActive> marketActives = marketActiveService.getMarketActive(student.getStaffId());
-					
 					if (marketActives != null) {
-						String tempname=null;
+						studentCustom.setActiveName("");
 						for (MarketActive active : marketActives) {
-							if(active.getActiveName()!=null && active.getActiveName()!="") {
-								tempname.concat(active.getActiveName());
-							}
+							studentCustom.setActiveName(studentCustom.getActiveName()+active.getActiveName());
 						}
-						studentCustom.setActiveName(tempname);
 					}
 				}
 				sslist.add(studentCustom);

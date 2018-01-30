@@ -52,6 +52,10 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 			if (marketActive.getActiveState()!=null) {
 				criteria.andActiveStateEqualTo(marketActive.getActiveState());
 			}
+			if(marketActive.getActiveName()!=null) {
+				marketActive.setActiveName("%"+marketActive.getActiveName()+"%");
+				criteria.andActiveNameLike(marketActive.getActiveName());
+			}
 			
 		}
 		return marketActiveMapper.selectByExample(marketActiveExample);

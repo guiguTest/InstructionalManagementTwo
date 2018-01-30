@@ -45,12 +45,9 @@
 		<display:table class="table  table-condensed table-striped"
 			name="list" pagesize="10"
 			requestURI="${pageContext.request.contextPath}/recruitstudent/studentpool/list.action">
-			<display:column property="studentInfo.studentId" title="编号"></display:column>
 			<display:column property="staffName" title="负责人"></display:column>
 			<display:column property="studentInfo.studentName" href="${pageContext.request.contextPath}/recruitstudent/studentpool/show.action" 
 			paramId="studentId" paramProperty="studentInfo.studentId" title="学生姓名"></display:column>
-			<display:column property="studentInfo.studentSex" title="性别"></display:column>
-			<display:column property="studentInfo.studentAge" title="年龄"></display:column>
 			<display:column property="studentInfo.studentTellphone" title="手机"></display:column>
 			<display:column property="studentInfo.studentEmail" title="邮箱"></display:column>
 			<display:column property="studentInfo.studentSchool" title="学校"></display:column>
