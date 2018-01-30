@@ -81,7 +81,9 @@ public class TrackRecordInfoServiceImpl implements TrackRecordInfoService{
 				TrackRecordCustom trackRecordCustom=new TrackRecordCustom();
 				trackRecordCustom.setTrackRecordInfo(trackRecordInfo);
 				if(trackRecordInfo.getStudentId()!=null) {
-					trackRecordCustom.setStudentName(studentInfoService.getStudentInfo(trackRecordInfo.getStudentId()).getStudentName());
+					StudentInfo s=studentInfoService.getStudentInfo(trackRecordInfo.getStudentId());
+					trackRecordCustom.setStudentName(s.getStudentName());
+					trackRecordCustom.setStudentState(s.getStudentState());
 				}
 				trlist.add(trackRecordCustom);
 			}

@@ -111,5 +111,13 @@ public class StudentInfoPoolController {
 		}
 		return this.list(null, model);
 	}
+	
+	@RequestMapping("show.action")
+	public String show(Integer studentId,Model model) {
+		
+		StudentInfo studentInfo=studentInfoService.getStudentInfo(studentId);
+		model.addAttribute("studentInfo", studentInfo);
+		return "recruitstudent/studentpool/studentpool_show";
+	}
 
 }

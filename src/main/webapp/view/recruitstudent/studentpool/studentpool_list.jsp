@@ -47,23 +47,18 @@
 			requestURI="${pageContext.request.contextPath}/recruitstudent/studentpool/list.action">
 			<display:column property="studentInfo.studentId" title="编号"></display:column>
 			<display:column property="staffName" title="负责人"></display:column>
-			<display:column property="studentInfo.studentName" title="姓名"></display:column>
+			<display:column property="studentInfo.studentName" href="${pageContext.request.contextPath}/recruitstudent/studentpool/show.action" 
+			paramId="studentId" paramProperty="studentInfo.studentId" title="学生姓名"></display:column>
 			<display:column property="studentInfo.studentSex" title="性别"></display:column>
 			<display:column property="studentInfo.studentAge" title="年龄"></display:column>
 			<display:column property="studentInfo.studentTellphone" title="手机"></display:column>
 			<display:column property="studentInfo.studentEmail" title="邮箱"></display:column>
-			<display:column property="studentInfo.studentIdcard" title="身份证"></display:column>
-			<display:column property="studentInfo.studentAddress" title="地址"></display:column>
 			<display:column property="studentInfo.studentSchool" title="学校"></display:column>
 			<display:column property="studentInfo.studentQq" title="qq"></display:column>
-			<display:column property="studentInfo.studentParentsPhone"
-				title="父母手机"></display:column>
-			<display:column property="studentInfo.studentType" title="类型"></display:column>
+			<display:column property="studentInfo.studentParentsPhone" title="父母手机"></display:column>
 			<display:column property="studentInfo.studentIspay" title="是否缴费"></display:column>
 			<display:column property="studentInfo.studentState" title="意向"></display:column>
 			<display:column property="studentInfo.studentDesc" title="描述"></display:column>
-			<display:column property="studentInfo.studentNumber" title="帐号"></display:column>
-			<display:column property="studentInfo.studentPassword" title="密码"></display:column>
 			<display:column
 				href="${pageContext.request.contextPath }/recruitstudent/studentpool/loadUpdate.action"
 				paramId="studentId" paramProperty="studentInfo.studentId" value="修改"

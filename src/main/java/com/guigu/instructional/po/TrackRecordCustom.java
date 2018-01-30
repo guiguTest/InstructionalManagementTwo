@@ -5,6 +5,8 @@ public class TrackRecordCustom {
 	private TrackRecordInfo trackRecordInfo;
 	
 	private String studentName;
+	
+	private String studentState;
 
 	public TrackRecordInfo getTrackRecordInfo() {
 		return trackRecordInfo;
@@ -21,7 +23,15 @@ public class TrackRecordCustom {
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-	
+
+	public String getStudentState() {
+		return studentState;
+	}
+
+	public void setStudentState(String studentState) {
+		this.studentState = studentState;
+	}
+
 	
 	
 }
