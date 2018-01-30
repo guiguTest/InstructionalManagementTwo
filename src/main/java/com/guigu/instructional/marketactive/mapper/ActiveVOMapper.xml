@@ -17,20 +17,6 @@
     <result column="active_content" property="activeContent" jdbcType="VARCHAR" />
     <result column="staff_name" property="staffName" jdbcType="VARCHAR" />
   </resultMap>
-	
-	<select id="activeList"  parameterType="com.guigu.instructional.po.MarketActiveVO"  resultMap="BaseResultMap">
-		select m.*
-		from market_active m
-		<if test="marketActiveVO!=null">
-			<if test="activeName!=null or activeName!=''">
-				where m.active_name=#{activeName}
-			</if>
-			<if test="actieState!=null or activeState!=''">
-				and m.active_state=#{activeState} 
-			</if>
-		</if>
-	</select>
-	
 	<insert id="addActive" parameterType="com.guigu.instructional.po.MarketActiveVO" >
     insert into market_active
     <trim prefix="(" suffix=")" suffixOverrides="," >

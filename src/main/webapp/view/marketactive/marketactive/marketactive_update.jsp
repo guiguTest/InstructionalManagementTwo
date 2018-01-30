@@ -93,8 +93,9 @@
                 <div class="col-sm-5">
                 	<select name="activeType"  class="form-control input-sm">
                     	<option value="0" ${active.activeType=='0'?'selected':''}>现场交流 </option>
-                        <option value="1" ${active.activeType=='0'?'selected':''}>会议</option>
-                        <option value="2" ${active.activeType=='0'?'selected':''}>其他</option>
+                        <option value="1" ${active.activeType=='1'?'selected':''}>会议</option>
+                        <option value="2" ${active.activeType=='2'?'selected':''}>其他</option>
+                        <option value="3" ${active.activeType=='3'?'selected':''}>已结束</option>
                     </select>
                 </div>
             </div>
@@ -162,7 +163,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn btn-warning" href="${pageContext.request.contextPath}/view/marketactive/marketactive/marketactive_list.jsp">返回上一级</a>
+            <a class="btn btn-warning" href="${pageContext.request.contextPath}/marketactive/marketactive/list.action">返回上一级</a>
         </div>
     </div>
 </form>

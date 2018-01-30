@@ -27,8 +27,8 @@ public class MarketActiveController {
 	
 	
 	@RequestMapping("list.action")
-	public String activeList(Model model) {
-		List<MarketActiveVO> list=marketActiveService.getActiveStaff();
+	public String activeList(MarketActive marketActive,Model model) {
+		List<MarketActive> list=marketActiveService.getActiveStaff(marketActive);
 		model.addAttribute("list", list);
 		return "marketactive/marketactive/marketactive_list" ;
 	}
@@ -48,7 +48,7 @@ public class MarketActiveController {
 			model.addAttribute("info", "Ìí¼ÓÊ§°Ü");
 		}
 		
-		return this.activeList(model);
+		return this.activeList(null,model);
 	}
 	
 	@RequestMapping("load.action")
@@ -73,18 +73,24 @@ public class MarketActiveController {
 			model.addAttribute("info", "ÐÞ¸ÄÊ§°Ü");
 		}
 		
-		return this.activeList(model);
+		return this.activeList(null,model);
 	}
 	
 	@RequestMapping("delete.action")
 	public String deleteActive(MarketActive marketActive,Model model) {
-		marketActive.setActiveState(3);
-		boolean flag=marketActiveService.deleteActive(marketActive);
+		boolean flag=marketActiveService.deleteActive(marketActive.getActiveId());
 		if(flag) {
 			model.addAttribute("info", "„h³ý³É¹¦");
 		}else {
 			model.addAttribute("info", "„h³ýÊ§°Ü");
 		}
-		return this.activeList(model);
+		return this.activeList(null,model);
+	}
+	
+	@RequestMapping("show.action")
+	public String show(Integer activeId,Model model) {
+		MarketActiveVO marketActiveVO=marketActiveService.findActiveById(activeId);
+		model.addAttribute("active", marketActiveVO);
+		return "marketactive/marketactive/marketactive_show";
 	}
 }

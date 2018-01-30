@@ -43,12 +43,12 @@ public class MarketActiveServiceImpl implements MarketActiveService{
     }
 
 	@Override
-	public List<MarketActive> getActiveList(MarketActive marketActive) {
+	public List<MarketActive> getActiveStaff(MarketActive marketActive) {
 		MarketActiveExample marketActiveExample=new MarketActiveExample();
 		Criteria criteria=marketActiveExample.createCriteria();
 		if(marketActive!=null) {
-			if (marketActive.getActiveId()!=null) {
-				criteria.andActiveIdEqualTo(marketActive.getActiveId());
+			if (marketActive.getActiveName()!=null) {
+				criteria.andActiveNameEqualTo(marketActive.getActiveName());
 			}
 			if (marketActive.getActiveState()!=null) {
 				criteria.andActiveStateEqualTo(marketActive.getActiveState());
@@ -90,14 +90,10 @@ public class MarketActiveServiceImpl implements MarketActiveService{
         return false;
     }
 	
-	@Override
-	public List<MarketActiveVO> getActiveStaff() {
-		return activeVOMapper.activeList();
-	}
 
 	@Override
-	public boolean deleteActive(MarketActive marketActive) {
-		int i=marketActiveMapper.updateByPrimaryKey(marketActive);
+	public boolean deleteActive(Integer activeId) {
+		int i=marketActiveMapper.deleteByPrimaryKey(activeId);
 		if (i>0) {
 			return true;
 		}
