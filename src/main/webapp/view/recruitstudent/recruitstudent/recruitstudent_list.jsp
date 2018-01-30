@@ -41,8 +41,7 @@
 			<display:column property="studentInfo.studentName"
 				href="${pageContext.request.contextPath}/recruitstudent/studentpool/show.action"
 				paramId="studentId" paramProperty="studentInfo.studentId" title="学生姓名"></display:column>
-			<display:column property="studentInfo.studentTellphone" title="手机"></display:column>
-			<display:column property="studentInfo.studentEmail" title="邮箱"></display:column>
+			<display:column property="studentInfo.studentTellphone" title="学生手机"></display:column>
 			<display:column property="studentInfo.studentSchool" title="学校"></display:column>
 			<display:column property="studentInfo.studentQq" title="qq"></display:column>
 			<display:column property="studentInfo.studentState" title="意向"></display:column>
