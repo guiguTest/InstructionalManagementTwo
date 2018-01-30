@@ -198,7 +198,7 @@
 									学员池
 							</a></li>
 							<li><a
-								href="recruitstudent/recruitstudent/recruitstudent_list.jsp"
+								href=${pageContext.request.contextPath}/recruitstudent/studentpool/list_recruitstudent.action"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									招生线索
 							</a></li>

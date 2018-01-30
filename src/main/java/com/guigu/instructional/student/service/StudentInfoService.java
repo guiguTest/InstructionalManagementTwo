@@ -3,6 +3,7 @@ package com.guigu.instructional.student.service;
 import java.util.List;
 
 import com.guigu.instructional.po.AuditionInfo;
+import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StudentCustom;
 import com.guigu.instructional.po.AuditionCustom;
@@ -49,11 +50,11 @@ public interface StudentInfoService {
     /**
      * getStudentInfoCustomList:根据条件查询学生信息信息
      * @author 王珠玲
-     * @param studentInfo
+     * @param studentInfo marketActive
      * @return  <br/> 
      * @since JDK 1.8
      */ 
-	public List<StudentCustom> getStudentCustomList(StudentInfo studentInfo);
+	public List<StudentCustom> getStudentCustomList(StudentInfo studentInfo,MarketActive marketActive);
 	
     /**
      * getAuditionInfo:根据条件编号查询学生信息

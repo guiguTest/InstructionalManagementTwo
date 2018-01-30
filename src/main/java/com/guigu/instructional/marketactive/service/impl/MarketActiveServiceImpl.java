@@ -1,6 +1,5 @@
 package com.guigu.instructional.marketactive.service.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -102,5 +101,13 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public List<MarketActive> getMarketActive(Integer staffId) {
+		MarketActiveExample marketActiveExample=new MarketActiveExample();
+		Criteria criteria=marketActiveExample.createCriteria();
+		criteria.andStaffIdEqualTo(staffId);
+		return marketActiveMapper.selectByExample(marketActiveExample);
 	}
 }

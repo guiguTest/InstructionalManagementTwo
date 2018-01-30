@@ -5,6 +5,8 @@ public class StudentCustom {
 	private StudentInfo studentInfo;
 	
 	private String staffName;
+	
+	private String activeName;
 
 	public StudentInfo getStudentInfo() {
 		return studentInfo;
@@ -22,10 +24,20 @@ public class StudentCustom {
 		this.staffName = staffName;
 	}
 
+	public String getActiveName() {
+		return activeName;
+	}
+
+	public void setActiveName(String activeName) {
+		this.activeName = activeName;
+	}
+
 	@Override
 	public String toString() {
-		return "StudentCustom [studentInfo=" + studentInfo + ", staffName=" + staffName + "]";
+		return "StudentCustom [studentInfo=" + studentInfo + ", staffName=" + staffName + ", activeName=" + activeName
+				+ "]";
 	}
+
 	
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,76 +16,39 @@
 			<li>招生线索</li>
 		</ul>
 	</div>
-	<form class="form-inline">
-		<div class="row alert alert-info" style="margin: 0px; padding: 3px;">
-
+	<form class="form-inline"
+		action="${pageContext.request.contextPath}/recruitstudent/studentpool/list_recruitstudent.action"
+		method="post">
+		<div class="row alert alert-info"
+			style="margin: 0px; padding: 3px; text-align: center;">
 			<div class="form-group">
-				<label class="" for="activename">学员姓名：</label> <input type="email"
-					class="form-control" id="activename" placeholder="请输入学员姓名">
+				<input type="text" class="form-control" name="studentName"
+					id="activename" placeholder="请输入学员姓名">
 			</div>
 			<div class="form-group">
-				<label class="" for="activename">学员意向：</label> <select
-					name="studentState" class="form-control input-sm">
-					<option>无意向</option>
-					<option>意向低</option>
-					<option>意向中</option>
-					<option>意向高</option>
-				</select>
+				<input type="text" class="form-control" name="activeName"
+					id="activename" placeholder="请输入活动名称">
 			</div>
-			<input type="button" class="btn btn-danger" value="查询" /> <a
-				class="btn btn-success" href="recruitstudent_add.jsp">添加学员</a>
-
-		</div>
-		<div class="row" style="padding: 15px; padding-top: 0px;">
-			<table class="table  table-condensed table-striped">
-				<tr>
-					<th>编号</th>
-					<th>姓名</th>
-					<th>性别</th>
-					<th>年龄</th>
-					<th>手机号码</th>
-					<th>电子邮件</th>
-					<th>所在院校</th>
-					<th>操作</th>
-				</tr>
-				<tr>
-					<td>1001</td>
-					<td>猪八戒</td>
-					<td>男</td>
-					<td>18</td>
-					<td>152xxxxxxxx</td>
-					<td>xxxx@qq.com</td>
-					<td>社会大学</td>
-					<th><a href="recruitstudent_update.jsp">修改</a> <a href="">删除</a>
-
-					</th>
-				</tr>
-				<tr>
-					<td>1001</td>
-					<td>猪八戒</td>
-					<td>男</td>
-					<td>18</td>
-					<td>152xxxxxxxx</td>
-					<td>xxxx@qq.com</td>
-					<td>社会大学</td>
-					<th><a href="recruitstudent_update.jsp">修改</a> <a href="">删除</a>
-
-					</th>
-				</tr>
-				<tr>
-					<td>1001</td>
-					<td>猪八戒</td>
-					<td>男</td>
-					<td>18</td>
-					<td>152xxxxxxxx</td>
-					<td>xxxx@qq.com</td>
-					<td>社会大学</td>
-					<th><a href="recruitstudent_update.jsp">修改</a> <a href="">删除</a>
-
-					</th>
-				</tr>
-			</table>
+			<input type="submit" class="btn btn-danger" value="查询" />
 		</div>
 	</form>
+	<div class="row" style="padding: 15px; padding-top: 0px;">
+		<display:table class="table  table-condensed table-striped"
+			name="list" pagesize="10"
+			requestURI="${pageContext.request.contextPath}/recruitstudent/studentpool/list_recruitstudent.action">
+			<display:column property="studentInfo.studentId" title="编号"></display:column>
+			<display:column property="staffName" title="负责人"></display:column>
+			<display:column property="studentInfo.studentName"
+				href="${pageContext.request.contextPath}/recruitstudent/studentpool/show.action"
+				paramId="studentId" paramProperty="studentInfo.studentId" title="学生姓名"></display:column>
+			<display:column property="studentInfo.studentTellphone" title="手机"></display:column>
+			<display:column property="studentInfo.studentEmail" title="邮箱"></display:column>
+			<display:column property="studentInfo.studentSchool" title="学校"></display:column>
+			<display:column property="studentInfo.studentQq" title="qq"></display:column>
+			<display:column property="studentInfo.studentState" title="意向"></display:column>
+			<display:column property="studentInfo.studentDesc" title="描述"></display:column>
+			<display:column property="activeName" title="活动名称"></display:column>
+		</display:table>
+	</div>
 </body>
 </html>

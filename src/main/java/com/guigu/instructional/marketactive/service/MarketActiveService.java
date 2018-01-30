@@ -19,5 +19,14 @@ public interface MarketActiveService {
 	public boolean addActive(MarketActiveVO marketActiveVO);
 	
 	public boolean deleteActive(MarketActive marketActive);
+	
+    /**
+     * getMarketActive:根据条件编号查询市场营销信息
+     * @author 王珠玲
+     * @param marketActive
+     * @return  <br/> 
+     * @since JDK 1.8
+     */
+	public List<MarketActive> getMarketActive(Integer staffId);
 
 }
