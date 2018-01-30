@@ -1,15 +1,12 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="../../../css/bootstrap.min.css">
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="../../../js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="../../../js/bootstrap.min.js"></script>
+<%@ include file="/view/public/common.jspf" %>
 </head>
 
 <body>
@@ -21,7 +18,7 @@
     </ul>
 </div>
 
-<form action="" class="form-horizontal">
+<form action="${pageContext.request.contextPath }/marketactive/emailinfo/add.action" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
@@ -30,14 +27,13 @@
             	<label class="col-sm-3 control-label">模板</label>
                 <div class="col-sm-9">
                 	<select name="" class="form-control input-sm">
-                    	<option>短信模板一</option>
-                        <option>短信模板一</option>
-                        <option>短信模板一</option>
-                        <option>短信模板一</option>
+                    	<option>邮件模板一</option>
+                        <option>邮件模板一</option>
+                        <option>邮件模板一</option>
+                        <option>邮件模板一</option>
                     </select>
                 </div>
             </div>
-        
         </div>
     </div>
      	<div class="row">
@@ -45,18 +41,26 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">主题</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入主题"/>
+                	<input type="text" name="emailTitle" class="form-control input-sm" placeholder="请输入主题"/>
                 </div>
             </div>
         </div>
-        
+        <div class="row">
+                <div class="col-sm-5">
+            <div class="form-group">
+            	<label class="col-sm-3 control-label">发送人</label>
+                <div class="col-sm-9">
+                	<input type="text" name="staffName" class="form-control input-sm" placeholder="请输入发送人"/>
+                </div>
+            </div>
+       			 </div>
         </div>
     	<div class="row">
                 <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">接收人</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm" placeholder="请输入接收人"/>
+                	<input type="text" name="emailMan" class="form-control input-sm" placeholder="请输入接收人"/>
                 </div>
             </div>
         </div>
@@ -68,21 +72,18 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">邮件地址</label>
                 <div class="col-sm-9">
-                	<input type="text" name="" class="form-control input-sm"  placeholder="请输入电话号码"/>
+                	<input type="email" name="emailAddr" class="form-control input-sm"  placeholder="请输入地址"/>
                 </div>
             </div>
         
         </div>
-
-
-    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">邮件内容信息</h5>
     	<div class="row">
     	<div class="col-sm-10">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">邮件内容</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control"></textarea>
+                	<textarea class="form-control" name="emailContent"></textarea>
                 </div>
             </div>
         
@@ -94,7 +95,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="发送"/>
 
-              <a class="btn btn-warning" href="emailinfo_list.html">返回上一级</a>
+              <a class="btn btn-warning" href="${pageContext.request.contextPath }view/marketactive/marketactive/marketactive_list.jsp">返回上一级</a>
         </div>
     </div>
 </form>
