@@ -2,6 +2,17 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.context.annotation.Primary;
+
+
 public class StaffInfo {
     @Override
 	public String toString() {
@@ -18,14 +29,21 @@ public class StaffInfo {
 
     private Integer roleId;
 
+    @NotEmpty(message="${StaffInfo.staffName.empty}")
+    @Size(min=1,max=10,message="${StaffInfo.staffName.size}")
     private String staffName;
 
     private String staffSex;
-
+    
+    @Min(value=18,message="${StaffInfo.staffAge.min}")
+    @Max(value=70,message="${StaffInfo.staffAge.max}")
+    @NotNull(message="${StaffInfo.staffAge.isnull}")
     private Integer staffAge;
 
     private String staffNativePlace;
 
+    @NotEmpty(message="${StaffInfo.staffIdcard.isnull}")
+    @Pattern(regexp="[0-9]{17}[0-9xX]{1}",message="${StaffInfo.staffIdcard.regexp}")
     private String staffIdcard;
 
     private Date staffBirthday;
@@ -33,13 +51,17 @@ public class StaffInfo {
     private String staffOfficePhone;
 
     private String staffMobilePhone;
-
+    
+    @NotEmpty(message="${StaffInfo.staffEmail.isnull}")
+    @NotBlank(message="${StaffInfo.staffEmail.isuse}")
     private String staffEmail;
-
+    
+    @Size(min=5,max=100,message="${}")
     private String staffAddr;
 
     private String staffQq;
-
+    
+    @NotNull(message="${StaffInfo.staffEntryTime.isnull}")
     private Date staffEntryTime;
 
     private String staffEducationLevel;
@@ -47,7 +69,9 @@ public class StaffInfo {
     private String staffRemark;
 
     private String staffState;
-
+    
+    @Size(min=8,max=15,message="${StaffInfo.staffEmail.isuse}")
+    @Pattern(regexp="[A-Z]+[a-zA-Z0-9]*",message="${StaffInfo.staffEmail.isuse}")
     private String staffNumber;
 
     private String staffPassword;

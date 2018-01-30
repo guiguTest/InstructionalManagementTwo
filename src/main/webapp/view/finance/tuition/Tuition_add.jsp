@@ -22,6 +22,11 @@
 </div>
 <form action="${pageContext.request.contextPath}/finance/tuition/add.action" class="form-horizontal">
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
+    <c:if test="${Errors!=null }">
+		<c:forEach items="${Errors}" var="error">
+			${error.defaultMessage }<br/>
+		</c:forEach>
+	</c:if>
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
@@ -150,14 +155,9 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <input  type="reset" class="btn  btn-danger" value="取消"/>
+            <a class="btn  btn-danger" href="${pageContext.request.contextPath }/finance/salary/list.action">取消</a>
         </div>
     </div>
 </form>
-		<c:if test="${Errors!=null }">
-			 <c:forEach items="${Errors}" var="error">
-			 	${error.defaultMessage }<br/>
-			 </c:forEach>
-		</c:if>
 </body>
 </html>

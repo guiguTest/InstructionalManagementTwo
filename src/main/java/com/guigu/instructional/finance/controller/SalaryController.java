@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.finance.service.SalaryService;
@@ -28,7 +31,15 @@ public class SalaryController {
 	}
 	
 	@RequestMapping("add.action")
-	public String addSalary(StaffSalary staffSalary,Model model) {
+	public String addSalary(Model model,@Validated StaffSalary staffSalary,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("Errors",Errors);
+			return "finance/salary/Salary_add";
+		}
 		boolean result=salaryService.addSalary(staffSalary);
 		if(result) {
 			model.addAttribute("info","添加成功");
@@ -44,7 +55,15 @@ public class SalaryController {
 		return "finance/salary/Salary_update";
 	}
 	@RequestMapping("update.action")
-	public String updateSalary(StaffSalary staffSalary,Model model) {
+	public String updateSalary(Model model,@Validated StaffSalary staffSalary,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("Errors",Errors);
+			return "finance/salary/Salary_update";
+		}
 		boolean result=salaryService.updateSalary(staffSalary);
 		if(result) {
 			model.addAttribute("info","修改成功");

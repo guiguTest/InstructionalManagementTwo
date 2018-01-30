@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,6 +27,11 @@
         </div>
     </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
+    <c:if test="${Errors!=null }">
+		<c:forEach items="${Errors}" var="error">
+			${error.defaultMessage }<br/>
+		</c:forEach>
+	</c:if>
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
@@ -39,7 +46,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffName" class="form-control input-sm" placeholder="请输入姓名"/>
+                	<input type="text" name="staffName" value="${staffSalary.staffName}" class="form-control input-sm" placeholder="请输入姓名"/>
                 </div>
             </div>
         </div>

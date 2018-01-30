@@ -8,6 +8,8 @@ import javax.jws.WebParam.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.StaffInfo;
@@ -33,7 +35,15 @@ public class StaffInfoController {
 
     // 进行数据校验  你们的功能
     @RequestMapping("add.action")
-    public String addStaffInfo(StaffInfo staffInfo,Model model) {
+    public String addStaffInfo(Model model,@Validated StaffInfo staffInfo,BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("Errors",Errors);
+			return "system/staffinfo/staffinfo_add";
+		}
        staffInfo.setStaffState("1");
        boolean result= staffInfoService.addStaff(staffInfo);
        if(result) {

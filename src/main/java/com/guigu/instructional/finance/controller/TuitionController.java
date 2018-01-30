@@ -43,9 +43,6 @@ public class TuitionController {
 	public String addTuition(Model model,@Validated StudentPayment studentPayment,BindingResult bindingResult){
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
-			for (ObjectError objectError : Errors) {
-				System.out.println(objectError);
-			}
 			model.addAttribute("Errors",Errors);
 			return "finance/tuition/Tuition_add";
 		}
@@ -59,6 +56,14 @@ public class TuitionController {
 	}
 	@RequestMapping("update.action")
 	public String updateTuition(Model model,@Validated StudentPayment studentPayment,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("Errors",Errors);
+			return "finance/tuition/Tuition_update";
+		}
 		boolean result=tuitionService.updateTuition(studentPayment);
 		if(result) {
 	           model.addAttribute("info","ÐÞ¸Ä³É¹¦");
