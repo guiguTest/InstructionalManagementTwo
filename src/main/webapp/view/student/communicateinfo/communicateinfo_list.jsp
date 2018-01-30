@@ -25,7 +25,7 @@
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="communicateinfo_add.html">添加沟通记录</a>
+    <a  class="btn btn-success"  href="${pageContext.request.contextPath}/view/student/communicateinfo/communicateinfo_add.jsp">添加沟通记录</a>
     
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
