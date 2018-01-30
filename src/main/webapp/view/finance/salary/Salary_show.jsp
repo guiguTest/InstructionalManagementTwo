@@ -92,7 +92,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">扣除</label>
                 <div class="col-sm-9">
-                	 <p class="form-control-static">${staffSalaryOrder.staffSalaryOrderId}</p>
+                	 <p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryDeduct}</p>
                 </div>
             </div>
         
@@ -101,7 +101,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">领取日期</label>
                 <div class="col-sm-9">
-                 <p class="form-control-static">${staffSalaryOrder.staffSalaryOrderId}</p>
+                 <p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryTime}</p>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                		<p class="form-control-static">${staffSalaryOrder.staffSalaryOrderId}</p>
+                		<p class="form-control-static">${staffSalaryOrder.staffSalary.remark}</p>
                 </div>
             </div>
         
@@ -125,9 +125,9 @@
 
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          	<a href="staffinfo_update.html" class="btn btn-success" >修改</a>
-            <input  type="reset" class="btn  btn-danger" value="删除"/>
-            <a href="${pageContext.request.contextPath }/finance/tuition/list.action" class="btn btn-waring" >返回上一级</a>
+          	<a href="${pageContext.request.contextPath }/finance/salary/load.action?staffSalaryOrderId=${staffSalaryOrder.staffSalaryOrderId}" class="btn btn-success" >修改</a>
+          	<a href="${pageContext.request.contextPath }/finance/salary/delete.action?staffSalaryOrderId=${staffSalaryOrder.staffSalaryOrderId}" class="btn btn-danger" >删除</a>
+            <a href="${pageContext.request.contextPath }/finance/salary/list.action" class="btn btn-waring" >返回上一级</a>
         </div>
     </div>
 </form>

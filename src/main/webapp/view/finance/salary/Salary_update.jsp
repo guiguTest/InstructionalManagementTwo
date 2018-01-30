@@ -59,8 +59,8 @@
                 <div class="col-sm-4">
                 		<select class="form-control input-sm" name="staffSalaryIsused">
                         	<option>请选择</option>
-                            <option ${studentPayment.paymentMenthod=='是'?'selected':''}>是</option>
-                            <option ${studentPayment.paymentMenthod=='否'?'selected':''}>否</option>
+                            <option ${staffSalary.staffSalaryIsused=='是'?'selected':''}>是</option>
+                            <option ${staffSalary.staffSalaryIsused=='否'?'selected':''}>否</option>
                         </select>
                 </div>
             </div>
@@ -124,7 +124,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input type="submit" class="btn btn-success" value="修改"/>
-            <input type="reset" class="btn btn-danger" value="取消"/>
+            <a href="${pageContext.request.contextPath}/finance/salary/list.action" class="btn btn-danger">取消</a>
         </div>
     </div>
 </form>

@@ -143,7 +143,7 @@
 
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          	<a href="staffinfo_update.html" class="btn btn-success" >修改</a>
+          	<a href="${pageContext.request.contextPath }/finance/tuition/load.action?studentPaymentId=${studentPayment.paymentId}" class="btn btn-success" >修改</a>
             <input  type="reset" class="btn  btn-danger" value="删除"/>
             <a href="${pageContext.request.contextPath }/finance/tuition/list.action" class="btn btn-waring" >返回上一级</a>
         </div>

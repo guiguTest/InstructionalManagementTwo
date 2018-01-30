@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.finance.service.SalaryService;
@@ -37,7 +40,15 @@ public class TuitionController {
         return "finance/tuition/Tuition_show";
 	}
 	@RequestMapping("add.action")
-	public String addTuition(StudentPayment studentPayment,Model model){
+	public String addTuition(Model model,@Validated StudentPayment studentPayment,BindingResult bindingResult){
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("Errors",Errors);
+			return "finance/tuition/Tuition_add";
+		}
 		boolean result=tuitionService.addTuition(studentPayment);
 		if(result) {
 	           model.addAttribute("info","添加成功");
@@ -47,7 +58,7 @@ public class TuitionController {
 	       return this.findTuitionForList(new StudentPaymentOrder(), model);
 	}
 	@RequestMapping("update.action")
-	public String updateTuition(StudentPayment studentPayment,Model model) {
+	public String updateTuition(Model model,@Validated StudentPayment studentPayment,BindingResult bindingResult) {
 		boolean result=tuitionService.updateTuition(studentPayment);
 		if(result) {
 	           model.addAttribute("info","修改成功");
@@ -57,9 +68,9 @@ public class TuitionController {
 	     return this.findTuitionForList(new StudentPaymentOrder(), model);
 	}
 	@RequestMapping("load.action")
-	public String loadTuition(Integer staffSalaryOrderId,Model model) {
-		System.out.println(staffSalaryOrderId);
-		StudentPayment studentPayment=tuitionService.findTuitionForId(staffSalaryOrderId);
+	public String loadTuition(Integer studentPaymentId,Model model) {
+		System.out.println(studentPaymentId);
+		StudentPayment studentPayment=tuitionService.findTuitionForId(studentPaymentId);
 		System.out.println(studentPayment);
 		model.addAttribute("studentPayment",studentPayment);
 		return "finance/tuition/Tuition_update";

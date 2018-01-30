@@ -2,23 +2,35 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class StudentPayment {
     private Integer paymentId;
 
     private Integer studentId;
 
     private Integer staffId;
-
+    
+    @Size(min=1,max=500,message="{StudentPayment.paymentSitutation.size}")
     private String paymentSitutation;
 
+    @DecimalMin(value="1",message="{StudentPayment.paymentMenthod.min}")
     private Integer paymentMenthod;
-
+    
+    @NotNull(message="{StudentPayment.paymentTime.isnull}")
+    @Past(message="{StudentPayment.paymentTime.ispast}")
     private Date paymentTime;
 
     private Double paymentDiscountAmount;
 
+    @NotNull(message="{StudentPayment.paymentShouldAmount.isnull}")
     private Double paymentShouldAmount;
 
+    @NotNull(message="{StudentPayment.paymentRealAmount.isnull}")
     private Double paymentRealAmount;
 
     private Double paymentDebtAmount;
