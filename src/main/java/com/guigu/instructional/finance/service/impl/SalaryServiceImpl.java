@@ -52,4 +52,15 @@ public class SalaryServiceImpl implements SalaryService{
 		return staffSalaryMapper.selectByPrimaryKey(staffSalaryId);
 	}
 
+	@Override
+	public boolean deleteSalary(Integer staffSalaryId) {
+		int i=staffSalaryMapper.deleteByPrimaryKey(staffSalaryId);
+		if(i>0) {
+			return true;
+		}
+		return false;
+	}
+
+	
+	
 }

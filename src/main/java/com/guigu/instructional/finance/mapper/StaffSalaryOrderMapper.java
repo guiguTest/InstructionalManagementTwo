@@ -8,5 +8,5 @@ public interface StaffSalaryOrderMapper {
 	
 	public List<StaffSalaryOrder> findStudentPaymentOrder(StaffSalaryOrder staffSalaryOrder);
 	
-	public StaffSalaryOrder findStudentPaymentOrderById(Integer staffSalaryOrderId);
+	public StaffSalaryOrder findStudentPaymentOrderById(int staffSalaryOrderId);
 }

@@ -56,7 +56,18 @@ public class SalaryController {
 	@RequestMapping("show.action")
 	public String findSalaryOrder(Integer staffSalaryOrderId,Model model) {
 		StaffSalaryOrder staffSalaryOrder=salaryService.findSalaryOrderById(staffSalaryOrderId);
+		System.out.println(staffSalaryOrder);
 		model.addAttribute("staffSalaryOrder", staffSalaryOrder);
 		return "finance/salary/Salary_show";
+	}
+	@RequestMapping("delete.action")
+	public String deleteSalary(Integer staffSalaryOrderId,Model model) {
+		boolean result=salaryService.deleteSalary(staffSalaryOrderId);
+		if(result) {
+			model.addAttribute("info","É¾³ý³É¹¦");
+		}else {
+			model.addAttribute("info","É¾³ýÊ§°Ü");
+		}
+		return this.findSalaryForList(new StaffSalaryOrder(), model);
 	}
 }

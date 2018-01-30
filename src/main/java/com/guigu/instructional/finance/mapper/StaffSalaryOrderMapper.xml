@@ -34,4 +34,15 @@
 			and staff_salary.sta_staff_id=t2.staff_id
 		</where>
 	</select>
+	<select id="findStudentPaymentOrderById" resultMap="staffSalaryOrder" parameterType="int">
+		select staff_salary.*,t.staff_name,t2.staff_name finance_Name
+		from staff_salary,staff_info t,staff_info t2
+		<where>
+			
+			and staff_salary.staff_salary_id=#{staffSalaryOrderId}
+			
+			and staff_salary.staff_id=t.staff_id 
+			and staff_salary.sta_staff_id=t2.staff_id
+		</where>
+	</select>
 </mapper>

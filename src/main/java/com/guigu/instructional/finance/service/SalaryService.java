@@ -18,5 +18,5 @@ public interface SalaryService {
 	
 	public StaffSalary findSalaryById(Integer staffSalaryId);
 	
-	
+	public boolean deleteSalary(Integer staffSalaryId);
 }
