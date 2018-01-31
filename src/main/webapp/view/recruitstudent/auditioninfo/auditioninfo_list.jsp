@@ -47,7 +47,9 @@
 			name="list" pagesize="10"
 			requestURI="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action">
 			<display:column property="auditionInfo.auditionId" title="试听记录编号"></display:column>
-			<display:column property="studentName" title="学生姓名"></display:column>
+			<display:column property="studentName" href="${pageContext.request.contextPath}/recruitstudent/studentpool/show.action" 
+			paramId="studentId" paramProperty="auditionInfo.studentId"
+			title="学生姓名"></display:column>
             <display:column property="disciplineName" title="试听课程名字"></display:column>
 			<display:column property="auditionInfo.auditionTime" title="试听日期" format="{0,date,yyy年MM月dd日}"></display:column>
 			<display:column property="auditionInfo.auditionAddr" title="试听地点"></display:column>

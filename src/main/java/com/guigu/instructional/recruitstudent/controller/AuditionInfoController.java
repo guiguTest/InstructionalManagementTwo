@@ -52,6 +52,7 @@ public class AuditionInfoController {
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> allErrors=bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("auditionInfo", auditionInfo);
 			return this.loadAdd(model);
 		}
 		// Ìí¼ÓÊÔÌý¼ÇÂ¼

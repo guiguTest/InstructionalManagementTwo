@@ -41,7 +41,8 @@
 			name="list" pagesize="10"
 			requestURI="${pageContext.request.contextPath}/recruitstudent/trackrecord/list.action">
 			<display:column property="trackRecordInfo.trackRecordId" title="编号"></display:column>
-			<display:column property="studentName" title="学员姓名"></display:column>
+			<display:column property="studentName"  href="${pageContext.request.contextPath}/recruitstudent/studentpool/show.action" 
+			paramId="studentId" paramProperty="trackRecordInfo.studentId" title="学员姓名"></display:column>
 			<display:column property="trackRecordInfo.trackRecordTitle" title="主题"></display:column>
 			<display:column property="trackRecordInfo.trackRecordContent" title="具体内容"></display:column>
 			<display:column property="trackRecordInfo.trackRecordTime" title="联系时间" format="{0,date,yyy年MM月dd日}"></display:column>

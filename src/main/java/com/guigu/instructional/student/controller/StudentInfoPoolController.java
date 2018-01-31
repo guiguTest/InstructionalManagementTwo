@@ -61,6 +61,7 @@ public class StudentInfoPoolController {
 		if (bindingResult.hasErrors()) {
 			List<ObjectError> allErrors = bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("studentInfo", studentInfo);
 			return this.loadAdd(model);
 		}
 
@@ -96,6 +97,7 @@ public class StudentInfoPoolController {
 		if (bindingResult.hasErrors()) {
 			List<ObjectError> allErrors = bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("studentInfo", studentInfo);
 			return this.loadUpdate(studentInfo.getStudentId(), model);
 		}
 		// 0为学生池的学生 1为正式学生

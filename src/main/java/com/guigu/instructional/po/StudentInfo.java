@@ -2,6 +2,7 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -17,7 +18,7 @@ public class StudentInfo {
 
     private Integer classId;
     
-    @NotNull(message="{studentInfo.studentName.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @NotEmpty(message="{studentInfo.studentName.notempty}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private String studentName;
 
     private String studentSex;
@@ -32,6 +33,7 @@ public class StudentInfo {
 
     private String studentAddress;
 
+    @NotNull(message="{studentInfo.studentBirthday.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     @Past(message="{studentInfo.studentBirthday.past}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private Date studentBirthday;
 

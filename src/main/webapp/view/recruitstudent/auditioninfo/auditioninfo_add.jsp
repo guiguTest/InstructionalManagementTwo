@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +42,7 @@
 						<select name="auditionCourse" class="form-control input-sm">
 							<option></option>
 							<c:forEach items="${disciplinelist }" var="discipline">
-								<option value="${discipline.disciplineId}">${discipline.disciplineName }</option>
+								<option value="${discipline.disciplineId}" ${discipline.disciplineId==auditionInfo.auditionCourse?'selected':'' }>${discipline.disciplineName }</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -54,7 +55,7 @@
 						<select name="studentId" class="form-control input-sm">
 							<option></option>
 							<c:forEach items="${studentlist }" var="student">
-								<option value="${student.studentId}">${student.studentName }</option>
+								<option value="${student.studentId}" ${student.studentId==auditionInfo.studentId?'selected':'' }>${student.studentName }</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -66,8 +67,9 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">试听时间</label>
 					<div class="col-sm-9">
-						<input type="text" name="auditionTime" onclick="WdatePicker()"
-							readonly="readonly" class="form-control input-sm" />
+						<input type="text" name="auditionTime" 
+						value="<fmt:formatDate value="${auditionInfo.auditionTime }" type="both" pattern="yyyy-MM-dd"/>"
+						onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -75,7 +77,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">试听地点</label>
 					<div class="col-sm-9">
-						<input type="text" name="auditionAddr"
+						<input type="text" name="auditionAddr" value="${auditionInfo.auditionAddr }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -88,7 +90,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">描述</label>
 					<div class="col-sm-9">
-						<textarea class="form-control" name="auditionDesc"></textarea>
+						<textarea class="form-control" name="auditionDesc">${auditionInfo.auditionDesc }</textarea>
 					</div>
 				</div>
 			</div>

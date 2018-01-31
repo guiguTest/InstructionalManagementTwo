@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +42,7 @@
 						<select name="staffId" class="form-control input-sm">
 							<option></option>
 							<c:forEach items="${stafflist }" var="staff">
-								<option value="${staff.staffId}">${staff.staffName }</option>
+								<option value="${staff.staffId}" ${staff.staffId==studentInfo.staffId?'selected':'' }>${staff.staffName }</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -51,7 +52,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">学员姓名</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentName"
+						<input type="text" name="studentName" value="${studentInfo.studentName }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -65,8 +66,8 @@
 					<div class="col-sm-4">
 						<select name="studentSex" class="form-control input-sm">
 							<option></option>
-							<option>男</option>
-							<option>女</option>
+							<option ${studentInfo.studentSex=='男'?'selected':''}>男</option>
+							<option ${studentInfo.studentSex=='女'?'selected':''}>女</option>
 						</select>
 					</div>
 				</div>
@@ -75,7 +76,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">年龄</label>
 					<div class="col-sm-5">
-						<input type="text" name="studentAge" class="form-control input-sm" />
+						<input type="text" name="studentAge" value="${studentInfo.studentAge }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -87,7 +88,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">手机号码</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentTellphone"
+						<input type="text" name="studentTellphone" value="${studentInfo.studentTellphone }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -96,7 +97,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">电子邮件</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentEmail"
+						<input type="text" name="studentEmail" value="${studentInfo.studentEmail }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -109,7 +110,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">身份证</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentIdcard"
+						<input type="text" name="studentIdcard" value="${studentInfo.studentIdcard }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -118,7 +119,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">家庭地址</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentAddress"
+						<input type="text" name="studentAddress" value="${studentInfo.studentAddress }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -131,8 +132,8 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">出生日期</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentBirthday" onclick="WdatePicker()"
-							readonly="readonly" class="form-control input-sm" />
+						<input type="text" name="studentBirthday" value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
+						onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -140,7 +141,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">所在院校</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentSchool"
+						<input type="text" name="studentSchool" value="${studentInfo.studentSchool }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -153,7 +154,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">QQ号码</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentQq" class="form-control input-sm" />
+						<input type="text" name="studentQq" value="${studentInfo.studentQq }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -161,7 +162,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">家长姓名</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentParentsName"
+						<input type="text" name="studentParentsName" value="${studentInfo.studentParentsName }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -174,7 +175,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">省份</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentPro" class="form-control input-sm" />
+						<input type="text" name="studentPro" value="${studentInfo.studentPro }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -182,7 +183,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">家长电话</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentParentsPhone"
+						<input type="text" name="studentParentsPhone" value="${studentInfo.studentParentsPhone }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -195,7 +196,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">城市</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentProCity"
+						<input type="text" name="studentProCity" value="${studentInfo.studentProCity }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -206,10 +207,10 @@
 					<div class="col-sm-6">
 						<select name="studentState" class="form-control input-sm">
 							<option></option>
-							<option>无意向</option>
-							<option>意向低</option>
-							<option>意向中</option>
-							<option>意向高</option>
+							<option ${studentInfo.studentState=='无意向'?'selected':''}>无意向</option>
+							<option ${studentInfo.studentState=='意向低'?'selected':''}>意向低</option>
+							<option ${studentInfo.studentState=='意向中'?'selected':''}>意向中</option>
+							<option ${studentInfo.studentState=='意向高'?'selected':''}>意向高</option>
 						</select>
 					</div>
 				</div>
@@ -224,9 +225,9 @@
 					<div class="col-sm-6">
 						<select name="studentType" class="form-control input-sm">
 							<option></option>
-							<option>全额自费</option>
-							<option>部分自费</option>
-							<option>全额免费</option>
+							<option ${studentInfo.studentType=='全额自费'?'selected':''}>全额自费</option>
+							<option ${studentInfo.studentType=='部分自费'?'selected':''}>部分自费</option>
+							<option ${studentInfo.studentType=='全额免费'?'selected':''}>全额免费</option>
 						</select>
 					</div>
 				</div>
@@ -235,7 +236,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">是否付款</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentIspay"
+						<input type="text" name="studentIspay" value="${studentInfo.studentIspay }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -249,7 +250,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">描述信息</label>
 					<div class="col-sm-9">
-						<textarea class="form-control" name="studentDesc"></textarea>
+						<textarea class="form-control" name="studentDesc">${studentInfo.studentDesc }</textarea>
 					</div>
 				</div>
 			</div>

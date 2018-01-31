@@ -35,16 +35,9 @@
 		<h5 class="page-header alert-info"
 			style="padding: 10px; margin: 0px; margin-bottom: 5px;">基本信息</h5>
 		<div class="row">
-			<div class="col-sm-5">
-				<div class="form-group">
-					<label class="col-sm-3 control-label">编号</label>
-					<div class="col-sm-9">
-						<input type="text" name="auditionId"
-							value="${auditionInfo.auditionId }" readonly="readonly"
-							class="form-control input-sm" placeholder="编号" />
-					</div>
-				</div>
-			</div>
+			<input type="hidden" name="auditionId"
+				value="${auditionInfo.auditionId }"
+				class="form-control input-sm"/>
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">试听课程</label>
@@ -59,9 +52,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">试听学员姓名</label>
@@ -76,6 +66,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div class="row">
+			
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">试听时间</label>
@@ -83,19 +77,17 @@
 						<input type="text" name="auditionTime"
 							value="<fmt:formatDate value="${auditionInfo.auditionTime }" type="both" pattern="yyyy-MM-dd"/>"
 							onclick="WdatePicker()" readonly="readonly"
-							class="form-control input-sm" placeholder="请输入试听时间" />
+							class="form-control input-sm"/>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">试听地点</label>
 					<div class="col-sm-9">
 						<input type="text" name="auditionAddr"
 							value="${auditionInfo.auditionAddr }"
-							class="form-control input-sm" placeholder="请输入试听地点" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>

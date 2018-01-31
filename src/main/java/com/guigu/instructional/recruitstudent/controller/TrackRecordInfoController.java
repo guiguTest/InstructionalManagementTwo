@@ -44,6 +44,7 @@ public class TrackRecordInfoController {
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> allErrors=bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("trackRecordInfo", trackRecordInfo);
 			return this.loadAdd(model);
 		}
 		// Ìí¼ÓÊÔÌý¼ÇÂ¼
@@ -85,6 +86,7 @@ public class TrackRecordInfoController {
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> allErrors=bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("trackRecordInfo", trackRecordInfo);
 			return this.loadUpdate(trackRecordInfo.getTrackRecordId(),model);
 		}
 		

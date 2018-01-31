@@ -44,7 +44,7 @@
 					<div class="col-sm-9">
 						<input type="text" name="trackRecordTitle"
 							value="${trackRecordInfo.trackRecordTitle }"
-							class="form-control input-sm" placeholder="请输入主题" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 						<input type="text" name="trackRecordTime"
 							value="<fmt:formatDate value="${trackRecordInfo.trackRecordTime }" type="both" pattern="yyyy-MM-dd"/>"
 							onclick="WdatePicker()" readonly="readonly"
-							class="form-control input-sm" placeholder="请输入联系时间" />
+							class="form-control input-sm"/>
 					</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 						<input type="text" name="nextRecordTime"
 							value="<fmt:formatDate value="${trackRecordInfo.nextRecordTime }" type="both" pattern="yyyy-MM-dd"/>"
 							onclick="WdatePicker()" readonly="readonly"
-							class="form-control input-sm" placeholder="请输入下次联系时间" />
+							class="form-control input-sm"/>
 					</div>
 				</div>
 			</div>

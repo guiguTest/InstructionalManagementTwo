@@ -41,7 +41,8 @@
 					<label class="col-sm-3 control-label">主题</label>
 					<div class="col-sm-9">
 						<input type="text" name="trackRecordTitle"
-							class="form-control input-sm" />
+						value="${trackRecordInfo.trackRecordTitle }"
+						class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -51,10 +52,10 @@
 					<div class="col-sm-6">
 						<select name="enrollment" class="form-control input-sm">
 							<option></option>
-							<option>无意向</option>
-							<option>意向低</option>
-							<option>意向中</option>
-							<option>意向高</option>
+							<option ${trackRecordInfo.enrollment=='无意向'?'selected':''}>无意向</option>
+							<option ${trackRecordInfo.enrollment=='意向低'?'selected':''}>意向低</option>
+							<option ${trackRecordInfo.enrollment=='意向中'?'selected':''}>意向中</option>
+							<option ${trackRecordInfo.enrollment=='意向高'?'selected':''}>意向高</option>
 						</select>
 					</div>
 				</div>
@@ -69,7 +70,7 @@
 						<select name="studentId" class="form-control input-sm">
 							<option></option>
 							<c:forEach items="${studentlist }" var="student">
-								<option value="${student.studentId}">${student.studentName }</option>
+								<option value="${student.studentId}" ${student.studentId==trackRecordInfo.studentId?'selected':'' }>${student.studentName }</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -79,8 +80,10 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">联系时间</label>
 					<div class="col-sm-9">
-						<input type="text" name="trackRecordTime" onclick="WdatePicker()"
-							readonly="readonly" class="form-control input-sm" />
+						<input type="text" name="trackRecordTime"
+							value="<fmt:formatDate value="${trackRecordInfo.trackRecordTime }" type="both" pattern="yyyy-MM-dd"/>"
+							onclick="WdatePicker()" readonly="readonly"
+							class="form-control input-sm"/>
 					</div>
 				</div>
 
@@ -92,8 +95,10 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">下次联系时间</label>
 					<div class="col-sm-9">
-						<input type="text" name="nextRecordTime" onclick="WdatePicker()"
-							readonly="readonly" class="form-control input-sm" />
+						<input type="text" name="nextRecordTime"
+							value="<fmt:formatDate value="${trackRecordInfo.nextRecordTime }" type="both" pattern="yyyy-MM-dd"/>"
+							onclick="WdatePicker()" readonly="readonly"
+							class="form-control input-sm"/>
 					</div>
 				</div>
 
@@ -107,12 +112,10 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">具体内容</label>
 					<div class="col-sm-9">
-						<textarea class="form-control" name="trackRecordContent"></textarea>
+						<textarea class="form-control" name="trackRecordContent">${trackRecordInfo.trackRecordContent }</textarea>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
 
 		<div class="row">
