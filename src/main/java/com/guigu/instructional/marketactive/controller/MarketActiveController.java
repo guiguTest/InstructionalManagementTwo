@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.marketactive.mapper.ActiveVOMapper;
 import com.guigu.instructional.marketactive.service.MarketActiveService;
+import com.guigu.instructional.marketactive.service.TemplateInfoService;
 import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.MarketActiveVO;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.TemplateInfo;
 import com.guigu.instructional.system.mapper.StaffInfoMapper;
 import com.guigu.instructional.system.service.StaffInfoService;
 
@@ -27,6 +29,8 @@ public class MarketActiveController {
 	 private MarketActiveService marketActiveService;
 	@Resource(name="staffInfoServiceImpl")
 	private StaffInfoService staffInfoService;
+	@Resource(name="templateInfoServiceImpl")
+	private TemplateInfoService templateInfoService;
 	
 	
 	@RequestMapping("list.action")
@@ -109,4 +113,5 @@ public class MarketActiveController {
 		model.addAttribute("active", marketActiveVO);
 		return "marketactive/marketactive/marketactive_show";
 	}
+	
 }

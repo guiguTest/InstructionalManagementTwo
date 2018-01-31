@@ -24,7 +24,7 @@
     	<input type="text"  name="emailTitle"  class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a class="btn btn-success"  href="${pageContext.request.contextPath }/view/marketactive/emailinfo/emailinfo_send.jsp">发送邮件</a>
+    <a class="btn btn-success"  href="${pageContext.request.contextPath }/marketactive/emailinfo/send.action">发送邮件</a>
     </form>
 </div>
 <div align="center">

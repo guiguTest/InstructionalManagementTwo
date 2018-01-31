@@ -9,6 +9,17 @@
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <%@ include file="/view/public/common.jspf" %>
 </head>
+<script type="text/javascript">	
+	
+	function choose(){
+		var content=document.getElementById('content');
+		content.value="";
+		var t = document.getElementById("select").value;
+		document.emailform.action="${pageContext.re}"
+	}
+
+</script>
+
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -26,23 +37,31 @@
 		<div>
 			${error}
 		</div>
-<form action="${pageContext.request.contextPath }/marketactive/emailinfo/add.action" class="form-horizontal" name="">
+<form action="${pageContext.request.contextPath }/marketactive/emailinfo/add.action" class="form-horizontal" name="emailform">
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">模板</label>
                 <div class="col-sm-9">
-                	<select name="" class="form-control input-sm" onfocus="choose()">
-                    	<option>邮件模板一</option>
-                        <option>邮件模板一</option>
-                        <option>邮件模板一</option>
-                        <option>邮件模板一</option>
+                	<select name="" class="form-control input-sm" onchange="choose()" id="select">
+                    	<option>-模板选择-</option>
+                    	<c:forEach items="${temp}" var="t">
+                    		<option value="${t.templateId}">${t.templateTitle}</option>
+                    	</c:forEach>
                     </select>
                 </div>
             </div>
         </div>
-    </div>
+       </div>
+       
+       <select name="" class="form-control input-sm" style="display:none">
+             <c:forEach items="${temp}" var="t">
+             <option value="${t.templateId}">${t.templateTitle}</option>
+             </c:forEach>
+        </select>
+        
+           
      	<div class="row">
                 <div class="col-sm-5">
             <div class="form-group">
@@ -91,7 +110,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">邮件内容</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="emailContent">${emailVO.emailContent}</textarea>
+                	<textarea class="form-control" name="emailContent" id="content"></textarea>
                 </div>
             </div>
         

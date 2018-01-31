@@ -19,6 +19,7 @@ import com.guigu.instructional.po.EmailVO;
 import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.MarketActiveVO;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.TemplateInfo;
 import com.guigu.instructional.system.service.StaffInfoService;
 
 
@@ -30,7 +31,7 @@ public class EmailController {
 	@Resource(name="staffInfoServiceImpl")
 	private StaffInfoService staffInfoService;
 	
-	@Resource(name="templateInfoService")
+	@Resource(name="templateInfoServiceImpl")
 	private TemplateInfoService templateInfoService;
 	
 	@RequestMapping("list.action")
@@ -101,6 +102,14 @@ public class EmailController {
 			model.addAttribute("info", "„h³ýÊ§°Ü");
 		}
 		return this.emailList(null,model);
+	}
+	@RequestMapping("send.action")
+	public String template(Model model) {
+		TemplateInfo templateInfo =new TemplateInfo();
+		templateInfo.setTemplateType("ÓÊ¼þ");
+		List<TemplateInfo> temp= templateInfoService.findList(templateInfo);
+		model.addAttribute("temp", temp);
+		return "marketactive/emailinfo/emailinfo_send";
 	}
 
 }

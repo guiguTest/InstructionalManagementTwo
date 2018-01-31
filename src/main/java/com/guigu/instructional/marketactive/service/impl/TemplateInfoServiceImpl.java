@@ -79,11 +79,11 @@ public class TemplateInfoServiceImpl implements TemplateInfoService{
 	public List<TemplateInfo> findList(TemplateInfo templateInfo) {
 		TemplateInfoExample templateInfoExample=new TemplateInfoExample();
 		Criteria criteria=templateInfoExample.createCriteria();
-		if(templateInfo!=null) {
-			if(templateInfo.getTemplateType()!=null&& templateInfo.getTemplateType().equals("邮件")) {
+		if(templateInfo.getTemplateType()!=null) {
+			if( templateInfo.getTemplateType().equals("邮件")) {
 				criteria.andTemplateTypeEqualTo(templateInfo.getTemplateType());
 			}
-			if (templateInfo.getTemplateType()!=null&& templateInfo.getTemplateType().equals("短信")) {
+			if (templateInfo.getTemplateType().equals("短信")) {
 				criteria.andTemplateTypeEqualTo(templateInfo.getTemplateType());
 			}
 			
