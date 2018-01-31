@@ -5,6 +5,7 @@ import java.util.List;
 import com.guigu.instructional.po.EvaluationInfo;
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentInfoClassInfoStaffInfo;
+import com.guigu.instructional.po.StudentInfoCustom;
 
 public interface StudentInfoService {
 
@@ -16,5 +17,6 @@ public interface StudentInfoService {
 	
 	public StudentInfo getStudent(Integer studentId );
 	
+//	public List<StudentInfoCustom> getStudentInfoList();
 	
 }

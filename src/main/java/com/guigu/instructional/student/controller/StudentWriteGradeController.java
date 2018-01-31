@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.guigu.instructional.po.EvaluationInfoExampleVO;
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentWriteGrade;
+import com.guigu.instructional.po.StudentWriteGradeCustom;
 import com.guigu.instructional.po.StudentWriteGradeStudentInfoStaffInfo;
 import com.guigu.instructional.student.service.StudentWriteGradeService;
 
@@ -21,10 +24,10 @@ public class StudentWriteGradeController {
 	
 	
 	@RequestMapping("list.action")
-	public String list(StudentWriteGradeStudentInfoStaffInfo studentWriteGradeStudentInfoStaffInfo,Model model) {
+	public String list(StudentInfo studentInfo,Model model) {
 		
-		List<StudentWriteGradeStudentInfoStaffInfo> list=studentWriteGradeService.findStudentWriteGrade();
-		
+		List<StudentWriteGradeCustom> list=studentWriteGradeService.getStudentWriteGradeList(studentInfo);
+		System.out.println(list.get(0));
 		model.addAttribute("list",list);
 		
 		return "student/studentwritegrade/studentwritegrade_list";

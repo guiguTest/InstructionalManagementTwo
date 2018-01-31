@@ -1,12 +1,13 @@
 package com.guigu.instructional.po;
 
-public class EvaluationInfoExampleVO  {
+public class EvaluationInfoExampleVO extends EvaluationInfo {
 
 	private StudentInfo studentInfo;
 	
 	private EvaluationInfo evaluationInfo;
 
 	private String studentName;
+	
 	
 	
 	public String getStudentName() {

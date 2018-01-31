@@ -25,8 +25,12 @@ public class EvaluationInfoController {
 	@RequestMapping("list.action")
 	public String list(EvaluationInfo evaluationInfo,Model model) {
 		
-		List<EvaluationInfoExampleVO> list=evaluationInfoService.getEvaluationInfoList(evaluationInfo);
-		model.addAttribute("list",list);
+		List<EvaluationInfoExampleVO> aaa=evaluationInfoService.getEvaluationInfoList(evaluationInfo);
+		
+		for (EvaluationInfoExampleVO evaluationInfoExampleVO : aaa) {
+			System.out.println(evaluationInfoExampleVO);
+		}
+		model.addAttribute("aaa",aaa);
 		return "student/evaluationinfo/evaluationinfo_list";
 	}
 	

@@ -2,7 +2,9 @@ package com.guigu.instructional.student.service;
 
 import java.util.List;
 
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentWriteGrade;
+import com.guigu.instructional.po.StudentWriteGradeCustom;
 import com.guigu.instructional.po.StudentWriteGradeStudentInfoStaffInfo;
 
 public interface StudentWriteGradeService {
@@ -16,4 +18,6 @@ public interface StudentWriteGradeService {
 	public boolean deleteStudentWriteGrade(Integer writeGradeId);
 	
 	public StudentWriteGrade getStudentWriteGrade(Integer writeGradeId);
+	
+	public List<StudentWriteGradeCustom> getStudentWriteGradeList(StudentInfo studentInfo);
 }
