@@ -2,6 +2,7 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+
 public class EvaluationInfo {
     private Integer evaluationId;
 
@@ -72,4 +73,13 @@ public class EvaluationInfo {
     public void setEvaluationTime(Date evaluationTime) {
         this.evaluationTime = evaluationTime;
     }
+
+	@Override
+	public String toString() {
+		return "EvaluationInfo [evaluationId=" + evaluationId + ", studentId=" + studentId + ", evaluationTile="
+				+ evaluationTile + ", evaluationContent=" + evaluationContent + ", evaluationCourse=" + evaluationCourse
+				+ ", evaluationTeacher=" + evaluationTeacher + ", evaluationTime=" + evaluationTime + "]";
+	}
+    
+    
 }

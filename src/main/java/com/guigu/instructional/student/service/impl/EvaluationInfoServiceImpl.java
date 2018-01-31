@@ -1,5 +1,6 @@
 package com.guigu.instructional.student.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,9 +10,12 @@ import org.springframework.stereotype.Service;
 import com.guigu.instructional.po.EvaluationInfo;
 import com.guigu.instructional.po.EvaluationInfoExample;
 import com.guigu.instructional.po.EvaluationInfoExample.Criteria;
+import com.guigu.instructional.po.EvaluationInfoExampleVO;
 import com.guigu.instructional.po.EvaluationInfoStudentInfo;
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.student.mapper.EvaluationInfoAndStudentInfoMapper;
 import com.guigu.instructional.student.mapper.EvaluationInfoMapper;
+import com.guigu.instructional.student.mapper.StudentInfoMapper;
 import com.guigu.instructional.student.service.EvaluationInfoService;
 
 
@@ -23,6 +27,9 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 	
 	@Resource(name="evaluationInfoAndStudentInfoMapper")
 	private EvaluationInfoAndStudentInfoMapper evaluationInfoAndStudentInfoMapper;
+	
+	@Resource(name="studentInfoMapper")
+	private StudentInfoMapper studentInfoMapper;
 	
 	@Override
 	public boolean addEvaluation(EvaluationInfo evaluationInfo) {
@@ -46,7 +53,8 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 	}
 
 	@Override
-	public List<EvaluationInfo> getEvaluationInfoList(EvaluationInfo evaluationInfo) {
+	public List<EvaluationInfoExampleVO> getEvaluationInfoList(EvaluationInfo evaluationInfo) {
+		List<EvaluationInfoExampleVO> listevaluation=new ArrayList<>();
 		EvaluationInfoExample evaluationInfoExample=new EvaluationInfoExample();
 		Criteria criteria=evaluationInfoExample.createCriteria();
 		if(evaluationInfo!=null && evaluationInfo.getEvaluationTile()!=null) {
@@ -54,9 +62,53 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 			criteria.andEvaluationTileLike(evaluationInfo.getEvaluationTile());
 		}
 		
-		return evaluationInfoMapper.selectByExample(evaluationInfoExample);
+		List<EvaluationInfo> list=evaluationInfoMapper.selectByExample(evaluationInfoExample);
+		
+		if(list!=null) {
+			for(EvaluationInfo evaluationInfo2:list ) {
+			EvaluationInfoExampleVO evaluationInfoExampleVO=new EvaluationInfoExampleVO();
+			StudentInfo studentInfo=studentInfoMapper.selectByPrimaryKey(evaluationInfo2.getStudentId());
+			evaluationInfoExampleVO.setEvaluationInfo(evaluationInfo2);
+			evaluationInfoExampleVO.setStudentInfo(studentInfo);
+			listevaluation.add(evaluationInfoExampleVO);
+			}
+			}
+		
+		return listevaluation;
 	}
 
+//	@Override
+//	public List<EvaluationInfoExampleVO> getEvaluationInfoList(EvaluationInfo evaluationInfo) {
+//		
+//		List<EvaluationInfoExampleVO> listevaluation=new ArrayList<>();
+//		
+//		
+//		EvaluationInfoExample evaluationInfoExample=new EvaluationInfoExample();
+//		Criteria criteria=evaluationInfoExample.createCriteria();
+//		if(evaluationInfo!=null && evaluationInfo.getEvaluationTile()!=null) {
+//			evaluationInfo.setEvaluationTile("%"+evaluationInfo.getEvaluationTile()+"%");
+//			criteria.andEvaluationTileLike(evaluationInfo.getEvaluationTile());
+//		}
+//		List<EvaluationInfo> list=evaluationInfoMapper.selectByExample(evaluationInfoExample);
+//		
+//		if(list!=null) {
+//			
+//			for(EvaluationInfo evaluation:list) {
+//				EvaluationInfoExampleVO evaluationInfoExampleVO=new EvaluationInfoExampleVO();
+//				StudentInfo studentinfo=studentInfoMapper.selectByPrimaryKey(evaluation.getStudentId());
+//				evaluationInfoExampleVO.setEvaluationInfo(evaluation);
+//				
+//				evaluationInfoExampleVO.setStudentInfo(studentinfo);
+//				
+//				listevaluation.add(evaluationInfoExampleVO);
+//			}
+//		}
+//		
+//		
+//		return listevaluation;
+//	}
+	
+	
 	@Override
 	public EvaluationInfo getEvaluationInfo(Integer evaluationId) {
 		
@@ -64,8 +116,9 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 	}
 
 	@Override
-	public List<EvaluationInfoStudentInfo> findEvaluationList() {
-		return evaluationInfoAndStudentInfoMapper.findEvaluationList();
+	public List<EvaluationInfoStudentInfo> findEvaluationList(EvaluationInfoExampleVO evaluationInfoExampleVO) {
+		
+		return evaluationInfoAndStudentInfoMapper.findEvaluationList(evaluationInfoExampleVO);
 	}
 
 	@Override
@@ -76,5 +129,7 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 		}
 		return false;
 	}
+
+
 
 }

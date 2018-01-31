@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.EvaluationInfo;
+import com.guigu.instructional.po.EvaluationInfoExampleVO;
 import com.guigu.instructional.po.EvaluationInfoStudentInfo;
 import com.guigu.instructional.student.service.EvaluationInfoService;
 
@@ -22,8 +23,9 @@ public class EvaluationInfoController {
 	
 	
 	@RequestMapping("list.action")
-	public String list(EvaluationInfoStudentInfo evaluationInfoStudentInfo,Model model) {
-		List<EvaluationInfoStudentInfo> list=evaluationInfoService.findEvaluationList();
+	public String list(EvaluationInfo evaluationInfo,Model model) {
+		
+		List<EvaluationInfoExampleVO> list=evaluationInfoService.getEvaluationInfoList(evaluationInfo);
 		model.addAttribute("list",list);
 		return "student/evaluationinfo/evaluationinfo_list";
 	}

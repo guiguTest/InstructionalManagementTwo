@@ -8,5 +8,5 @@ import com.guigu.instructional.po.EvaluationInfoStudentInfo;
 public interface EvaluationInfoAndStudentInfoMapper {
 
 	
-	public List<EvaluationInfoStudentInfo> findEvaluationList();
+	public List<EvaluationInfoStudentInfo> findEvaluationList(EvaluationInfoExampleVO evaluationInfoExampleVO);
 }
