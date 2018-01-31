@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -20,21 +21,33 @@ public class StudentInfo {
     private Integer classId;
     
     @NotEmpty(message="{studentInfo.studentName.notempty}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
-    @Pattern(regexp = "/^[/u4e00-/u9fa5]*$/", message = "{studentInfo.studentName}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentName;
 
     private String studentSex;
 
     private Integer studentAge;
     
-    
-    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\\\d{8}$", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
+    /* 验证手机号码 
+    * 
+    * 移动号码段:139、138、137、136、135、134、150、151、152、157、158、159、182、183、187、188、147 
+    * 联通号码段:130、131、132、136、185、186、145 
+    * 电信号码段:133、153、180、189 
+    * 
+    */ 
+    @Pattern(regexp = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$", message = "{studentInfo.studentTellphone}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentTellphone;
     
     @Email(message="{studentInfo.studentEmail.email}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private String studentEmail;
     
-    @Pattern(regexp = "^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{2}$", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
+    /** 
+     * 身份证合法性校验 
+     * --15位身份证号码：第7、8位为出生年份(两位数)，第9、10位为出生月份，第11、12位代表出生日期，第15位代表性别，奇数为男，偶数为女。 
+     * --18位身份证号码：第7、8、9、10位为出生年份(四位数)，第11、第12位为出生月份，第13、14位代表出生日期，第17位代表性别，奇数为男，偶数为女。 
+     *    最后一位为校验位 
+     */  
+    @NotNull(message="{studentInfo.studentIdcard.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @Pattern(regexp = "(^\\d{18}$)|(^\\d{15}$)", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentIdcard;
 
     private String studentAddress;
@@ -49,7 +62,14 @@ public class StudentInfo {
 
     private String studentParentsName;
     
-    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\\\d{8}$", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
+    /* 验证手机号码 
+    * 
+    * 移动号码段:139、138、137、136、135、134、150、151、152、157、158、159、182、183、187、188、147 
+    * 联通号码段:130、131、132、136、185、186、145 
+    * 电信号码段:133、153、180、189 
+    * 
+    */ 
+    @Pattern(regexp = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$", message = "{studentInfo.studentParentsPhone}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentParentsPhone;
 
     private String studentPro;

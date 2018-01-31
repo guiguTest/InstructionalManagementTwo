@@ -11,44 +11,24 @@
 </head>
 
 <script type="text/javascript">
-function jsGetAge(){   
-	document.getElementById("studentAge").value=null;
-    var returnAge;  
-    var strBirthday=document.getElementById("studentBirthday").value;
-    var strBirthdayArr=strBirthday.split("-");  
-    var birthYear = strBirthdayArr[0];  
-    var birthMonth = strBirthdayArr[1];  
-    var birthDay = strBirthdayArr[2];  
-    d = new Date();  
-    var nowYear = d.getYear()+1900;  
-    var nowMonth = d.getMonth() + 1;  
-    var nowDay = d.getDate();  
-    if(nowYear == birthYear)  {  
-        returnAge = 0;//同年 则为0岁  
-    }  else  {  
-        var ageDiff = nowYear - birthYear ; //年之差  
-        if(ageDiff > 0){  
-            if(nowMonth == birthMonth)  {  
-                var dayDiff = nowDay - birthDay;//日之差  
-                if(dayDiff < 0)  {  
-                    returnAge = ageDiff - 1;  
-                }  else  {  
-                    returnAge = ageDiff ;  
-                }  
-            }  else  {  
-                var monthDiff = nowMonth - birthMonth;//月之差  
-                if(monthDiff < 0)  {  
-                    returnAge = ageDiff - 1;  
-                }  else  {  
-                    returnAge = ageDiff ;  
-                }  
-            }  
-        }  else  {  
-            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天  
-        }  
-    }  
-    document.getElementById("studentAge").value=returnAge;
-}  	
+	function jsGetAge() {
+		document.getElementById("studentAge").value = null;
+		var returnAge;
+		var strBirthday = document.getElementById("studentBirthday").value;
+		var strBirthdayArr = strBirthday.split("-");
+		var birthYear = strBirthdayArr[0];
+		d = new Date();
+		var nowYear = d.getYear();
+		if (nowYear == birthYear) {
+			returnAge = 0;//同年 则为0岁  
+		} else {
+			returnAge = nowYear - birthYear + 1900; //年之差 ;
+		}
+		if(returnAge<birthYear){
+			document.getElementById("studentAge").value = returnAge;
+		}
+		
+	}
 </script>
 
 <body>
@@ -83,7 +63,8 @@ function jsGetAge(){
 						<select name="staffId" class="form-control input-sm">
 							<option></option>
 							<c:forEach items="${stafflist }" var="staff">
-								<option value="${staff.staffId}" ${staff.staffId==studentInfo.staffId?'selected':'' }>${staff.staffName }</option>
+								<option value="${staff.staffId}"
+									${staff.staffId==studentInfo.staffId?'selected':'' }>${staff.staffName }</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -93,8 +74,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">学员姓名</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentName" value="${studentInfo.studentName }"
-							class="form-control input-sm" />
+						<input type="text" name="studentName"
+							value="${studentInfo.studentName }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -117,7 +98,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">所在院校</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentSchool" value="${studentInfo.studentSchool }"
+						<input type="text" name="studentSchool"
+							value="${studentInfo.studentSchool }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -130,7 +112,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">手机号码</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentTellphone" value="${studentInfo.studentTellphone }"
+						<input type="text" name="studentTellphone"
+							value="${studentInfo.studentTellphone }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -139,7 +122,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">电子邮件</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentEmail" value="${studentInfo.studentEmail }"
+						<input type="text" name="studentEmail"
+							value="${studentInfo.studentEmail }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -152,7 +136,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">身份证</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentIdcard" value="${studentInfo.studentIdcard }"
+						<input type="text" name="studentIdcard"
+							value="${studentInfo.studentIdcard }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -161,7 +146,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">家庭地址</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentAddress" value="${studentInfo.studentAddress }"
+						<input type="text" name="studentAddress"
+							value="${studentInfo.studentAddress }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -174,8 +160,10 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">出生日期</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentBirthday" id="studentBirthday" value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
-						onclick="WdatePicker()" onfocus="jsGetAge()" readonly="readonly" class="form-control input-sm" />
+						<input type="text" name="studentBirthday" id="studentBirthday"
+							value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
+							onclick="WdatePicker()" onfocus="jsGetAge()" readonly="readonly"
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -183,7 +171,9 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">年龄</label>
 					<div class="col-sm-5">
-						<input type="text" name="studentAge" id="studentAge" readonly="readonly" value="${studentInfo.studentAge }"  class="form-control input-sm" />
+						<input type="text" name="studentAge" id="studentAge"
+							readonly="readonly" value="${studentInfo.studentAge }"
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -195,7 +185,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">QQ号码</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentQq" value="${studentInfo.studentQq }" class="form-control input-sm" />
+						<input type="text" name="studentQq"
+							value="${studentInfo.studentQq }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -203,7 +194,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">家长姓名</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentParentsName" value="${studentInfo.studentParentsName }"
+						<input type="text" name="studentParentsName"
+							value="${studentInfo.studentParentsName }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -216,7 +208,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">省份</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentPro" value="${studentInfo.studentPro }" class="form-control input-sm" />
+						<input type="text" name="studentPro"
+							value="${studentInfo.studentPro }" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -224,7 +217,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">家长电话</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentParentsPhone" value="${studentInfo.studentParentsPhone }"
+						<input type="text" name="studentParentsPhone"
+							value="${studentInfo.studentParentsPhone }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -237,7 +231,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">城市</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentProCity" value="${studentInfo.studentProCity }"
+						<input type="text" name="studentProCity"
+							value="${studentInfo.studentProCity }"
 							class="form-control input-sm" />
 					</div>
 				</div>
@@ -277,7 +272,8 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">是否付款</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentIspay" value="${studentInfo.studentIspay }"
+						<input type="text" name="studentIspay"
+							value="${studentInfo.studentIspay }"
 							class="form-control input-sm" />
 					</div>
 				</div>

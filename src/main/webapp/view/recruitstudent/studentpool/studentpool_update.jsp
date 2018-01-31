@@ -10,6 +10,28 @@
 <%@ include file="/view/public/common.jspf"%>
 </head>
 
+<script type="text/javascript">
+	function jsGetAge() {
+		document.getElementById("studentAge").value = null;
+		var returnAge;
+		var strBirthday = document.getElementById("studentBirthday").value;
+		var strBirthdayArr = strBirthday.split("-");
+		var birthYear = strBirthdayArr[0];
+		d = new Date();
+		var nowYear = d.getYear();
+		if (nowYear == birthYear) {
+			returnAge = 0;//同年 则为0岁  
+		} else {
+			returnAge = nowYear - birthYear + 1900; //年之差 ;
+		}
+		if (returnAge < birthYear) {
+			document.getElementById("studentAge").value = returnAge;
+		}
+
+	}
+</script>
+
+
 <body>
 	<div style="padding: 0px; margin: 0px;">
 		<ul class="breadcrumb" style="margin: 0px;">
@@ -77,8 +99,9 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">年龄</label>
 					<div class="col-sm-5">
-						<input type="text" name="studentAge"
-							value="${studentInfo.studentAge }" class="form-control input-sm" />
+						<input type="text" name="studentAge" readonly="readonly"
+							value="${studentInfo.studentAge }" id="studentAge"
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -138,9 +161,9 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">出生日期</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentBirthday"
+						<input type="text" name="studentBirthday" id="studentBirthday"
 							value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
-							onclick="WdatePicker()" readonly="readonly"
+							onclick="WdatePicker()" onfocus="jsGetAge()" readonly="readonly"
 							class="form-control input-sm" />
 					</div>
 				</div>
