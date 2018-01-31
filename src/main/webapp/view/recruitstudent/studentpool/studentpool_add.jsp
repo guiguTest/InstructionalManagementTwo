@@ -11,7 +11,8 @@
 </head>
 
 <script type="text/javascript">
-function jsGetAge(){         
+function jsGetAge(){   
+	document.getElementById("studentAge").value=null;
     var returnAge;  
     var strBirthday=document.getElementById("studentBirthday").value;
     var strBirthdayArr=strBirthday.split("-");  
@@ -174,7 +175,7 @@ function jsGetAge(){
 					<label class="col-sm-3 control-label">出生日期</label>
 					<div class="col-sm-9">
 						<input type="text" name="studentBirthday" id="studentBirthday" value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
-						onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
+						onclick="WdatePicker()" onfocus="jsGetAge()" readonly="readonly" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -182,7 +183,7 @@ function jsGetAge(){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">年龄</label>
 					<div class="col-sm-5">
-						<input type="text" name="studentAge" id="studentAge" value="${studentInfo.studentAge }" onclick="jsGetAge()" class="form-control input-sm" />
+						<input type="text" name="studentAge" id="studentAge" readonly="readonly" value="${studentInfo.studentAge }"  class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
