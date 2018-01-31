@@ -10,7 +10,7 @@ public class TransforType implements ColumnDecorator{
 		if(st==0) {
 			return "现场交流";
 		}
-		if (st==1) {
+		else if(st==1) {
 			return "会议";
 		}
 		else {

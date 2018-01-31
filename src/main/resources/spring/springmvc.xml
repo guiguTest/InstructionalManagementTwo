@@ -51,7 +51,7 @@
 	 	<property name="basenames">
 	 		<list>
 	 			<value>
-	 				classpath:CustomValidationMessage
+	 				classpath:validation
 	 			</value>
 	 		</list>
 	 	</property>

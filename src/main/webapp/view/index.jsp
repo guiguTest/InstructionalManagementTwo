@@ -129,9 +129,7 @@
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 系统管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
-
 						<ul class="submenu">
-
 							<li><a
 								href="${pageContext.request.contextPath}/system/staffinfo/list.action"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
@@ -173,12 +171,12 @@
 									模板管理
 							</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/view/marketactive/messafeinfo/messafeinfo_list.jsp"
+								href="${pageContext.request.contextPath}/marketactive/messageinfo/list.action"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									短信管理
 							</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/view/marketactive/emailinfo/emailinfo_list.jsp"
+								href="${pageContext.request.contextPath}/marketactive/emailinfo/list.action"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									邮件管理
 							</a></li>
@@ -186,8 +184,7 @@
 								href="${pageContext.request.contextPath}/marketactive/marketactive/list.action"
 								target="mainframe"> <i class="icon-double-angle-right"></i>营销活动
 							</a></li>
-						</ul></li>
-					<li><a href="javascript:void(0)" target="mainframe"
+						</ul> <a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 招生管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>

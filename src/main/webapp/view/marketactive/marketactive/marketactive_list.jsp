@@ -8,15 +8,6 @@
 <title>首页</title>
 	<%@ include file="/view/public/common.jspf" %>
 </head>
-	<script type="text/javascript">
-		function click(){
-			var name=document.getElementById("activename");
-			name.innerHTML("");
-		}
-	
-	
-	</script>
-
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -25,22 +16,22 @@
     </ul>
 </div>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-inline">
+<form class="form-inline"  action="${pageContext.request.contextPath }/marketactive/marketactive/list.action">
      <div class="form-group">
-         <label class="" for="activename">活动名称：</label>
-        <input type="email" class="form-control" id="activename" placeholder="请输入活动名称">
+         <label class="" for="activeName">活动名称：</label>
+        <input type="text" class="form-control"  name="activeName"  id="activename" placeholder="请输入活动名称">
       </div>
       <div class="form-group">
-         <label class="" for="activstate">活动状态：</label>
-		 <select  class="form-control" id="activstate" onfocus="click()">
-            <option value="-1">活动状态</option>
+         <label class="" for="activState">活动状态：</label>
+		 <select  class="form-control" id="activestate"  name="activeState" onfocus="click()">
+            <option value="">活动状态</option>
             <option value="0">准备中</option>
             <option value="1">开始</option>
             <option value="2">进行中</option>
             <option value="3">已结束</option>
          </select>	
       </div>
-    <input type="button"   class="btn btn-danger"     value="查询"/>
+    <input type="submit"   class="btn btn-danger"     value="查询"/>
     <a  class="btn btn-success"  href="${pageContext.request.contextPath}/view/marketactive/marketactive/marketactive_add.jsp">添加活动</a>
     </form>
 </div>
@@ -60,7 +51,7 @@
     </table>
     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/marketactve/marketactive/list.action">
     	<display:column property="activeId" title="编号"></display:column>
-    	<display:column property="activeName" title="活动名称" ></display:column>
+    	<display:column property="activeName" title="活动名称"  href="${pageContext.request.contextPath }/marketactive/marketactive/load.action" paramId="activeId" paramProperty="activeId"></display:column>
     	<display:column property="activeState" title="活动状态"  decorator="com.guigu.marketactive.transfor.Transfor"></display:column>
     	<display:column property="activeType" title="活动类型"   decorator="com.guigu.marketactive.transfor.TransforType"></display:column>
     	<display:column property="activeContent" title="活动描述"> </display:column>

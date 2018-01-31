@@ -8,7 +8,6 @@ public interface ActiveVOMapper {
 		
 	public int addActive(MarketActiveVO marketActiveVO);
 	
-	public List<MarketActiveVO> activeList();
 	
 	public int updateActive(MarketActiveVO marketActiveVO);
 

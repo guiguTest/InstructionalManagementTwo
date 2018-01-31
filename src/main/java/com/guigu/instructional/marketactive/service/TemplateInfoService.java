@@ -16,4 +16,6 @@ public interface TemplateInfoService {
 	    
 	    public boolean deleteTemplate(Integer templateId);
 	    
+	    public List<TemplateInfo> findList(TemplateInfo templateInfo);
+	    
 }

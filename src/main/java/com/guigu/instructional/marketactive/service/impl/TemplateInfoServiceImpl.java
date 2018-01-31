@@ -75,4 +75,22 @@ public class TemplateInfoServiceImpl implements TemplateInfoService{
 		return false;
 	}
 
+	@Override
+	public List<TemplateInfo> findList(TemplateInfo templateInfo) {
+		TemplateInfoExample templateInfoExample=new TemplateInfoExample();
+		Criteria criteria=templateInfoExample.createCriteria();
+		if(templateInfo!=null) {
+			if(templateInfo.getTemplateType()!=null&& templateInfo.getTemplateType().equals("ÓÊ¼þ")) {
+				criteria.andTemplateTypeEqualTo(templateInfo.getTemplateType());
+			}
+			if (templateInfo.getTemplateType()!=null&& templateInfo.getTemplateType().equals("¶ÌÐÅ")) {
+				criteria.andTemplateTypeEqualTo(templateInfo.getTemplateType());
+			}
+			
+		}
+		return templateInfoMapper.selectByExample(templateInfoExample);
+	}
+	
+
+	
 }

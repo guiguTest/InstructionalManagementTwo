@@ -16,60 +16,61 @@ import com.guigu.instructional.po.MarketActiveExample.Criteria;
 import com.guigu.instructional.po.MarketActiveVO;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.system.mapper.StaffInfoMapper;
+
 @Service("marketActiveServiceImpl")
-public class MarketActiveServiceImpl implements MarketActiveService{
-	@Resource(name="marketActiveMapper")
+public class MarketActiveServiceImpl implements MarketActiveService {
+	@Resource(name = "marketActiveMapper")
 	private MarketActiveMapper marketActiveMapper;
-	
-	@Resource(name="activeVOMapper")
+
+	@Resource(name = "activeVOMapper")
 	private ActiveVOMapper activeVOMapper;
-	
-	@Resource(name="staffInfoMapper")
+
+	@Resource(name = "staffInfoMapper")
 	private StaffInfoMapper staffInfoMapper;
 
 	@Override
 	public boolean updateActive(MarketActiveVO marketActiveVO) {
 		try {
-            int i = activeVOMapper.updateActive(marketActiveVO);
-            if (i > 0) {
-                return true;
-            }
-        } catch (Exception e) {
+			int i = activeVOMapper.updateActive(marketActiveVO);
+			if (i > 0) {
+				return true;
+			}
+		} catch (Exception e) {
 
-        }
+		}
 
-        return false;
-    }
+		return false;
+	}
 
 	@Override
-	public List<MarketActive> getActiveList(MarketActive marketActive) {
-		MarketActiveExample marketActiveExample=new MarketActiveExample();
-		Criteria criteria=marketActiveExample.createCriteria();
-		if(marketActive!=null) {
-			if (marketActive.getActiveId()!=null) {
-				criteria.andActiveIdEqualTo(marketActive.getActiveId());
+	public List<MarketActive> getActiveStaff(MarketActive marketActive) {
+		MarketActiveExample marketActiveExample = new MarketActiveExample();
+		Criteria criteria = marketActiveExample.createCriteria();
+		if (marketActive != null) {
+			if (marketActive.getActiveName() != null) {
+				criteria.andActiveNameEqualTo(marketActive.getActiveName());
 			}
-			if (marketActive.getActiveState()!=null) {
+			if (marketActive.getActiveState() != null) {
 				criteria.andActiveStateEqualTo(marketActive.getActiveState());
 			}
-			if(marketActive.getActiveName()!=null) {
-				marketActive.setActiveName("%"+marketActive.getActiveName()+"%");
+			if (marketActive.getActiveName() != null) {
+				marketActive.setActiveName("%" + marketActive.getActiveName() + "%");
 				criteria.andActiveNameLike(marketActive.getActiveName());
 			}
-			
+
 		}
 		return marketActiveMapper.selectByExample(marketActiveExample);
 	}
 
 	@Override
 	public MarketActiveVO findActiveById(Integer activeId) {
-		String staffName=null;
-		MarketActive marketActive=marketActiveMapper.selectByPrimaryKey(activeId);
-		StaffInfo staffInfo=staffInfoMapper.selectByPrimaryKey(marketActive.getStaffId());
-		if(staffInfo!=null) {
-			staffName=staffInfo.getStaffName();
+		String staffName = null;
+		MarketActive marketActive = marketActiveMapper.selectByPrimaryKey(activeId);
+		StaffInfo staffInfo = staffInfoMapper.selectByPrimaryKey(marketActive.getStaffId());
+		if (staffInfo != null) {
+			staffName = staffInfo.getStaffName();
 		}
-		MarketActiveVO marketActiveVO=new MarketActiveVO();
+		MarketActiveVO marketActiveVO = new MarketActiveVO();
 		try {
 			BeanUtils.copyProperties(marketActiveVO, marketActive);
 		} catch (Exception e) {
@@ -82,26 +83,21 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 	@Override
 	public boolean addActive(MarketActiveVO marketActiveVO) {
 		try {
-            int i = activeVOMapper.addActive(marketActiveVO);
-            if (i > 0) {
-                return true;
-            }
-        } catch (Exception e) {
+			int i = activeVOMapper.addActive(marketActiveVO);
+			if (i > 0) {
+				return true;
+			}
+		} catch (Exception e) {
 
-        }
+		}
 
-        return false;
-    }
-	
-	@Override
-	public List<MarketActiveVO> getActiveStaff() {
-		return activeVOMapper.activeList();
+		return false;
 	}
 
 	@Override
-	public boolean deleteActive(MarketActive marketActive) {
-		int i=marketActiveMapper.updateByPrimaryKey(marketActive);
-		if (i>0) {
+	public boolean deleteActive(Integer activeId) {
+		int i = marketActiveMapper.deleteByPrimaryKey(activeId);
+		if (i > 0) {
 			return true;
 		}
 		return false;
@@ -109,9 +105,30 @@ public class MarketActiveServiceImpl implements MarketActiveService{
 
 	@Override
 	public List<MarketActive> getMarketActive(Integer staffId) {
-		MarketActiveExample marketActiveExample=new MarketActiveExample();
-		Criteria criteria=marketActiveExample.createCriteria();
+		MarketActiveExample marketActiveExample = new MarketActiveExample();
+		Criteria criteria = marketActiveExample.createCriteria();
 		criteria.andStaffIdEqualTo(staffId);
 		return marketActiveMapper.selectByExample(marketActiveExample);
 	}
+
+	@Override
+	public List<MarketActive> getActiveList(MarketActive marketActive) {
+		MarketActiveExample marketActiveExample = new MarketActiveExample();
+		Criteria criteria = marketActiveExample.createCriteria();
+		if (marketActive != null) {
+			if (marketActive.getActiveId() != null) {
+				criteria.andActiveIdEqualTo(marketActive.getActiveId());
+			}
+			if (marketActive.getActiveState() != null) {
+				criteria.andActiveStateEqualTo(marketActive.getActiveState());
+			}
+			if (marketActive.getActiveName() != null) {
+				marketActive.setActiveName("%" + marketActive.getActiveName() + "%");
+				criteria.andActiveNameLike(marketActive.getActiveName());
+			}
+
+		}
+		return marketActiveMapper.selectByExample(marketActiveExample);
+	}
+
 }

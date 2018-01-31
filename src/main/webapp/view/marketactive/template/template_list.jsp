@@ -21,12 +21,12 @@
 
 
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-horizontal">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/marketactive/template/list.action"">
 	<div class="col-sm-2">标题:</div>
     <div class="col-sm-3">
-    	<input type="text"  class="form-control input-sm"/>
+    	<input type="text"  name="templateTitle" class="form-control input-sm"/>
     </div>
-    <input type="button"   class="btn btn-danger"     value="查询"/>
+    <input type="submit"   class="btn btn-danger"     value="查询"/>
     <a  class="btn btn-success"  href="${pageContext.request.contextPath}/view/marketactive/template/template_add.jsp">添加模板</a>
     </form>
 </div>
