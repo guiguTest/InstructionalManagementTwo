@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
-<<%@ include file="/view/public/common.jspf" %>
+<%@ include file="/view/public/common.jspf" %>
 </head>
 
 <body>

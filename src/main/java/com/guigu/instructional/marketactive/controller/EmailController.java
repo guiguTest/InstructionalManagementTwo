@@ -47,9 +47,9 @@ public class EmailController {
 			emailVO.setStaffId(staffInfo.getStaffId());
 		}else {
 			model.addAttribute("error", "该用户没有权限");
-			return "marketactive/emailinfo/emailinfo_send";
 		}
 		if(bindingResult.hasErrors()) {
+			
 			List<ObjectError> allErrors=bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
 			model.addAttribute("emailVO", emailVO);

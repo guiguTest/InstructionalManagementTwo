@@ -95,7 +95,7 @@
                     	<option value="0" ${active.activeType=='0'?'selected':''}>现场交流 </option>
                         <option value="1" ${active.activeType=='1'?'selected':''}>会议</option>
                         <option value="2" ${active.activeType=='2'?'selected':''}>其他</option>
-                        <option value="3" ${active.activeType=='3'?'selected':''}>已结束</option>
+                       
                     </select>
                 </div>
             </div>

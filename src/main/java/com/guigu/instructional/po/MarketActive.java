@@ -2,6 +2,9 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class MarketActive {
     @Override
 	public String toString() {
@@ -15,13 +18,13 @@ public class MarketActive {
 	private Integer activeId;
 
     private Integer staffId;
-
+    @Size(min=2,max=20,message="{name.length.error}")
     private String activeName;
 
     private Integer activeState;
-
+    @NotNull(message="{startdate.isnull}")
     private Date activeStart;
-
+    @NotNull(message="{enddate.isnull}")
     private Date activeEnd;
 
     private Integer activeType;
