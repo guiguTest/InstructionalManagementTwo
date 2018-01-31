@@ -45,7 +45,8 @@ public class SyllabusInfoServiceImpl implements SyllabusInfoService {
 		Criteria criteria = syllabusInfoExample.createCriteria();
 		if(syllabusInfo!=null) {
 			if(syllabusInfo.getSyllabusName()!=null) {
-				criteria.andSyllabusNameEqualTo(syllabusInfo.getSyllabusName());
+				syllabusInfo.setSyllabusName("%"+syllabusInfo.getSyllabusName()+"%");
+				criteria.andSyllabusNameLike(syllabusInfo.getSyllabusName());
 			}
 		}
 		criteria.andSyllabusIsusedEqualTo("1");

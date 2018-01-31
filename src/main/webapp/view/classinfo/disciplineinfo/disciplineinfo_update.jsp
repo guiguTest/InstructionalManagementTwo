@@ -12,7 +12,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li><a href="${pageContext.request.contextPath }/classinfo/disciplineinfo/list.action">班级管理</a></li>
          <li>学科信息</li>
         <li>修改信息</li>
     </ul>
@@ -81,7 +81,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="disciplineinfo_list.jsp">返回上一级</a>
+              <a class="btn btn-warning" href="${pageContext.request.contextPath }/classinfo/disciplineinfo/list.action">返回上一级</a>
         </div>
     </div>
 </form>

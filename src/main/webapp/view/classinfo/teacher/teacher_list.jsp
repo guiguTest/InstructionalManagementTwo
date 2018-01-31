@@ -36,7 +36,7 @@
             <input type="text" id="keyword" class="form-control input-sm"/>
       </div>
   
-    <input type="button"   class="btn btn-danger"   value="查询"/>
+    <input type="submit"   class="btn btn-danger"   value="查询"/>
     <input type="button"   class="btn btn-success"   value="添加" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/teacher/teacher_add.jsp'"/>
     </form>
 </div>

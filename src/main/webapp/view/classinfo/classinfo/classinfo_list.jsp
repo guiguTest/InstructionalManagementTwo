@@ -24,7 +24,7 @@
         <input type="text" class="form-control" name="className">
       </div>
 
-    <input type="button"   class="btn btn-danger"     value="查询"/>
+    <input type="submit"   class="btn btn-danger"     value="查询"/>
     <a href="${pageContext.request.contextPath}/classinfo/classinfo/loadCDSCS.action" class="btn btn-success">添加课程</a>
     
 </div>

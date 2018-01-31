@@ -24,8 +24,8 @@
         <input type="text" class="form-control" name="classroomName">
       </div>
 
-    <input type="button"   class="btn btn-danger"     value="查询"/>
-    <input type="button"   class="btn btn-success"     value="添加教室"onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/classroominfo/classroominfo_add.jsp'"/>
+    <input type="submit"   class="btn btn-danger"     value="查询"/>
+    <input type="button"   class="btn btn-success"     value="添加教室" onClick="javascript:window.location='${pageContext.request.contextPath}/view/classinfo/classroominfo/classroominfo_add.jsp'"/>
    
     
 </div>

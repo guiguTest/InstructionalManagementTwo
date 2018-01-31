@@ -12,7 +12,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li><a href="${pageContext.request.contextPath }/classinfo/classroominfo/list.action">班级管理</a></li>
          <li>教室名称</li>
         <li>修改教室</li>
     </ul>
@@ -80,7 +80,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="classroominfo_list.html">返回上一级</a>
+              <a class="btn btn-warning" href="${pageContext.request.contextPath }/classinfo/classroominfo/list.action">返回上一级</a>
         </div>
     </div>
 </form>

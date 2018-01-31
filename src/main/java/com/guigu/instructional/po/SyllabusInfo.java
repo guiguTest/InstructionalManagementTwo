@@ -1,24 +1,36 @@
 package com.guigu.instructional.po;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class SyllabusInfo {
     private Integer syllabusId;
 
+    @NotEmpty(message="{syllabusInfo.syllabusYi.isnull}")
     private String syllabusYi;
 
+    @NotEmpty(message="{syllabusInfo.syllabusEr.isnull}")
     private String syllabusEr;
 
+    @NotEmpty(message="{syllabusInfo.syllabusSan.isnull}")
     private String syllabusSan;
 
+    @NotEmpty(message="{syllabusInfo.syllabusSi.isnull}")
     private String syllabusSi;
 
+    @NotEmpty(message="{syllabusInfo.syllabusWu.isnull}")
     private String syllabusWu;
 
+    @NotEmpty(message="{syllabusInfo.syllabusLiu.isnull}")
     private String syllabusLiu;
 
+    @NotEmpty(message="{syllabusInfo.syllabusQi.isnull}")
     private String syllabusQi;
 
     private String syllabusIsused;
 
+    @Size(min=2,max=10,message="{syllabusInfo.syllabusName.length.error}")
+    @NotEmpty(message="{syllabusInfo.syllabusName.isnull}")
     private String syllabusName;
 
     public Integer getSyllabusId() {

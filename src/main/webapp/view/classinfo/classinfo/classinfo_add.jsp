@@ -14,11 +14,18 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">班级管理</a></li>
+    	<li><a href="${pageContext.request.contextPath}/classinfo/classinfo/listCDSCS.action">班级管理</a></li>
         <li>添加班级</li>
     </ul>
 </div>
-
+<div align="center">
+		<div class="alert alert-warning"
+			style="margin: 0px; padding: 5px; width: 100%;display:${empty allErrors?'none':'block'} ">
+			<c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br />
+			</c:forEach>
+		</div>
+	</div>
 <form action="${pageContext.request.contextPath}/classinfo/classinfo/add.action" method="post" class="form-horizontal">
 
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
@@ -78,7 +85,7 @@
                 <div class="col-sm-9">
                		 <select name="staffId" class="form-control input-sm">
                      	<c:forEach var="staff" items="${teacherList}">
-                     		<option value="${staff.staffId}">${staff.staffName}</option>
+                     		<option value="${staff.staffId}" ${staff.staffId==classInfo.staffId?'selected':''}>${staff.staffName}</option>
                      	</c:forEach>
                      </select>
                 </div>
@@ -94,7 +101,7 @@
                 <div class="col-sm-9">
                	   <select name="disciplineId" class="form-control input-sm">
                      	<c:forEach var="discipline" items="${disciplineInfoList}">
-                     		<option value="${discipline.disciplineId}">${discipline.disciplineName}</option>
+                     		<option value="${discipline.disciplineId}" ${discipline.disciplineId==classInfo.disciplineId?'selected':''}>${discipline.disciplineName}</option>
                      	</c:forEach>
                      </select>
                 </div>
@@ -106,7 +113,7 @@
                 <div class="col-sm-9">
                		 <select name="syllabusId" class="form-control input-sm">
                      	<c:forEach var="syllabus" items="${syllabusInfoList}">
-                     		<option value="${syllabus.syllabusId}">${syllabus.syllabusName}</option>
+                     		<option value="${syllabus.syllabusId}" ${syllabus.syllabusId==classInfo.syllabusId?'selected':''} >${syllabus.syllabusName}</option>
                      	</c:forEach>
                      </select>
                 </div>

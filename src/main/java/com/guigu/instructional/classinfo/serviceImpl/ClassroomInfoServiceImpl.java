@@ -45,7 +45,8 @@ public class ClassroomInfoServiceImpl implements ClassroomInfoService {
 		Criteria criteria = classroomInfoExample.createCriteria();
 		if(classroomInfo!=null) {
 			if(classroomInfo.getClassroomName()!=null) {
-				criteria.andClassroomNameEqualTo(classroomInfo.getClassroomName());
+				classroomInfo.setClassroomName("%"+classroomInfo.getClassroomName()+"%");
+				criteria.andClassroomNameLike(classroomInfo.getClassroomName());
 			}
 		}
 		criteria.andClassroomMarkEqualTo("1");

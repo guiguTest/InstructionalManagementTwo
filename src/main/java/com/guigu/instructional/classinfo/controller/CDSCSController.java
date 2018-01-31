@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.CDSCSService;
@@ -40,7 +43,21 @@ public class CDSCSController {
 	private TeacherInfoService teacherService;
 
 	@RequestMapping("add.action")
-	public String addClassInfo(ClassInfo classInfo, Model model) {
+	public String addClassInfo( Model model,@Validated ClassInfo classInfo,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors = bindingResult.getAllErrors();
+			List<DisciplineInfo> disciplineInfoList = disciplineInfoService.getDisciplineInfoList(null);
+			List<ClassroomInfo> classroomInfoList = classroomInfoService.getClassroomInfoList(null);
+			List<SyllabusInfo> syllabusInfoList = syllabusInfoService.getSyllabusList(null);
+			List<StaffInfo> teacherList = teacherService.getStaffInfoList(null);
+			model.addAttribute("classInfo", classInfo);
+			model.addAttribute("disciplineInfoList", disciplineInfoList);
+			model.addAttribute("classroomInfoList", classroomInfoList);
+			model.addAttribute("syllabusInfoList", syllabusInfoList);
+			model.addAttribute("teacherList", teacherList);
+			model.addAttribute("allErrors", allErrors);
+			return "classinfo/classinfo/classinfo_add";
+		}
 		classInfo.setClassIsused("1");
 		classInfo.setClassState("1");
 		boolean result = cDSCSService.addCDSCS(classInfo);
@@ -55,7 +72,6 @@ public class CDSCSController {
 
 	@RequestMapping("loadCDSCS.action")
 	public String loadCSSD(Integer classId, Model model) {
-		ClassInfo classInfo = cDSCSService.getClassInfo(classId);
 		List<DisciplineInfo> disciplineInfoList = disciplineInfoService.getDisciplineInfoList(null);
 		List<ClassroomInfo> classroomInfoList = classroomInfoService.getClassroomInfoList(null);
 		List<SyllabusInfo> syllabusInfoList = syllabusInfoService.getSyllabusList(null);

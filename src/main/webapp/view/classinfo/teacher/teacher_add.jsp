@@ -11,7 +11,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">系统管理</a></li>
+    	<li><a href="${pageContext.request.contextPath}/classinfo/teacher/list.action">系统管理</a></li>
         <li>员工管理</li>
         <li>添加员工</li>
     </ul>
@@ -216,7 +216,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <input  type="reset" class="btn  btn-danger" value="取消"/>
+        	<a class="btn btn-danger" href="${pageContext.request.contextPath}/classinfo/teacher/list.action">返回上一级</a>
         </div>
     </div>
 </form>

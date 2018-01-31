@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.DisciplineInfoService;
@@ -21,7 +24,13 @@ public class DisciplineInfoController {
 	private DisciplineInfoService disciplineInfoService;
 	
 	@RequestMapping("add.action")
-	public String addDisciplineInfo(DisciplineInfo disciplineInfo,Model model) {
+	public String addDisciplineInfo(Model model,@Validated DisciplineInfo disciplineInfo,BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors = bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return "classinfo/disciplineinfo/disciplineinfo_add";
+		}
 		boolean result = disciplineInfoService.addRole(disciplineInfo);
 		if(result) {
 			model.addAttribute("info", "Ìí¼Ó³É¹¦");

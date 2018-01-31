@@ -46,7 +46,8 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 		Criteria criteria = disciplineInfoExample.createCriteria();
 		if(disciplineInfo!=null) {
 			if(disciplineInfo.getDisciplineName()!=null) {
-				criteria.andDisciplineNameEqualTo(disciplineInfo.getDisciplineName());
+				disciplineInfo.setDisciplineName("%"+disciplineInfo.getDisciplineName()+"%");
+				criteria.andDisciplineNameLike(disciplineInfo.getDisciplineName());
 			}
 		}
 		criteria.andDisciplineIsusedEqualTo("1");

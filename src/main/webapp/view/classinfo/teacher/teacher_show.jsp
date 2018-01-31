@@ -15,7 +15,7 @@
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
-    	<li><a href="#">系统管理</a></li>
+    	<li><a href="${pageContext.request.contextPath}/classinfo/teacher/list.action">系统管理</a></li>
         <li>员工管理</li>
         <li>查看员工信息</li>
     </ul>

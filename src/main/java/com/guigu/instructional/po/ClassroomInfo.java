@@ -1,14 +1,23 @@
 package com.guigu.instructional.po;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class ClassroomInfo {
     private Integer classroomId;
 
+    @Size(min=4,max=10,message="{classroomInfo.classroomName.length.error}")
+    @NotEmpty(message="{classroomInfo.classroomName.isnull}")
     private String classroomName;
 
+    @NotNull(message="{classroomInfo.classroomMax.isnull}")
     private Integer classroomMax;
 
+    @NotEmpty(message="{classroomInfo.classroomInfo.isnull}")
     private String classroomInfo;
 
+    @NotEmpty(message="{classroomInfo.classroomRemark.isnull}")
     private String classroomRemark;
 
     private String classroomMark;

@@ -77,6 +77,7 @@ public class CDSCSServiceImpl implements CDSCSService {
 		criteria.andClassIsusedEqualTo("1");
 		criteria.andClassStateEqualTo("1");
 		List<ClassInfo> listClassInfo = classInfoMapper.selectByExample(classInfoExample);
+		
 		if(listClassInfo!=null) {
 			for(ClassInfo classInfo2:listClassInfo) {
 				CDSCS cdscs = new CDSCS();

@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.classinfo.service.SyllabusInfoService;
@@ -19,7 +22,12 @@ public class SyllabusInfoController {
 	private SyllabusInfoService syllabusInfoService;
 	
 	@RequestMapping("add.action")
-	public String addSyllabusInfo(SyllabusInfo syllabusInfo ,Model model) {
+	public String addSyllabusInfo(Model model,@Validated SyllabusInfo syllabusInfo,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors = bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			return "classinfo/syllabusinfo/syllabusinfo_add";
+		}
 		boolean result = syllabusInfoService.addSyllabus(syllabusInfo);
 		if(result) {
 			model.addAttribute("info", "Ìí¼Ó³É¹¦");

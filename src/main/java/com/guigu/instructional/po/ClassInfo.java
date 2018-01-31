@@ -2,6 +2,11 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class ClassInfo {
     private Integer classId;
 
@@ -13,10 +18,14 @@ public class ClassInfo {
 
     private Integer staffId;
 
+    @Size(min=2,max=10,message="{classInfo.className.length.error}")
+    @NotEmpty(message="{classInfo.className.isnull}")
     private String className;
 
+    @NotNull(message="{classInfo.classNumber.isnull}")
     private Integer classNumber;
 
+//    @Past(message="{classInfo.classStartTime.past}")
     private Date classStartTime;
 
     private Date classEndTime;
@@ -25,6 +34,7 @@ public class ClassInfo {
 
     private String classState;
 
+    @NotEmpty(message="{classInfo.classDesc.isnull}")
     private String classDesc;
 
     public Integer getClassId() {
