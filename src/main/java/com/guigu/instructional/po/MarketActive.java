@@ -6,13 +6,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class MarketActive {
-    @Override
+
+	@Override
 	public String toString() {
-		return "MarketActive [activeId=" + activeId + ", staffId=" + staffId + ", activeName=" + activeName
-				+ ", activeState=" + activeState + ", activeStart=" + activeStart + ", activeEnd=" + activeEnd
-				+ ", activeType=" + activeType + ", activeCosteEstimate=" + activeCosteEstimate + ", activeCoste="
-				+ activeCoste + ", activeRefectEstimate=" + activeRefectEstimate + ", activeStudent=" + activeStudent
-				+ ", activeContent=" + activeContent + "]";
+		return "MarketActive [activeStart=" + activeStart + ", activeEnd=" + activeEnd + "]";
 	}
 
 	private Integer activeId;

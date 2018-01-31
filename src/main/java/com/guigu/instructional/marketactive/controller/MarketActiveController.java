@@ -47,6 +47,7 @@ public class MarketActiveController {
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> allErrors=bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			System.out.println(marketActiveVO.getActiveStart()+""+marketActiveVO.getActiveEnd()+"-------");
 			model.addAttribute("marketActiveVO", marketActiveVO);
 			return "marketactive/marketactive/marketactive_add";
 		}

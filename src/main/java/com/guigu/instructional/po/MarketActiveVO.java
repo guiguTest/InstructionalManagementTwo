@@ -1,8 +1,7 @@
 package com.guigu.instructional.po;
 
-import javax.validation.constraints.NotEmpty;
+public class MarketActiveVO extends MarketActive {
 
-public class MarketActiveVO extends MarketActive{
 	private String staffName;
 
 	public String getStaffName() {
@@ -17,6 +16,5 @@ public class MarketActiveVO extends MarketActive{
 	public String toString() {
 		return "MarketActiveVO [staffName=" + staffName + "]";
 	}
-
 	
 }
