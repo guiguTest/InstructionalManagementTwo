@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://displaytag.sf.net" prefix="display" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -18,6 +18,16 @@
         <li>营销活动</li>
         <li>修改活动</li>
     </ul>
+</div>
+
+<!-- 显示错误信息 -->
+<div align="center">
+	<div class="alert alert-warning"
+		style="margin: 0px; padding: 5px; width: 100%;display:${empty allErrors?'none':'block'} ">
+		<c:forEach items="${allErrors}" var="error">
+		 	${error.defaultMessage }<br />
+		</c:forEach>
+	</div>
 </div>
 
 <form action="${pageContext.request.contextPath}/marketactive/marketactive/update.action" class="form-horizontal">
@@ -95,7 +105,7 @@
                     	<option value="0" ${active.activeType=='0'?'selected':''}>现场交流 </option>
                         <option value="1" ${active.activeType=='1'?'selected':''}>会议</option>
                         <option value="2" ${active.activeType=='2'?'selected':''}>其他</option>
-                        <option value="3" ${active.activeType=='3'?'selected':''}>已结束</option>
+                       
                     </select>
                 </div>
             </div>

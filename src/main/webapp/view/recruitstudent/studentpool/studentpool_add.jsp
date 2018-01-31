@@ -10,6 +10,46 @@
 <%@ include file="/view/public/common.jspf"%>
 </head>
 
+<script type="text/javascript">
+function jsGetAge(){         
+    var returnAge;  
+    var strBirthday=document.getElementById("studentBirthday").value;
+    var strBirthdayArr=strBirthday.split("-");  
+    var birthYear = strBirthdayArr[0];  
+    var birthMonth = strBirthdayArr[1];  
+    var birthDay = strBirthdayArr[2];  
+    d = new Date();  
+    var nowYear = d.getYear()+1900;  
+    var nowMonth = d.getMonth() + 1;  
+    var nowDay = d.getDate();  
+    if(nowYear == birthYear)  {  
+        returnAge = 0;//同年 则为0岁  
+    }  else  {  
+        var ageDiff = nowYear - birthYear ; //年之差  
+        if(ageDiff > 0){  
+            if(nowMonth == birthMonth)  {  
+                var dayDiff = nowDay - birthDay;//日之差  
+                if(dayDiff < 0)  {  
+                    returnAge = ageDiff - 1;  
+                }  else  {  
+                    returnAge = ageDiff ;  
+                }  
+            }  else  {  
+                var monthDiff = nowMonth - birthMonth;//月之差  
+                if(monthDiff < 0)  {  
+                    returnAge = ageDiff - 1;  
+                }  else  {  
+                    returnAge = ageDiff ;  
+                }  
+            }  
+        }  else  {  
+            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天  
+        }  
+    }  
+    document.getElementById("studentAge").value=returnAge;
+}  	
+</script>
+
 <body>
 	<div style="padding: 0px; margin: 0px;">
 		<ul class="breadcrumb" style="margin: 0px;">
@@ -74,9 +114,10 @@
 			</div>
 			<div class="col-sm-5">
 				<div class="form-group">
-					<label class="col-sm-3 control-label">年龄</label>
-					<div class="col-sm-5">
-						<input type="text" name="studentAge" value="${studentInfo.studentAge }" class="form-control input-sm" />
+					<label class="col-sm-3 control-label">所在院校</label>
+					<div class="col-sm-9">
+						<input type="text" name="studentSchool" value="${studentInfo.studentSchool }"
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -132,17 +173,16 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">出生日期</label>
 					<div class="col-sm-9">
-						<input type="text" name="studentBirthday" value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
+						<input type="text" name="studentBirthday" id="studentBirthday" value="<fmt:formatDate value="${studentInfo.studentBirthday }" type="both" pattern="yyyy-MM-dd"/>"
 						onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-5">
 				<div class="form-group">
-					<label class="col-sm-3 control-label">所在院校</label>
-					<div class="col-sm-9">
-						<input type="text" name="studentSchool" value="${studentInfo.studentSchool }"
-							class="form-control input-sm" />
+					<label class="col-sm-3 control-label">年龄</label>
+					<div class="col-sm-5">
+						<input type="text" name="studentAge" id="studentAge" value="${studentInfo.studentAge }" onclick="jsGetAge()" class="form-control input-sm" />
 					</div>
 				</div>
 			</div>

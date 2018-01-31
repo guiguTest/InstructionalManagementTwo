@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.marketactive.mapper.ActiveVOMapper;
@@ -34,12 +37,19 @@ public class MarketActiveController {
 	}
 
 	@RequestMapping("add.action")
-	public String addActive(MarketActiveVO marketActiveVO,Model model) {
+	public String addActive(Model model,@Validated MarketActiveVO marketActiveVO,BindingResult bindingResult) {
 		StaffInfo staffInfo= staffInfoService.getStaffInfo(marketActiveVO.getStaffName());
 		if(staffInfo!=null) {
 			marketActiveVO.setStaffId(staffInfo.getStaffId());
-		}else{
-			marketActiveVO.setStaffId(null);
+		}else {
+			model.addAttribute("error", "该负责人不存在");
+		}
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			System.out.println(marketActiveVO.getActiveStart()+""+marketActiveVO.getActiveEnd()+"-------");
+			model.addAttribute("marketActiveVO", marketActiveVO);
+			return "marketactive/marketactive/marketactive_add";
 		}
 		boolean flag=marketActiveService.addActive(marketActiveVO);
 		if(flag) {
@@ -59,12 +69,18 @@ public class MarketActiveController {
 	}
 	
 	@RequestMapping("update.action")
-	public String update(MarketActiveVO marketActiveVO,Model model) {
+	public String update(Model model,@Validated MarketActiveVO marketActiveVO,BindingResult bindingResult) {
 		StaffInfo staffInfo= staffInfoService.getStaffInfo(marketActiveVO.getStaffName());
 		if(staffInfo!=null) {
 			marketActiveVO.setStaffId(staffInfo.getStaffId());
-		}else{
-			marketActiveVO.setStaffId(null);
+		}else {
+			model.addAttribute("error", "该负责人不存在");
+		}
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("marketActiveVO", marketActiveVO);
+			return "marketactive/marketactive/marketactive_update";
 		}
 		boolean flag=marketActiveService.updateActive(marketActiveVO);
 		if(flag) {

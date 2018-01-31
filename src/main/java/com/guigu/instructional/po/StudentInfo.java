@@ -2,6 +2,7 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -19,16 +20,21 @@ public class StudentInfo {
     private Integer classId;
     
     @NotEmpty(message="{studentInfo.studentName.notempty}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    @Pattern(regexp = "/^[/u4e00-/u9fa5]*$/", message = "{studentInfo.studentName}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentName;
 
     private String studentSex;
 
     private Integer studentAge;
-
+    
+    
+    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\\\d{8}$", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentTellphone;
-
+    
+    @Email(message="{studentInfo.studentEmail.email}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
     private String studentEmail;
-
+    
+    @Pattern(regexp = "^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{2}$", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentIdcard;
 
     private String studentAddress;
@@ -42,7 +48,8 @@ public class StudentInfo {
     private String studentQq;
 
     private String studentParentsName;
-
+    
+    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\\\d{8}$", message = "{studentInfo.studentIdcard}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class}) 
     private String studentParentsPhone;
 
     private String studentPro;

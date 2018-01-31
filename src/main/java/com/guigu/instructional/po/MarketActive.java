@@ -2,135 +2,129 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class MarketActive {
+
 
 	private Integer activeId;
 
-	private Integer staffId;
+    private Integer staffId;
+    @Size(min=2,max=20,message="{name.length.error}")
+    private String activeName;
 
-	private String activeName;
+    private Integer activeState;
+    @NotNull(message="{startdate.isnull}")
+    private Date activeStart;
+    @NotNull(message="{enddate.isnull}")
+    private Date activeEnd;
 
-	private Integer activeState;
+    private Integer activeType;
 
-	private Date activeStart;
+    private Double activeCosteEstimate;
 
-	private Date activeEnd;
+    private Double activeCoste;
 
-	private Integer activeType;
+    private Integer activeRefectEstimate;
 
-	private Double activeCosteEstimate;
+    private String activeStudent;
 
-	private Double activeCoste;
-
-	private Integer activeRefectEstimate;
-
-	private String activeStudent;
-
-	private String activeContent;
-
+    private String activeContent;
+ 
 	public Integer getActiveId() {
-		return activeId;
-	}
+        return activeId;
+    }
 
-	public void setActiveId(Integer activeId) {
-		this.activeId = activeId;
-	}
+    public void setActiveId(Integer activeId) {
+        this.activeId = activeId;
+    }
 
-	public Integer getStaffId() {
-		return staffId;
-	}
+    public Integer getStaffId() {
+        return staffId;
+    }
 
-	public void setStaffId(Integer staffId) {
-		this.staffId = staffId;
-	}
+    public void setStaffId(Integer staffId) {
+        this.staffId = staffId;
+    }
 
-	public String getActiveName() {
-		return activeName;
-	}
+    public String getActiveName() {
+        return activeName;
+    }
 
-	public void setActiveName(String activeName) {
-		this.activeName = activeName == null ? null : activeName.trim();
-	}
+    public void setActiveName(String activeName) {
+        this.activeName = activeName == null ? null : activeName.trim();
+    }
 
-	public Integer getActiveState() {
-		return activeState;
-	}
+    public Integer getActiveState() {
+        return activeState;
+    }
 
-	public void setActiveState(Integer activeState) {
-		this.activeState = activeState;
-	}
+    public void setActiveState(Integer activeState) {
+        this.activeState = activeState;
+    }
 
-	public Date getActiveStart() {
-		return activeStart;
-	}
+    public Date getActiveStart() {
+        return activeStart;
+    }
 
-	public void setActiveStart(Date activeStart) {
-		this.activeStart = activeStart;
-	}
+    public void setActiveStart(Date activeStart) {
+        this.activeStart = activeStart;
+    }
 
-	public Date getActiveEnd() {
-		return activeEnd;
-	}
+    public Date getActiveEnd() {
+        return activeEnd;
+    }
 
-	public void setActiveEnd(Date activeEnd) {
-		this.activeEnd = activeEnd;
-	}
+    public void setActiveEnd(Date activeEnd) {
+        this.activeEnd = activeEnd;
+    }
 
-	public Integer getActiveType() {
-		return activeType;
-	}
+    public Integer getActiveType() {
+        return activeType;
+    }
 
-	public void setActiveType(Integer activeType) {
-		this.activeType = activeType;
-	}
+    public void setActiveType(Integer activeType) {
+        this.activeType = activeType;
+    }
 
-	public Double getActiveCosteEstimate() {
-		return activeCosteEstimate;
-	}
+    public Double getActiveCosteEstimate() {
+        return activeCosteEstimate;
+    }
 
-	public void setActiveCosteEstimate(Double activeCosteEstimate) {
-		this.activeCosteEstimate = activeCosteEstimate;
-	}
+    public void setActiveCosteEstimate(Double activeCosteEstimate) {
+        this.activeCosteEstimate = activeCosteEstimate;
+    }
 
-	public Double getActiveCoste() {
-		return activeCoste;
-	}
+    public Double getActiveCoste() {
+        return activeCoste;
+    }
 
-	public void setActiveCoste(Double activeCoste) {
-		this.activeCoste = activeCoste;
-	}
+    public void setActiveCoste(Double activeCoste) {
+        this.activeCoste = activeCoste;
+    }
 
-	public Integer getActiveRefectEstimate() {
-		return activeRefectEstimate;
-	}
+    public Integer getActiveRefectEstimate() {
+        return activeRefectEstimate;
+    }
 
-	public void setActiveRefectEstimate(Integer activeRefectEstimate) {
-		this.activeRefectEstimate = activeRefectEstimate;
-	}
+    public void setActiveRefectEstimate(Integer activeRefectEstimate) {
+        this.activeRefectEstimate = activeRefectEstimate;
+    }
 
-	public String getActiveStudent() {
-		return activeStudent;
-	}
+    public String getActiveStudent() {
+        return activeStudent;
+    }
 
-	public void setActiveStudent(String activeStudent) {
-		this.activeStudent = activeStudent == null ? null : activeStudent.trim();
-	}
+    public void setActiveStudent(String activeStudent) {
+        this.activeStudent = activeStudent == null ? null : activeStudent.trim();
+    }
 
-	public String getActiveContent() {
-		return activeContent;
-	}
+    public String getActiveContent() {
+        return activeContent;
+    }
 
-	public void setActiveContent(String activeContent) {
-		this.activeContent = activeContent == null ? null : activeContent.trim();
-	}
-
-	@Override
-	public String toString() {
-		return "MarketActive [activeId=" + activeId + ", staffId=" + staffId + ", activeName=" + activeName
-				+ ", activeState=" + activeState + ", activeStart=" + activeStart + ", activeEnd=" + activeEnd
-				+ ", activeType=" + activeType + ", activeCosteEstimate=" + activeCosteEstimate + ", activeCoste="
-				+ activeCoste + ", activeRefectEstimate=" + activeRefectEstimate + ", activeStudent=" + activeStudent
-				+ ", activeContent=" + activeContent + "]";
-	}
-
+    public void setActiveContent(String activeContent) {
+        this.activeContent = activeContent == null ? null : activeContent.trim();
+    }
 }
