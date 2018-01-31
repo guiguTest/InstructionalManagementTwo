@@ -79,7 +79,15 @@ public class StaffInfoController {
     }
     
     @RequestMapping("update.action")
-    public String updateStaffInfo(StaffInfo staffInfo,Model model) {
+    public String updateStaffInfo(Model model,@Validated StaffInfo staffInfo,BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("Errors",Errors);
+			return "system/staffinfo/staffinfo_update";
+		}
         boolean result=staffInfoService.updateStaff(staffInfo);
         if(result) {
             model.addAttribute("info", "ÐÞ¸Ä³É¹¦");

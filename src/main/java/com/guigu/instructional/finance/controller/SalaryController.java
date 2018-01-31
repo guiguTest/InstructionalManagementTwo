@@ -1,5 +1,6 @@
 package com.guigu.instructional.finance.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -32,11 +33,9 @@ public class SalaryController {
 	
 	@RequestMapping("add.action")
 	public String addSalary(Model model,@Validated StaffSalary staffSalary,BindingResult bindingResult) {
+		this.salaryValidation(staffSalary, bindingResult);
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
-			for (ObjectError objectError : Errors) {
-				System.out.println(objectError);
-			}
 			model.addAttribute("Errors",Errors);
 			return "finance/salary/Salary_add";
 		}
@@ -56,11 +55,9 @@ public class SalaryController {
 	}
 	@RequestMapping("update.action")
 	public String updateSalary(Model model,@Validated StaffSalary staffSalary,BindingResult bindingResult) {
+		this.salaryValidation(staffSalary, bindingResult);
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
-			for (ObjectError objectError : Errors) {
-				System.out.println(objectError);
-			}
 			model.addAttribute("Errors",Errors);
 			return "finance/salary/Salary_update";
 		}
@@ -88,5 +85,17 @@ public class SalaryController {
 			model.addAttribute("info","删除失败");
 		}
 		return this.findSalaryForList(new StaffSalaryOrder(), model);
+	}
+	public void salaryValidation(StaffSalary staffSalary,BindingResult bindingResult){
+		Double real=staffSalary.getStaffSalaryReal();
+		Double total=staffSalary.getStaffSalaryTotal();
+		Double deduct=staffSalary.getStaffSalaryDeduct();
+		if(real!=null&&total!=null&&deduct!=null) {
+			if(total!=real+deduct) {
+				bindingResult.addError(new ObjectError("staffSalary","本月薪水必须等于实际发放工资加上扣除的工资"));
+				//list.add(new ObjectError(objectName, defaultMessage));
+			}
+		}
+		
 	}
 }

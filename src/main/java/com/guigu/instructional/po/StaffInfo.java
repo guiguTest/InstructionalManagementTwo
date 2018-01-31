@@ -56,7 +56,7 @@ public class StaffInfo {
     @NotBlank(message="${StaffInfo.staffEmail.isuse}")
     private String staffEmail;
     
-    @Size(min=5,max=100,message="${}")
+    @Size(max=100,message="${StaffInfo.staffEntryTime.size}")
     private String staffAddr;
 
     private String staffQq;
@@ -70,10 +70,14 @@ public class StaffInfo {
 
     private String staffState;
     
-    @Size(min=8,max=15,message="${StaffInfo.staffEmail.isuse}")
-    @Pattern(regexp="[A-Z]+[a-zA-Z0-9]*",message="${StaffInfo.staffEmail.isuse}")
+    @Size(min=8,max=15,message="${StaffInfo.staffNumber.isuse}")
+    @Pattern(regexp="[A-Z]+[a-zA-Z0-9]*",message="${StaffInfo.staffNumber.isuse}")
+    @NotEmpty(message="${StaffInfo.staffNumber.isnull}")
     private String staffNumber;
-
+    
+    
+    @NotEmpty(message="${StaffInfo.staffPassword.isnull}")
+    @Pattern(regexp="[a-zA-Z0-9]{8,20}",message="${StaffInfo.staffPassword.isuse}")
     private String staffPassword;
 
     public Integer getStaffId() {

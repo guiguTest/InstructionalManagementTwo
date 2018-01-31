@@ -15,6 +15,7 @@ import com.guigu.instructional.finance.service.SalaryService;
 import com.guigu.instructional.finance.service.TuitionService;
 import com.guigu.instructional.finance.service.impl.TuitionServiceImpl;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.StaffSalary;
 import com.guigu.instructional.po.StudentPayment;
 import com.guigu.instructional.po.StudentPaymentOrder;
 
@@ -41,6 +42,7 @@ public class TuitionController {
 	}
 	@RequestMapping("add.action")
 	public String addTuition(Model model,@Validated StudentPayment studentPayment,BindingResult bindingResult){
+		this.tuitionValidation(studentPayment, bindingResult);
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
 			model.addAttribute("Errors",Errors);
@@ -56,6 +58,7 @@ public class TuitionController {
 	}
 	@RequestMapping("update.action")
 	public String updateTuition(Model model,@Validated StudentPayment studentPayment,BindingResult bindingResult) {
+		this.tuitionValidation(studentPayment, bindingResult);
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
 			for (ObjectError objectError : Errors) {
@@ -91,5 +94,18 @@ public class TuitionController {
 	           model.addAttribute("info","删除失败");
 	       }
 	     return this.findTuitionForList(new StudentPaymentOrder(), model);
+	}
+	public void tuitionValidation( StudentPayment studentPayment,BindingResult bindingResult){
+		Double ShouldAmount=studentPayment.getPaymentShouldAmount();
+		Double RealAmount=studentPayment.getPaymentRealAmount();
+		Double DebtAmount=studentPayment.getPaymentDebtAmount();
+		Double DiscountAmount=studentPayment.getPaymentDiscountAmount();
+		if(ShouldAmount!=null&&RealAmount!=null&&DebtAmount!=null&&DiscountAmount!=null) {
+			if(ShouldAmount!=RealAmount+DiscountAmount+DebtAmount) {
+				bindingResult.addError(new ObjectError("studentPayment","应缴学费应该是其他项目的总和"));
+				//list.add(new ObjectError(objectName, defaultMessage));
+			}
+		}
+		
 	}
 }
