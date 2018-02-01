@@ -6,7 +6,14 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class ClassroomInfo {
-    private Integer classroomId;
+    @Override
+	public String toString() {
+		return "ClassroomInfo [classroomId=" + classroomId + ", classroomName=" + classroomName + ", classroomMax="
+				+ classroomMax + ", classroomInfo=" + classroomInfo + ", classroomRemark=" + classroomRemark
+				+ ", classroomMark=" + classroomMark + "]";
+	}
+
+	private Integer classroomId;
 
     @Size(min=4,max=10,message="{classroomInfo.classroomName.length.error}")
     @NotEmpty(message="{classroomInfo.classroomName.isnull}")

@@ -24,7 +24,7 @@
 <form action="" class="form-horizontal">
    	
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
-	<div class="row">
+
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">班级事务编号</label>
@@ -43,9 +43,9 @@
             </div>
         </div>
 
-    </div>
+
     <!-- 开始2 -->
-	<div class="row">
+	
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">主题</label>
@@ -65,10 +65,10 @@
                 </div>
             </div>
         </div>
-    </div>
+
     <!-- 结束2 -->
     <!-- 开始2 -->
-	<div class="row">
+
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">组织人</label>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-    </div>
+   
     <!-- 结束2 -->
    
        

@@ -26,14 +26,12 @@
         <li>营销活动</li>
     </ul>
 </div>
-<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
+<div class="row alert alert-info"  style="margin:0px; padding:3px;text-align: center;" >
 <form class="form-inline"  action="${pageContext.request.contextPath }/marketactive/marketactive/list.action">
      <div class="form-group">
-         <label class="" for="activeName">活动名称：</label>
         <input type="text" class="form-control"  name="activeName"  id="name" placeholder="请输入活动名称"  onfocus="change()">
       </div>
       <div class="form-group">
-         <label class="" for="activState">活动状态：</label>
 		 <select  class="form-control" id="activestate"  name="activeState" onfocus="click()">
             <option value="">活动状态</option>
             <option value="0">准备中</option>

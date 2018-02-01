@@ -18,23 +18,12 @@
 </div>
 
 <form action="${pageContext.request.contextPath}/transaction/transaction/add.action" class="form-horizontal">
-   	<div class="row">
-    	<div class="col-sm-3 col-sm-offset-4">
-        	<input  type="submit" class="btn btn-success" value="保存"/>
-            <input  type="reset" class="btn  btn-danger" value="取消"/>
-        </div>
-    </div>
+   
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">考勤编号</label>
-                <div class="col-sm-9">
-                	<input type="text" name="attendanceId" readonly="readonly" class="form-control input-sm" />
-                </div>
-            </div>
-        
-        </div>
+    	
+                	<input type="hidden" name="attendanceId" readonly="readonly" class="form-control input-sm" />
+
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">学生编号</label>
@@ -44,9 +33,6 @@
             </div>
         </div>
 
-    </div>
-    <!-- 开始2 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">描述</label>
@@ -56,6 +42,9 @@
             </div>
         
         </div>
+    </div>
+    <!-- 开始2 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">日期</label>

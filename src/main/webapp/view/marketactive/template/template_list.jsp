@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -20,13 +19,12 @@
 
 
 
-<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-horizontal" action="${pageContext.request.contextPath}/marketactive/template/list.action"">
-	<div class="col-sm-2">标题:</div>
-    <div class="col-sm-3">
-    	<input type="text"  name="templateTitle" class="form-control input-sm"/>
+<div class="row alert alert-info"  style="margin:0px; padding:3px;text-align: center;" >
+<form class="form-inline" action="${pageContext.request.contextPath}/marketactive/template/list.action"">
+    <div class="form-group">
+    	<input type="text"  name="templateTitle" class="form-control input-sm" placeholder="请输入标题" />
     </div>
-    <input type="submit"   class="btn btn-danger"     value="查询"/>
+    <input type="submit"   class="btn btn-danger"    value="查询"/>
     <a  class="btn btn-success"  href="${pageContext.request.contextPath}/view/marketactive/template/template_add.jsp">添加模板</a>
     </form>
 </div>

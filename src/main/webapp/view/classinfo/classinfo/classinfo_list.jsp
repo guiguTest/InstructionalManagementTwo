@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
@@ -17,10 +16,9 @@
     </ul>
 </div>
 <form class="form-inline" action="${pageContext.request.contextPath}/classinfo/classinfo/listCDSCS.action" method="post">
-<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
+<div class="row alert alert-info"  style="margin:0px; padding:3px;text-align: center;" >
 
      <div class="form-group">
-         <label class="" for="activename">班级名称：</label>
         <input type="text" class="form-control" name="className">
       </div>
 

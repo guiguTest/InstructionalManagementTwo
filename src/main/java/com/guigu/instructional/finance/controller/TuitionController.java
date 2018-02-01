@@ -28,7 +28,6 @@ public class TuitionController {
 	
 	@RequestMapping("list.action")
 	public String findTuitionForList(StudentPaymentOrder studentPaymentOrder,Model model) {
-		System.out.println(studentPaymentOrder);
 		List<StudentPaymentOrder> list =tuitionService.findTuitionForList(studentPaymentOrder);
         model.addAttribute("list", list);
         
@@ -62,7 +61,6 @@ public class TuitionController {
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
 			for (ObjectError objectError : Errors) {
-				System.out.println(objectError);
 			}
 			model.addAttribute("allErrors",Errors);
 			return "finance/tuition/Tuition_update";
@@ -77,9 +75,7 @@ public class TuitionController {
 	}
 	@RequestMapping("load.action")
 	public String loadTuition(Integer studentPaymentId,Model model) {
-		System.out.println(studentPaymentId);
 		StudentPayment studentPayment=tuitionService.findTuitionForId(studentPaymentId);
-		System.out.println(studentPayment);
 		model.addAttribute("studentPayment",studentPayment);
 		return "finance/tuition/Tuition_update";
 	}

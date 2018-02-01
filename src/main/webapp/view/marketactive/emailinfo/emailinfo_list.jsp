@@ -16,11 +16,10 @@
         <li>邮件管理</li>
     </ul>
 </div>
-<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
-<form class="form-horizontal" action="${pageContext.request.contextPath }/marketactive/emailinfo/list.action" >
-	<div class="col-sm-2">主题:</div>
-    <div class="col-sm-3">
-    	<input type="text"  name="emailTitle"  class="form-control input-sm"/>
+<div class="row alert alert-info"  style="margin:0px; padding:3px;text-align: center;" >
+<form class="form-inline" action="${pageContext.request.contextPath }/marketactive/emailinfo/list.action" >
+    <div class="form-group">
+    	<input type="text"  name="emailTitle"  class="form-control input-sm" placeholder="请输入主题"/>
     </div>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
     <a class="btn btn-success"  href="${pageContext.request.contextPath }/marketactive/emailinfo/send.action">发送邮件</a>

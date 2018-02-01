@@ -27,22 +27,18 @@
 			</c:forEach>
 		</div>
 	</div>
-	
-	<form action="${pageContext.request.contextPath}/transaction/class_transaction/add.action" class="form-horizontal">
-		
+
+	<form
+		action="${pageContext.request.contextPath}/transaction/class_transaction/add.action"
+		class="form-horizontal">
+
 		<h5 class="page-header alert-info"
 			style="padding: 10px; margin: 0px; margin-bottom: 5px;">基本信息</h5>
 		<div class="row">
-			<div class="col-sm-5">
-				<div class="form-group">
-					<label class="col-sm-3 control-label">教室编号</label>
-					<div class="col-sm-9">
-						<input type="text" name="classroomId" readonly="readonly"
-							class="form-control input-sm"  />
-					</div>
-				</div>
 
-			</div>
+			<input type="hidden" name="classroomId" readonly="readonly"
+				class="form-control input-sm" />
+
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">教室名称</label>
@@ -51,6 +47,17 @@
 							class="form-control input-sm" />
 					</div>
 				</div>
+			</div>
+
+			<div class="col-sm-5">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">容纳人数</label>
+					<div class="col-sm-5">
+						<input type="text" name="classroomMax"
+							class="form-control input-sm" />
+					</div>
+				</div>
+
 			</div>
 			<!-- 			// 检查是否为中文 -->
 			<!-- 			 function isChn(str){ var reg = /^[u4E00-u9FA5]+$/; -->
@@ -61,20 +68,10 @@
 		<div class="row">
 			<div class="col-sm-5">
 				<div class="form-group">
-					<label class="col-sm-3 control-label">容纳人数</label>
-					<div class="col-sm-5">
-						<input type="text" name="classroomMax"
-							class="form-control input-sm"  />
-					</div>
-				</div>
-
-			</div>
-			<div class="col-sm-5">
-				<div class="form-group">
 					<label class="col-sm-3 control-label">设备信息</label>
 					<div class="col-sm-9">
 						<input type="text" name="classroomInfo"
-							class="form-control input-sm"  />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -102,8 +99,8 @@
 
 		<div class="row">
 			<div class="col-sm-3 col-sm-offset-4">
-				<input type="submit" class="btn btn-success" value="保存" /> 
-				<input type="reset" class="btn  btn-danger" value="取消" />
+				<input type="submit" class="btn btn-success" value="保存" /> <input
+					type="reset" class="btn  btn-danger" value="取消" />
 			</div>
 		</div>
 	</form>

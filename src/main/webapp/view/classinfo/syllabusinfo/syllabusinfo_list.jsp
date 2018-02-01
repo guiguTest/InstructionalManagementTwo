@@ -19,11 +19,10 @@
     </ul>
 </div>
 <form class="form-inline" action="${pageContext.request.contextPath}/classinfo/syllabusinfo/list.action" method="post">
-<div class="row alert alert-info"  style="margin:0px; padding:3px;" >
+<div class="row alert alert-info"  style="margin:0px; padding:3px;text-align: center;" >
 
      <div class="form-group">
-         <label class="" for="activename">课程表名称：</label>
-        <input type="text" class="form-control" name="syllabusName">
+        <input type="text" class="form-control" name="syllabusName" placeholder="请输入课程名字">
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
