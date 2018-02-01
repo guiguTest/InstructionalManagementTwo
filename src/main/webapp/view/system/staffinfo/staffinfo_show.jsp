@@ -221,7 +221,7 @@
     </div>
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          <a href="${pageContext.request.contextPath }/system/staffinfo/load.action?staffId=${staffInfo.staffId}" class="btn btn-success" >修改</a>
+            <a href="${pageContext.request.contextPath }/system/staffinfo/load.action?staffId=${staffInfo.staffId}" class="btn btn-success" >修改</a>
         	<a href="${pageContext.request.contextPath }/system/staffinfo/delete.action?staffId=${staffInfo.staffId}" class="btn btn-success" >删除</a>
         	<a href="${pageContext.request.contextPath }/system/staffinfo/list.action" class="btn btn-waring" >返回上一级</a>
         </div>

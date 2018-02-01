@@ -55,6 +55,8 @@ public interface StaffInfoService {
      */
     public StaffInfo getStaffInfo(Integer staffId);
     
+    public StaffInfo getStaffInfo(String satffName);
+    
     
 }
 

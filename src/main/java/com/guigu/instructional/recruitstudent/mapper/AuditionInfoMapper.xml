@@ -6,7 +6,7 @@
     <result column="student_id" property="studentId" jdbcType="INTEGER" />
     <result column="audition_time" property="auditionTime" jdbcType="TIMESTAMP" />
     <result column="audition_addr" property="auditionAddr" jdbcType="VARCHAR" />
-    <result column="audition_course" property="auditionCourse" jdbcType="VARCHAR" />
+    <result column="audition_course" property="auditionCourse" jdbcType="INTEGER" />
     <result column="audition_desc" property="auditionDesc" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -105,7 +105,7 @@
       audition_addr, audition_course, audition_desc
       )
     values (#{auditionId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{auditionTime,jdbcType=TIMESTAMP}, 
-      #{auditionAddr,jdbcType=VARCHAR}, #{auditionCourse,jdbcType=VARCHAR}, #{auditionDesc,jdbcType=VARCHAR}
+      #{auditionAddr,jdbcType=VARCHAR}, #{auditionCourse,jdbcType=INTEGER}, #{auditionDesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.guigu.instructional.po.AuditionInfo" >
@@ -144,7 +144,7 @@
         #{auditionAddr,jdbcType=VARCHAR},
       </if>
       <if test="auditionCourse != null" >
-        #{auditionCourse,jdbcType=VARCHAR},
+        #{auditionCourse,jdbcType=INTEGER},
       </if>
       <if test="auditionDesc != null" >
         #{auditionDesc,jdbcType=VARCHAR},
@@ -173,7 +173,7 @@
         audition_addr = #{record.auditionAddr,jdbcType=VARCHAR},
       </if>
       <if test="record.auditionCourse != null" >
-        audition_course = #{record.auditionCourse,jdbcType=VARCHAR},
+        audition_course = #{record.auditionCourse,jdbcType=INTEGER},
       </if>
       <if test="record.auditionDesc != null" >
         audition_desc = #{record.auditionDesc,jdbcType=VARCHAR},
@@ -189,7 +189,7 @@
       student_id = #{record.studentId,jdbcType=INTEGER},
       audition_time = #{record.auditionTime,jdbcType=TIMESTAMP},
       audition_addr = #{record.auditionAddr,jdbcType=VARCHAR},
-      audition_course = #{record.auditionCourse,jdbcType=VARCHAR},
+      audition_course = #{record.auditionCourse,jdbcType=INTEGER},
       audition_desc = #{record.auditionDesc,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -208,7 +208,7 @@
         audition_addr = #{auditionAddr,jdbcType=VARCHAR},
       </if>
       <if test="auditionCourse != null" >
-        audition_course = #{auditionCourse,jdbcType=VARCHAR},
+        audition_course = #{auditionCourse,jdbcType=INTEGER},
       </if>
       <if test="auditionDesc != null" >
         audition_desc = #{auditionDesc,jdbcType=VARCHAR},
@@ -221,7 +221,7 @@
     set student_id = #{studentId,jdbcType=INTEGER},
       audition_time = #{auditionTime,jdbcType=TIMESTAMP},
       audition_addr = #{auditionAddr,jdbcType=VARCHAR},
-      audition_course = #{auditionCourse,jdbcType=VARCHAR},
+      audition_course = #{auditionCourse,jdbcType=INTEGER},
       audition_desc = #{auditionDesc,jdbcType=VARCHAR}
     where audition_id = #{auditionId,jdbcType=INTEGER}
   </update>

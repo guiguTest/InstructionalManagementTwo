@@ -24,7 +24,7 @@ import com.guigu.instructional.system.service.StaffInfoService;
 @RequestMapping("/system/staffinfo/")
 public class StaffInfoController {
 
-    @Resource(name = "staffInfoServiceImpl")
+    @Resource(name ="staffInfoServiceImpl")
     private StaffInfoService staffInfoService;
 
     // 进行数据校验  你们的功能

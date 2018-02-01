@@ -59,4 +59,25 @@ public class DisciplineInfoServiceImpl implements DisciplineInfoService{
 		return disciplineInfoMapper.selectByPrimaryKey(disciplineId);
 	}
 
+	@Override
+	public List<DisciplineInfo> getDisciplineNameList(DisciplineInfo disciplineInfo) {
+		
+		DisciplineInfoExample disciplineInfoExample=new DisciplineInfoExample();
+		Criteria criteria=disciplineInfoExample.createCriteria();
+		
+        if(disciplineInfo!=null && disciplineInfo.getDisciplineName()!=null) {
+        	disciplineInfo.setDisciplineName("%"+disciplineInfo.getDisciplineName()+"%");
+        	criteria.andDisciplineNameLike(disciplineInfo.getDisciplineName());
+        }
+		
+		return disciplineInfoMapper.selectByExample(disciplineInfoExample);
+	}
+
+	@Override
+	public List<DisciplineInfo> getDisciplinePoolList(DisciplineInfo disciplineInfo) {
+		
+		DisciplineInfoExample disciplineInfoExample=new DisciplineInfoExample();
+		return disciplineInfoMapper.selectByExample(disciplineInfoExample);
+	}
+
 }

@@ -2,6 +2,7 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -24,13 +25,12 @@ public class ClassInfo {
     private String className;
 
     @NotNull(message="{classInfo.classNumber.isnull}")
-    @Pattern(regexp="^[0-9]*$",message="classInfo.classNumber.pattern")
     private Integer classNumber;
 
-    @NotEmpty(message="{classInfo.classStartTime.isnull}")
+    @Past(message="{classInfo.classNumber.past}")
     private Date classStartTime;
 
-    @NotEmpty(message="{classInfo.classEndTime.isnull}")
+    @Future(message="{classInfo.classNumber.future}")
     private Date classEndTime;
 
     private String classIsused;

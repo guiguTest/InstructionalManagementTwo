@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -6,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<%@ include file="/view/public/common.jspf" %>
+<%@ include file="/view/public/common.jspf"%>
 
 </head>
 
@@ -23,7 +24,8 @@
 			<div class="navbar-header pull-left">
 				<a href="#" class="navbar-brand"> <small> <i
 						class="icon-leaf"></i> 杭州归谷培训中心教务管理系统
-				</small>				</a>
+				</small>
+				</a>
 				<!-- /.brand -->
 			</div>
 			<!-- /.navbar-header -->
@@ -44,14 +46,15 @@
 
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="${pageContext.request.contextPath}/resource/assets/avatars/user.jpg" alt="Jason's Photo" /> <span
-							class="user-info"> <small>欢迎光临,</small>
+							src="${pageContext.request.contextPath}/resource/assets/avatars/user.jpg"
+							alt="Jason's Photo" /> <span class="user-info"> <small>欢迎光临,</small>
 						</span> <i class="icon-caret-down"></i>
 					</a>
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							
-							<li><a href="#"  target="mainframe"> <i class="icon-user"></i> 个人资料
+
+							<li><a href="#" target="mainframe"> <i class="icon-user"></i>
+									个人资料
 							</a></li>
 
 							<li class="divider"></li>
@@ -77,7 +80,8 @@
 
 		<div class="main-container-inner">
 			<a class="menu-toggler" id="menu-toggler" href="#"> <span
-				class="menu-text"></span>			</a>
+				class="menu-text"></span>
+			</a>
 
 			<div class="sidebar" id="sidebar">
 				<script type="text/javascript">
@@ -90,181 +94,232 @@
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
 						<button class="btn btn-success">
-							<i class="icon-signal"></i>						</button>
+							<i class="icon-signal"></i>
+						</button>
 
 						<button class="btn btn-info">
-							<i class="icon-pencil"></i>						</button>
+							<i class="icon-pencil"></i>
+						</button>
 
 						<button class="btn btn-warning">
-							<i class="icon-group"></i>						</button>
+							<i class="icon-group"></i>
+						</button>
 
 						<button class="btn btn-danger">
-							<i class="icon-cogs"></i>						</button>
+							<i class="icon-cogs"></i>
+						</button>
 					</div>
 
 					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
 						<span class="btn btn-success"></span> <span class="btn btn-info"></span>
 
-						<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>					</div>
+						<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
+					</div>
 				</div>
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
 					<li class="active"><a
-						href="${pageContext.request.contextPath}/view/bootm.jsp" target="mainframe">
-							<i class="icon-dashboard"></i> <span class="menu-text">
-								控制台 </span>
+						href="${pageContext.request.contextPath}/view/bootm.jsp"
+						target="mainframe"> <i class="icon-dashboard"></i> <span
+							class="menu-text"> 控制台 </span>
 					</a></li>
-                    
-			    <li><a href="javascript:void(0)" target="mainframe"
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 系统管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
-
 						<ul class="submenu">
-							
-                            <li><a href="${pageContext.request.contextPath}/system/staffinfo/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 员工管理
+							<li><a
+								href="${pageContext.request.contextPath}/system/staffinfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									员工管理
 							</a></li>
-                            <li><a href="${pageContext.request.contextPath }/system/roleinfo/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 角色管理
+							<li><a
+								href="${pageContext.request.contextPath }/system/roleinfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									角色管理
 							</a></li>
-						   <li><a href="${pageContext.request.contextPath}/system/roleinfo/staffinforolelist.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 角色变更	</a></li>
-                          <li><a href="view/system/anthorty/anthorty_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 权限管理	</a></li> 
-                         <li><a href="view/system/anthotychange/anthorty_changelist.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 权限变更</a></li>  
-   						 <li><a href="view/system/datadictionary/datadictionary_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 数据字典</a></li>                                                    
-						</ul>
-				</li>
-			  <li><a href="javascript:void(0)" target="mainframe"
+							<li><a
+								href="${pageContext.request.contextPath}/system/roleinfo/staffinforolelist.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									角色变更
+							</a></li>
+							<li><a href="view/system/anthorty/anthorty_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									权限管理
+							</a></li>
+							<li><a
+								href="view/system/anthotychange/anthorty_changelist.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									权限变更
+							</a></li>
+							<li><a
+								href="view/system/datadictionary/datadictionary_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									数据字典
+							</a></li>
+						</ul></li>
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 营销管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
-
 						<ul class="submenu">
-							
-                            <li><a href="view/marketactive/template/template_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 模板管理
+							<li><a
+								href="${pageContext.request.contextPath}/marketactive/template/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									模板管理
 							</a></li>
-                             <li><a href="view/marketactive/messafeinfo/messafeinfo_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 短信管理
-							</a></li>       
-                            <li><a href="view/marketactive/emailinfo/emailinfo_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 邮件管理
-							</a></li>   
-                            <li><a href="view/marketactive/marketactive/marketactive_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i>营销活动
-							</a></li>                                           
-						</ul>
-				</li>
-                			  <li><a href="javascript:void(0)" target="mainframe"
+							<li><a
+								href="${pageContext.request.contextPath}/marketactive/messageinfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									短信管理
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/marketactive/emailinfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									邮件管理
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/marketactive/marketactive/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>营销活动
+							</a></li>
+						</ul></li>
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
-							class="menu-text"> 招生管理 </span> <b class="arrow icon-angle-down"></b>
+							class="menu-text"> 招生管理</span> <b class="arrow icon-angle-down"></b>
 					</a>
-
 						<ul class="submenu">
-							
-                            <li><a href="recruitstudent/studentpool/studentpool_list.jsp" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员池
+							<li><a
+								href="${pageContext.request.contextPath}/recruitstudent/studentpool/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员池
 							</a></li>
-                            <li><a href="recruitstudent/recruitstudent/recruitstudent_list.jsp" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 招生线索
-							</a></li> 
-                            <li><a href="recruitstudent/trackrecord/trackrecord_list.jsp" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 跟踪记录
+							<li><a
+								href="${pageContext.request.contextPath}/recruitstudent/studentpool/list_recruitstudent.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									招生线索
 							</a></li>
-                            <li><a href="recruitstudent/auditioninfo/auditioninfo_list.jsp" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 试听记录
-							</a></li>                                         
-						</ul>
-				</li>
-                
-               <li><a href="javascript:void(0)" target="mainframe"
+							<li><a
+								href="${pageContext.request.contextPath}/recruitstudent/trackrecord/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									跟踪记录
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/recruitstudent/auditionInfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									试听记录
+							</a></li>
+						</ul></li>
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 班级管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-							
-                            <li><a href="${pageContext.request.contextPath}/classinfo/disciplineinfo/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学科信息
+
+
+							<li><a
+								href="${pageContext.request.contextPath}/classinfo/disciplineinfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学科信息
 							</a></li>
-                            <li><a href="${pageContext.request.contextPath}/classinfo/classroominfo/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 教室信息
+							<li><a
+								href="${pageContext.request.contextPath}/classinfo/classroominfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									教室信息
 							</a></li>
-                             <li><a href="${pageContext.request.contextPath}/classinfo/syllabusinfo/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 课程表
-							</a></li>   
-                            <li><a href="${pageContext.request.contextPath}/classinfo/teacher/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 教师管理
-							</a></li>    
-                            <li><a href="${pageContext.request.contextPath}/classinfo/classinfo/listCDSCS.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 班级管理
-							</a></li>                                                           
-						</ul>
-				</li>
-                           <li><a href="javascript:void(0)" target="mainframe"
+							<li><a
+								href="${pageContext.request.contextPath}/classinfo/syllabusinfo/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									课程表
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/classinfo/teacher/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									教师管理
+							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/classinfo/classinfo/listCDSCS.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									班级管理
+							</a></li>
+						</ul></li>
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 学员管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="view/student/student/student_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员信息
+							<li><a href="view/student/student/student_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员信息
 							</a></li>
-                            <li><a href="view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员评价
+							<li><a
+								href="view/student/evaluationinfo/evaluationinfo_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员评价
 							</a></li>
-                            <li><a href="view/student/communicateinfo/communicateinfo_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 沟通记录
+							<li><a
+								href="view/student/communicateinfo/communicateinfo_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									沟通记录
 							</a></li>
-                            <li><a href="view/student/studentwritegrade/studentwritegrade_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员成绩
-							</a></li>                                                                                                                        
-						</ul>
-				</li>
-                
-                   <li><a href="javascript:void(0)" target="mainframe"
+							<li><a
+								href="view/student/studentwritegrade/studentwritegrade_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员成绩
+							</a></li>
+						</ul></li>
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 教务管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="view/student/student/student_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 班级事务
+							<li><a href="view/student/student/student_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									班级事务
 							</a></li>
-                            <li><a href="view/student/evaluationinfo/evaluationinfo_list.html" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员考勤
+							<li><a
+								href="view/student/evaluationinfo/evaluationinfo_list.html"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员考勤
 							</a></li>
-                                                                                                                                         
-						</ul>
-				</li>
-                
-                        <li><a href="javascript:void(0)" target="mainframe"
+
+						</ul></li>
+
+					<li><a href="javascript:void(0)" target="mainframe"
 						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 财务管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="${pageContext.request.contextPath}/finance/tuition/Tuition_list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员缴费
+							<li><a
+								href="${pageContext.request.contextPath}/finance/tuition/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员缴费
 							</a></li>
-                            <li><a href="${pageContext.request.contextPath}/finance/salary/Salary_list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 员工薪水
+							<li><a
+								href="${pageContext.request.contextPath}/finance/salary/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									员工薪水
 							</a></li>
-                                                                                                                                         
-						</ul>
-				</li>
+
+						</ul></li>
 				</ul>
 				<!-- /.nav-list -->
 
 				<div class="sidebar-collapse" id="sidebar-collapse">
 					<i class="icon-double-angle-left"
 						data-icon1="icon-double-angle-left"
-						data-icon2="icon-double-angle-right"></i>				</div>
+						data-icon2="icon-double-angle-right"></i>
+				</div>
 
 				<script type="text/javascript">
 					try {
@@ -275,8 +330,9 @@
 			</div>
 
 			<div class="main-content" id="mains">
-				<iframe id="mainframe" name="mainframe" src="${pageContext.request.contextPath}/view/bootm.jsp"
-					style="width: 100%;border: 0px;"> </iframe>
+				<iframe id="mainframe" name="mainframe"
+					src="${pageContext.request.contextPath}/view/bootm.jsp"
+					style="width: 100%; border: 0px;"> </iframe>
 			</div>
 
 			<script type="text/javascript">
@@ -287,7 +343,8 @@
 			<div class="ace-settings-container" id="ace-settings-container">
 				<div class="btn btn-app btn-xs btn-warning ace-settings-btn"
 					id="ace-settings-btn">
-					<i class="icon-cog bigger-150"></i>				</div>
+					<i class="icon-cog bigger-150"></i>
+				</div>
 
 				<div class="ace-settings-box" id="ace-settings-box">
 					<div>
@@ -299,7 +356,8 @@
 								<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
 							</select>
 						</div>
-						<span>&nbsp; 选择皮肤</span>					</div>
+						<span>&nbsp; 选择皮肤</span>
+					</div>
 
 					<div>
 						<input type="checkbox" class="ace ace-checkbox-2"
@@ -339,7 +397,9 @@
 
 		<a href="#" id="btn-scroll-up"
 			class="btn-scroll-up btn btn-sm btn-inverse"> <i
-			class="icon-double-angle-up icon-only bigger-110"></i>		</a>	</div>
+			class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+	</div>
 	<!-- /.main-container -->
 	<!-- basic scripts -->
 

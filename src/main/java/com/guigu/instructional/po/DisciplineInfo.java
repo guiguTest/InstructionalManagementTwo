@@ -12,12 +12,11 @@ public class DisciplineInfo {
     @NotEmpty(message="{disciplineInfo.disciplineName.isnull}")
     private String disciplineName;
 
+   
     @NotNull(message="{disciplineInfo.disciplineTuition.isnull}")
-    @Pattern(regexp="^[0-9]*$",message="disciplineInfo.disciplineTuition.pattern")
     private Integer disciplineTuition;
     
     @NotNull(message="{disciplineInfo.disciplineBring.isnull}")
-    @Pattern(regexp="^[0-9]*$",message="disciplineInfo.disciplineBring.pattern")
     private Integer disciplineBring;
     
     @NotEmpty(message="{disciplineInfo.disciplineDesc.isnull}")
