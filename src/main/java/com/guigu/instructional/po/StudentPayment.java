@@ -18,8 +18,7 @@ public class StudentPayment {
     @Size(min=1,max=500,message="{StudentPayment.paymentSitutation.size}")
     private String paymentSitutation;
 
-    @DecimalMin(value="1",message="{StudentPayment.paymentMenthod.min}")
-    private Integer paymentMenthod;
+    private String paymentMenthod;
     
     @NotNull(message="{StudentPayment.paymentTime.isnull}")
     @Past(message="{StudentPayment.paymentTime.ispast}")
@@ -69,15 +68,15 @@ public class StudentPayment {
         this.paymentSitutation = paymentSitutation == null ? null : paymentSitutation.trim();
     }
 
-    public Integer getPaymentMenthod() {
-        return paymentMenthod;
-    }
+    public String getPaymentMenthod() {
+		return paymentMenthod;
+	}
 
-    public void setPaymentMenthod(Integer paymentMenthod) {
-        this.paymentMenthod = paymentMenthod;
-    }
+	public void setPaymentMenthod(String paymentMenthod) {
+		this.paymentMenthod = paymentMenthod;
+	}
 
-    public Date getPaymentTime() {
+	public Date getPaymentTime() {
         return paymentTime;
     }
 

@@ -64,11 +64,9 @@
                 <div class="col-sm-9">
                 	<select class="form-control input-sm" name="paymentMenthod" >
                         	<option value="-1">请选择缴费方式</option>
-                        	<option ${studentPayment.paymentMenthod==1?'selected':''} value="1">支付婊</option>
-                        	<option ${studentPayment.paymentMenthod==2?'selected':''} value="2">微信支付</option>
-                        	<option ${studentPayment.paymentMenthod==3?'selected':''} value="3">网银</option>
-                        	<option ${studentPayment.paymentMenthod==4?'selected':''} value="4">现金</option>
-                        	<option ${studentPayment.paymentMenthod==5?'selected':''} value="5">归谷网络支付平台</option>
+                        	<c:forEach items="${rolelist }" var="role">
+                            	<option value="${role.roleId}"  ${role.roleId==staffInfo.roleId?'selected':'' }>${role.roleName }</option>
+                            </c:forEach>
                         </select>
                 </div>
             </div>
