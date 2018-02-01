@@ -22,15 +22,9 @@
 
    <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">班级编号</label>
-                <div class="col-sm-9">
-                	<input type="text" name="classId" value="${classInfo.classId}" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
-                </div>
-            </div>
-        
-        </div>
+    	
+      <input type="hidden" name="classId" value="${classInfo.classId}" readonly="readonly" class="form-control input-sm" />
+      
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">班级名称</label>
@@ -40,9 +34,6 @@
             </div>
         </div>
 
-    </div>
-    
-    <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">开班日期</label>
@@ -51,6 +42,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">结束日期</label>
@@ -61,8 +55,6 @@
         
         </div>
 
-    </div>
-        <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">班级人数</label>
@@ -71,6 +63,8 @@
                 </div>
             </div>
         </div>
+    </div>
+        <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">教师</label>
@@ -85,8 +79,6 @@
 
         </div>
 
-    </div>
-        <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科</label>
@@ -99,6 +91,8 @@
                 </div>
             </div>
         </div>
+    </div>
+        <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">课程表</label>
@@ -113,8 +107,6 @@
 
         </div>
 
-    </div>
-           <div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">教室</label>
@@ -127,8 +119,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+     
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">描述</h5>
     	<div class="row">
     	<div class="col-sm-10">

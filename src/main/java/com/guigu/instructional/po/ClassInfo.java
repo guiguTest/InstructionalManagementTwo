@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class ClassInfo {
@@ -23,11 +24,13 @@ public class ClassInfo {
     private String className;
 
     @NotNull(message="{classInfo.classNumber.isnull}")
+    @Pattern(regexp="^[0-9]*$",message="classInfo.classNumber.pattern")
     private Integer classNumber;
 
-//    @Past(message="{classInfo.classStartTime.past}")
+    @NotEmpty(message="{classInfo.classStartTime.isnull}")
     private Date classStartTime;
 
+    @NotEmpty(message="{classInfo.classEndTime.isnull}")
     private Date classEndTime;
 
     private String classIsused;

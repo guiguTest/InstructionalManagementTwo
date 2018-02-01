@@ -2,6 +2,7 @@ package com.guigu.instructional.po;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class DisciplineInfo {
@@ -12,9 +13,11 @@ public class DisciplineInfo {
     private String disciplineName;
 
     @NotNull(message="{disciplineInfo.disciplineTuition.isnull}")
+    @Pattern(regexp="^[0-9]*$",message="disciplineInfo.disciplineTuition.pattern")
     private Integer disciplineTuition;
     
     @NotNull(message="{disciplineInfo.disciplineBring.isnull}")
+    @Pattern(regexp="^[0-9]*$",message="disciplineInfo.disciplineBring.pattern")
     private Integer disciplineBring;
     
     @NotEmpty(message="{disciplineInfo.disciplineDesc.isnull}")

@@ -27,15 +27,9 @@
     </div>
      <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">基本信息</h5>
 	<div class="row">
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">编号</label>
-                <div class="col-sm-9">
-                	<input type="text" value="${staffInfo.staffId }" name="staffId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
-                </div>
-            </div>
-        
-        </div>
+    	
+       <input type="hidden" value="${staffInfo.staffId }" name="staffId" readonly="readonly" class="form-control input-sm"/>
+          
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">姓名</label>
@@ -45,9 +39,6 @@
             </div>
         </div>
 
-    </div>
-    <!-- 开始2 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">年龄</label>
@@ -57,6 +48,9 @@
             </div>
         
         </div>
+    </div>
+    <!-- 开始2 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">性别</label>
@@ -69,10 +63,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 结束2 -->
-    <!-- 开始3 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">籍贯</label>
@@ -82,6 +72,10 @@
             </div>
         
         </div>
+    </div>
+    <!-- 结束2 -->
+    <!-- 开始3 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">身份证</label>
@@ -90,10 +84,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 结束3 -->
-        <!-- 开始4 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
@@ -103,6 +93,10 @@
             </div>
         
         </div>
+    </div>
+    <!-- 结束3 -->
+        <!-- 开始4 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">办公电话</label>
@@ -111,10 +105,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 结束4 -->
-    <!-- 开始4 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">电子邮件</label>
@@ -124,6 +114,10 @@
             </div>
         
         </div>
+    </div>
+    <!-- 结束4 -->
+    <!-- 开始4 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">移动电话</label>
@@ -132,10 +126,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 结束4 -->    
-    <!-- 开始5 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">家庭住址</label>
@@ -145,6 +135,10 @@
             </div>
         
         </div>
+    </div>
+    <!-- 结束4 -->    
+    <!-- 开始5 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">QQ</label>
@@ -153,10 +147,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 结束5 -->    
-    <!-- 开始6 -->
-	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
             	<label class="col-sm-3 control-label">入职时间</label>
@@ -166,6 +156,10 @@
             </div>
         
         </div>
+    </div>
+    <!-- 结束5 -->    
+    <!-- 开始6 -->
+	<div class="row">
         <div class="col-sm-5">
             <div class="form-group">
             	<label class="col-sm-3 control-label">教育水平</label>

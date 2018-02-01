@@ -2,6 +2,7 @@ package com.guigu.instructional.po;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class ClassroomInfo {
@@ -12,6 +13,7 @@ public class ClassroomInfo {
     private String classroomName;
 
     @NotNull(message="{classroomInfo.classroomMax.isnull}")
+    @Pattern(regexp="^[0-9]*$",message="classroomInfo.classroomMax.pattern")
     private Integer classroomMax;
 
     @NotEmpty(message="{classroomInfo.classroomInfo.isnull}")
