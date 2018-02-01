@@ -25,8 +25,7 @@
 </script>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 <form class="form-horizontal" action="${pageContext.request.contextPath}/finance/tuition/list.action" method="post">
-	<div class="col-sm-1" >条件:</div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="margin-left: 200px">
     	<select class="form-control  input-sm"  onchange="query(this)" name="condition">
     		<option value="">请选择</option>
         	<option value="studnetName">学员姓名</option>

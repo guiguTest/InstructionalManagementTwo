@@ -130,7 +130,6 @@ public class ClassroomServiceImpl implements ClassroomServices {
 //         ClassMapper classMapper = sqlSession.getMapper(ClassMapper.class);
 
          List<ClassroomInfo> list = classMapper.findClassMap();
-         System.out.println(list);
         
          return list;
 	}

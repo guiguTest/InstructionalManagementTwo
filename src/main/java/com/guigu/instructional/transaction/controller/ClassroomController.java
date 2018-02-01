@@ -1,15 +1,9 @@
 package com.guigu.instructional.transaction.controller;
 
-import java.io.InputStream;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.jws.WebParam.Mode;
 
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

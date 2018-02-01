@@ -25,8 +25,7 @@
 
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 <form  action="${pageContext.request.contextPath}/transaction/transaction/list.action" method="post" class="form-horizontal">
-	<div class="col-sm-1" >条件:</div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="margin-left: 200px">
     	<select class="form-control  input-sm" onchange="query(this)" name="condition">
         	<option value="">请选择</option>
         	<option value="attendanceId">班级编号</option>

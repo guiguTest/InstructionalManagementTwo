@@ -74,6 +74,7 @@
 				<label class="col-sm-3 control-label">活动状态</label>
 				<div class="col-sm-5">
 					<select class="form-control input-sm" name="activeState">
+						<option></option>
 						<option value="0" ${marketActiveVO.activeState=='0'?'selected':''}>准备中</option>
 						<option value="1" ${marketActiveVO.activeState=='1'?'selected':''}>开始</option>
 						<option value="2" ${marketActiveVO.activeState=='2'?'selected':''}>进行中</option>

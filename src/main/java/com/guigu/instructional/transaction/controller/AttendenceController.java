@@ -1,24 +1,17 @@
 package com.guigu.instructional.transaction.controller;
 
-import java.io.InputStream;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.jws.WebParam.Mode;
 
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.AttendanceInfo;
 
 import com.guigu.instructional.transaction.services.AttendanceInfoService;
-import com.guigu.instructional.transaction.services.impl.AttendanceInfoServiceImpl;
 
 /**       
  * <p>project_name:InstructionalManagement</p>
@@ -83,7 +76,6 @@ public class AttendenceController {
     public String list(AttendanceInfo attendanceInfo,Model model) {
     	
         List<AttendanceInfo> list =attendanceInfoService.getAttendanceInfoList(attendanceInfo);
-        System.out.println(list);
         model.addAttribute("list", list);
         
         return "transaction/transaction/transaction_list";

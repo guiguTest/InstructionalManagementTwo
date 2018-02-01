@@ -60,18 +60,19 @@
 		<!-- 开始2 -->
 		<div class="row">
 			<div class="col-sm-5">
-            <div class="form-group">
-            	<label class="col-sm-3 control-label">缴费方式</label>
-                <div class="col-sm-9">
-                	<select class="form-control input-sm" name="paymentMenthod" >
-                			<option >请选择缴费方式</option>
-                		<c:forEach items="${dataList}" var="data">
-                			<option value="${data.dataContent}"  ${data.dataContent==studentPayment.paymentMenthod?'selected':'' }>${data.dataContent}</option>
-                		</c:forEach>
-                        </select>
-                </div>
-            </div>
-        </div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">缴费方式</label>
+					<div class="col-sm-9">
+						<select class="form-control input-sm" name="paymentMenthod">
+							<option></option>
+							<c:forEach items="${dataList}" var="data">
+								<option value="${data.dataContent}"
+									${data.dataContent==studentPayment.paymentMenthod?'selected':'' }>${data.dataContent}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+			</div>
 			<div class="col-sm-5">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">应缴金额</label>
@@ -157,15 +158,16 @@
 						<textarea class="form-control" name="paymentRemark">${studentPayment.paymentRemark}</textarea>
 					</div>
 				</div>
+			</div>
+		</div>
 
-
-   
-   	<div class="row">
-    	<div class="col-sm-3 col-sm-offset-4">
-        	<input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn  btn-danger" href="${pageContext.request.contextPath }/finance/tuition/list.action">取消</a>
-        </div>
-    </div>
-</form>
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-4">
+				<input type="submit" class="btn btn-success" value="保存" /> <a
+					class="btn  btn-danger"
+					href="${pageContext.request.contextPath }/finance/tuition/list.action">取消</a>
+			</div>
+		</div>
+	</form>
 </body>
 </html>

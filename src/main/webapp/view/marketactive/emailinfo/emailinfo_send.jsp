@@ -74,7 +74,7 @@
 					<label class="col-sm-3 control-label">主题</label>
 					<div class="col-sm-9">
 						<input type="text" name="emailTitle" value="${emailVO.emailTitle}"
-							class="form-control input-sm" placeholder="请输入主题" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 					<label class="col-sm-3 control-label">发送人</label>
 					<div class="col-sm-9">
 						<input type="text" name="staffName" value="${emailVO.staffName}"
-							class="form-control input-sm" placeholder="请输入发送人" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 					<label class="col-sm-3 control-label">接收人</label>
 					<div class="col-sm-9">
 						<input type="text" name="emailMan" value="${emailVO.emailMan}"
-							class="form-control input-sm" placeholder="请输入接收人" />
+							class="form-control input-sm"/>
 					</div>
 				</div>
 			</div>
@@ -109,7 +109,7 @@
 					<label class="col-sm-3 control-label">邮件地址</label>
 					<div class="col-sm-9">
 						<input type="text" name="emailAddr" value="${emailVO.emailAddr}"
-							class="form-control input-sm" placeholder="请输入地址" />
+							class="form-control input-sm" />
 					</div>
 				</div>
 			</div>

@@ -67,7 +67,6 @@ public class AttendanceInfoServiceImpl implements AttendanceInfoService {
         Criteria criteria =attendanceInfoExample.createCriteria();
         if(attendanceInfo!=null) {
             //¸ù¾Ýid²éÑ¯
-        	System.out.println(attendanceInfo);
             if(attendanceInfo.getAttendanceId()!=null) {
                 criteria.andAttendanceIdEqualTo(attendanceInfo.getAttendanceId());
             }

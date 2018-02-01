@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
@@ -39,7 +38,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">角色编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="roleId"  readonly="readonly" class="form-control input-sm" placeholder="请输入角色编号"/>
+                	<input type="text" name="roleId"  readonly="readonly" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -48,7 +47,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">角色名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="roleName" class="form-control input-sm" placeholder="请输入角色名称"/>
+                	<input type="text" name="roleName" class="form-control input-sm"/>
                 </div>
             </div>
         </div>

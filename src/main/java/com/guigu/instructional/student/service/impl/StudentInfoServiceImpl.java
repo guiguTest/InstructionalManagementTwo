@@ -159,18 +159,20 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		criteria.andStudentMarkEqualTo(0);
 
 		List<StudentInfo> studentList = studentInfoMapper.selectByExample(studentInfoExample);
-		if (studentList != null) {
+		if (!studentList.isEmpty()) {
 			List<StudentCustom> sslist = new ArrayList<>();
 			for (StudentInfo student : studentList) {
 				StudentCustom studentCustom = new StudentCustom();
 				studentCustom.setStudentInfo(student);
+				System.out.println(student.getStaffId());
 				if (student.getStaffId() != null) {
 					studentCustom.setStaffName(staffInfoService.getStaffInfo(student.getStaffId()).getStaffName());
 				}
 				sslist.add(studentCustom);
 			}
 			return sslist;
-		} else {
+		} 
+		else {
 			return null;
 		}
 	}

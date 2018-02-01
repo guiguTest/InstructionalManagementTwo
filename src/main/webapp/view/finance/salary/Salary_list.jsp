@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>员工薪水</title>
 
@@ -25,8 +24,7 @@
 </script>
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 <form class="form-horizontal" action="${pageContext.request.contextPath}/finance/salary/list.action" method="post">
-	<div class="col-sm-1" >条件:</div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="margin-left: 200px">
     	<select class="form-control  input-sm"  onchange="query(this)" name="condition">
     		<option value="">请选择</option>
         	<option value="staffName">领取者姓名</option>
