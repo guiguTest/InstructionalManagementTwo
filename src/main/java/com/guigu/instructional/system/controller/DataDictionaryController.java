@@ -23,7 +23,7 @@ public class DataDictionaryController {
 	public String findDataDictionaryForList(Model model,DataDictionary dataDictionary) {
 		List<DataDictionary> list=dataDictionaryService.findDataDictionaryList(dataDictionary);
 		model.addAttribute("list",list);
-		return "system/dataDictionary/dataDictionary_list";
+		return "system/datadictionary/datadictionary_list";
 	}
 	
 	@RequestMapping("delete.action")
@@ -34,7 +34,7 @@ public class DataDictionaryController {
 		}else {
 			model.addAttribute("info","É¾³ýÊ§°Ü");
 		}
-		return "system/dataDictionary/dataDictionary_list";
+		return "system/datadictionary/datadictionary_list";
 	}
 	
 	@RequestMapping("add.action")
@@ -49,9 +49,9 @@ public class DataDictionaryController {
 	}
 	
 	@RequestMapping("load.action")
-	public String loadDataDictionary(Integer dataDictionaryId,Model model) {
-		System.out.println(dataDictionaryId);
-		DataDictionary dataDictionary=dataDictionaryService.findDataDictionaryById(dataDictionaryId);
+	public String loadDataDictionary(Integer dataId,Model model) {
+		System.out.println("1"+dataId);
+		DataDictionary dataDictionary=dataDictionaryService.findDataDictionaryById(dataId);
 		System.out.println(dataDictionary);
 		model.addAttribute("dataDictionary",dataDictionary);
 		return "/system/datadictionary/datadictionary_update";

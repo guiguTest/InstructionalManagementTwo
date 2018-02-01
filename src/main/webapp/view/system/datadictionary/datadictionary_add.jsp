@@ -28,7 +28,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="dataId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="dataId" value="${dataDictionary.dataId}" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -37,7 +37,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="dataContent" class="form-control input-sm" placeholder="请输入名称"/>
+                	<input type="text" name="dataContent" value="${dataDictionary.dataContent}" class="form-control input-sm" placeholder="请输入名称"/>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">类型</label>
                 <div class="col-sm-9">
-                	<input type="text" name="dataType" class="form-control input-sm" placeholder="请输入类型"/>
+                	<input type="text" name="dataType" value="${dataDictionary.dataType}" class="form-control input-sm" placeholder="请输入类型"/>
                 </div>
             </div>
         
@@ -62,7 +62,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">描述</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="dataDasc"></textarea>
+                	<textarea class="form-control" name="dataDasc">${dataDictionary.dataDasc}</textarea>
                 </div>
             </div>
         
@@ -73,8 +73,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-          
-            <input  type="reset" class="btn  btn-danger" value="取消"/>
+         	<a href="${pageContext.request.contextPath}/system/datadictionary/list.action" class="btn  btn-danger">取消</a>
         </div>
     </div>
 </form>
