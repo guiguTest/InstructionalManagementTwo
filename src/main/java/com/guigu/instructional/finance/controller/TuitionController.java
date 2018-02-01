@@ -59,6 +59,8 @@ public class TuitionController {
 		this.tuitionValidation(studentPayment, bindingResult);
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> Errors=bindingResult.getAllErrors();
+			List<DataDictionary> data=this.findDataDictionaryIsUser();
+			model.addAttribute("dataList",data);
 			model.addAttribute("Errors",Errors);
 			return "finance/tuition/Tuition_add";
 		}
@@ -79,6 +81,8 @@ public class TuitionController {
 			for (ObjectError objectError : Errors) {
 				System.out.println(objectError);
 			}
+			List<DataDictionary> data=this.findDataDictionaryIsUser();
+			model.addAttribute("dataList",data);
 			model.addAttribute("Errors",Errors);
 			return "finance/tuition/Tuition_update";
 		}
@@ -96,8 +100,6 @@ public class TuitionController {
 		StudentPayment studentPayment=tuitionService.findTuitionForId(studentPaymentId);
 		List<DataDictionary> data=this.findDataDictionaryIsUser();
 		model.addAttribute("dataList",data);
-		List<DataDictionary> list=this.findDataDictionaryIsUser();
-		model.addAttribute("data", list);
 		model.addAttribute("studentPayment",studentPayment);
 		return "finance/tuition/Tuition_update";
 	}

@@ -64,9 +64,9 @@
                 <div class="col-sm-9">
                 	<select class="form-control input-sm" name="paymentMenthod" >
                         	<option value="-1">请选择缴费方式</option>
-                        	<c:forEach items="${rolelist }" var="role">
-                            	<option value="${role.roleId}"  ${role.roleId==staffInfo.roleId?'selected':'' }>${role.roleName }</option>
-                            </c:forEach>
+                        	<c:forEach items="${dataList}" var="data">
+                			<option value="${data.dataContent}"  ${data.dataContent==studentPayment.paymentMenthod?'selected':'' }>${data.dataContent}</option>
+                		</c:forEach>
                         </select>
                 </div>
             </div>
@@ -153,7 +153,7 @@
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
-            <a class="btn  btn-danger" href="${pageContext.request.contextPath }/finance/salary/list.action">取消</a>
+            <a class="btn  btn-danger" href="${pageContext.request.contextPath }/finance/tuition/list.action">取消</a>
         </div>
     </div>
 </form>
