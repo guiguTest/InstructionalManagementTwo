@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.po.StudentInfoClassInfoStaffInfo;
+import com.guigu.instructional.po.StudentInfoCustom;
 import com.guigu.instructional.student.service.StudentInfoService;
 
 @Controller
@@ -21,8 +22,8 @@ public class StudentInfoController {
 	
 	
 	@RequestMapping("list.action")
-	public String list(StudentInfoClassInfoStaffInfo studentInfoClassInfoStaffInfo,Model model) {
-		List<StudentInfoClassInfoStaffInfo> list=studentInfoService.findStudentList();
+	public String list(StudentInfo studentInfo,Model model) {
+		List<StudentInfoCustom> list=studentInfoService.getStudentInfoList(studentInfo);
 		
 		model.addAttribute("list",list);
 		return "student/student/student_list";

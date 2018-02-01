@@ -1,15 +1,21 @@
 package com.guigu.instructional.po;
 
-public class StudentWriteGradeCustom{
+public class CommunicationInfoCustom {
 
-	private StudentWriteGrade studentWriteGrade;
+	private CommunicationInfo communicationInfo;
 	
 	private String studentName;
 	
 	private String staffName;
-	
-	
-	
+
+	public CommunicationInfo getCommunicationInfo() {
+		return communicationInfo;
+	}
+
+	public void setCommunicationInfo(CommunicationInfo communicationInfo) {
+		this.communicationInfo = communicationInfo;
+	}
+
 	public String getStudentName() {
 		return studentName;
 	}
@@ -25,16 +31,6 @@ public class StudentWriteGradeCustom{
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
 	}
-
-	public StudentWriteGrade getStudentWriteGrade() {
-		return studentWriteGrade;
-	}
-
-	public void setStudentWriteGrade(StudentWriteGrade studentWriteGrade) {
-		this.studentWriteGrade = studentWriteGrade;
-	}
-
-
 	
 	
 }

@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.CommunicationInfo;
+import com.guigu.instructional.po.CommunicationInfoCustom;
 import com.guigu.instructional.po.CommunicationInfoStudentInfoStaffInfo;
+import com.guigu.instructional.po.StudentInfo;
 import com.guigu.instructional.student.service.CommunicationInfoService;
 
 @Controller
@@ -21,8 +23,8 @@ public class CommunicationInfoController {
 	
 	
 	@RequestMapping("list.action")
-	public String list(CommunicationInfoStudentInfoStaffInfo communicationInfoStudentInfoStaffInfo,Model model) {
-		List<CommunicationInfoStudentInfoStaffInfo> list=communicationInfoService.findCommunication();
+	public String list(StudentInfo studentInfo,Model model) {
+		List<CommunicationInfoCustom> list=communicationInfoService.getCommunicatinList(studentInfo);
 		
 		model.addAttribute("list",list);
 		

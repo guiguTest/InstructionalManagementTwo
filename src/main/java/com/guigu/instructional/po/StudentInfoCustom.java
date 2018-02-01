@@ -1,31 +1,39 @@
 package com.guigu.instructional.po;
 
-public class StudentInfoCustom {
-
-	private ClassInfo classInfo;
+public class StudentInfoCustom  {	
 	
-	private StaffInfo staffInfo;
+	private StudentInfo studentInfo;
+	
+	private String staffName;
+	
+	private String className;
+	
+	
 
-	public ClassInfo getClassInfo() {
-		return classInfo;
+	public String getClassName() {
+		return className;
 	}
 
-	public void setClassInfo(ClassInfo classInfo) {
-		this.classInfo = classInfo;
+	public void setClassName(String className) {
+		this.className = className;
 	}
 
-	public StaffInfo getStaffInfo() {
-		return staffInfo;
+	public String getStaffName() {
+		return staffName;
 	}
 
-	public void setStaffInfo(StaffInfo staffInfo) {
-		this.staffInfo = staffInfo;
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 
-	@Override
-	public String toString() {
-		return "StudentInfoCustom [classInfo=" + classInfo + ", staffInfo=" + staffInfo + "]";
+	public StudentInfo getStudentInfo() {
+		return studentInfo;
 	}
+
+	public void setStudentInfo(StudentInfo studentInfo) {
+		this.studentInfo = studentInfo;
+	}
+
 	
 	
 }

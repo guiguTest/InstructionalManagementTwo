@@ -20,8 +20,8 @@
 <div class="row alert alert-info"  style="margin:0px; padding:3px;" >
 
      <div class="form-group">
-         <label class="" for="activename">学员姓名：</label>
-        <input type="text" name="studentName" class="form-control" id="activename" placeholder="请输入学员姓名">
+         <label class="" >学员姓名：</label>
+        <input type="text" name="studentName" class="form-control"  placeholder="请输入学员姓名">
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
@@ -33,14 +33,14 @@
     </table>
      <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/student/studentwritegrade/list.action">
     	<display:column property="studentWriteGrade.writeGradeId" title="成绩编号"></display:column>
-    	<display:column property="studentInfo.studentName" title="学员姓名" ></display:column>
-    	<display:column property="staffInfo.staffName" title="监考人和阅卷人"></display:column>
+    	<display:column property="studentName" title="学员姓名" ></display:column>
+    	<display:column property="staffName" title="监考人和阅卷人"></display:column>
     	<display:column property="studentWriteGrade.writeGradeSubject" title="科目"></display:column>
     	<display:column property="studentWriteGrade.writeGrade" title="成绩"></display:column>
     	<display:column property="studentWriteGrade.writeGradeTime" title="考试时间" format="{0,date,yyyy年MM月dd日}"></display:column>
     	<display:column property="studentWriteGrade.writeGradeNote" title="备注"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/student/studentwritegrade/load.action" paramId="writeGradeId" paramProperty="writeGradeId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/student/studentwritegrade/delete.action" paramId="writeGradeId" paramProperty="writeGradeId" value="删除" title="删除"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/student/studentwritegrade/load.action" paramId="writeGradeId" paramProperty="studentWriteGrade.writeGradeId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/student/studentwritegrade/delete.action" paramId="writeGradeId" paramProperty="studentWriteGrade.writeGradeId" value="删除" title="删除"></display:column>
     	
     </display:table>
 </div>

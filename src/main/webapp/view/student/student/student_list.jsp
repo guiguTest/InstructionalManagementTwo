@@ -21,7 +21,7 @@
 
      <div class="form-group">
          <label class="" for="activename">学员姓名：</label>
-        <input type="email" class="form-control" id="activename" placeholder="请输入学员姓名">
+        <input type="text" name="studentName" class="form-control" id="activename" placeholder="请输入学员姓名">
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
@@ -32,17 +32,17 @@
 	<table class="table  table-condensed table-striped">  	                   
     </table>
      <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/student/student/list.action">
-    	<display:column property="studentId" title="学员编号"></display:column>
-    	<display:column property="studentName" title="学员姓名" href="${pageContext.request.contextPath }/student/student/show.action" paramId="studentId" paramProperty="studentId"></display:column>
+    	<display:column property="studentInfo.studentId" title="学员编号"></display:column>
+    	<display:column property="studentInfo.studentName" title="学员姓名" href="${pageContext.request.contextPath }/student/student/show.action" paramId="studentId" paramProperty="studentId"></display:column>
     	<display:column property="staffName" title="负责人"></display:column>
     	<display:column property="className" title="班级"></display:column>
-    	<display:column property="studentAge" title="学员年龄"></display:column>
-    	<display:column property="studentTellphone" title="学员电话"></display:column>
-    	<display:column property="studentEmail" title="学员邮箱"></display:column>
-    	<display:column property="studentBirthday" title="出生日期" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column property="studentPro" title="省份"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/student/student/load.action" paramId="studentId" paramProperty="studentId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/student/student/delete.action" paramId="studentId" paramProperty="studentId" value="删除" title="删除"></display:column>
+    	<display:column property="studentInfo.studentAge" title="学员年龄"></display:column>
+    	<display:column property="studentInfo.studentTellphone" title="学员电话"></display:column>
+    	<display:column property="studentInfo.studentEmail" title="学员邮箱"></display:column>
+    	<display:column property="studentInfo.studentBirthday" title="出生日期" format="{0,date,yyyy年MM月dd日}"></display:column>
+    	<display:column property="studentInfo.studentPro" title="省份"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/student/student/load.action" paramId="studentId" paramProperty="studentInfo.studentId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/student/student/delete.action" paramId="studentId" paramProperty="studentInfo.studentId" value="删除" title="删除"></display:column>
     	
     </display:table>
 </div>

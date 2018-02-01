@@ -17,6 +17,7 @@ public interface StudentInfoService {
 	
 	public StudentInfo getStudent(Integer studentId );
 	
-//	public List<StudentInfoCustom> getStudentInfoList();
+	public List<StudentInfoCustom> getStudentInfoList(StudentInfo studentInfo);
 	
+	public List<StudentInfo> getStudentInfoNameList(StudentInfo studentInfo);
 }

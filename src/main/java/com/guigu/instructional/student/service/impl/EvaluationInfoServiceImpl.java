@@ -12,11 +12,16 @@ import com.guigu.instructional.po.EvaluationInfoExample;
 import com.guigu.instructional.po.EvaluationInfoExample.Criteria;
 import com.guigu.instructional.po.EvaluationInfoExampleVO;
 import com.guigu.instructional.po.EvaluationInfoStudentInfo;
+import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StudentInfo;
+import com.guigu.instructional.po.StudentWriteGrade;
+import com.guigu.instructional.po.StudentWriteGradeCustom;
+import com.guigu.instructional.po.StudentWriteGradeExample;
 import com.guigu.instructional.student.mapper.EvaluationInfoAndStudentInfoMapper;
 import com.guigu.instructional.student.mapper.EvaluationInfoMapper;
 import com.guigu.instructional.student.mapper.StudentInfoMapper;
 import com.guigu.instructional.student.service.EvaluationInfoService;
+import com.guigu.instructional.student.service.StudentInfoService;
 
 
 @Service("evaluationInfoServiceImpl")
@@ -30,6 +35,9 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 	
 	@Resource(name="studentInfoMapper")
 	private StudentInfoMapper studentInfoMapper;
+	
+	@Resource(name="studentInfoServiceImpl")
+	private StudentInfoService studentInfoService;
 	
 	@Override
 	public boolean addEvaluation(EvaluationInfo evaluationInfo) {
@@ -130,6 +138,7 @@ public class EvaluationInfoServiceImpl implements EvaluationInfoService{
 		return false;
 	}
 
+	
 
 
 }

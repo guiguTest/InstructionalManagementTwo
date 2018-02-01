@@ -25,9 +25,7 @@ public class StudentWriteGradeController {
 	
 	@RequestMapping("list.action")
 	public String list(StudentInfo studentInfo,Model model) {
-		
 		List<StudentWriteGradeCustom> list=studentWriteGradeService.getStudentWriteGradeList(studentInfo);
-		System.out.println(list.get(0));
 		model.addAttribute("list",list);
 		
 		return "student/studentwritegrade/studentwritegrade_list";

@@ -13,35 +13,39 @@ import com.guigu.instructional.po.EvaluationInfoExample;
 import com.guigu.instructional.po.EvaluationInfoExampleVO;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.po.StudentInfo;
+import com.guigu.instructional.po.StudentInfoCustom;
 import com.guigu.instructional.po.StudentInfoExample;
-import com.guigu.instructional.po.StudentInfoExample.Criteria;
 import com.guigu.instructional.po.StudentWriteGrade;
 import com.guigu.instructional.po.StudentWriteGradeCustom;
 import com.guigu.instructional.po.StudentWriteGradeExample;
+import com.guigu.instructional.po.StudentWriteGradeExample.Criteria;
 import com.guigu.instructional.po.StudentWriteGradeStudentInfoStaffInfo;
 import com.guigu.instructional.student.mapper.StudentInfoMapper;
 import com.guigu.instructional.student.mapper.StudentWriteGradeMapper;
 import com.guigu.instructional.student.mapper.StudentWriteGradeStudentInfoStaffInfoMapper;
+import com.guigu.instructional.student.service.StudentInfoService;
 import com.guigu.instructional.student.service.StudentWriteGradeService;
 import com.guigu.instructional.system.mapper.StaffInfoMapper;
+import com.guigu.instructional.system.service.StaffInfoService;
 
 @Service("studentWriteGradeServiceImpl")
 public class StudentWriteGradeServiceImpl implements StudentWriteGradeService {
 
-	@Resource(name="studentWriteGradeStudentInfoStaffInfoMapper")
+	@Resource(name = "studentWriteGradeStudentInfoStaffInfoMapper")
 	private StudentWriteGradeStudentInfoStaffInfoMapper studentWriteGradeStudentInfoStaffInfoMapper;
-	
-	@Resource(name="studentWriteGradeMapper")
+
+	@Resource(name = "studentWriteGradeMapper")
 	private StudentWriteGradeMapper studentWriteGradeMapper;
-	
-	
-	@Resource(name="studentInfoMapper")
+
+	@Resource(name = "studentInfoMapper")
 	private StudentInfoMapper studentInfoMapper;
-	
-	
-	@Resource(name="staffInfoMapper")
-	private StaffInfoMapper staffInfoMapper;
-	
+
+	@Resource(name = "staffInfoServiceImpl")
+	private StaffInfoService staffInfoService;
+
+	@Resource(name = "studentInfoServiceImpl")
+	private StudentInfoService studentInfoService;
+
 	@Override
 	public List<StudentWriteGradeStudentInfoStaffInfo> findStudentWriteGrade() {
 		return studentWriteGradeStudentInfoStaffInfoMapper.findStudentWriteGrade();
@@ -49,8 +53,8 @@ public class StudentWriteGradeServiceImpl implements StudentWriteGradeService {
 
 	@Override
 	public boolean addStudentWriteGrade(StudentWriteGrade studentWriteGrade) {
-		int i=studentWriteGradeMapper.insertSelective(studentWriteGrade);
-		if(i>0) {
+		int i = studentWriteGradeMapper.insertSelective(studentWriteGrade);
+		if (i > 0) {
 			return true;
 		}
 		return false;
@@ -58,18 +62,18 @@ public class StudentWriteGradeServiceImpl implements StudentWriteGradeService {
 
 	@Override
 	public boolean updateStudentWriteGrade(StudentWriteGrade studentWriteGrade) {
-		int i=studentWriteGradeMapper.updateByPrimaryKeySelective(studentWriteGrade);
-		if(i>0) {
+		int i = studentWriteGradeMapper.updateByPrimaryKeySelective(studentWriteGrade);
+		if (i > 0) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean deleteStudentWriteGrade(Integer writeGradeId) {
-		int i=studentWriteGradeMapper.deleteByPrimaryKey(writeGradeId);
-		if(i>0){
+		int i = studentWriteGradeMapper.deleteByPrimaryKey(writeGradeId);
+		if (i > 0) {
 			return true;
 		}
 		return false;
@@ -82,32 +86,45 @@ public class StudentWriteGradeServiceImpl implements StudentWriteGradeService {
 
 	@Override
 	public List<StudentWriteGradeCustom> getStudentWriteGradeList(StudentInfo studentInfo) {
-		
-		List<StudentWriteGradeCustom> liststudentwritegrade=new ArrayList<>();
-		StudentInfoExample studentInfoExample=new StudentInfoExample();
-		Criteria criteria=studentInfoExample.createCriteria();
-		if(studentInfo!=null && studentInfo.getStudentName()!=null) {
-			studentInfo.setStudentName("%"+studentInfo.getStudentName()+"%");
-			criteria.andStudentNameLike(studentInfo.getStudentName());
+
+		StudentWriteGradeExample studentWriteGradeExample = new StudentWriteGradeExample();
+		Criteria criteria = studentWriteGradeExample.createCriteria();
+		if (studentInfo != null & studentInfo.getStudentName() != null) {
+
+			List<StudentInfo> list = studentInfoService.getStudentInfoNameList(studentInfo);
+			List<Integer> sid = new ArrayList<>();
+			if (!list.isEmpty()) {
+				for (StudentInfo stu : list) {
+					sid.add(stu.getStudentId());
+				}
+				criteria.andStudentIdIn(sid);
+			} else {
+				return null;
+			}
 		}
-		
-		List<StudentInfo> list=studentInfoMapper.selectByExample(studentInfoExample);
-		
-		StudentWriteGradeExample studentWriteGradeExample=new StudentWriteGradeExample();
-		com.guigu.instructional.po.StudentWriteGradeExample.Criteria criteria2=studentWriteGradeExample.createCriteria();
-		List<StudentWriteGrade> list2=studentWriteGradeMapper.selectByExample(null);
-		if(list2!=null) {
-			for(StudentWriteGrade StudentWriteGrade:list2 ) {
-				StudentWriteGradeCustom studentWriteGradeCustom=new StudentWriteGradeCustom();
-			StudentInfo student1=studentInfoMapper.selectByPrimaryKey(StudentWriteGrade.getStudentId());
-			StaffInfo staffInfo=staffInfoMapper.selectByPrimaryKey(StudentWriteGrade.getStaffId());
-			studentWriteGradeCustom.setStudentWriteGrade(StudentWriteGrade);
-			studentWriteGradeCustom.setStaffInfo(staffInfo);
-			studentWriteGradeCustom.setStudentInfo(student1);
-			liststudentwritegrade.add(studentWriteGradeCustom);
+
+		List<StudentWriteGrade> list2 = studentWriteGradeMapper.selectByExample(studentWriteGradeExample);
+		List<StudentWriteGradeCustom> liststudentwritegrade = new ArrayList<>();
+		if (list2!= null) {
+
+			
+			for (StudentWriteGrade studentWriteGrade : list2) {
+				StudentWriteGradeCustom studentWriteGradeCustom = new StudentWriteGradeCustom();
+				studentWriteGradeCustom.setStudentWriteGrade(studentWriteGrade);
+
+				if (studentWriteGrade.getStudentId() != null) {
+					StudentInfo student = studentInfoService.getStudent(studentWriteGrade.getStudentId());
+					studentWriteGradeCustom.setStudentName(student.getStudentName());
+				}
+				if (studentWriteGrade.getStaffId() != null) {
+					StaffInfo staffInfo = staffInfoService.getStaffInfo(studentWriteGrade.getStaffId());
+					studentWriteGradeCustom.setStaffName(staffInfo.getStaffName());
+				}
+
+				liststudentwritegrade.add(studentWriteGradeCustom);
 			}
-			}
-		
+			
+		}
 		return liststudentwritegrade;
 	}
 

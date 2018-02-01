@@ -242,4 +242,18 @@ public class StudentInfo {
     public void setStudentPassword(String studentPassword) {
         this.studentPassword = studentPassword == null ? null : studentPassword.trim();
     }
+
+	@Override
+	public String toString() {
+		return "StudentInfo [studentId=" + studentId + ", staffId=" + staffId + ", classId=" + classId
+				+ ", studentName=" + studentName + ", studentSex=" + studentSex + ", studentAge=" + studentAge
+				+ ", studentTellphone=" + studentTellphone + ", studentEmail=" + studentEmail + ", studentIdcard="
+				+ studentIdcard + ", studentAddress=" + studentAddress + ", studentBirthday=" + studentBirthday
+				+ ", studentSchool=" + studentSchool + ", studentQq=" + studentQq + ", studentParentsName="
+				+ studentParentsName + ", studentParentsPhone=" + studentParentsPhone + ", studentPro=" + studentPro
+				+ ", studentProCity=" + studentProCity + ", studentType=" + studentType + ", studentIspay="
+				+ studentIspay + ", studentState=" + studentState + ", studentMark=" + studentMark + ", studentDesc="
+				+ studentDesc + ", studentNumber=" + studentNumber + ", studentPassword=" + studentPassword + "]";
+	}
+    
 }

@@ -45,8 +45,8 @@
     	<display:column property="evaluationInfo.evaluationCourse" title="课程名称"></display:column>
     	<display:column property="evaluationInfo.evaluationTeacher" title="教师"></display:column>
     	<display:column property="evaluationInfo.evaluationTime" title="评价时间" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/student/evaluationinfo/load.action"  paramId="evaluationId" paramProperty="evaluationId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath}/student/evaluationinfo/delete.action" paramId="evaluationId" paramProperty="evaluationId" value="删除" title="删除"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/student/evaluationinfo/load.action"  paramId="evaluationId" paramProperty="evaluationInfo.evaluationId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath}/student/evaluationinfo/delete.action" paramId="evaluationId" paramProperty="evaluationInfo.evaluationId" value="删除" title="删除"></display:column>
     	
     </display:table>
 </div>

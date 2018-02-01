@@ -21,7 +21,7 @@
 
      <div class="form-group">
          <label class="" for="activename">学员姓名：</label>
-        <input type="email" class="form-control" id="activename" placeholder="请输入学员姓名">
+        <input type="text" name="studentName" class="form-control" id="activename" placeholder="请输入学员姓名">
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
@@ -32,13 +32,13 @@
 	<table class="table  table-condensed table-striped">         
     </table>
      <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/student/communicateinfo/list.action">
-    	<display:column property="communicationId" title="记录编号"></display:column>
+    	<display:column property="communicationInfo.communicationId" title="记录编号"></display:column>
     	<display:column property="studentName" title="学员姓名" ></display:column>
     	<display:column property="staffName" title="负责人"></display:column>
-    	<display:column property="communicationTime" title="沟通时间" format="{0,date,yyyy年MM月dd日}"></display:column>
-    	<display:column property="communicationContent" title="沟通内容"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/student/communicateinfo/load.action" paramId="communicationId" paramProperty="communicationId" value="修改" title="修改"></display:column>
-    	<display:column href="${pageContext.request.contextPath }/student/communicateinfo/delete.action" paramId="communicationId" paramProperty="communicationId" value="删除" title="删除"></display:column>
+    	<display:column property="communicationInfo.communicationTime" title="沟通时间" format="{0,date,yyyy年MM月dd日}"></display:column>
+    	<display:column property="communicationInfo.communicationContent" title="沟通内容"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/student/communicateinfo/load.action" paramId="communicationId" paramProperty="communicationInfo.communicationId" value="修改" title="修改"></display:column>
+    	<display:column href="${pageContext.request.contextPath }/student/communicateinfo/delete.action" paramId="communicationId" paramProperty="communicationInfo.communicationId" value="删除" title="删除"></display:column>
     	
     </display:table>
 </div>
