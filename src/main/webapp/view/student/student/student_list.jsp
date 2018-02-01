@@ -33,7 +33,7 @@
     </table>
      <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/student/student/list.action">
     	<display:column property="studentInfo.studentId" title="学员编号"></display:column>
-    	<display:column property="studentInfo.studentName" title="学员姓名" href="${pageContext.request.contextPath }/student/student/show.action" paramId="studentId" paramProperty="studentId"></display:column>
+    	<display:column property="studentInfo.studentName" title="学员姓名" href="${pageContext.request.contextPath }/student/student/show.action" paramId="studentId" paramProperty="studentInfo.studentId"></display:column>
     	<display:column property="staffName" title="负责人"></display:column>
     	<display:column property="className" title="班级"></display:column>
     	<display:column property="studentInfo.studentAge" title="学员年龄"></display:column>

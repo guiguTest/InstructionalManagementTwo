@@ -25,7 +25,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentWriteGrade.writeGradeId" value="${studentWriteGrade.writeGradeId}" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="writeGradeId" value="${studentWriteGrade.writeGradeId}" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -54,7 +54,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">科目</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentWriteGrade.writeGradeSubject" value="${studentWriteGrade.writeGradeSubject}" class="form-control input-sm" placeholder="请输入科目"/>
+                	<input type="text" name="writeGradeSubject" value="${studentWriteGrade.writeGradeSubject}" class="form-control input-sm" placeholder="请输入科目"/>
                 </div>
             </div>
         
@@ -68,7 +68,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">成绩</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentWriteGrade.writeGrade" value="${studentWriteGrade.writeGrade}" class="form-control input-sm" placeholder="请输入成绩"/>
+                	<input type="text" name="writeGrade" value="${studentWriteGrade.writeGrade}" class="form-control input-sm" placeholder="请输入成绩"/>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">考试时间</label>
                 <div class="col-sm-9">
-               			<input type="text" name="studentWriteGrade.writeGradeTime" value="${studentWriteGrade.writeGradeTime}" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入考试时间"/>
+               			<input type="text" name="writeGradeTime" value="${studentWriteGrade.writeGradeTime}" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入考试时间"/>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">沟通内容</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="studentWriteGrade.writeGradeNote" value="${studentWriteGrade.writeGradeNote}">${studentWriteGrade.writeGradeNote}</textarea>
+                	<textarea class="form-control" name="writeGradeNote" value="${studentWriteGrade.writeGradeNote}">${studentWriteGrade.writeGradeNote}</textarea>
                 </div>
             </div>
         

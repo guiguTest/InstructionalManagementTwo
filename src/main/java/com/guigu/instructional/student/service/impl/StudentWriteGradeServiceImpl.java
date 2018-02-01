@@ -89,7 +89,7 @@ public class StudentWriteGradeServiceImpl implements StudentWriteGradeService {
 
 		StudentWriteGradeExample studentWriteGradeExample = new StudentWriteGradeExample();
 		Criteria criteria = studentWriteGradeExample.createCriteria();
-		if (studentInfo != null & studentInfo.getStudentName() != null) {
+		if (studentInfo != null && studentInfo.getStudentName()!= null) {
 
 			List<StudentInfo> list = studentInfoService.getStudentInfoNameList(studentInfo);
 			List<Integer> sid = new ArrayList<>();

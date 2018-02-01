@@ -88,8 +88,7 @@ public class CommunicationInfoServiceImpl implements CommunicationInfoService {
 	
 		CommunicationInfoExample communicationInfoExample=new CommunicationInfoExample();
 		Criteria criteria=communicationInfoExample.createCriteria();
-		System.out.println("11111111111111111111111111");
-		if(studentInfo!=null & studentInfo.getStudentName()!=null) {
+		if(studentInfo!=null && studentInfo.getStudentName()!=null) {
 			
 			List<StudentInfo> list=studentInfoService.getStudentInfoNameList(studentInfo);
 			List<Integer> sid=new ArrayList<>();
@@ -116,7 +115,6 @@ public class CommunicationInfoServiceImpl implements CommunicationInfoService {
 				
 				if(communicationInfo.getStudentId()!=null) {
 					StudentInfo student=studentInfoService.getStudent(communicationInfo.getStudentId());
-					System.out.println("+++++++++++++++++++"+student.getStudentName()+"++++++++++++++");
 					communicationInfoCustom.setStudentName(student.getStudentName());
 				}
 				if(communicationInfo.getStaffId()!=null) {
