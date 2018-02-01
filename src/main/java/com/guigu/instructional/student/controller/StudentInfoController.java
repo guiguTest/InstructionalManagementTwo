@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.StudentInfo;
@@ -24,14 +27,23 @@ public class StudentInfoController {
 	@RequestMapping("list.action")
 	public String list(StudentInfo studentInfo,Model model) {
 		List<StudentInfoCustom> list=studentInfoService.getStudentInfoList(studentInfo);
-		System.out.println(studentInfo.getStudentName());
 		model.addAttribute("list",list);
 		return "student/student/student_list";
 	}
 	
 	
 	@RequestMapping("add.action")
-	public String add(StudentInfo studentInfo,Model model ) {
+	public String add(@Validated StudentInfo studentInfo,BindingResult bindingResult,Model model) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			
+			model.addAttribute("allErrors",allErrors);
+			
+			model.addAttribute("studentInfo",studentInfo);
+			
+			return "student/student/student_add";
+		}else {
+		
 		boolean result=studentInfoService.addStudent(studentInfo);
 		if(result) {
 			model.addAttribute("info","增加成功");
@@ -41,6 +53,7 @@ public class StudentInfoController {
 		}
 		
 		return this.list(null,model);
+		}
 	} 
 	
 	@RequestMapping("load.action")
@@ -53,8 +66,16 @@ public class StudentInfoController {
 	
 	
 	@RequestMapping("update.action")
-	public String update(StudentInfo studentInfo,Model model ) {
-		
+	public String update(@Validated StudentInfo studentInfo,BindingResult bindingResult,Model model ) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			
+			model.addAttribute("allErrors",allErrors);
+			
+			model.addAttribute("studentInfo",studentInfo);
+			
+			return "student/student/student_update";
+		}else {
 		boolean result=studentInfoService.updateStudent(studentInfo);
 		if(result) {
 			model.addAttribute("info", "修改成功");
@@ -64,6 +85,7 @@ public class StudentInfoController {
 		}
 		
 		 return this.list(null,model);
+		}
 	}
 	
 	@RequestMapping("delete.action")

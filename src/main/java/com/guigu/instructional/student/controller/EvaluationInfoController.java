@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.EvaluationInfo;
@@ -36,7 +39,16 @@ public class EvaluationInfoController {
 	
 	
 	@RequestMapping("add.action")
-	public String add(EvaluationInfo evaluationInfo,Model model) {
+	public String add(@Validated EvaluationInfo evaluationInfo,BindingResult bindingResult,Model model) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			
+			model.addAttribute("allErrors",allErrors);
+			
+			model.addAttribute("evaluationInfo",evaluationInfo);
+			
+			return "student/evaluationinfo/evaluationinfo_add";
+		}else {
 		boolean result=evaluationInfoService.addEvaluation(evaluationInfo);
 		if(result) {
 			model.addAttribute("info","添加成功");
@@ -44,6 +56,7 @@ public class EvaluationInfoController {
 			model.addAttribute("info","添加失败");
 		}
 		return this.list(null, model);
+		}
 	}
 	
 	@RequestMapping("load.action")
@@ -57,7 +70,16 @@ public class EvaluationInfoController {
 	}
 	
 	@RequestMapping("update.action")
-	public String update(EvaluationInfo evaluationInfo,Model model) {
+	public String update(@Validated EvaluationInfo evaluationInfo,BindingResult bindingResult,Model model) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			
+			model.addAttribute("allErrors",allErrors);
+			
+			model.addAttribute("evaluationInfo",evaluationInfo);
+			
+			return "student/evaluationinfo/evaluationinfo_update";
+		}else {
 		boolean result=evaluationInfoService.updateEvaluation(evaluationInfo);
 		
 		if(result) {
@@ -66,6 +88,7 @@ public class EvaluationInfoController {
 			model.addAttribute("info","更新失败");
 		}
 		return this.list(null,model);
+		}
 	}
 	
 	@RequestMapping("delete.action")

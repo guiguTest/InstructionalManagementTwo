@@ -2,6 +2,18 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+
 public class StudentInfo {
     private Integer studentId;
 
@@ -9,30 +21,48 @@ public class StudentInfo {
 
     private Integer classId;
 
+    @NotEmpty(message="{items.studentName.isEmpty}")
+    @Length(min=2,max=10,message="{items.studentName.length.error}")
     private String studentName;
 
     private String studentSex;
 
+    @Min(value=0,message="{items.studentAgemin.range.error}")
+    @Max(value=200,message="{items.studentAgemax.range.error}")
     private Integer studentAge;
 
+    @Length(min=11,max=11,message="{items.studentTellphone.length.error}")
+    @Min(value=0,message="{items.studentTellphone.type.error}")
     private String studentTellphone;
 
+    @Email(message="{items.studentEmail.email.error}")
     private String studentEmail;
 
+    @Length(min=18,max=18,message="{items.studentIdcard.length.error}")
+    @Min(value=0,message="{items.studentIdcard.type.error}")
     private String studentIdcard;
 
     private String studentAddress;
 
+    @NotNull(message="{items.studentBirthday.isNULL}")
+    @Past(message="{items.studentBirthday.dateError}")
     private Date studentBirthday;
 
     private String studentSchool;
 
+    @Length(min=6,max=20,message="{items.studentQq.length.error}")
+    @Min(value=0,message="{items.studentQq.type.error}")
     private String studentQq;
 
+    
     private String studentParentsName;
 
+    
+    @Length(min=11,max=11,message="{items.studentParentsPhone.length.error}")
+    @Min(value=0,message="{items.studentParentsPhone.type.error}")
     private String studentParentsPhone;
 
+    
     private String studentPro;
 
     private String studentProCity;
@@ -47,8 +77,10 @@ public class StudentInfo {
 
     private String studentDesc;
 
+//    @Pattern(regexp = "[0-9a-zA-z] {6,20}",message="{items.studentNumber.type.error}")
     private String studentNumber;
 
+//    @Pattern(regexp = "[0-9a-zA-z] {6,20}",message="{items.studentPassword.type.error}")
     private String studentPassword;
 
     public Integer getStudentId() {

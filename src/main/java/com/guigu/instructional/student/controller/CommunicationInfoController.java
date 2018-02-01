@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.CommunicationInfo;
@@ -32,7 +35,16 @@ public class CommunicationInfoController {
 	}
 	
 	@RequestMapping("add.action")
-	public String add(CommunicationInfo communicationInfo,Model model) {
+	public String add(@Validated CommunicationInfo communicationInfo,BindingResult bindingResult,Model model) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			
+			model.addAttribute("allErrors",allErrors);
+			
+			model.addAttribute("communicationInfo",communicationInfo);
+			
+			return "student/communicateinfo/communicateinfo_add";
+		}else {
 		boolean result=communicationInfoService.addCommunication(communicationInfo);
 		if(result) {
 			model.addAttribute("info", "添加成功");
@@ -42,6 +54,7 @@ public class CommunicationInfoController {
 			
 		
 		return this.list(null, model);
+		}
 	}
 	
 	@RequestMapping("load.action")
@@ -53,7 +66,17 @@ public class CommunicationInfoController {
 	}
 	
 	@RequestMapping("update.action")
-	public String update(CommunicationInfo communicationInfo,Model model) {
+	public String update(@Validated CommunicationInfo communicationInfo,BindingResult bindingResult,Model model) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			
+			model.addAttribute("allErrors",allErrors);
+			
+			model.addAttribute("communicationInfo",communicationInfo);
+			
+			return "student/communicateinfo/communicateinfo_update";
+		}else {
+		
 		boolean result=communicationInfoService.updateCommunication(communicationInfo);
 		if(result) {
 			model.addAttribute("info", "修改成功");
@@ -63,6 +86,7 @@ public class CommunicationInfoController {
 			
 		
 		return this.list(null, model);
+		}
 	}
 	@RequestMapping("delete.action")
 	public String delete(Integer communicationId,Model model) {

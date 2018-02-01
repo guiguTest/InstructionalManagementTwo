@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://displaytag.sf.net" prefix="display" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,11 @@
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
 </head>
-
+<c:if test="${allErrors!=null }">
+			 <c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br/>
+			 </c:forEach>
+		</c:if>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -25,7 +30,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="writeGradeId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="writeGradeId" value="${studentWriteGrade.writeGradeId}" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -34,7 +39,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">学员</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentId" class="form-control input-sm" placeholder="请输入学员"/>
+                	<input type="text" name="studentId" value="${studentWriteGrade.studentId}"  class="form-control input-sm" placeholder="请输入学员"/>
                 </div>
             </div>
         </div>
@@ -45,7 +50,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">监考人和阅卷人</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffId" class="form-control input-sm" placeholder="请输入监考人和阅卷人"/>
+                	<input type="text" name="staffId" value="${studentWriteGrade.staffId}" class="form-control input-sm" placeholder="请输入监考人和阅卷人"/>
                 </div>
             </div>
         </div>
@@ -54,7 +59,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">科目</label>
                 <div class="col-sm-9">
-                	<input type="text" name="writeGradeSubject" class="form-control input-sm" placeholder="请输入科目"/>
+                	<input type="text" name="writeGradeSubject" value="${studentWriteGrade.writeGradeSubject}" class="form-control input-sm" placeholder="请输入科目"/>
                 </div>
             </div>
         
@@ -68,7 +73,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">成绩</label>
                 <div class="col-sm-9">
-                	<input type="text" name="writeGrade" class="form-control input-sm" placeholder="请输入成绩"/>
+                	<input type="text" name="writeGrade" value="${studentWriteGrade.writeGrade}" class="form-control input-sm" placeholder="请输入成绩"/>
                 </div>
             </div>
         </div>
@@ -77,7 +82,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">考试时间</label>
                 <div class="col-sm-9">
-               			<input type="text" name="writeGradeTime" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入考试时间"/>
+               			<input type="text" name="writeGradeTime" value="${studentWriteGrade.writeGradeTime}" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入考试时间"/>
                 </div>
             </div>
         </div>
@@ -93,7 +98,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">沟通内容</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="writeGradeNote"></textarea>
+                	<textarea class="form-control" name="writeGradeNote" value="${studentWriteGrade.writeGradeNote}">${studentWriteGrade.writeGradeNote}</textarea>
                 </div>
             </div>
         

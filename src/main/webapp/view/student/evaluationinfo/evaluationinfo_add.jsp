@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://displaytag.sf.net" prefix="display" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,11 @@
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
 </head>
-
+<c:if test="${allErrors!=null }">
+			 <c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br/>
+			 </c:forEach>
+		</c:if>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -25,7 +30,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">评价编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="evaluationId" readonly="readonly" class="form-control input-sm" placeholder="请输入评价编号"/>
+                	<input type="text" name="evaluationId" value="${evaluationInfo.evaluationId }" readonly="readonly" class="form-control input-sm" placeholder="请输入评价编号"/>
                 </div>
             </div>
         
@@ -35,7 +40,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学员姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentId"  class="form-control input-sm" placeholder="请输入学员编号"/>
+                	<input type="text" name="studentId"  value="${evaluationInfo.studentId }"  class="form-control input-sm" placeholder="请输入学员编号"/>
                 </div>
             </div>
         
@@ -49,7 +54,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">主题</label>
                 <div class="col-sm-9">
-                	<input type="text" name="evaluationTile" class="form-control input-sm" placeholder="请输入主题"/>
+                	<input type="text" name="evaluationTile" value="${evaluationInfo.evaluationTile}"  class="form-control input-sm" placeholder="请输入主题"/>
                 </div>
             </div>
         </div>
@@ -58,7 +63,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">课程名称</label>
                 <div class="col-sm-9">
-               			<input type="text" name="evaluationCourse" class="form-control input-sm" placeholder="请输入课程名称"/>
+               			<input type="text" name="evaluationCourse" value="${evaluationInfo.evaluationCourse}" class="form-control input-sm" placeholder="请输入课程名称"/>
                 </div>
             </div>
         </div>
@@ -70,7 +75,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">评价时间</label>
                 <div class="col-sm-9">
-               			<input type="text" name="evaluationTime"  onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入评价时间"/>
+               			<input type="text" name="evaluationTime" value="${evaluationInfo.evaluationTime}"   onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入评价时间"/>
                 </div>
             </div>
         </div>
@@ -79,7 +84,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">教师</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="evaluationTeacher" class="form-control input-sm" placeholder="请输入教师"/>
+               		 <input type="text" name="evaluationTeacher" value="${evaluationInfo.evaluationTeacher}" class="form-control input-sm" placeholder="请输入教师"/>
                 </div>
             </div>
         
@@ -94,7 +99,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">评价内容</label>
                 <div class="col-sm-9">
-                	<textarea name="evaluationContent" class="form-control"></textarea>
+                	<textarea name="evaluationContent" value="${evaluationInfo.evaluationContent}" class="form-control">${evaluationInfo.evaluationContent}</textarea>
                 </div>
             </div>
         

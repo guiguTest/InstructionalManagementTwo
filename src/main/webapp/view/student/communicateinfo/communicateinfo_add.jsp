@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://displaytag.sf.net" prefix="display" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><!doctype html>
 <html>
@@ -9,7 +10,11 @@
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
 </head>
-
+<c:if test="${allErrors!=null }">
+			 <c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br/>
+			 </c:forEach>
+		</c:if>
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -26,7 +31,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">记录编号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="communicationId" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="communicationId" value="${communicationInfo.communicationId }" readonly="readonly" class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         
@@ -35,7 +40,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">学员姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentId"  class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="studentId" value="${communicationInfo.studentId}"  class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         </div>
@@ -48,7 +53,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">负责人</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffId"  class="form-control input-sm" placeholder="请输入编号"/>
+                	<input type="text" name="staffId" value="${communicationInfo.staffId}"  class="form-control input-sm" placeholder="请输入编号"/>
                 </div>
             </div>
         </div>
@@ -56,7 +61,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">沟通时间</label>
                 <div class="col-sm-9">
-               			<input type="text" name="communicationTime" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入沟通时间"/>
+               			<input type="text" name="communicationTime" value="${communicationInfo.communicationTime}" readonly="readonly" onclick="WdatePicker()" class="form-control input-sm" placeholder="请输入沟通时间"/>
                 </div>
             </div>
         </div>
@@ -72,7 +77,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">沟通内容</label>
                 <div class="col-sm-9">
-                	<textarea name="communicationContent" class="form-control"></textarea>
+                	<textarea name="communicationContent" value="${communicationInfo.communicationContent}" class="form-control">${communicationInfo.communicationContent}</textarea>
                 </div>
             </div>
         
@@ -84,7 +89,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
         	<input  type="submit" class="btn btn-success" value="保存"/>
 
-              <a class="btn btn-warning" href="${pageContext.request.contextPath}/student/communicateinfo/list.action">返回上一级</a>
+              <a class="btn btn-warning"  href="${pageContext.request.contextPath}/student/communicateinfo/list.action">返回上一级</a>
         </div>
     </div>
 </form>
