@@ -38,7 +38,7 @@
     	<input type="text"  class="form-control input-sm" id="keyword"/>
     </div>
     <input type="submit"   class="btn btn-danger"   value="查询"/>
-    <a href="${pageContext.request.contextPath}/view/finance/tuition/Tuition_add.jsp" class="btn btn-success">添加</a>
+    <a href="${pageContext.request.contextPath}/finance/tuition/beforeAdd.action" class="btn btn-success">添加</a>
     </form>
 </div>
 

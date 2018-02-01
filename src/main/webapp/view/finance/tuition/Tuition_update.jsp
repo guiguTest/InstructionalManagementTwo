@@ -63,19 +63,12 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">缴费方式</label>
 					<div class="col-sm-9">
-						<select class="form-control input-sm" name="paymentMenthod">
-							<option value="-1">请选择缴费方式</option>
-							<option ${studentPayment.paymentMenthod==1?'selected':''}
-								value="1">支付婊</option>
-							<option ${studentPayment.paymentMenthod==2?'selected':''}
-								value="2">微信支付</option>
-							<option ${studentPayment.paymentMenthod==3?'selected':''}
-								value="3">网银</option>
-							<option ${studentPayment.paymentMenthod==4?'selected':''}
-								value="4">现金</option>
-							<option ${studentPayment.paymentMenthod==5?'selected':''}
-								value="5">归谷网络支付平台</option>
-						</select>
+						<select class="form-control input-sm" name="paymentMenthod" >
+                        	<option value="-1">请选择缴费方式</option>
+                        	<c:forEach items="${dataList}" var="data">
+                			<option value="${data.dataContent}"  ${data.dataContent==studentPayment.paymentMenthod?'selected':'' }>${data.dataContent}</option>
+                		</c:forEach>
+                        </select>
 					</div>
 				</div>
 			</div>
@@ -164,17 +157,14 @@
 					</div>
 				</div>
 
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-3 col-sm-offset-4">
-				<input type="submit" class="btn btn-success" value="保存" /> <a
-					class="btn  btn-danger"
-					href="${pageContext.request.contextPath }/finance/salary/list.action">取消</a>
-			</div>
-		</div>
-	</form>
-
+   
+   	<div class="row">
+    	<div class="col-sm-3 col-sm-offset-4">
+        	<input  type="submit" class="btn btn-success" value="保存"/>
+            <a class="btn  btn-danger" href="${pageContext.request.contextPath }/finance/tuition/list.action">取消</a>
+        </div>
+    </div>
+</form>
+		
 </body>
 </html>
