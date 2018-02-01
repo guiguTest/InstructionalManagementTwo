@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.marketactive.service.TemplateInfoService;
@@ -20,8 +23,15 @@ public class TemplateInfoController {
 	private TemplateInfoService templateInfoService;
 	
 	@RequestMapping("add.action")
-    public String addTemplate(TemplateInfo templateInfo,Model model) {
-       boolean result= templateInfoService.addTemplate(templateInfo);
+    public String addTemplate(Model model,@Validated TemplateInfo templateInfo,BindingResult bindingResult) {
+       
+		if (bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("temp", templateInfo);
+			return "marketactive/template/template_add";
+		}
+		boolean result= templateInfoService.addTemplate(templateInfo);
        if(result) {
            model.addAttribute("info","添加成功");
        }else {
@@ -45,8 +55,14 @@ public class TemplateInfoController {
     }
     
     @RequestMapping("update.action")
-    public String update(TemplateInfo templateInfo,Model model) {
-        boolean result=templateInfoService.updateTemplate(templateInfo);
+    public String update(Model model,@Validated TemplateInfo templateInfo,BindingResult bindingResult) {
+    	if (bindingResult.hasErrors()) {
+			List<ObjectError> allErrors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("temp", templateInfo);
+			return "marketactive/template/template_update";
+		}
+    	boolean result=templateInfoService.updateTemplate(templateInfo);
         if(result) {
             model.addAttribute("info", "修改成功");
         }else {

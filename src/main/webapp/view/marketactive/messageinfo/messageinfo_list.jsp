@@ -24,7 +24,7 @@
     	<input type="text"  name="messagePhone" class="form-control input-sm"/>
     </div>
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="${pageContext.request.contextPath }/view/marketactive/messageinfo/messageinfo_send.jsp"   >发送短信</a>
+    <a  class="btn btn-success"  href="${pageContext.request.contextPath }/marketactive/messageinfo/send.action">发送短信</a>
     </form>
 </div>
 <div align="center">
@@ -39,8 +39,7 @@
 
 <div class="row" style="padding:15px; padding-top:0px; ">
   <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/marketactve/messageinfo/list.action">
-    	<display:column property="messageId1" title="编号"></display:column>
-    	<display:column property="messagePhone" title="电话号码"  href="${pageContext.request.contextPath }/marketactive/emailinfo/load.action" paramId="messageId1" paramProperty="messageId1"></display:column>
+    	<display:column property="messagePhone" title="电话号码"  href="${pageContext.request.contextPath }/marketactive/messageinfo/load.action" paramId="messageId1" paramProperty="messageId1"></display:column>
     	<display:column property="messageTime" title="发送日期"  format="{0,date,yyyy年MM月dd日}"></display:column>
     	<display:column property="messageState" title="发送状态"></display:column>
     	<display:column property="messageMan" title="接收人"> </display:column>

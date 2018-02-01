@@ -47,9 +47,6 @@ public class MarketActiveServiceImpl implements MarketActiveService {
 		MarketActiveExample marketActiveExample = new MarketActiveExample();
 		Criteria criteria = marketActiveExample.createCriteria();
 		if (marketActive != null) {
-			if (marketActive.getActiveName() != null) {
-				criteria.andActiveNameEqualTo(marketActive.getActiveName());
-			}
 			if (marketActive.getActiveState() != null) {
 				criteria.andActiveStateEqualTo(marketActive.getActiveState());
 			}

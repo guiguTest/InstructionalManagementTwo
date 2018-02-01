@@ -42,7 +42,6 @@
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">
     <display:table class="table  table-condensed table-striped" name="list" requestURI="${pageContext.request.contextPath}/marketactive/template/list.action" pagesize="10">
-    	<display:column property="templateId" title="编号"></display:column>
     	<display:column property="templateTitle" title="标题"></display:column>
     	<display:column property="templateContent" title="内容"></display:column>
     	<display:column property="templateType" title="类型"></display:column>

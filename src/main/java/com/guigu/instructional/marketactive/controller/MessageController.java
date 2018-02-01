@@ -7,14 +7,19 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.marketactive.service.MessageService;
+import com.guigu.instructional.marketactive.service.TemplateInfoService;
 import com.guigu.instructional.po.EmailInfo;
 import com.guigu.instructional.po.EmailVO;
 import com.guigu.instructional.po.MessageInfo;
 import com.guigu.instructional.po.MessageVO;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.TemplateInfo;
 import com.guigu.instructional.system.service.StaffInfoService;
 
 @Controller
@@ -24,6 +29,9 @@ public class MessageController {
 	private MessageService messageService;
 	@Resource(name = "staffInfoServiceImpl")
 	private StaffInfoService staffInfoService;
+	
+	@Resource(name="templateInfoServiceImpl")
+	private TemplateInfoService templateInfoService;
 
 	@RequestMapping("list.action")
 	public String msgList(MessageInfo messageInfo, Model model) {
@@ -32,12 +40,27 @@ public class MessageController {
 		return "marketactive/messageinfo/messageinfo_list";
 	}
 	@RequestMapping("add.action")
-	public String addMsg(MessageVO messageVO,Model model) {
+	public String addMsg(@Validated MessageVO messageVO,BindingResult bindingResult,Model model) {
 		StaffInfo staffInfo= staffInfoService.getStaffInfo(messageVO.getStaffName());
 		if(staffInfo!=null) {
 			messageVO.setStaffId(staffInfo.getStaffId());
+			if(bindingResult.hasErrors()) {
+				List<ObjectError> allErrors=bindingResult.getAllErrors();
+				model.addAttribute("allErrors", allErrors);
+				model.addAttribute("msg", messageVO);
+				return this.send(model);
+			}
 		}else {
-			messageVO.setStaffId(null);
+			if(bindingResult.hasErrors()) {
+				List<ObjectError> allErrors=bindingResult.getAllErrors();
+				model.addAttribute("allErrors", allErrors);
+				model.addAttribute("error", "该用户没有权限");
+				model.addAttribute("msg", messageVO);
+				return this.send(model);
+			}
+			model.addAttribute("error", "该用户没有权限");
+			model.addAttribute("msg", messageVO);
+			return this.send(model);
 		}
 		messageVO.setMessageTime(new Date());
 		messageVO.setMessageState("已发送");
@@ -52,8 +75,9 @@ public class MessageController {
 	}
 	
 	@RequestMapping("load.action")
-	public String load(Integer msgId,Model model) {
-		MessageVO messageVO =messageService.findMsgById(msgId);
+	public String load(Integer messageId1,Model model) {
+		System.out.println(messageId1);
+		MessageVO messageVO =messageService.findMsgById(messageId1);
 		messageVO.setStaffName(staffInfoService.getStaffInfo(messageVO.getStaffId()).getStaffName());
 		model.addAttribute("msg", messageVO);
 		return "marketactive/messageinfo/messageinfo_show";
@@ -68,6 +92,14 @@ public class MessageController {
 			model.addAttribute("info", "刪除失败");
 		}
 		return this.msgList(null,model);
+	}
+	@RequestMapping("send.action")
+	public String send(Model model) {
+		TemplateInfo templateInfo=new TemplateInfo();
+		templateInfo.setTemplateType("短信");
+		List<TemplateInfo> list=templateInfoService.findList(templateInfo);
+		model.addAttribute("list", list);
+		return "marketactive/messageinfo/messageinfo_send";
 	}
 	
 }

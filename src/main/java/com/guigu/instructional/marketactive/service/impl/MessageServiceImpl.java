@@ -32,7 +32,7 @@ public class MessageServiceImpl implements MessageService{
 	
 	@Override
 	public MessageVO findMsgById(Integer id) {
-		String staffName=null;
+		String staffName="";
 		MessageInfo messageInfo=messageInfoMapper.selectByPrimaryKey(id);
 		StaffInfo staffInfo=staffInfoMapper.selectByPrimaryKey(messageInfo.getStaffId());
 		if(staffInfo!=null) {

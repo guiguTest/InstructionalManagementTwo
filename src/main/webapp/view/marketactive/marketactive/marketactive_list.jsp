@@ -8,6 +8,17 @@
 <title>首页</title>
 	<%@ include file="/view/public/common.jspf" %>
 </head>
+
+<script type="text/javascript">
+		function click(){
+			document.getElementById("name").value=" ";
+		}
+		
+		function change(){
+			document.getElementById("activestate").options[0].selected;
+		}
+</script>
+
 <body>
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
@@ -19,7 +30,7 @@
 <form class="form-inline"  action="${pageContext.request.contextPath }/marketactive/marketactive/list.action">
      <div class="form-group">
          <label class="" for="activeName">活动名称：</label>
-        <input type="text" class="form-control"  name="activeName"  id="activename" placeholder="请输入活动名称">
+        <input type="text" class="form-control"  name="activeName"  id="name" placeholder="请输入活动名称"  onfocus="change()">
       </div>
       <div class="form-group">
          <label class="" for="activState">活动状态：</label>
@@ -50,8 +61,7 @@
 	<table class="table  table-condensed table-striped">
     </table>
     <display:table class="table table-condensed table-striped" name="list" pagesize="10" requestURI="${pageContext.request.contextPath }/marketactve/marketactive/list.action">
-    	<display:column property="activeId" title="编号"></display:column>
-    	<display:column property="activeName" title="活动名称"  href="${pageContext.request.contextPath }/marketactive/marketactive/load.action" paramId="activeId" paramProperty="activeId"></display:column>
+    	<display:column property="activeName" title="活动名称"  href="${pageContext.request.contextPath }/marketactive/marketactive/show.action" paramId="activeId" paramProperty="activeId"></display:column>
     	<display:column property="activeState" title="活动状态"  decorator="com.guigu.marketactive.transfor.Transfor"></display:column>
     	<display:column property="activeType" title="活动类型"   decorator="com.guigu.marketactive.transfor.TransforType"></display:column>
     	<display:column property="activeContent" title="活动描述"> </display:column>

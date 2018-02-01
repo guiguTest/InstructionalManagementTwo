@@ -19,6 +19,7 @@ import com.guigu.instructional.po.EmailVO;
 import com.guigu.instructional.po.MarketActive;
 import com.guigu.instructional.po.MarketActiveVO;
 import com.guigu.instructional.po.StaffInfo;
+import com.guigu.instructional.po.TemplateInfo;
 import com.guigu.instructional.system.service.StaffInfoService;
 
 
@@ -30,7 +31,7 @@ public class EmailController {
 	@Resource(name="staffInfoServiceImpl")
 	private StaffInfoService staffInfoService;
 	
-	@Resource(name="templateInfoService")
+	@Resource(name="templateInfoServiceImpl")
 	private TemplateInfoService templateInfoService;
 	
 	@RequestMapping("list.action")
@@ -45,15 +46,22 @@ public class EmailController {
 		StaffInfo staffInfo= staffInfoService.getStaffInfo(emailVO.getStaffName());
 		if(staffInfo!=null) {
 			emailVO.setStaffId(staffInfo.getStaffId());
+			if(bindingResult.hasErrors()) {
+				List<ObjectError> allErrors=bindingResult.getAllErrors();
+				model.addAttribute("allErrors", allErrors);
+				model.addAttribute("emailVO", emailVO);
+				return this.send(model);
+			}
 		}else {
-			model.addAttribute("error", "该用户没有权限");
-		}
-		if(bindingResult.hasErrors()) {
-			
-			List<ObjectError> allErrors=bindingResult.getAllErrors();
-			model.addAttribute("allErrors", allErrors);
-			model.addAttribute("emailVO", emailVO);
-			return "marketactive/emailinfo/emailinfo_send";
+			if(bindingResult.hasErrors()) {
+				List<ObjectError> allErrors=bindingResult.getAllErrors();
+				model.addAttribute("allErrors", allErrors);
+				model.addAttribute("error", "该用户没有权限");
+				model.addAttribute("emailVO", emailVO);
+				return this.send(model);
+			}
+				model.addAttribute("error", "该用户没有权限");
+			return this.send(model);
 		}
 		emailVO.setEmailTime(new Date());
 		emailVO.setEmailState("已发送");
@@ -75,23 +83,7 @@ public class EmailController {
 		return "marketactive/emailinfo/emailinfo_show";
 	}
 	
-	@RequestMapping("update.action")
-	public String update(EmailVO emailVO,Model model) {
-		StaffInfo staffInfo= staffInfoService.getStaffInfo(emailVO.getStaffName());
-		if(staffInfo!=null) {
-			emailVO.setStaffId(staffInfo.getStaffId());
-		}else{
-			emailVO.setStaffId(null);
-		}
-		boolean flag=emailService.updateEmail(emailVO);
-		if(flag) {
-			model.addAttribute("info", "修改成功");
-		}else {
-			model.addAttribute("info", "修改失败");
-		}
-		
-		return this.emailList(null,model);
-	}
+	
 	@RequestMapping("delete.action")
 	public String deleteEmail(EmailInfo emailInfo,Model model) {
 		boolean flag=emailService.deleteEmail(emailInfo.getEmailId());
@@ -101,6 +93,15 @@ public class EmailController {
 			model.addAttribute("info", "刪除失败");
 		}
 		return this.emailList(null,model);
+	}
+	
+	@RequestMapping("send.action")
+	public String send(Model model) {
+		TemplateInfo templateInfo=new TemplateInfo();
+		templateInfo.setTemplateType("邮箱");
+		List<TemplateInfo> list=templateInfoService.findList(templateInfo);
+		model.addAttribute("list", list);
+		return "marketactive/emailinfo/emailinfo_send";
 	}
 
 }

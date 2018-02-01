@@ -86,7 +86,7 @@
     	<div class="col-sm-3 col-sm-offset-4">
    
 
-              <a class="btn btn-warning" href="${pageContext.request.contextPath}/marketactive/messafeinfo/list.action">返回上一级</a>
+              <a class="btn btn-warning" href="${pageContext.request.contextPath}/marketactive/messageinfo/list.action">返回上一级</a>
         </div>
     </div>
 </form>

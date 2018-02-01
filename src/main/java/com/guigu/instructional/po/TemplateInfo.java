@@ -1,8 +1,10 @@
 package com.guigu.instructional.po;
 
+import javax.validation.constraints.NotEmpty;
+
 public class TemplateInfo {
     private Integer templateId;
-
+    @NotEmpty(message="{title.isnull}")
     private String templateTitle;
 
     private String templateContent;

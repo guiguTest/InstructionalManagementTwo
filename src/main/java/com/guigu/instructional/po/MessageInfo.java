@@ -2,15 +2,20 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class MessageInfo {
     private Integer messageId1;
 
     private Integer staffId;
 
     private String messageContent;
-
+    @NotEmpty(message="{man.isnull}")
     private String messageMan;
 
+    @Pattern(regexp = "^[1][3,4,5,7,8][0-9]{9}$", message = "{messageInfo.messagePhone}") 
     private String messagePhone;
 
     private Date messageTime;
@@ -72,4 +77,15 @@ public class MessageInfo {
     public void setMessageState(String messageState) {
         this.messageState = messageState == null ? null : messageState.trim();
     }
+
+	@Override
+	public String toString() {
+		return "MessageInfo [messageId1=" + messageId1 + ", staffId=" + staffId + ", messageContent=" + messageContent
+				+ ", messageMan=" + messageMan + ", messagePhone=" + messagePhone + ", messageTime=" + messageTime
+				+ ", messageState=" + messageState + "]";
+	}
+
+	
+    
+    
 }
