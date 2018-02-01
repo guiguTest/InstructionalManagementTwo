@@ -63,13 +63,16 @@ public class TrackRecordInfoServiceImpl implements TrackRecordInfoService{
 		
 		if(studentInfo!=null && studentInfo.getStudentName()!=null) {
 			List<StudentInfo> studentList=studentInfoService.getStudentNameList(studentInfo);
-			if(studentList!=null) {
+			System.out.println(studentList);
+			if(!studentList.isEmpty()) {
 				List<Integer> slist=new ArrayList<>();
 				
 				for (StudentInfo student : studentList) {
 					slist.add(student.getStudentId());
 				}
 				criteria.andStudentIdIn(slist);
+			}else {
+				return null;
 			}
 		}
 		

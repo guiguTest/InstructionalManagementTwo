@@ -45,12 +45,16 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 
 		StudentInfoExample studentInfoExample = new StudentInfoExample();
 		Criteria criteria = studentInfoExample.createCriteria();
-		if (studentInfo.getStudentName() != null && studentInfo.getStudentName() != null) {
+		if (studentInfo != null && studentInfo.getStudentName() != null) {
 			studentInfo.setStudentName("%" + studentInfo.getStudentName() + "%");
 			criteria.andStudentNameLike(studentInfo.getStudentName());
 		}
 		criteria.andStudentMarkEqualTo(0);
-		return studentInfoMapper.selectByExample(studentInfoExample);
+		List<StudentInfo> list=studentInfoMapper.selectByExample(studentInfoExample);
+		if(list!=null) {
+			return list;
+		}
+		return null;
 	}
 
 	@Override

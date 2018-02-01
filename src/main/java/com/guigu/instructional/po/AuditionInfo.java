@@ -2,23 +2,15 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-
 public class AuditionInfo {
-	
     private Integer auditionId;
-    
-    @NotNull(message="{auditionInfo.studentId.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+
     private Integer studentId;
-    
-    @NotNull(message="{auditionInfo.auditionTime.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
-    @Past(message="{auditionInfo.auditionTime.past}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+
     private Date auditionTime;
 
-    private String auditionAddr; 
-    
-    @NotNull(message="{auditionInfo.auditionCourse.isnull}",groups= {ValidGroupUpdate.class,ValidGroupAdd.class})
+    private String auditionAddr;
+
     private Integer auditionCourse;
 
     private String auditionDesc;
@@ -70,13 +62,4 @@ public class AuditionInfo {
     public void setAuditionDesc(String auditionDesc) {
         this.auditionDesc = auditionDesc == null ? null : auditionDesc.trim();
     }
-
-	@Override
-	public String toString() {
-		return "AuditionInfo [auditionId=" + auditionId + ", studentId=" + studentId + ", auditionTime=" + auditionTime
-				+ ", auditionAddr=" + auditionAddr + ", auditionCourse=" + auditionCourse + ", auditionDesc="
-				+ auditionDesc + "]";
-	}
-    
-    
 }

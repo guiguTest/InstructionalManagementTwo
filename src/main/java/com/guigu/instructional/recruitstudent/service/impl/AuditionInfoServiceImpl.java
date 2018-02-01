@@ -69,24 +69,28 @@ public class AuditionInfoServiceImpl implements AuditionInfoService {
 		if(studentInfo!=null && studentInfo.getStudentName()!=null) {
 			
 			List<StudentInfo> studentList=studentInfoService.getStudentNameList(studentInfo);
-			if(studentList!=null) {
+			if(!studentList.isEmpty()) {
 				List<Integer> slist=new ArrayList<>();
 				
 				for (StudentInfo student : studentList) {
 					slist.add(student.getStudentId());
 				}
 				criteria.andStudentIdIn(slist);
+			}else {
+				return null;
 			}
 		}
 		if(disciplineInfo!=null && disciplineInfo.getDisciplineName()!=null) {
 			
 			List<DisciplineInfo> disciplineList=disciplineInfoService.getDisciplineNameList(disciplineInfo);
-			if(disciplineList!=null) {
+			if(!disciplineList.isEmpty()) {
 				List<Integer> dlist=new ArrayList<>();
 				for (DisciplineInfo discipline : disciplineList) {
 					dlist.add(discipline.getDisciplineId());
 				};
 				criteria.andAuditionCourseIn(dlist);
+			}else {
+				return null;
 			}
 		}
 		
