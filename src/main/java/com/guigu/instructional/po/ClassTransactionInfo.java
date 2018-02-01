@@ -13,7 +13,16 @@ public class ClassTransactionInfo {
 
     private String classTransactionPerson;
 
-    private Date classTransactionTime;
+    @Override
+	public String toString() {
+		return "ClassTransactionInfo [classTransactionId=" + classTransactionId + ", classId=" + classId
+				+ ", classTransactionTile=" + classTransactionTile + ", classTransactionContent="
+				+ classTransactionContent + ", classTransactionPerson=" + classTransactionPerson
+				+ ", classTransactionTime=" + classTransactionTime + ", classTransactionRemar=" + classTransactionRemar
+				+ "]";
+	}
+
+	private Date classTransactionTime;
 
     private String classTransactionRemar;
 

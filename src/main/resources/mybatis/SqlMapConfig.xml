@@ -9,4 +9,7 @@
 		<package name="com.guigu.instructional.po"/>
 	</typeAliases>
  
+ 	<mappers>
+ 		<package name="com.guigu.instructional.transaction.mapper"></package>
+ 	</mappers>
  </configuration>

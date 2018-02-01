@@ -1,19 +1,46 @@
 package com.guigu.instructional.po;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class ClassroomInfo {
-    private Integer classroomId;
+    @Override
+	public String toString() {
+		return "ClassroomInfo [classroomId=" + classroomId + ", classroomName=" + classroomName + ", classroomMax="
+				+ classroomMax + ", classroomInfo=" + classroomInfo + ", classroomRemark=" + classroomRemark
+				+ ", classroomMark=" + classroomMark + ", classInfo=" + classInfo + "]";
+	}
 
+	private Integer classroomId;
+	
+	@Size(min=2,max=10,message="{classroominfo.name.length.error}")
+	@Pattern(regexp="^[\u4e00-\u9fa5]*$",message="{classroominfo1.name.length.error}")
     private String classroomName;
-
+	@Min(value=10)
+	@NotNull(message="{classroominfo1.classroominfo.name.length.error.length.error}")
     private Integer classroomMax;
-
+    
+    @NotEmpty(message="{classroominfo.classroominfo.name.length.error.length.error}")
     private String classroomInfo;
 
     private String classroomRemark;
 
     private String classroomMark;
+    
+    private ClassInfo classInfo;
 
-    public Integer getClassroomId() {
+    public ClassInfo getClassInfo() {
+		return classInfo;
+	}
+
+	public void setClassInfo(ClassInfo classInfo) {
+		this.classInfo = classInfo;
+	}
+
+	public Integer getClassroomId() {
         return classroomId;
     }
 

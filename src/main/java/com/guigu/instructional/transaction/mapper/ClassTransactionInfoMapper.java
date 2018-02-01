@@ -19,6 +19,8 @@ public interface ClassTransactionInfoMapper {
     List<ClassTransactionInfo> selectByExample(ClassTransactionInfoExample example);
 
     ClassTransactionInfo selectByPrimaryKey(Integer classTransactionId);
+    
+    ClassTransactionInfo selectById(Integer classId);
 
     int updateByExampleSelective(@Param("record") ClassTransactionInfo record, @Param("example") ClassTransactionInfoExample example);
 

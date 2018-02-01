@@ -97,6 +97,12 @@
     from class_info
     where class_id = #{classId,jdbcType=INTEGER}
   </select>
+   <select id="selectByID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from class_info
+    where classroom_id = #{classroomId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from class_info
     where class_id = #{classId,jdbcType=INTEGER}

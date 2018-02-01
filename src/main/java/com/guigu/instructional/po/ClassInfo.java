@@ -3,7 +3,16 @@ package com.guigu.instructional.po;
 import java.util.Date;
 
 public class ClassInfo {
-    private Integer classId;
+    @Override
+	public String toString() {
+		return "ClassInfo [classId=" + classId + ", disciplineId=" + disciplineId + ", syllabusId=" + syllabusId
+				+ ", classroomId=" + classroomId + ", staffId=" + staffId + ", className=" + className
+				+ ", classNumber=" + classNumber + ", classStartTime=" + classStartTime + ", classEndTime="
+				+ classEndTime + ", classIsused=" + classIsused + ", classState=" + classState + ", classDesc="
+				+ classDesc + ", classTransactionInfo=" + classTransactionInfo + "]";
+	}
+
+	private Integer classId;
 
     private Integer disciplineId;
 
@@ -26,6 +35,18 @@ public class ClassInfo {
     private String classState;
 
     private String classDesc;
+    
+
+    
+    public ClassTransactionInfo getClassTransactionInfo() {
+		return classTransactionInfo;
+	}
+
+	public void setClassTransactionInfo(ClassTransactionInfo classTransactionInfo) {
+		this.classTransactionInfo = classTransactionInfo;
+	}
+
+	private  ClassTransactionInfo classTransactionInfo;
 
     public Integer getClassId() {
         return classId;
