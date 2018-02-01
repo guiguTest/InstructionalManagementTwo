@@ -145,11 +145,6 @@
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									角色变更
 							</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/system/roleinfo/staffinforolelist.action"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									角色变更
-							</a></li>
 							<li><a href="view/system/anthorty/anthorty_list.html"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									权限管理
