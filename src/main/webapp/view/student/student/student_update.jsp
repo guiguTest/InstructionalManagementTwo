@@ -44,6 +44,24 @@
             </div>
         </div>
     </div>
+    <div class="row">
+    	<div class="col-sm-5">
+        	<div class="form-group">
+            	<label class="col-sm-3 control-label">负责人</label>
+                <div class="col-sm-9">
+                	<input type="text" name="staffId" value="${studentInfo.staffId }" class="form-control input-sm" placeholder="请输入编号"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+            	<label class="col-sm-3 control-label">班级</label>
+                <div class="col-sm-9">
+                	<input type="text" name="classId"  value="${studentInfo.classId }" class="form-control input-sm" placeholder="请输入姓名"/>
+                </div>
+            </div>
+        </div>
+    </div>
     	<!--开始 -->
     	<div class="row">
     	<div class="col-sm-5">

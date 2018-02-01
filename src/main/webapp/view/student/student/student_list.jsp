@@ -25,7 +25,7 @@
       </div>
 
     <input type="submit"   class="btn btn-danger"     value="查询"/>
-    <a  class="btn btn-success"  href="${pageContext.request.contextPath }/student/student/add.action">添加学员</a>
+    <a  class="btn btn-success"  href="${pageContext.request.contextPath }/view/student/student/student_add.jsp">添加学员</a>
     
 </div>
 <div class="row" style="padding:15px; padding-top:0px; ">

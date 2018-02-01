@@ -1,13 +1,19 @@
 package com.guigu.instructional.po;
 
-public class StudentInfoCustom  {	
+public class StudentInfoCustom{	
 	
 	private StudentInfo studentInfo;
+	
+	
+	
+	
 	
 	private String staffName;
 	
 	private String className;
 	
+	
+
 	
 
 	public String getClassName() {

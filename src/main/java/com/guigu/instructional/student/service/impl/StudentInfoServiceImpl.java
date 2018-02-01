@@ -77,7 +77,7 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		Criteria criteria = studentInfoExample.createCriteria();
 
 		if (studentInfo!= null && studentInfo.getStudentName()!= null) {
-			studentInfo.setStudentName("%" + studentInfo.getStudentName() + "%");
+			studentInfo.setStudentName("%"+studentInfo.getStudentName()+"%");
 			criteria.andStudentNameLike(studentInfo.getStudentName());
 		}
 
@@ -86,15 +86,20 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		List<StudentInfoCustom> liststudent = new ArrayList<>();
 		
 		if (!list.isEmpty()) {
-			for (StudentInfo student : list) {
+			for (StudentInfo student:list) {
 				StudentInfoCustom studentInfoCustom = new StudentInfoCustom();
+				
+				if(student.getStaffId()!=null) {
+				StaffInfo staffInfo = staffInfoMapper.selectByPrimaryKey(student.getStaffId());
+				studentInfoCustom.setStaffName(staffInfo.getStaffName());
+			}
+				if(student.getClassId()!=null) {
+				ClassInfo classInfo=classInfoMapper.selectByPrimaryKey(student.getClassId());
+				studentInfoCustom.setClassName(classInfo.getClassName());
+				}
 				studentInfoCustom.setStudentInfo(student);
 				
-				StaffInfo staffInfo = staffInfoMapper.selectByPrimaryKey(student.getStaffId());
-				ClassInfo classInfo=classInfoMapper.selectByPrimaryKey(student.getClassId());
 				
-				studentInfoCustom.setStaffName(staffInfo.getStaffName());
-				studentInfoCustom.setClassName(classInfo.getClassName());
 				liststudent.add(studentInfoCustom);
 			}
 		}

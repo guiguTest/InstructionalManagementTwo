@@ -2,17 +2,27 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
 public class StudentWriteGrade {
     private Integer writeGradeId;
 
     private Integer studentId;
 
     private Integer staffId;
-
+    
+    @NotEmpty(message="{items.writeGradeSubject.isEmpty}")
     private String writeGradeSubject;
-
+    
+    
+    @Min(value=0,message="{items.writeGrade.valueerror}")
     private String writeGrade;
-
+    
+    @NotNull(message="{items.writeGradeTime.isNULL}")
+    @Past(message="{items.writeGradeTime.dateError}")
     private Date writeGradeTime;
 
     private String writeGradeNote;

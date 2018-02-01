@@ -218,7 +218,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">是否缴费</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentIspay" class="form-control input-sm" placeholder="请输入省份"/>
+                	<input type="text" name="studentIspay" class="form-control input-sm" placeholder="是否缴费"/>
                 </div>
             </div>
         </div>
@@ -226,12 +226,22 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">标识</label>
                 <div class="col-sm-9">
-                	<input type="text" name="studentMark" class="form-control input-sm" placeholder="请输入家长电话"/>
+                	<input type="text" name="studentMark" class="form-control input-sm" placeholder="标识"/>
                 </div>
             </div>
         </div>
     </div>
-    
+     <div class="row">
+    	<div class="col-sm-5">
+        	<div class="form-group">
+            	<label class="col-sm-3 control-label">类型</label>
+                <div class="col-sm-9">
+                	<input type="text" name="studentType" class="form-control input-sm" placeholder="请输入类型"/>
+                </div>
+            </div>
+        </div>
+       
+    </div>
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">描述信息</h5>
     	<div class="row">
     	<div class="col-sm-10">

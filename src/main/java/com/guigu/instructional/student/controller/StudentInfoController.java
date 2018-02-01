@@ -24,7 +24,7 @@ public class StudentInfoController {
 	@RequestMapping("list.action")
 	public String list(StudentInfo studentInfo,Model model) {
 		List<StudentInfoCustom> list=studentInfoService.getStudentInfoList(studentInfo);
-		
+		System.out.println(studentInfo.getStudentName());
 		model.addAttribute("list",list);
 		return "student/student/student_list";
 	}
@@ -40,7 +40,7 @@ public class StudentInfoController {
 			model.addAttribute("info","Ôö¼ÓÊ§°Ü");
 		}
 		
-		return "student/student/student_add";
+		return this.list(null,model);
 	} 
 	
 	@RequestMapping("load.action")
