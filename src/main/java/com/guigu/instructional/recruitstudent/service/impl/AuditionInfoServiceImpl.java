@@ -76,7 +76,8 @@ public class AuditionInfoServiceImpl implements AuditionInfoService {
 					slist.add(student.getStudentId());
 				}
 				criteria.andStudentIdIn(slist);
-			}else {
+			}
+			else {
 				return null;
 			}
 		}
@@ -89,7 +90,8 @@ public class AuditionInfoServiceImpl implements AuditionInfoService {
 					dlist.add(discipline.getDisciplineId());
 				};
 				criteria.andAuditionCourseIn(dlist);
-			}else {
+			}
+			else {
 				return null;
 			}
 		}

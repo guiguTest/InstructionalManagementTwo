@@ -108,12 +108,14 @@ public class StudentInfoServiceImpl implements StudentInfoService {
 		}
 		if (marketActive != null && marketActive.getActiveName() != null) {
 			List<MarketActive> marketActiveList=marketActiveService.getActiveList(marketActive);
-			if(marketActiveList!=null) {
+			if(!marketActiveList.isEmpty()) {
 				List<Integer> slist=new ArrayList<>();
 				for (MarketActive market : marketActiveList) {
 					slist.add(market.getStaffId());
 				}
 				criteria.andStaffIdIn(slist);
+			}else {
+				return null;
 			}
 		}
 
