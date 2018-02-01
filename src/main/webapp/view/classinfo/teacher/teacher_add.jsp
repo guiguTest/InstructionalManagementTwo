@@ -31,7 +31,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffName" class="form-control input-sm" />
+                	<input type="text" name="staffName" value="${staffInfo.staffName }" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">年龄</label>
                 <div class="col-sm-5">
-                	<input type="text" name="staffAge" class="form-control input-sm" />
+                	<input type="text" name="staffAge" value="${staffInfo.staffAge}" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -66,7 +66,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">籍贯</label>
                 <div class="col-sm-6">
-                	<input type="text" name="staffNativePlace" class="form-control input-sm" />
+                	<input type="text" name="staffNativePlace" value="${staffInfo.staffNativePlace}" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -79,7 +79,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">身份证</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffIdcard" class="form-control input-sm" />
+                <input type="text" name="staffIdcard" value="${staffInfo.staffIdcard}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffBirthday" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm"/>
+                	<input type="text" name="staffBirthday"  onclick="WdatePicker()" readonly="readonly" class="form-control input-sm"/>
                 </div>
             </div>
         
@@ -101,7 +101,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">办公电话</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffOfficePhone" class="form-control input-sm"/>
+                <input type="text" name="staffOfficePhone" value="${staffInfo.staffOfficePhone}" class="form-control input-sm"/>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">电子邮件</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffEmail" class="form-control input-sm" />
+                	<input type="text" name="staffEmail" value="${staffInfo.staffEmail}" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -122,7 +122,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">移动电话</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffMobilePhone" class="form-control input-sm" />
+                <input type="text" name="staffMobilePhone" value="${staffInfo.staffMobilePhone}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">家庭住址</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffAddr" class="form-control input-sm" />
+                	<input type="text" name="staffAddr" value="${staffInfo.staffAddr}" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -143,7 +143,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">QQ</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffQq" class="form-control input-sm" />
+                <input type="text" name="staffQq" value="${staffInfo.staffQq}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="staffRemark"></textarea>
+                	<textarea class="form-control" name="staffRemark">${staffInfo.staffRemark}</textarea>
                 </div>
             </div>
         

@@ -38,7 +38,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">学科名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="disciplineName" class="form-control input-sm" />
+                	<input type="text" name="disciplineName" value="${disciplineInfo.disciplineName}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科费用</label>
                 <div class="col-sm-9">
-               			<input type="text" name="disciplineTuition" class="form-control input-sm" />
+               			<input type="text" value="${disciplineInfo.disciplineTuition}" name="disciplineTuition" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科课时</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="disciplineBring" class="form-control input-sm" />
+               		 <input type="text" value="${disciplineInfo.disciplineBring}" name="disciplineBring" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -72,7 +72,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">描述</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="disciplineDesc"></textarea>
+                	<textarea class="form-control" name="disciplineDesc">${disciplineInfo.disciplineDesc}</textarea>
                 </div>
             </div>
         

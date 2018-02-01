@@ -36,7 +36,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">教室名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="classroomName" class="form-control input-sm" />
+                	<input type="text" name="classroomName" value="${classroomInfo.classroomName}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">容纳人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classroomMax" class="form-control input-sm" />
+               			<input type="text" value="${classroomInfo.classroomMax}" name="classroomMax" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">设备信息</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classroomInfo" class="form-control input-sm" />
+               		 <input type="text" name="classroomInfo" value="${classroomInfo.classroomInfo}" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -69,7 +69,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="classroomRemark"></textarea>
+                	<textarea class="form-control" name="classroomRemark">${classroomInfo.classroomRemark}</textarea>
                 </div>
             </div>
         

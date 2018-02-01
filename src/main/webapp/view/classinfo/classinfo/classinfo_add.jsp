@@ -36,7 +36,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">班级名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="className" class="form-control input-sm" />
+                	<input type="text" name="className" value="${classInfo.className }" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">开班日期</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classStartTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
+               			<input type="text" name="classStartTime" value="${classInfo.classStartTime }" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">结束日期</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classEndTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
+               		 <input type="text" name="classEndTime" value="${classInfo.classEndTime }" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -66,7 +66,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">班级人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classNumber" class="form-control input-sm" />
+               			<input type="text" name="classNumber" value="${classInfo.classNumber }" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">描述</label>
                 <div class="col-sm-9">
-                	<textarea class="form-control" name="classDesc"></textarea>
+                	<textarea class="form-control" name="classDesc">${classInfo.classDesc }</textarea>
                 </div>
             </div>
         

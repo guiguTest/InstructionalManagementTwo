@@ -36,7 +36,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">课程表名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="syllabusName" class="form-control input-sm" />
+                	<input type="text" name="syllabusName" value="${syllabusInfo.syllabusName}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期一</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusYi" class="form-control input-sm" />
+               			<input type="text" name="syllabusYi" value="${syllabusInfo.syllabusYi}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期二</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusEr" class="form-control input-sm" />
+               			<input type="text" name="syllabusEr" value="${syllabusInfo.syllabusEr}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期三</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusSan" class="form-control input-sm" />
+               			<input type="text" name="syllabusSan" value="${syllabusInfo.syllabusSan}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期四</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusSi" class="form-control input-sm" />
+               			<input type="text" name="syllabusSi" value="${syllabusInfo.syllabusSi}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期五</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusWu" class="form-control input-sm"/>
+               			<input type="text" name="syllabusWu" value="${syllabusInfo.syllabusWu}" class="form-control input-sm"/>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期六</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusLiu" class="form-control input-sm" />
+               			<input type="text" name="syllabusLiu" value="${syllabusInfo.syllabusLiu}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期天</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusQi" class="form-control input-sm" />
+               			<input type="text" name="syllabusQi" value="${syllabusInfo.syllabusQi}" class="form-control input-sm" />
                 </div>
             </div>
         </div>
