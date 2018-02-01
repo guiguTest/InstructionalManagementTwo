@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 
@@ -39,7 +38,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">学科名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="disciplineName" class="form-control input-sm" placeholder="请输入学科名称"/>
+                	<input type="text" name="disciplineName" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -48,7 +47,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科费用</label>
                 <div class="col-sm-9">
-               			<input type="text" name="disciplineTuition" class="form-control input-sm" placeholder="请输入学科费用"/>
+               			<input type="text" name="disciplineTuition" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -59,7 +58,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">学科课时</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="disciplineBring" class="form-control input-sm" placeholder="请输入学科课时"/>
+               		 <input type="text" name="disciplineBring" class="form-control input-sm" />
                 </div>
             </div>
         

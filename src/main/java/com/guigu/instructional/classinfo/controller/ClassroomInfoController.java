@@ -26,6 +26,7 @@ public class ClassroomInfoController {
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> allErrors = bindingResult.getAllErrors();
 			model.addAttribute("allErrors", allErrors);
+			model.addAttribute("classroomInfo", classroomInfo);
 			return "classinfo/classroominfo/classroominfo_add";
 		}
 		boolean result = classroomInfoService.addClassroomInfo(classroomInfo);

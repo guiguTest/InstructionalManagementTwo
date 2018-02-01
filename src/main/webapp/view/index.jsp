@@ -282,16 +282,13 @@
 					</a>
 
 						<ul class="submenu">
-							<li><a href="view/student/student/student_list.html"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									班级事务
+                            <li><a href="${pageContext.request.contextPath}/transaction/class_transaction/list.action" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 班级事务
 							</a></li>
-							<li><a
-								href="view/student/evaluationinfo/evaluationinfo_list.html"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									学员考勤
+                            <li><a href="${pageContext.request.contextPath}/transaction/transaction/list.action" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 学员考勤
 							</a></li>
-
+                                                                                                                                         
 						</ul></li>
 
 					<li><a href="javascript:void(0)" target="mainframe"
@@ -312,7 +309,6 @@
 							</a></li>
 
 						</ul></li>
-				</ul>
 				<!-- /.nav-list -->
 
 				<div class="sidebar-collapse" id="sidebar-collapse">

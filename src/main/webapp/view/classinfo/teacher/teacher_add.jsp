@@ -31,7 +31,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">姓名</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffName" class="form-control input-sm" placeholder="请输入姓名"/>
+                	<input type="text" name="staffName" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">年龄</label>
                 <div class="col-sm-5">
-                	<input type="text" name="staffAge" class="form-control input-sm" placeholder="请输入年龄"/>
+                	<input type="text" name="staffAge" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -53,6 +53,7 @@
             	<label class="col-sm-3 control-label">性别</label>
                 <div class="col-sm-4">
                 		<select class="form-control input-sm"  name="staffSex">
+                			<option></option>
                         	<option>保密</option>
                             <option>男</option>
                             <option>女</option>
@@ -65,7 +66,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">籍贯</label>
                 <div class="col-sm-6">
-                	<input type="text" name="staffNativePlace" class="form-control input-sm" placeholder="请输入籍贯"/>
+                	<input type="text" name="staffNativePlace" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -78,7 +79,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">身份证</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffIdcard" class="form-control input-sm" placeholder="请输入身份证号码"/>
+                <input type="text" name="staffIdcard" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffBirthday" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
+                	<input type="text" name="staffBirthday" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm"/>
                 </div>
             </div>
         
@@ -100,7 +101,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">办公电话</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffOfficePhone" class="form-control input-sm" placeholder="请输入办公电话"/>
+                <input type="text" name="staffOfficePhone" class="form-control input-sm"/>
                 </div>
             </div>
         </div>
@@ -108,7 +109,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">电子邮件</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffEmail" class="form-control input-sm" placeholder="请输入电子邮件"/>
+                	<input type="text" name="staffEmail" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -121,7 +122,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">移动电话</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffMobilePhone" class="form-control input-sm" placeholder="请输入移动电话"/>
+                <input type="text" name="staffMobilePhone" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -129,7 +130,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">家庭住址</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffAddr" class="form-control input-sm" placeholder="请输入家庭住址 "/>
+                	<input type="text" name="staffAddr" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -142,7 +143,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">QQ</label>
                 <div class="col-sm-9">
-                <input type="text" name="staffQq" class="form-control input-sm" placeholder="请输入QQ"/>
+                <input type="text" name="staffQq" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -150,7 +151,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">入职时间</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffEntryTime"  onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入入职时间 "/>
+                	<input type="text" name="staffEntryTime"  onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -164,6 +165,7 @@
             	<label class="col-sm-3 control-label">教育水平</label>
                 <div class="col-sm-6">
                 		<select class="form-control input-sm" name="staffEducationLevel" >
+                		<option></option>
                         	<option>保密</option>
                             <option>博士</option>
                             <option>硕士</option>
@@ -193,7 +195,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">账号</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffNumber" class="form-control input-sm" placeholder="请输入账号 "/>
+                	<input type="text" name="staffNumber" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -202,7 +204,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">密码</label>
                 <div class="col-sm-9">
-                <input type="password" name="staffPassword" class="form-control input-sm" placeholder="请输入密码"/>
+                <input type="password" name="staffPassword" class="form-control input-sm" />
                 </div>
             </div>
         </div>

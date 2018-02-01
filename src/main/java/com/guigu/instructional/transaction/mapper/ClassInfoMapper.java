@@ -19,6 +19,8 @@ public interface ClassInfoMapper {
     List<ClassInfo> selectByExample(ClassInfoExample example);
 
     ClassInfo selectByPrimaryKey(Integer classId);
+    
+    ClassInfo selectByID(Integer classroomId);
 
     int updateByExampleSelective(@Param("record") ClassInfo record, @Param("example") ClassInfoExample example);
 

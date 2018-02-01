@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
@@ -37,7 +36,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">课程表名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="syllabusName" class="form-control input-sm" placeholder="请输入课程表名称"/>
+                	<input type="text" name="syllabusName" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -49,7 +48,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期一</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusYi" class="form-control input-sm" placeholder="请输入星期一"/>
+               			<input type="text" name="syllabusYi" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -60,7 +59,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期二</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusEr" class="form-control input-sm" placeholder="请输入星期二"/>
+               			<input type="text" name="syllabusEr" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -70,7 +69,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期三</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusSan" class="form-control input-sm" placeholder="请输入星期三"/>
+               			<input type="text" name="syllabusSan" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -80,7 +79,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期四</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusSi" class="form-control input-sm" placeholder="请输入星期四"/>
+               			<input type="text" name="syllabusSi" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -90,7 +89,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期五</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusWu" class="form-control input-sm" placeholder="请输入星期五"/>
+               			<input type="text" name="syllabusWu" class="form-control input-sm"/>
                 </div>
             </div>
         </div>
@@ -100,7 +99,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期六</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusLiu" class="form-control input-sm" placeholder="请输入星期六"/>
+               			<input type="text" name="syllabusLiu" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -110,7 +109,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">星期天</label>
                 <div class="col-sm-9">
-               			<input type="text" name="syllabusQi" class="form-control input-sm" placeholder="请输入星期天"/>
+               			<input type="text" name="syllabusQi" class="form-control input-sm" />
                 </div>
             </div>
         </div>

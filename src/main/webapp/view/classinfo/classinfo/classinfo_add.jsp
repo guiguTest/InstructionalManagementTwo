@@ -5,7 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
@@ -37,7 +36,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">班级名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="className" class="form-control input-sm" placeholder="请输入班级名称"/>
+                	<input type="text" name="className" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -46,7 +45,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">开班日期</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classStartTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入开班日期"/>
+               			<input type="text" name="classStartTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -57,7 +56,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">结束日期</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classEndTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入结束日期"/>
+               		 <input type="text" name="classEndTime" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" />
                 </div>
             </div>
         
@@ -67,7 +66,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">班级人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classNumber" class="form-control input-sm" placeholder="请输入班级人数"/>
+               			<input type="text" name="classNumber" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -78,6 +77,7 @@
             	<label class="col-sm-3 control-label">教师</label>
                 <div class="col-sm-9">
                		 <select name="staffId" class="form-control input-sm">
+               		 	<option></option>
                      	<c:forEach var="staff" items="${teacherList}">
                      		<option value="${staff.staffId}" ${staff.staffId==classInfo.staffId?'selected':''}>${staff.staffName}</option>
                      	</c:forEach>
@@ -92,6 +92,7 @@
             	<label class="col-sm-3 control-label">学科</label>
                 <div class="col-sm-9">
                	   <select name="disciplineId" class="form-control input-sm">
+               	   <option></option>
                      	<c:forEach var="discipline" items="${disciplineInfoList}">
                      		<option value="${discipline.disciplineId}" ${discipline.disciplineId==classInfo.disciplineId?'selected':''}>${discipline.disciplineName}</option>
                      	</c:forEach>
@@ -106,6 +107,7 @@
             	<label class="col-sm-3 control-label">课程表</label>
                 <div class="col-sm-9">
                		 <select name="syllabusId" class="form-control input-sm">
+               		 <option></option>
                      	<c:forEach var="syllabus" items="${syllabusInfoList}">
                      		<option value="${syllabus.syllabusId}" ${syllabus.syllabusId==classInfo.syllabusId?'selected':''} >${syllabus.syllabusName}</option>
                      	</c:forEach>
@@ -120,6 +122,7 @@
             	<label class="col-sm-3 control-label">教室</label>
                 <div class="col-sm-9">
                	   <select name="classroomId" class="form-control input-sm">
+               	   <option></option>
                      	<c:forEach var="classroom" items="${classroomInfoList}">
                      		<option value="${classroom.classroomId}">${classroom.classroomName}</option>
                      	</c:forEach>

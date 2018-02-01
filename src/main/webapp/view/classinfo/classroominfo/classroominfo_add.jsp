@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
 <%@ include file="/view/public/common.jspf" %>
@@ -37,7 +36,7 @@
             <div class="form-group">
             	<label class="col-sm-3 control-label">教室名称</label>
                 <div class="col-sm-9">
-                	<input type="text" name="classroomName" class="form-control input-sm" placeholder="请输入教室名称"/>
+                	<input type="text" name="classroomName" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -45,7 +44,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">容纳人数</label>
                 <div class="col-sm-9">
-               			<input type="text" name="classroomMax" class="form-control input-sm" placeholder="请输入容纳人数"/>
+               			<input type="text" name="classroomMax" class="form-control input-sm" />
                 </div>
             </div>
         </div>
@@ -56,7 +55,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">设备信息</label>
                 <div class="col-sm-9">
-               		 <input type="text" name="classroomInfo" class="form-control input-sm" placeholder="请输入设备信息"/>
+               		 <input type="text" name="classroomInfo" class="form-control input-sm" />
                 </div>
             </div>
         
