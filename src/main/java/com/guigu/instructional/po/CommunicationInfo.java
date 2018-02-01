@@ -2,6 +2,9 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
 public class CommunicationInfo {
     private Integer communicationId;
 
@@ -9,6 +12,8 @@ public class CommunicationInfo {
 
     private Integer staffId;
 
+    @NotNull(message="{items.communicationTime.isNULL}")
+    @Past(message="{items.communicationTime.dateError}")
     private Date communicationTime;
 
     private String communicationContent;

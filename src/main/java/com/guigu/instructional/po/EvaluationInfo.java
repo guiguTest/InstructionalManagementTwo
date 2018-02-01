@@ -2,6 +2,10 @@ package com.guigu.instructional.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+
 public class EvaluationInfo {
     private Integer evaluationId;
 
@@ -11,10 +15,13 @@ public class EvaluationInfo {
 
     private String evaluationContent;
 
+    
     private String evaluationCourse;
 
     private String evaluationTeacher;
-
+    
+    @NotNull(message="{items.evaluationTime.isNULL}")
+    @Past(message="{items.evaluationTime.dateError}")
     private Date evaluationTime;
 
     public Integer getEvaluationId() {
@@ -72,4 +79,13 @@ public class EvaluationInfo {
     public void setEvaluationTime(Date evaluationTime) {
         this.evaluationTime = evaluationTime;
     }
+
+	@Override
+	public String toString() {
+		return "EvaluationInfo [evaluationId=" + evaluationId + ", studentId=" + studentId + ", evaluationTile="
+				+ evaluationTile + ", evaluationContent=" + evaluationContent + ", evaluationCourse=" + evaluationCourse
+				+ ", evaluationTeacher=" + evaluationTeacher + ", evaluationTime=" + evaluationTime + "]";
+	}
+    
+    
 }

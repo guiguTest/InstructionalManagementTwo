@@ -255,25 +255,18 @@
 					</a>
 
 						<ul class="submenu">
-							<li><a href="view/student/student/student_list.html"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									学员信息
+							 <li><a href="${pageContext.request.contextPath}/student/student/list.action" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 学员信息
 							</a></li>
-							<li><a
-								href="view/student/evaluationinfo/evaluationinfo_list.html"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									学员评价
+                            <li><a href="${pageContext.request.contextPath}/student/evaluationinfo/list.action" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 学员评价
 							</a></li>
-							<li><a
-								href="view/student/communicateinfo/communicateinfo_list.html"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									沟通记录
+                            <li><a href="${pageContext.request.contextPath}/student/communicateinfo/list.action" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 沟通记录
 							</a></li>
-							<li><a
-								href="view/student/studentwritegrade/studentwritegrade_list.html"
-								target="mainframe"> <i class="icon-double-angle-right"></i>
-									学员成绩
-							</a></li>
+                            <li><a href="${pageContext.request.contextPath}/student/studentwritegrade/list.action" target="mainframe"> <i
+									class="icon-double-angle-right"></i> 学员成绩
+							</a></li>          
 						</ul></li>
 
 					<li><a href="javascript:void(0)" target="mainframe"
