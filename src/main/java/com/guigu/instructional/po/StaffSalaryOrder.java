@@ -7,6 +7,16 @@ public class StaffSalaryOrder {
 	private String staffName;
 	
 	private String financeName;
+	
+	private int staffSalaryOrderId;
+
+	public int getStaffSalaryOrderId() {
+		return staffSalaryOrderId;
+	}
+
+	public void setStaffSalaryOrderId(int staffSalaryOrderId) {
+		this.staffSalaryOrderId = staffSalaryOrderId;
+	}
 
 	public StaffSalary getStaffSalary() {
 		return staffSalary;

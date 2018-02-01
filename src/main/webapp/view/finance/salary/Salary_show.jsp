@@ -16,8 +16,8 @@
 <div style="padding:0px; margin:0px;">
  <ul class="breadcrumb" style="  margin:0px; " >
     	<li><a href="#">财务管理</a></li>
-        <li>学员缴费</li>
-        <li>缴费单详情</li>
+        <li>员工薪水</li>
+        <li>员工薪水详情</li>
     </ul>
 </div>
 
@@ -27,18 +27,18 @@
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">缴费单编号</label>
+            	<label class="col-sm-3 control-label">工资单编号</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">${studentPayment.paymentId}</p>
+                	<p class="form-control-static">${staffSalaryOrder.staffSalaryOrderId}</p>
                 </div>
             </div>
         
         </div>
         <div class="col-sm-5">
             <div class="form-group">
-            	<label class="col-sm-3 control-label">学员编号</label>
+            	<label class="col-sm-3 control-label">领取人</label>
                 <div class="col-sm-9">
-                	<p class="form-control-static">${studentPayment.studentId}</p>
+                	<p class="form-control-static">${staffSalaryOrder.staffName}</p>
                 </div>
             </div>
         </div>
@@ -48,18 +48,18 @@
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">员工编号</label>
+            	<label class="col-sm-3 control-label">发放人员</label>
                 <div class="col-sm-5">
-                	<p class="form-control-static">${studentPayment.staffId}</p>
+                	<p class="form-control-static">${staffSalaryOrder.financeName}</p>
                 </div>
             </div>
         
         </div>
         <div class="col-sm-5">
             <div class="form-group">
-            	<label class="col-sm-3 control-label">缴费方式</label>
+            	<label class="col-sm-3 control-label">是否已发</label>
                 <div class="col-sm-4">
-                	<p class="form-control-static">${studentPayment.paymentMenthod}</p>
+                	<p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryIsused}</p>
                 </div>
             </div>
         </div>
@@ -69,18 +69,18 @@
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">应缴金额</label>
+            	<label class="col-sm-3 control-label">本月薪水</label>
                 <div class="col-sm-6">
-                	<p class="form-control-static">${studentPayment.paymentShouldAmount}</p>
+                	<p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryTotal}</p>
                 </div>
             </div>
         
         </div>
         <div class="col-sm-5">
             <div class="form-group">
-            	<label class="col-sm-3 control-label">实缴金额</label>
+            	<label class="col-sm-3 control-label">实际发放工资</label>
                 <div class="col-sm-9">
-               <p class="form-control-static">${studentPayment.paymentRealAmount}</p>
+               <p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryReal}</p>
                 </div>
             </div>
         </div>
@@ -90,43 +90,25 @@
 	<div class="row">
     	<div class="col-sm-5">
         	<div class="form-group">
-            	<label class="col-sm-3 control-label">优惠金额</label>
+            	<label class="col-sm-3 control-label">扣除</label>
                 <div class="col-sm-9">
-                	 <p class="form-control-static">${studentPayment.paymentDiscountAmount}</p>
+                	 <p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryDeduct}</p>
                 </div>
             </div>
         
         </div>
         <div class="col-sm-5">
             <div class="form-group">
-            	<label class="col-sm-3 control-label">欠款</label>
+            	<label class="col-sm-3 control-label">领取日期</label>
                 <div class="col-sm-9">
-                 <p class="form-control-static">${studentPayment.paymentDebtAmount}</p>
+                 <p class="form-control-static">${staffSalaryOrder.staffSalary.staffSalaryTime}</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- 结束4 -->
     <!-- 开始4 -->
-	<div class="row">
-    	<div class="col-sm-5">
-        	<div class="form-group">
-            	<label class="col-sm-3 control-label">缴费时间</label>
-                <div class="col-sm-9">
-                	  <p class="form-control-static">${studentPayment.paymentTime}</p>
-                </div>
-            </div>
-        
-        </div>
-        <div class="col-sm-5">
-            <div class="form-group">
-            	<label class="col-sm-3 control-label">缴费情况</label>
-                <div class="col-sm-9">
-               	 <p class="form-control-static">${studentPayment.paymentSitutation}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+	
    
     <!-- 结束6 -->   
     <h5 class="page-header alert-info" style="padding:10px; margin:0px; margin-bottom:5px;">备注信息</h5>
@@ -135,7 +117,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-9">
-                		<p class="form-control-static">${studentPayment.paymentRemark}</p>
+                		<p class="form-control-static">${staffSalaryOrder.staffSalary.remark}</p>
                 </div>
             </div>
         
@@ -143,9 +125,9 @@
 
    	<div class="row">
     	<div class="col-sm-5 col-sm-offset-4">
-          	<a href="${pageContext.request.contextPath }/finance/tuition/load.action?studentPaymentId=${studentPayment.paymentId}" class="btn btn-success" >修改</a>
-            <input  type="reset" class="btn  btn-danger" value="删除"/>
-            <a href="${pageContext.request.contextPath }/finance/tuition/list.action" class="btn btn-waring" >返回上一级</a>
+          	<a href="${pageContext.request.contextPath }/finance/salary/load.action?staffSalaryOrderId=${staffSalaryOrder.staffSalaryOrderId}" class="btn btn-success" >修改</a>
+          	<a href="${pageContext.request.contextPath }/finance/salary/delete.action?staffSalaryOrderId=${staffSalaryOrder.staffSalaryOrderId}" class="btn btn-danger" >删除</a>
+            <a href="${pageContext.request.contextPath }/finance/salary/list.action" class="btn btn-waring" >返回上一级</a>
         </div>
     </div>
 </form>

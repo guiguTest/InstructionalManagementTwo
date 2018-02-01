@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +18,54 @@
         <li>修改员工</li>
     </ul>
 </div>
-
+	<!-- 显示错误信息 -->
+	<div align="center">
+		<div class="alert alert-warning"
+			style="margin: 0px; padding: 5px; width: 100%;display:${empty allErrors?'none':'block'} ">
+			<c:forEach items="${allErrors}" var="error">
+			 	${error.defaultMessage }<br />
+			</c:forEach>
+		</div>
+	</div>
+<script type="text/javascript">
+function jsGetAge(){         
+    var returnAge;  
+    var strBirthday=document.getElementById("staffBirthday").value;
+    var strBirthdayArr=strBirthday.split("-");  
+    var birthYear = strBirthdayArr[0];  
+    var birthMonth = strBirthdayArr[1];  
+    var birthDay = strBirthdayArr[2];  
+    d = new Date();  
+    var nowYear = d.getYear()+1900;  
+    var nowMonth = d.getMonth() + 1;  
+    var nowDay = d.getDate();  
+    if(nowYear == birthYear)  {  
+        returnAge = 0;//同年 则为0岁  
+    }  else  {  
+        var ageDiff = nowYear - birthYear ; //年之差  
+        if(ageDiff > 0){  
+            if(nowMonth == birthMonth)  {  
+                var dayDiff = nowDay - birthDay;//日之差  
+                if(dayDiff < 0)  {  
+                    returnAge = ageDiff - 1;  
+                }  else  {  
+                    returnAge = ageDiff ;  
+                }  
+            }  else  {  
+                var monthDiff = nowMonth - birthMonth;//月之差  
+                if(monthDiff < 0)  {  
+                    returnAge = ageDiff - 1;  
+                }  else  {  
+                    returnAge = ageDiff ;  
+                }  
+            }  
+        }  else  {  
+            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天  
+        }  
+    }  
+    document.getElementById("staffAge").value=returnAge;
+}  	
+</script>
 <form action="${pageContext.request.contextPath }/system/staffinfo/update.action" class="form-horizontal">
    	<div class="row">
     	<div class="col-sm-3 col-sm-offset-4">
@@ -52,7 +100,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">年龄</label>
                 <div class="col-sm-5">
-                	<input type="text" name="staffAge" value="${staffInfo.staffAge}" class="form-control input-sm" placeholder="请输入年龄"/>
+                	<input type="text" id="staffAge" name="staffAge" value="${staffInfo.staffAge}" class="form-control input-sm" placeholder="请输入年龄"/>
                 </div>
             </div>
         
@@ -98,7 +146,7 @@
         	<div class="form-group">
             	<label class="col-sm-3 control-label">出生日期</label>
                 <div class="col-sm-9">
-                	<input type="text" name="staffBirthday" value="<fmt:formatDate value="${staffInfo.staffBirthday}" type="both" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
+                	<input type="text" id="staffBirthday" name="staffBirthday" onfocus="WdatePicker()" onblur="jsGetAge()" value="<fmt:formatDate value="${staffInfo.staffBirthday}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker()" readonly="readonly" class="form-control input-sm" placeholder="请输入出生日期"/>
                 </div>
             </div>
         

@@ -5,6 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.guigu.instructional.po.StaffInfo;
 import com.guigu.instructional.system.service.StaffInfoService;
@@ -29,7 +32,15 @@ public class StaffInfoController {
 
     // 进行数据校验  你们的功能
     @RequestMapping("add.action")
-    public String addStaffInfo(StaffInfo staffInfo,Model model) {
+    public String addStaffInfo(Model model,@Validated StaffInfo staffInfo,BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("allErrors",Errors);
+			return "system/staffinfo/staffinfo_add";
+		}
        staffInfo.setStaffState("1");
        boolean result= staffInfoService.addStaff(staffInfo);
        if(result) {
@@ -65,7 +76,15 @@ public class StaffInfoController {
     }
     
     @RequestMapping("update.action")
-    public String updateStaffInfo(StaffInfo staffInfo,Model model) {
+    public String updateStaffInfo(Model model,@Validated StaffInfo staffInfo,BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			for (ObjectError objectError : Errors) {
+				System.out.println(objectError);
+			}
+			model.addAttribute("allErrors",Errors);
+			return "system/staffinfo/staffinfo_update";
+		}
         boolean result=staffInfoService.updateStaff(staffInfo);
         if(result) {
             model.addAttribute("info", "修改成功");

@@ -145,6 +145,11 @@
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									角色变更
 							</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/system/roleinfo/staffinforolelist.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									角色变更
+							</a></li>
 							<li><a href="view/system/anthorty/anthorty_list.html"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									权限管理
@@ -155,14 +160,14 @@
 									权限变更
 							</a></li>
 							<li><a
-								href="view/system/datadictionary/datadictionary_list.html"
+								href="${pageContext.request.contextPath}/system/datadictionary/list.action"
 								target="mainframe"> <i class="icon-double-angle-right"></i>
 									数据字典
 							</a></li>
 						</ul></li>
 
 					<li><a href="javascript:void(0)" target="mainframe"
-						class="dropdown-toggle"> <i class="icon-desktop"></i> <span
+							class="dropdown-toggle"> <i class="icon-desktop"></i> <span
 							class="menu-text"> 营销管理 </span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
@@ -282,13 +287,17 @@
 					</a>
 
 						<ul class="submenu">
-                            <li><a href="${pageContext.request.contextPath}/transaction/class_transaction/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 班级事务
+							<li><a
+								href="${pageContext.request.contextPath}/transaction/class_transaction/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									班级事务
 							</a></li>
-                            <li><a href="${pageContext.request.contextPath}/transaction/transaction/list.action" target="mainframe"> <i
-									class="icon-double-angle-right"></i> 学员考勤
+							<li><a
+								href="${pageContext.request.contextPath}/transaction/transaction/list.action"
+								target="mainframe"> <i class="icon-double-angle-right"></i>
+									学员考勤
 							</a></li>
-                                                                                                                                         
+
 						</ul></li>
 
 					<li><a href="javascript:void(0)" target="mainframe"
@@ -309,20 +318,20 @@
 							</a></li>
 
 						</ul></li>
-				<!-- /.nav-list -->
+					<!-- /.nav-list -->
 
-				<div class="sidebar-collapse" id="sidebar-collapse">
-					<i class="icon-double-angle-left"
-						data-icon1="icon-double-angle-left"
-						data-icon2="icon-double-angle-right"></i>
-				</div>
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left"
+							data-icon1="icon-double-angle-left"
+							data-icon2="icon-double-angle-right"></i>
+					</div>
 
-				<script type="text/javascript">
-					try {
-						ace.settings.check('sidebar', 'collapsed')
-					} catch (e) {
-					}
-				</script>
+					<script type="text/javascript">
+						try {
+							ace.settings.check('sidebar', 'collapsed')
+						} catch (e) {
+						}
+					</script>
 			</div>
 
 			<div class="main-content" id="mains">

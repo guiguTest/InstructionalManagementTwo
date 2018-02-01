@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guigu.instructional.po.RoleInfo;
@@ -43,7 +46,12 @@ public class RoleInfoController {
     }
     
     @RequestMapping("add.action")
-    public String add(RoleInfo roleInfo,Model model) {
+    public String add(Model model,@Validated RoleInfo roleInfo,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors",Errors);
+			return "system/roleinfo/roleinfo_add";
+		}
         boolean reuslt = roleInfoService.addRole(roleInfo);
         if(reuslt) {
             model.addAttribute("info", "添加成功");
@@ -76,7 +84,12 @@ public class RoleInfoController {
     }
     
     @RequestMapping("update.action")
-    public String update(RoleInfo roleInfo,Model model) {
+    public String update(Model model,@Validated RoleInfo roleInfo,BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			List<ObjectError> Errors=bindingResult.getAllErrors();
+			model.addAttribute("allErrors",Errors);
+			return "system/roleinfo/roleinfo_update";
+		}
         boolean result=roleInfoService.updateRole(roleInfo);
         if(result) {
             model.addAttribute("info", "修改成功");
