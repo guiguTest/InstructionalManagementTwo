@@ -27,14 +27,14 @@ public class DataDictionaryController {
 	}
 	
 	@RequestMapping("delete.action")
-	public String deleteDataDictionary(Model model,Integer dataDictionaryId) {
-		boolean result=dataDictionaryService.deleteDataDictionary(dataDictionaryId);
+	public String deleteDataDictionary(Model model,Integer dataId) {
+		boolean result=dataDictionaryService.deleteDataDictionary(dataId);
 		if(result) {
 			model.addAttribute("info","É¾³ý³É¹¦");
 		}else {
 			model.addAttribute("info","É¾³ýÊ§°Ü");
 		}
-		return "system/datadictionary/datadictionary_list";
+		return this.findDataDictionaryForList(model,null);
 	}
 	
 	@RequestMapping("add.action")
