@@ -86,7 +86,6 @@ public class TemplateInfoServiceImpl implements TemplateInfoService{
 			if (templateInfo.getTemplateType()!=null&& templateInfo.getTemplateType().equals("¶ÌÐÅ")) {
 				criteria.andTemplateTypeEqualTo(templateInfo.getTemplateType());
 			}
-			
 		}
 		return templateInfoMapper.selectByExample(templateInfoExample);
 	}

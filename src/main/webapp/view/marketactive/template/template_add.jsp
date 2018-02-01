@@ -50,6 +50,7 @@
 					<label class="col-sm-3 control-label">类型</label>
 					<div class="col-sm-9">
 						<select name="templateType" class="form-control input-sm">
+							<option></option>
 							<option value="短信" ${temp.templateType=='短信'?'selected':'' }>短信模板</option>
 							<option value="邮件" ${temp.templateType=='邮件'?'selected':''} >邮件模板</option>
 						</select>

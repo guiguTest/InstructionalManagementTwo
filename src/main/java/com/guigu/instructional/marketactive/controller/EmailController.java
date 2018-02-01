@@ -98,7 +98,7 @@ public class EmailController {
 	@RequestMapping("send.action")
 	public String send(Model model) {
 		TemplateInfo templateInfo=new TemplateInfo();
-		templateInfo.setTemplateType("” œ‰");
+		templateInfo.setTemplateType("” º˛");
 		List<TemplateInfo> list=templateInfoService.findList(templateInfo);
 		model.addAttribute("list", list);
 		return "marketactive/emailinfo/emailinfo_send";
